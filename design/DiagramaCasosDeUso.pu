@@ -1,0 +1,32 @@
+@startuml DCU
+left to right direction
+
+actor Usuario
+
+rectangle "MercaDaw" {
+    usecase "Dar de alta" as ap
+    usecase "Visualizar" as vp
+    usecase "Alta de compra" as ac
+    usecase "Actualizar stock" as asc
+    usecase "Listar" as lccp
+    usecase "Obtener precio de venta" as ov
+    usecase "Imprimir etiqueta producto" as iep
+    usecase "Calcular nominas trabajadores" as cnt
+    usecase "Exportar datos" as ed
+    usecase "Esportar a pdf" as edpdf
+    usecase "Exportar a excel" as edexcel
+}
+
+Usuario -- ap
+Usuario -- vp
+Usuario -- ac
+Usuario -- lccp
+Usuario -- ov
+Usuario -- iep
+Usuario -- cnt
+Usuario -- ed
+
+ac <.. asc: include
+ed <|-- edpdf
+ed <|-- edexcel
+@enduml
