@@ -11,7 +11,9 @@ package es.tiernoparla.daw.mercadaw{
 
     package model #CadetBlue{
 
-       
+       component MercaDAWDAO as md #Pink{
+
+       }
 
     }
 
