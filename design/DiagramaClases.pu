@@ -1,0 +1,70 @@
+@startuml Diagrama de Clases
+skinparam BackgroundColor antiquewhite/black
+allow_mixing
+set namespaceSeparator none
+
+package es.tiernoparla.daw.mercadaw{
+
+    package util #LimeGreen{
+
+        package reader #Grey{
+
+        }
+
+        package export #TECHNOLOGY{
+
+        }
+    }
+
+    package exception #PaleVioletRed{
+
+    }
+
+    package model #CadetBlue{
+
+        interface Mercadaw #MediumPurple{
+
+        }
+
+        class Empleado #LightGreen{
+
+        }
+    
+        class CLiente #LightGreen{
+
+        }
+
+        package database #Yellow{
+
+        }
+
+        abstract Producto #LightSkyBlue{
+
+        }
+
+    }
+
+    package view #OrangeRed{
+
+        enum Vista #Salmon{
+
+        }
+
+        abstract ViewController #LightSkyBlue{
+
+        }
+    }
+
+    package controller #Yellow{
+        
+        class MercadawController #LightGreen{
+
+        }
+    }
+
+}
+
+
+
+
+@enduml

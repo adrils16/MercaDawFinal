@@ -1,0 +1,48 @@
+@startuml Diagrama de Clases
+skinparam BackgroundColor antiquewhite/black
+allow_mixing
+set namespaceSeparator none
+left to right direction
+
+package es.tiernoparla.daw.mercadaw{
+
+  
+   
+
+    package model #CadetBlue{
+
+       component MercaDAWDAO as md #Pink{
+
+       }
+
+    }
+
+    package view #OrangeRed{
+        
+        component ViewController #LightGray
+       
+    }
+
+    package controller #Yellow{
+        
+       
+    }
+
+
+}
+
+
+component "rodri no sabe" <<JDBC Driver>> as rns #BUSINESS{
+    
+    }
+
+component "MySQL" <<database>> #BUSINESS{
+    
+    }
+
+model ..> MySQL
+
+model ..> rns
+
+
+@enduml
