@@ -28,12 +28,23 @@ start
 stop
 @enduml
 
+@startuml Visualizar Empleados
+|#LightGreen|DataBase|
+|#SkyBlue|Aplicación|
+start
+:Pide los empleados;
+|DataBase|
+:Envía los datos;
+|Aplicación|
+:Muestra los datos;
+stop
+@enduml
+
 @startuml Alta de Compra
 |#LightGreen|DataBase|
 |#SkyBlue|Aplicación|
 start
 :Solicita los datos de la compra;
-:Solicita el producto;
 |#AntiqueWhite|Usuario|
 :Introduce los datos;
 |Aplicación|
