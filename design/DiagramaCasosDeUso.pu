@@ -13,7 +13,7 @@ rectangle "MercaDaw" {
     usecase "Imprimir etiqueta producto" as iep
     usecase "Calcular nominas trabajadores" as cnt
     usecase "Exportar datos" as ed
-    usecase "Esportar a pdf" as edpdf
+    usecase "Exportar a pdf" as edpdf
     usecase "Exportar a excel" as edexcel
 }
 
