@@ -1,0 +1,104 @@
+@startuml Casos de uso general
+left to right direction
+
+actor Usuario as u
+
+rectangle MercaDAW {
+
+    usecase "Gestión de productos" as gp
+    usecase "Gestión de empleados" as ge
+    usecase "Gestión de compras" as gc
+
+    usecase "Importar datos" as id
+
+    note bottom of id : Carga inicial o desde copia de seguridad
+
+    usecase "Exportar datos" as ed
+    usecase "Exportar a Excel" as excel
+    usecase "Exportar a PDF" as pdf
+
+}
+
+u -- gp
+u -- ge
+u -- gc
+u -- id
+u -- ed
+
+ed <|-- excel
+ed <|-- pdf
+
+@enduml
+
+@startuml Casos de uso Producto
+left to right direction
+
+actor Usuario as u
+
+rectangle MercaDAW {
+
+    usecase "Gestión de productos" as gp
+    usecase "Dar de alta un producto" as dp
+    usecase "Visualizar los datos del producto" as vp
+    usecase "Listar stock de los productos" as lp
+    usecase "Obtener el precio de venta de un producto" as pvp
+    usecase "Imprimir una etiqueta para clasificar el producto" as ep
+
+}
+
+u -- gp
+
+gp <|-- dp
+gp <|-- vp
+gp <|-- lp
+gp <|-- pvp
+gp <|-- ep
+
+@enduml
+
+@startuml Casos de uso Empleado
+left to right direction
+
+actor Usuario as u
+
+rectangle MercaDAW {
+
+    usecase "Gestión de empleados" as ge
+    usecase "Dar de alta un empleado" as de
+    usecase "Visualizar listado de empleados" as ve
+    usecase "Calcular las nóminas de los trabajadores" as ne
+
+}
+
+
+u -- ge
+
+ge <|-- de
+ge <|-- ve
+ge <|-- ne
+
+@enduml
+
+@startuml Casos de uso Compra
+left to right direction
+
+actor Usuario as u
+
+rectangle MercaDAW {
+
+    usecase "Gestión de compras" as gc
+    usecase "Dar de alta una compra" as dc
+    usecase "Visualizar listado de compras" as lc
+    usecase "Actualizar stock" as asp
+
+}
+
+u -- gc
+
+gc <|-- dc
+gc <|-- lc
+
+dc ..> asp : include
+
+@enduml
+
