@@ -1,11 +1,11 @@
-@startuml Diagrama de Clases
+@startuml Diagrama de Clases Borrar
 skinparam BackgroundColor antiquewhite/black
 allow_mixing
 set namespaceSeparator none
 
 package es.tiernoparla.daw.mercadaw{
 
-    package util #LimeGreen{
+    package util #White{
 
         package reader #Grey{
 
@@ -16,13 +16,13 @@ package es.tiernoparla.daw.mercadaw{
         }
     }
 
-    package exception #PaleVioletRed{
+    package exception #White{
 
     }
 
-    package model #CadetBlue{
+    package model #White{
 
-        interface Mercadaw #MediumPurple{
+        interface Mercadaw #Violet{
 
         }
 
@@ -44,7 +44,7 @@ package es.tiernoparla.daw.mercadaw{
 
     }
 
-    package view #OrangeRed{
+    package view #White{
 
         enum Vista #Salmon{
 
@@ -55,7 +55,7 @@ package es.tiernoparla.daw.mercadaw{
         }
     }
 
-    package controller #Yellow{
+    package controller #White{
         
         class MercadawController #LightGreen{
 
@@ -64,7 +64,46 @@ package es.tiernoparla.daw.mercadaw{
 
 }
 
+@enduml
 
+@startuml Diagrama de Clases Modelo
+allow_mixing
+set namespaceSeparator none
 
+package es.tiernoparla.daw.mercadaw.model #CadetBlue {
+    interface MercadawDAO #Violet{
+        + insertar(p: Producto) : int
+        + insertar(e: Empleado) : int
+        + insertar(productos: List<Producto>) : int
+        + insertar(empleados: List<Empledo>) : int
+        + actualizar(p: Producto) : int
+        + actualizar(e: Empleado) : int
+        + listarProductos() : List<Producto>
+        + listarEmpleados() : List<Empleado>
+    }
+
+    abstract class Persona #LightSkyBlue {
+        - nombre : String
+        - apellido : String
+    }
+
+    class Empleado #LightGreen{
+        + SUELDO : int = 1000 {static}
+        - categoria : Categoria = Empleado
+        - ID : int
+    }
+
+    class Cliente #LightGreen{
+
+    }
+
+    package database #LightGoldenRodYellow {
+        
+    }
+
+    abstract Producto #LightSkyBlue{
+
+    }
+}
 
 @enduml

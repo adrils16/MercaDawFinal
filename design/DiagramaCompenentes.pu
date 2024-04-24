@@ -6,43 +6,47 @@ left to right direction
 
 package es.tiernoparla.daw.mercadaw{
 
-  
-   
-
     package model #CadetBlue{
+        component MercaDAW as mi {
 
-       component MercaDAWDAO as md #Pink{
+        }
 
-       }
+        () MercaDAWDAO as md
 
+        md -- mi
+    }
+
+
+
+    package controller #Yellow{
+        component MercaDAWController as mc {
+
+        }
     }
 
     package view #OrangeRed{
-        
-        component ViewController #LightGray
-       
-    }
+        component ViewController as vc {
 
-    package controller #Yellow{
-        
-       
+        }
     }
-
 
 }
 
-
-component "rodri no sabe" <<JDBC Driver>> as rns #BUSINESS{
+component "org.mariadb.jdbc" <<JDBC Driver>> as jdbc #BUSINESS{
     
-    }
+}
 
-component "MySQL" <<database>> #BUSINESS{
+component "MariaDB" <<database>> #BUSINESS{
     
-    }
+}
 
-model ..> MySQL
+mc <.. vc
 
-model ..> rns
+mi ..> MariaDB
+
+mi ..> jdbc
+
+mc --( md
 
 
 @enduml

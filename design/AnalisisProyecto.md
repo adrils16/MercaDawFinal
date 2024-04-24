@@ -4,7 +4,7 @@
 
 ### Funcionales
 
-* Cargar los datos iniciales ?
+* Cargar los datos iniciales (En duda)
 * Dar de alta un producto
 * Dar de alta un empleado
 * Visualizar los datos del producto
@@ -19,6 +19,7 @@
 
 ### No funcionales
 
+* Se debe permitir una carga de los datos iniciales.
 * Los datos a cargar estarán en formato CVS, JSON o XML.
 * El precio del producto se debe calcular en € y $.
 * El listado de compras debe ordenarse por código postal.
