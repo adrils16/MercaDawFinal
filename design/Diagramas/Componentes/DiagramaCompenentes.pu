@@ -1,4 +1,4 @@
-@startuml Diagrama de Clases
+@startuml Diagrama de Componentes
 skinparam BackgroundColor antiquewhite/black
 allow_mixing
 set namespaceSeparator none
