@@ -1,0 +1,94 @@
+@startuml Diagrama clases
+' left to right direction
+
+set namespaceSeparator none
+allow_mixing
+
+package es.tiernoparla.daw.mercadaw.util {
+    package reader {
+        interface Lector {
+            +leer(s: String): void
+        }
+
+        abstract LectorImp {
+            #cargar(file: File): String
+        }
+
+        class LectorMock
+        class LectorCSV
+        class LectorJSON
+        class LectorXML
+
+        Lector <|.. LectorMock
+        Lector <|.. LectorImp
+
+        LectorImp <|-- LectorCSV
+        LectorImp <|-- LectorJSON
+        LectorImp <|-- LectorXML
+
+        enum TipoLector {
+            MOCK, CSV, JSON, XML
+        }
+
+        class LectorFactory {
+            +obtenerLector(tipo: TipoLector): Lector
+        }
+    }
+
+    package writer {
+        interface Escritor{
+            +escribir(s: String): void
+        }
+
+        abstract EscritorImp {
+            #guardar(file: File, s: String): void
+        }
+
+        class EscritorMock
+        class EscritorCSV
+        class EscritorJSON
+        class EscritorXML
+
+        EscritorImp <|-- EscritorCSV
+        EscritorImp <|-- EscritorJSON
+        EscritorImp <|-- EscritorXML
+        Escritor <|.. EscritorMock
+
+        Escritor <|.. EscritorImp
+
+        enum TipoEscritor {
+            MOCK, CSV, JSON, XML
+        }
+
+        class EscritorFactory {
+            +obtenerEscritor(tipo: TipoEscritor): Escritor
+        }
+    }
+
+    package printer {
+        class Impresora {
+            +imprimir(Imprimible): void
+        }
+        interface Imprimible {
+            +obtenerDatos(producto: Producto): String
+            +obtenerDatos(empleado: Empleado): String
+        }
+    }
+}
+
+package exception {
+    class MercaDawException
+    class LectorException
+    class FormatoIncorrectoException
+    class DAOException
+
+    MercaDawException <|-- LectorException
+    LectorException <|-- FormatoIncorrectoException
+    MercaDawException <|-- DAOException
+
+    '! A medida de codificación anyadir mas
+}
+
+Imprimible <|.. Sede
+
+@enduml
