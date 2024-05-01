@@ -1,6 +1,14 @@
-# Diario de bitacora
+# Diario 
 
-## Este será el diario de cambios de la aplicación diseñada por los muchachos, os dejo un plantila a seguir con el formato a poner para el uso de todos los integrantes de este suspenso.
+## Este será el diario de cambios de la aplicación diseñada por los muchachos, os dejo un plantilla a seguir con el formato a poner para el uso de todos los integrantes de este trabajo.
+
+### 24/04 - Adrián
+
+Ordenada la carpeta **design**, terminados diagramas de casos de uso, aunque pendientes de revisión en grupo. Añadidos a un documento .md y a un .html
+
+Añadido PaletaColores.pu que contiene ejemplos de todos los colores predefinidos de plantuml, para tomar una referencia.
+
+Avanzado un poco el diagrama de clases del modelo.
 
 ### AVANCE_NOMBRE_DIA
 
