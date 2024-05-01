@@ -71,7 +71,9 @@ package es.tiernoparla.daw.mercadaw.model {
         }
         
 
-        class MercaDawMockDAOImp
+        class MercaDawMockDAOImp {
+            
+        }
 
         class MercaDawDAOFactory {
             +{static}obtenerDAO(tipo: TipoDB): MercaDawDAO

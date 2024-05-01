@@ -9,8 +9,8 @@ import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
 public interface MercaDawDAO {
     
     public void crearTablaProductos() throws SQLException;
-    public void crearTablaEmpleados();
-    public void crearTablaCompras();
+    public void crearTablaEmpleados() throws SQLException;
+    public void crearTablaCompras() throws SQLException;
 
     public int insertar(Producto producto);
     public int insertar(List<Producto> productos);

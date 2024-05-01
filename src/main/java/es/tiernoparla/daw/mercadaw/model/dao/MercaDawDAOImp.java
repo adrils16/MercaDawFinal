@@ -14,8 +14,7 @@ public abstract class MercaDawDAOImp implements MercaDawDAO {
 
     @Override
     public void crearTablaProductos() throws SQLException {
-        String sql = "CREATE TABLE IF NOT EXISTS profesor ("
-                + "	nombre text PRIMARY KEY);";
+        String sql = "Sentencia SQL para crear tabla";
         PreparedStatement st = conexion.prepareStatement(sql);
 
         st.execute();
@@ -23,15 +22,21 @@ public abstract class MercaDawDAOImp implements MercaDawDAO {
     }
 
     @Override
-    public void crearTablaEmpleados() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'crearTablaEmpleados'");
+    public void crearTablaEmpleados() throws SQLException {
+        String sql = "Sentencia SQL para crear tabla";
+        PreparedStatement st = conexion.prepareStatement(sql);
+
+        st.execute();
+        st.close();
     }
 
     @Override
-    public void crearTablaCompras() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'crearTablaCompras'");
+    public void crearTablaCompras() throws SQLException {
+        String sql = "Sentencia SQL para crear tabla";
+        PreparedStatement st = conexion.prepareStatement(sql);
+
+        st.execute();
+        st.close();
     }
 
     @Override
@@ -42,6 +47,28 @@ public abstract class MercaDawDAOImp implements MercaDawDAO {
 
     @Override
     public int insertar(List<Producto> productos) {
+        /*
+        final String sql = "INSERT INTO alumno VALUES (?, ?, ?)";
+        PreparedStatement ps = conexion.prepareStatement(sql);
+
+        for(Producto producto : productos){
+            ps.setString(1, producto);
+            ps.setString(2, producto);
+            ps.setInt(3, producto);
+
+            //Añade a la lista de ejecución ese insert
+            ps.addBatch();
+        }
+
+        //Quito el autocommit por si falla algún insert que no haga ninguno.
+        conn.setAutoCommit(false);
+        ps.executeBatch();
+        conn.setAutoCommit(true);
+        
+        ps.close();
+        return alumnos.size();
+        */
+
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'insertar'");
     }

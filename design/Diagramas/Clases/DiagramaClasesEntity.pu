@@ -18,14 +18,13 @@ package es.tiernoparla.daw.mercadaw.model.entity {
             -peso: double
             -numElementos: int
             -descripcion: String
-            +calcularComision(): double
+
+            +calcularPrecio(): double
             +calcularRecargoPeso(): double
             +calcularRecargoAltura(): double
             +calcularRecargoAnchura(): double
-            +calcularRecargoElementos(): double
-            +{abstract}calcularIVA(): double
-            +Producto(pb: ProductoBuilder)
-            +{static} builder(): ProductoBuilder
+            +calcularRecargoNumElementos(): double
+            +builder(): ProductoBuilder
         }
 
         class Alimentacion {
