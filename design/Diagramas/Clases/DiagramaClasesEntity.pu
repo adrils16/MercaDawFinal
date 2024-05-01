@@ -6,7 +6,7 @@ package es.tiernoparla.daw.mercadaw.model.entity {
 
     package producto {
         class ProductoFactory {
-            +obtenerProducto(categoria: CategoriaProducto): MercaDaw
+            +crear(categoria: CategoriaProducto): Producto
         }
 
         abstract Producto {
@@ -29,17 +29,17 @@ package es.tiernoparla.daw.mercadaw.model.entity {
 
         class Alimentacion {
             +{static} CATEGORIA: CategoriaProducto = ALIMENTACION
-            +{static} IVA= 4
+            +{static} IVA: TipoIVA = SUPERREDUCIDO
         }
 
         class Drogueria {
             +{static} CATEGORIA: CategoriaProducto = DROGUERIA
-            +{static} IVA= 10
+            +{static} IVA: TipoIVA = REDUCIDO
         }
 
         class Cosmetica {
             +{static} CATEGORIA: CategoriaProducto = COSMETICA
-            +{static} IVA= 21
+            +{static} TipoIVA = GENERAL
         }
 
         class ProductoBuilder {
@@ -59,7 +59,6 @@ package es.tiernoparla.daw.mercadaw.model.entity {
             +setPeso(peso: double): ProductoBuilder
             +setNumElementos(numElementos: int): ProductoBuilder
             +setDescripcion(descripcion: String): ProductoBuilder
-            ~ProductoBuilder()
             +build(): Producto
         }
 

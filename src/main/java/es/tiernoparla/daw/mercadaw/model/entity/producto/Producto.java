@@ -11,6 +11,18 @@ public abstract class Producto {
     protected int numElementos;
     protected String descripcion;
 
+    public Producto(String nombre, String marca, double precio, double altura, double anchura, double peso,
+            int numElementos, String descripcion) {
+        this.nombre = nombre;
+        this.marca = marca;
+        this.precio = precio;
+        this.altura = altura;
+        this.anchura = anchura;
+        this.peso = peso;
+        this.numElementos = numElementos;
+        this.descripcion = descripcion;
+    }
+    
     public String getNombre() {
         return nombre;
     }
@@ -65,5 +77,9 @@ public abstract class Producto {
     //TODO public double calcularRecargoAltura()
     //TODO public double calcularRecargoAnchura()
     //TODO public double calcularRecargoNumElementos()
-    //TODO public ProductoBuilder builder()
+    /* 
+    public ProductoBuilder builder() {
+        return new ProductoBuilder();
+    }
+    */
 }
