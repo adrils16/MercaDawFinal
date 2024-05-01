@@ -24,12 +24,11 @@ package es.tiernoparla.daw.mercadaw.model {
     interface MercaDaw {
         +darAlta(producto: Producto): int
         +darAlta(empleado: Empleado): int
-        +visualizarProductos(producto: Producto): void
-        +visualizarEmpleados(List<Empleado> empleados): void
-        +obtenerPrecio(producto: Producto): double
-        +calcularNominas(List<Empleado> empleados): double
+        +visualizar(producto: Producto): void
+        +visualizar(Empleado[] empleados): void
         +obtenerPrecioVenta(producto: Producto): String
         +imprimirEtiqueta(producto: Producto): String
+        +calcularNominas(Empleado[] empleados): double
     }
 
     class Sede {
@@ -57,29 +56,35 @@ package es.tiernoparla.daw.mercadaw.model {
             +actualizar(producto: Producto): int
             +borrar(producto: Producto): int
             +insertar(empleado: Empleado): int
-            +insertar(List<Empleado> empleados): int
+            +insertar(Empleado[] empleados): int
             +actualizar(empleado: Empleado): int
             +borrar(empleado: Empleado): int
         }
 
-        class MercaDawMariaDBDAOImp {
+        abstract class MercaDawDAOImp {
             -conexion: Connection
-            -conectar(): Connection
+            '-conectar(): Connection
         }
+
+        class MercaDawMariaDBDAOImp {
+            
+        }
+        
 
         class MercaDawMockDAOImp
 
         class MercaDawDAOFactory {
-            +{static}obtenerDAO(tipo: TipoDAO): MercaDawDAO
+            +{static}obtenerDAO(tipo: TipoDB): MercaDawDAO
         }
 
-        enum Database {
+        enum TipoDB {
             MOCK
             MARIADB
         }
 
-        MercaDawDAO <|.. MercaDawMariaDBDAOImp
-        MercaDawDAO <|.. MercaDawMockDAOImp
+        MercaDawDAO <|.. MercaDawDAOImp
+        MercaDawDAOImp <|-- MercaDawMariaDBDAOImp
+        MercaDawDAOImp <|-- MercaDawMockDAOImp
 
     }
 }
