@@ -1,6 +1,22 @@
-# Diario 
+# Avances 
 
 ## Este será el diario de cambios de la aplicación diseñada por los muchachos, os dejo un plantilla a seguir con el formato a poner para el uso de todos los integrantes de este trabajo.
+
+### 01/05 - Adrián
+
+Modificado el Diagrama de Clases del modelo porque ahora la Sede (provisionalmente) tiene un Array de Empleados en lugar de una List. Ajustado el resto del diagrama en concordancia. 
+
+Cambiado el nombre de la enum *Database* por *TipoDB*.
+
+Añadida la clase abstracta MercaDawDAOImp, de la que heredan MariaDB y Mock. Añadida al Diagrama de Clases.
+
+Añadida la enum TipoIVA.
+
+Creadas todas las clases de producto, de empleado y las enumeraciones.
+
+Añadido paquete empleado al diagrama de clases, junto a la clase EmpleadoFactory.
+
+
 
 ### AVANCE_NOMBRE_DIA
 

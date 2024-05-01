@@ -6,7 +6,7 @@ package es.tiernoparla.daw.mercadaw.model.entity {
 
     package producto {
         class ProductoFactory {
-            +obtenerProducto(categoria: CategoriaProducto): MercaDaw
+            +crear(categoria: CategoriaProducto): Producto
         }
 
         abstract Producto {
@@ -18,31 +18,31 @@ package es.tiernoparla.daw.mercadaw.model.entity {
             -peso: double
             -numElementos: int
             -descripcion: String
-            +calcularComision(): double
+
+            +calcularPrecio(): double
             +calcularRecargoPeso(): double
             +calcularRecargoAltura(): double
             +calcularRecargoAnchura(): double
-            +calcularRecargoElementos(): double
-            +{abstract}calcularIVA(): double
-            +Producto(pb: ProductoBuilder)
-            +{static} builder(): ProductoBuilder
+            +calcularRecargoNumElementos(): double
+            +builder(): ProductoBuilder
         }
 
         class Alimentacion {
             +{static} CATEGORIA: CategoriaProducto = ALIMENTACION
-            +{static} IVA= 4
+            +{static} IVA: TipoIVA = SUPERREDUCIDO
         }
 
         class Drogueria {
             +{static} CATEGORIA: CategoriaProducto = DROGUERIA
-            +{static} IVA= 10
+            +{static} IVA: TipoIVA = REDUCIDO
         }
 
         class Cosmetica {
             +{static} CATEGORIA: CategoriaProducto = COSMETICA
-            +{static} IVA= 21
+            +{static} TipoIVA = GENERAL
         }
 
+        'Está en duda
         class ProductoBuilder {
             -nombre: String
             -marca: String
@@ -60,7 +60,6 @@ package es.tiernoparla.daw.mercadaw.model.entity {
             +setPeso(peso: double): ProductoBuilder
             +setNumElementos(numElementos: int): ProductoBuilder
             +setDescripcion(descripcion: String): ProductoBuilder
-            ~ProductoBuilder()
             +build(): Producto
         }
 
@@ -71,30 +70,38 @@ package es.tiernoparla.daw.mercadaw.model.entity {
 
     package persona {
 
-        class Empleado {
-            +{static} CATEGORIA: CategoriaEmpleado = Empleado
-            +{static} SUELDO = 1000
-            #id: int
-        }
-
         abstract Persona {
             #nombre: String
             #apellidos: String
         }
 
-        class Reponedor {
-            +{static} CATEGORIA: CategoriaEmpleado = Reponedor
-            +{static} SUELDO = 1200
-        }
+        package empleado {
 
-        class Cajero {
-            +{static} CATEGORIA: CategoriaEmpleado = Cajero
-            +{static} SUELDO = 1300
-        }
+            class EmpleadoFactory {
+                +crear(categoria: CategoriaEmpleado): Empleado
+            }
 
-        class Encargado {
-            +{static} CATEGORIA: CategoriaEmpleado = Encargado
-            +{static} SUELDO = 1500
+            class Empleado {
+                +{static} CATEGORIA: CategoriaEmpleado = Empleado
+                +{static} SUELDO = 1000
+                #id: int
+            }
+
+            class Reponedor {
+                +{static} CATEGORIA: CategoriaEmpleado = Reponedor
+                +{static} SUELDO = 1200
+            }
+
+            class Cajero {
+                +{static} CATEGORIA: CategoriaEmpleado = Cajero
+                +{static} SUELDO = 1300
+            }
+
+            class Encargado {
+                +{static} CATEGORIA: CategoriaEmpleado = Encargado
+                +{static} SUELDO = 1500
+            }
+
         }
 
         class Cliente {
