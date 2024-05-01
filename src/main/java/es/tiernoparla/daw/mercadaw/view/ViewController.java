@@ -2,7 +2,7 @@ package es.tiernoparla.daw.mercadaw.view;
 
 public abstract class ViewController {
 
-    
+    /* 
     protected MercadawContoller controller;
 
     public MercadawContoller getController() {
@@ -12,5 +12,6 @@ public abstract class ViewController {
     public void setController(MercadawContoller controller) {
         this.controller = controller;
     }
+    */
     
 }
