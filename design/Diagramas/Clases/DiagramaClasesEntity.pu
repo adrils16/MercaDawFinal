@@ -42,6 +42,7 @@ package es.tiernoparla.daw.mercadaw.model.entity {
             +{static} TipoIVA = GENERAL
         }
 
+        'Está en duda
         class ProductoBuilder {
             -nombre: String
             -marca: String
@@ -69,30 +70,38 @@ package es.tiernoparla.daw.mercadaw.model.entity {
 
     package persona {
 
-        class Empleado {
-            +{static} CATEGORIA: CategoriaEmpleado = Empleado
-            +{static} SUELDO = 1000
-            #id: int
-        }
-
         abstract Persona {
             #nombre: String
             #apellidos: String
         }
 
-        class Reponedor {
-            +{static} CATEGORIA: CategoriaEmpleado = Reponedor
-            +{static} SUELDO = 1200
-        }
+        package empleado {
 
-        class Cajero {
-            +{static} CATEGORIA: CategoriaEmpleado = Cajero
-            +{static} SUELDO = 1300
-        }
+            class EmpleadoFactory {
+                +crear(categoria: CategoriaEmpleado): Empleado
+            }
 
-        class Encargado {
-            +{static} CATEGORIA: CategoriaEmpleado = Encargado
-            +{static} SUELDO = 1500
+            class Empleado {
+                +{static} CATEGORIA: CategoriaEmpleado = Empleado
+                +{static} SUELDO = 1000
+                #id: int
+            }
+
+            class Reponedor {
+                +{static} CATEGORIA: CategoriaEmpleado = Reponedor
+                +{static} SUELDO = 1200
+            }
+
+            class Cajero {
+                +{static} CATEGORIA: CategoriaEmpleado = Cajero
+                +{static} SUELDO = 1300
+            }
+
+            class Encargado {
+                +{static} CATEGORIA: CategoriaEmpleado = Encargado
+                +{static} SUELDO = 1500
+            }
+
         }
 
         class Cliente {

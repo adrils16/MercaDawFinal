@@ -1,7 +1,6 @@
 package es.tiernoparla.daw.mercadaw.model.entity.producto;
 
-import es.tiernoparla.daw.mercadaw.model.enumeracion.CategoriaProducto;
-
+//De momento no se usa esta clase
 public class ProductoBuilder {
 
     private String nombre;

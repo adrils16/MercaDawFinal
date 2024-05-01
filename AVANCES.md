@@ -10,6 +10,12 @@ Cambiado el nombre de la enum *Database* por *TipoDB*.
 
 Añadida la clase abstracta MercaDawDAOImp, de la que heredan MariaDB y Mock. Añadida al Diagrama de Clases.
 
+Añadida la enum TipoIVA.
+
+Creadas todas las clases de producto, de empleado y las enumeraciones.
+
+Añadido paquete empleado al diagrama de clases, junto a la clase EmpleadoFactory.
+
 
 
 ### 24/04 - Adrián

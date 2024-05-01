@@ -22,7 +22,7 @@ public abstract class Producto {
         this.numElementos = numElementos;
         this.descripcion = descripcion;
     }
-    
+
     public String getNombre() {
         return nombre;
     }
@@ -77,6 +77,7 @@ public abstract class Producto {
     //TODO public double calcularRecargoAltura()
     //TODO public double calcularRecargoAnchura()
     //TODO public double calcularRecargoNumElementos()
+    
     /* 
     public ProductoBuilder builder() {
         return new ProductoBuilder();
