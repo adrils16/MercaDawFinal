@@ -10,6 +10,10 @@ Añadido PaletaColores.pu que contiene ejemplos de todos los colores predefinido
 
 Avanzado un poco el diagrama de clases del modelo.
 
+### 01/05 - Rodri
+
+Modificado segun la correcion del profe el diagrama de clases, paquete "Entity".
+
 ### AVANCE_NOMBRE_DIA
 
     1. Creado el proyecto.

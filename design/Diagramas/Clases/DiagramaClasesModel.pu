@@ -21,11 +21,6 @@ package es.tiernoparla.daw.mercadaw.model {
         }
     }
 
-    abstract Persona {
-        #nombre: String
-        #apellidos: String
-    }
-
     interface MercaDaw {
         +darAlta(producto: Producto): int
         +darAlta(empleado: Empleado): int
@@ -41,101 +36,11 @@ package es.tiernoparla.daw.mercadaw.model {
 
     }
 
-    class ProductoBuilder {
-        -nombre: String
-        -marca: String
-        -precio: double
-        -altura: double
-        -anchura: double
-        -peso: double
-        -numElementos: int
-        -descripcion: String
-        +setNombre(nombre: String): ProductoBuilder
-        +setMarca(marca: String): ProductoBuilder
-        +setPrecio(precio: double): ProductoBuilder
-        +setAltura(altura: double): ProductoBuilder
-        +setAnchura(anchura: double): ProductoBuilder
-        +setPeso(peso: double): ProductoBuilder
-        +setNumElementos(numElementos: int): ProductoBuilder
-        +setDescripcion(descripcion: String): ProductoBuilder
-        ~ProductoBuilder()
-        +build(): Producto
+    package entity {
+        component Producto <<Java>>
+        component Empleado <<Java>>
+
     }
-
-    abstract Producto {
-        -nombre: String
-        -marca: String
-        -precio: double
-        -altura: double
-        -anchura: double
-        -peso: double
-        -numElementos: int
-        -descripcion: String
-        +calcularComision(): double
-        +calcularRecargoPeso(): double
-        +calcularRecargoAltura(): double
-        +calcularRecargoAnchura(): double
-        +calcularRecargoElementos(): double
-        +{abstract}calcularIVA(): double
-        +Producto(pb: ProductoBuilder)
-        +{static} builder(): ProductoBuilder
-    }
-
-    class Alimentacion {
-        +{static} CATEGORIA: CategoriaProducto = ALIMENTACION
-        +{static} IVA= 4
-    }
-
-    class Drogueria {
-        +{static} CATEGORIA: CategoriaProducto = DROGUERIA
-        +{static} IVA= 10
-    }
-
-    class Cosmetica {
-        +{static} CATEGORIA: CategoriaProducto = COSMETICA
-        +{static} IVA= 21
-    }
-
-    class Empleado {
-        +{static} CATEGORIA: CategoriaEmpleado = Empleado
-        +{static} SUELDO = 1000
-        #id: int
-    }
-
-    class Reponedor {
-        +{static} CATEGORIA: CategoriaEmpleado = Reponedor
-        +{static} SUELDO = 1200
-    }
-
-    class Cajero {
-        +{static} CATEGORIA: CategoriaEmpleado = Cajero
-        +{static} SUELDO = 1300
-    }
-
-    class Encargado {
-        +{static} CATEGORIA: CategoriaEmpleado = Encargado
-        +{static} SUELDO = 1500
-    }
-
-    class Cliente {
-        -codPostal: int
-        -email: String
-    }
-
-    class ProductoFactory {
-        +obtenerProducto(categoria: CategoriaProducto): MercaDaw
-    }
-
-    Producto <|-- Alimentacion
-    Producto <|-- Drogueria
-    Producto <|-- Cosmetica
-
-    Empleado <|-- Reponedor
-    Empleado <|-- Cajero
-    Empleado <|-- Encargado
-
-    Persona <|-- Empleado
-    Persona <|-- Cliente
 
     Sede o-- Producto
     Sede o-- Empleado
