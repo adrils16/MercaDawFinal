@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#imprimirEtiqueta" prefHeight="240.0" prefWidth="320.0" stylesheets="@estiloClaro.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es/tiernoparla/daw/mercadaw/view/GestionProductoViewController">
+   <children>
+      <Button fx:id="btnImprimirEtiqueta" layoutX="103.0" layoutY="14.0" mnemonicParsing="false" text="Imprimir etiqueta" />
+      <Button fx:id="btnPrecioVenta" layoutX="84.0" layoutY="60.0" mnemonicParsing="false" onMouseClicked="#obtenerPrecioVenta" text="Obtener precio de venta " />
+      <Button fx:id="btnStock" layoutX="114.0" layoutY="106.0" mnemonicParsing="false" onMouseClicked="#mostrarStock" text="Mostrar stock" />
+      <Button fx:id="btnDatosProducto" layoutX="106.0" layoutY="149.0" mnemonicParsing="false" onMouseClicked="#visualizarDatosProducto" text="Visualizar datos " />
+      <Button fx:id="btnAltaProducto" layoutX="94.0" layoutY="197.0" mnemonicParsing="false" onMouseClicked="#darAltaProducto" text="Dar de alta producto" />
+   </children>
+</AnchorPane>
