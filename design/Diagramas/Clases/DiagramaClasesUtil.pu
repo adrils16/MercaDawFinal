@@ -7,16 +7,25 @@ allow_mixing
 package es.tiernoparla.daw.mercadaw.util {
     package reader {
         interface Lector {
-            +leer(s: String): void
+            +leerProducto(cadena: String): List<Producto>
+            +leerEmpleado(cadena: String): List<Empleado>
         }
 
         abstract LectorImp {
+            #comprobar(codigo: String): void
             #cargar(file: File): String
         }
 
         class LectorMock
-        class LectorCSV
-        class LectorJSON
+        class LectorCSV {
+            +procesarProducto(fila: String): Producto
+            +procesarEmpleado(fila: String): Empleado
+        }
+        class LectorJSON {
+            +procesarValor(pareja: String): String
+            +procesarProducto(fila: String): Producto
+            +procesarEmpleado(fila: String): Empleado
+        }
         class LectorXML
 
         Lector <|.. LectorMock
