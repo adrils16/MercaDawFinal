@@ -1,9 +1,12 @@
 package es.tiernoparla.daw.mercadaw.model.dao;
 
-public class MercaDawDAOFactory {
-    public MercaDawDAOImp crear(TipoDB tipo) {
+import es.tiernoparla.daw.mercadaw.model.enumeracion.TipoDB;
 
-        MercaDawDAOImp dao = null;
+public class MercaDawDAOFactory {
+
+    public MercaDawDAO crear(TipoDB tipo) {
+
+        MercaDawDAO dao = null;
 
         switch (tipo) {
             case MARIADB:
