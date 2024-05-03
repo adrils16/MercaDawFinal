@@ -1,5 +1,7 @@
 package es.tiernoparla.daw.mercadaw.utils.reader;
 
+import es.tiernoparla.daw.mercadaw.utils.reader.enumeracion.TipoLector;
+
 public class LectorFactory {
     public static Lector obtenerLector(TipoLector lector) {
         
