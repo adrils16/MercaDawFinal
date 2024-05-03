@@ -8,10 +8,16 @@ import java.util.List;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
 
+/**
+ * Esta clase realiza todas las operaciones relacionadas con la Base de Datos
+
+ * @author: Adrián López
+ * @version: 1.0
+ */
 public abstract class MercaDawDAOImp implements MercaDawDAO {
 
     Connection conexion;
-
+    
     @Override
     public void crearTablaProductos() throws SQLException {
         String sql = "Sentencia SQL para crear tabla";
