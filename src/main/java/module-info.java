@@ -1,0 +1,12 @@
+module es.tiernoparla.daw.mercadaw {
+    requires transitive javafx.controls;
+    requires transitive javafx.fxml;
+    requires javafx.graphics;
+    requires java.sql;
+
+    opens es.tiernoparla.daw.mercadaw to javafx.fxml;
+    opens es.tiernoparla.daw.mercadaw.view to javafx.fxml;
+    exports es.tiernoparla.daw.mercadaw.controller;
+    exports es.tiernoparla.daw.mercadaw.view;
+    exports es.tiernoparla.daw.mercadaw.model;
+}
