@@ -1,22 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" stylesheets="@estiloClaro.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es/tiernoparla/daw/mercadaw/view/PrincipalViewController">
+<AnchorPane fx:id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es/tiernoparla/daw/mercadaw/view/PrincipalViewController">
    <children>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="234.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="207.0" fitWidth="215.0" layoutX="346.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@logo.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnProductos" layoutX="67.0" layoutY="300.0" mnemonicParsing="false" onMouseClicked="#gestionarProductos" text="Gestion de Productos" />
-      <Button fx:id="btnEmpleados" layoutX="251.0" layoutY="300.0" mnemonicParsing="false" onMouseClicked="#gestionarEmpleados" text="Gestion de Empleados" />
-      <Button fx:id="btnCompras" layoutX="453.0" layoutY="300.0" mnemonicParsing="false" onMouseClicked="#gestinarCompras" text="Gestion de Compras" />
-      <Button fx:id="btnExportar" layoutX="168.0" layoutY="389.0" mnemonicParsing="false" onMouseClicked="#exportarDatos" text="Exportar datos" />
-      <Button fx:id="btnModo" layoutX="507.0" layoutY="23.0" mnemonicParsing="false" onMouseClicked="#cambiarModo" text="Cambiar Modo" />
-      <Button fx:id="btnImportar" layoutX="375.0" layoutY="389.0" mnemonicParsing="false" onMouseClicked="#importarDatos" text="Importar datos" />
+      <Button fx:id="btnProductos" layoutX="104.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#gestionarProductos" text="Gestión de Productos" />
+      <Button fx:id="btnEmpleados" layoutX="369.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#gestionarEmpleados" text="Gestión de Empleados" />
+      <Button fx:id="btnCompras" layoutX="640.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#gestinarCompras" text="Gestión de Compras" />
+      <Button fx:id="btnExportar" layoutX="290.0" layoutY="454.0" mnemonicParsing="false" onMouseClicked="#exportarDatos" text="Exportar datos" />
+      <Button fx:id="btnModo" layoutX="765.0" layoutY="34.0" mnemonicParsing="false" onMouseClicked="#cambiarModo" text="Cambiar Modo" />
+      <Button fx:id="btnImportar" layoutX="496.0" layoutY="454.0" mnemonicParsing="false" onMouseClicked="#importarDatos" text="Importar datos" />
    </children>
+   <stylesheets>
+      <URL value="@estiloOscuro.css" />
+      <URL value="@estiloClaroFinal.css" />
+   </stylesheets>
 </AnchorPane>

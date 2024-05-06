@@ -3,6 +3,7 @@ package es.tiernoparla.daw.mercadaw.view;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
 public class GestionProductoViewController {
 
@@ -20,6 +21,20 @@ public class GestionProductoViewController {
 
     @FXML
     private Button btnStock;
+
+    @FXML
+    private Button btnModo;
+
+    @FXML
+    private AnchorPane lblTitulo;
+
+    @FXML
+    private AnchorPane container;
+
+    @FXML
+    void cambiarModo(MouseEvent event) {
+
+    }
 
     @FXML
     void darAltaProducto(MouseEvent event) {

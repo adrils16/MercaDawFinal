@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#imprimirEtiqueta" prefHeight="600.0" prefWidth="900.0" stylesheets="@estiloClaroFinal.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es/tiernoparla/daw/mercadaw/view/GestionProductoViewController">
+   <children>
+      <Button fx:id="btnImprimirEtiqueta" layoutX="190.0" layoutY="191.0" mnemonicParsing="false" text="Imprimir etiqueta" />
+      <Button fx:id="btnPrecioVenta" layoutX="190.0" layoutY="238.0" mnemonicParsing="false" onMouseClicked="#obtenerPrecioVenta" text="Obtener precio de venta " />
+      <Button fx:id="btnStock" layoutX="190.0" layoutY="283.0" mnemonicParsing="false" onMouseClicked="#mostrarStock" text="Mostrar stock" />
+      <Button fx:id="btnDatosProducto" layoutX="190.0" layoutY="329.0" mnemonicParsing="false" onMouseClicked="#visualizarDatosProducto" prefHeight="33.0" prefWidth="130.0" text="Visualizar datos " />
+      <Button fx:id="btnAltaProducto" layoutX="190.0" layoutY="374.0" mnemonicParsing="false" onMouseClicked="#darAltaProducto" text="Dar de alta producto" />
+      <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="524.0" layoutY="184.0">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblTitulo" layoutX="256.0" layoutY="84.0" text="GESTIÓN DE PRODUCTOS" />
+      <Button fx:id="btnModo" layoutX="770.0" layoutY="29.0" mnemonicParsing="false" onMouseClicked="#cambiarModo" text="Cambiar Modo" />
+   </children>
+</AnchorPane>

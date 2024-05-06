@@ -1,0 +1,40 @@
+#container {
+    -fx-background-color: #242526;
+}
+
+.button {
+    -fx-background-color: rgb(239, 239, 239);
+    -fx-border-color: linear-gradient(to right, #14e7c9, #26d2d5);
+    -fx-border-width: 2;
+    -fx-border-radius: 1px;
+    -fx-text-fill: #0a5b4f;
+    -fx-font-family: "Monaco";
+    -fx-font-style: bold;
+    -fx-font-size: 14px;
+}
+
+#btnModo {
+    -fx-background-color: linear-gradient(to right, #14e7c9, #26d2d5);
+    -fx-text-fill: #0a5b4f;
+    -fx-font-family: "Monaco";
+    -fx-font-style: bold;
+    -fx-font-size: 12px;
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(to right, #14e7c9, #26d2d5);
+}
+
+.button:pressed {
+    -fx-background-color: linear-gradient(to right, #26d2d5, #14e7c9);
+    -fx-translate-x: 3;
+    -fx-translate-y: 3;
+}
+
+.label {
+    -fx-font-family: "Monaco";
+    -fx-text-fill: black;
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-font-style: italic;
+}
