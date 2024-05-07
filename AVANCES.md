@@ -47,3 +47,7 @@ Ordenada la carpeta **design**, terminados diagramas de casos de uso, aunque pen
 Añadido PaletaColores.pu que contiene ejemplos de todos los colores predefinidos de plantuml, para tomar una referencia.
 
 Avanzado un poco el diagrama de clases del modelo.
+
+### 08/05 - Rodri
+
+Creadas/Modificadas vistas con sus respectivos 'ViewController' hasta Gestión de Productos (Siguiente día empezar por Gestión de Empleados). Creada la carpeta **'test'** para la ejecucion de las pruebas en Junit 5

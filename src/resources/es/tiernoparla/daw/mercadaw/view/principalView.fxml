@@ -13,12 +13,12 @@
             <Image url="@logo.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnProductos" layoutX="104.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#gestionarProductos" text="Gestión de Productos" />
-      <Button fx:id="btnEmpleados" layoutX="369.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#gestionarEmpleados" text="Gestión de Empleados" />
-      <Button fx:id="btnCompras" layoutX="640.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#gestinarCompras" text="Gestión de Compras" />
-      <Button fx:id="btnExportar" layoutX="290.0" layoutY="454.0" mnemonicParsing="false" onMouseClicked="#exportarDatos" text="Exportar datos" />
+      <Button fx:id="btnProductos" layoutX="104.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#gestionarProductos" prefHeight="33.0" prefWidth="164.0" text="Gestión de Productos" />
+      <Button fx:id="btnEmpleados" layoutX="369.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#gestionarEmpleados" prefHeight="33.0" prefWidth="164.0" text="Gestión de Empleados" />
+      <Button fx:id="btnCompras" layoutX="640.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#gestinarCompras" prefHeight="33.0" prefWidth="164.0" text="Gestión de Compras" />
+      <Button fx:id="btnExportar" layoutX="268.0" layoutY="454.0" mnemonicParsing="false" onMouseClicked="#exportarDatos" prefHeight="33.0" prefWidth="148.0" text="Exportar datos" />
       <Button fx:id="btnModo" layoutX="765.0" layoutY="34.0" mnemonicParsing="false" onMouseClicked="#cambiarModo" text="Cambiar Modo" />
-      <Button fx:id="btnImportar" layoutX="496.0" layoutY="454.0" mnemonicParsing="false" onMouseClicked="#importarDatos" text="Importar datos" />
+      <Button fx:id="btnImportar" layoutX="492.0" layoutY="454.0" mnemonicParsing="false" onMouseClicked="#importarDatos" prefHeight="33.0" prefWidth="148.0" text="Importar datos" />
    </children>
    <stylesheets>
       <URL value="@estiloOscuro.css" />

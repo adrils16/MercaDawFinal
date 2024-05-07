@@ -6,16 +6,12 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
-public class GestionComprasViewController {
-
-    @FXML
-    private Button btnAltaCompra;
-
+public class DatosProductosViewController {
     @FXML
     private Button btnAtras;
 
     @FXML
-    private Button btnDatosCompra;
+    private Button btnModo;
 
     @FXML
     private AnchorPane container;
@@ -24,26 +20,12 @@ public class GestionComprasViewController {
     private Label lblTitulo;
 
     @FXML
-    private Button btnModo;
-
-    @FXML
-    void volverAtras(MouseEvent event) {
-
-    }
-
-    @FXML
     void cambiarModo(MouseEvent event) {
 
     }
 
     @FXML
-    void darAltaCompra(MouseEvent event) {
+    void volverAtras(MouseEvent event) {
 
     }
-
-    @FXML
-    void visualizarCompras(MouseEvent event) {
-
-    }
-
 }

@@ -11,6 +11,9 @@ public class GestionProductoViewController {
     private Button btnAltaProducto;
 
     @FXML
+    private Button btnAtras;
+
+    @FXML
     private Button btnDatosProducto;
 
     @FXML
@@ -30,6 +33,11 @@ public class GestionProductoViewController {
 
     @FXML
     private AnchorPane container;
+
+    @FXML
+    void volverAtras(MouseEvent event) {
+
+    }
 
     @FXML
     void cambiarModo(MouseEvent event) {

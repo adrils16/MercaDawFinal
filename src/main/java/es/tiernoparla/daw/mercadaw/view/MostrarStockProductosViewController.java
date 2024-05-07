@@ -3,25 +3,29 @@ package es.tiernoparla.daw.mercadaw.view;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
-public class GestionEmpleadosViewController {
-
+public class MostrarStockProductosViewController {
     @FXML
-    private Button btnAltaEmpleado;
-
-    @FXML
-    private Button btnCalculoNomina;
-
-    @FXML
-    private Button btnListadoEmpleados;
+    private Button btnAtras;
 
     @FXML
     private Button btnModo;
 
     @FXML
-    private Button btnAtras;
+    private Button btnMostrar;
+
+    @FXML
+    private TableColumn<?, ?> colId;
+
+    @FXML
+    private TableColumn<?, ?> colNombre;
+
+    @FXML
+    private TableColumn<?, ?> colStock;
 
     @FXML
     private AnchorPane container;
@@ -30,9 +34,7 @@ public class GestionEmpleadosViewController {
     private Label lblTitulo;
 
     @FXML
-    void volverAtras(MouseEvent event) {
-
-    }
+    private TableView<?> tblStock;
 
     @FXML
     void cambiarModo(MouseEvent event) {
@@ -40,18 +42,12 @@ public class GestionEmpleadosViewController {
     }
 
     @FXML
-    void calcularNominas(MouseEvent event) {
+    void volverAtras(MouseEvent event) {
 
     }
 
     @FXML
-    void darAltaEmpleado(MouseEvent event) {
+    void mostrarStock(MouseEvent event) {
 
     }
-
-    @FXML
-    void visualizarEmpleados(MouseEvent event) {
-
-    }
-
 }
