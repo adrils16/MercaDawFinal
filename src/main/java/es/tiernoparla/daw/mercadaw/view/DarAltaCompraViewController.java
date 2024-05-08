@@ -3,46 +3,54 @@ package es.tiernoparla.daw.mercadaw.view;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 
-public class ImprimirEtiquetaViewController {
+public class DarAltaCompraViewController {
     
     @FXML
-    private Button btnAtras;
+    private Button btnAceptar;
 
     @FXML
-    private Button btnImprimirEtiqueta;
+    private Button btnAtras;
 
     @FXML
     private Button btnModo;
 
     @FXML
-    private Button btnMostrarProductos;
-
-    @FXML
     private AnchorPane container;
 
     @FXML
-    private TableColumn<?, ?> colId;
+    private GridPane gridContainer;
 
     @FXML
-    private TableColumn<?, ?> colNombre;
+    private Label lblCodPostal;
 
     @FXML
     private Label lblIdProducto;
 
     @FXML
+    private Label lblNombreCliente;
+
+    @FXML
+    private Label lblNumProductos;
+
+    @FXML
     private Label lblTitulo;
 
     @FXML
-    private TableView<?> tblProductos;
+    private TextField txfCodPostal;
 
     @FXML
     private TextField txfIdProducto;
+
+    @FXML
+    private TextField txfNombreCliente;
+
+    @FXML
+    private TextField txfNumProductos;
 
     @FXML
     void cambiarModo(MouseEvent event) {
@@ -50,12 +58,7 @@ public class ImprimirEtiquetaViewController {
     }
 
     @FXML
-    void imprimirEtiqueta(MouseEvent event) {
-
-    }
-
-    @FXML
-    void mostrarProductos(MouseEvent event) {
+    void darAltaCompra(MouseEvent event) {
 
     }
 
@@ -63,4 +66,5 @@ public class ImprimirEtiquetaViewController {
     void volverAtras(MouseEvent event) {
 
     }
+
 }

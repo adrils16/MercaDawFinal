@@ -5,26 +5,27 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
-public class ImprimirEtiquetaViewController {
-    
+public class VisualizarListadoEmpleadosViewController {
     @FXML
     private Button btnAtras;
-
-    @FXML
-    private Button btnImprimirEtiqueta;
 
     @FXML
     private Button btnModo;
 
     @FXML
-    private Button btnMostrarProductos;
+    private Button btnMostrar;
 
     @FXML
     private AnchorPane container;
+
+    @FXML
+    private TableColumn<?, ?> colApellidos;
+
+    @FXML
+    private TableColumn<?, ?> colCategoria;
 
     @FXML
     private TableColumn<?, ?> colId;
@@ -33,16 +34,10 @@ public class ImprimirEtiquetaViewController {
     private TableColumn<?, ?> colNombre;
 
     @FXML
-    private Label lblIdProducto;
-
-    @FXML
     private Label lblTitulo;
 
     @FXML
-    private TableView<?> tblProductos;
-
-    @FXML
-    private TextField txfIdProducto;
+    private TableView<?> tblEmpleados;
 
     @FXML
     void cambiarModo(MouseEvent event) {
@@ -50,12 +45,7 @@ public class ImprimirEtiquetaViewController {
     }
 
     @FXML
-    void imprimirEtiqueta(MouseEvent event) {
-
-    }
-
-    @FXML
-    void mostrarProductos(MouseEvent event) {
+    void mostrarEmpleados(MouseEvent event) {
 
     }
 
@@ -63,4 +53,5 @@ public class ImprimirEtiquetaViewController {
     void volverAtras(MouseEvent event) {
 
     }
+
 }

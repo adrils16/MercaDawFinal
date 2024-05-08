@@ -13,15 +13,7 @@
     -fx-font-size: 14px;
 }
 
-#btnModo {
-    -fx-background-color: linear-gradient(to right, #14e7c9, #26d2d5);
-    -fx-text-fill: #f6f6f6;
-    -fx-font-family: "Monaco";
-    -fx-font-weight: bold;
-    -fx-font-size: 12px;
-}
-
-#btnAtras {
+#btnModo, #btnAtras {
     -fx-background-color: linear-gradient(to right, #14e7c9, #26d2d5);
     -fx-text-fill: #f6f6f6;
     -fx-font-family: "Monaco";
@@ -37,6 +29,7 @@
 
 .button:pressed {
     -fx-background-color: linear-gradient(to right, #26d2d5, #14e7c9);
+    -fx-border-color: linear-gradient(to right, #26d2d5, #14e7c9);
     -fx-translate-x: 2;
     -fx-translate-y: 2;
 }
@@ -46,7 +39,6 @@
     -fx-text-fill: black;
     -fx-font-size: 32px;
     -fx-font-weight: bold;
-    -fx-font-style: italic;
 }
 
 .label {
@@ -59,7 +51,7 @@
 .text-field {
     -fx-background-color: rgb(247, 247, 247);
     -fx-border: none;
-    -fx-border-bottom: 2px solid;
+    -fx-border-bottom: 2px solid ;
     -fx-border-color: linear-gradient(to right, #14e7c9, #26d2d5);
     -fx-border-radius: 4px;
     -fx-font-family: "Monaco";
