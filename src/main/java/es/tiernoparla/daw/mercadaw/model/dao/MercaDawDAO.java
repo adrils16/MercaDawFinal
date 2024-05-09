@@ -15,14 +15,14 @@ public interface MercaDawDAO {
     public void crearTablaEmpleados() throws SQLException;
     public void crearTablaCompras() throws SQLException;
 
-    public int insertar(Producto producto);
-    public int insertar(List<Producto> productos);
-    public int insertar(Empleado empleado);
-    public int insertar(Empleado[] empleados);
+    public int insertar(Producto producto)throws SQLException;
+    public int insertar(List<Producto> productos)throws SQLException;
+    public int insertar(Empleado empleado)throws SQLException;
+    public int insertar(Empleado[] empleados)throws SQLException;
 
-    public int actualizar(Producto producto);
-    public int actualizar(Empleado empleado);
+    public int actualizar(Producto producto) throws SQLException;
+    public int actualizar(Empleado empleado) throws SQLException;
 
-    public int borrar(Producto producto);
-    public int borrar(Empleado empleado);
+    public int borrar(Producto producto) throws SQLException;
+    public int borrar(Empleado empleado) throws SQLException;
 }
