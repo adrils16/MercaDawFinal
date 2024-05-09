@@ -9,6 +9,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 
@@ -33,6 +34,10 @@ public class MercadawController extends Application{
      * @throws IOException
      */
     public ViewController cargarVista(Vista ficheroView) throws IOException{
+
+        final String ICONO = "file:images/logo.png";
+        final String TITULO = "MercaDAW";
+
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(ficheroView.getRuta()));
         Parent root = (Parent)fxmlLoader.load();  
 
@@ -40,9 +45,12 @@ public class MercadawController extends Application{
         ViewController viewController = fxmlLoader.<ViewController>getController();
         viewController.setController(this);
         Scene scene = new Scene(root); 
+        Image icono = new Image(ICONO);
 
-        
+        currentStage.getIcons().add(icono);
+        currentStage.setTitle(TITULO);
         currentStage.setScene(scene);
+        currentStage.setResizable(false);
         currentStage.show();
         
         return viewController;
@@ -50,26 +58,34 @@ public class MercadawController extends Application{
 
     public void cargarGestionEmpleados() {
 
+        final String ERR_GESTION_EMPLEADOS = "Error al cargar la vista: GESTION_EMPLEADOS";
+
         try {
             cargarVista(Vista.GESTION_EMPLEADOS);
         } catch (IOException e) {
-            System.err.println("Error al cargar la vista: GESTION_EMPLEADOS");
+            System.err.println(ERR_GESTION_EMPLEADOS);
         }
     }
 
     public void cargarGestionProducto() {
+
+        final String ERR_GESTION_PRODUCTO = "Error al cargar la vista: GESTION_PRODUCTO";
+
         try {
             cargarVista(Vista.GESTION_PRODUCTO);
         } catch (IOException e) {
-            System.err.println("Error al cargar la vista: GESTION_PRODUCTO");
+            System.err.println(ERR_GESTION_PRODUCTO);
         }
     }
 
     public void cargarGestionCompra() {
+
+        final String ERR_GESTION_COMPRA = "Error al cargar la vista: GESTION_COMPRA";
+
         try {
             cargarVista(Vista.GESTION_COMPRAS);
         } catch (IOException e) {
-            System.err.println("Error al cargar la vista: GESTION_COMPRA");
+            System.err.println(ERR_GESTION_COMPRA);
         }
     }
 }

@@ -21,7 +21,7 @@
       <Button fx:id="btnImportar" layoutX="492.0" layoutY="454.0" mnemonicParsing="false" onMouseClicked="#importarDatos" prefHeight="33.0" prefWidth="148.0" text="Importar datos" />
    </children>
    <stylesheets>
+      <URL value="@estiloClaroFinal.css "/>
       <URL value="@estiloOscuro.css" />
-      <URL value="@estiloClaroFinal.css" />
    </stylesheets>
 </AnchorPane>
