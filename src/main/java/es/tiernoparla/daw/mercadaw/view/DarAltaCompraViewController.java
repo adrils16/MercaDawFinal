@@ -8,7 +8,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
-public class DarAltaCompraViewController {
+public class DarAltaCompraViewController extends ViewController{
     
     @FXML
     private Button btnAceptar;

@@ -8,7 +8,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
-public class VisualizarListadoEmpleadosViewController {
+public class VisualizarListadoEmpleadosViewController extends ViewController{
     @FXML
     private Button btnAtras;
 

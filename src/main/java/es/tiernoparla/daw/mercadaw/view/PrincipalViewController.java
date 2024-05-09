@@ -5,7 +5,9 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
-public class PrincipalViewController {
+public class PrincipalViewController extends ViewController {
+
+    public static int contador;
 
     @FXML
     private Button btnCompras;
@@ -29,9 +31,13 @@ public class PrincipalViewController {
     private AnchorPane container;
 
     @FXML
-    void cambiarModo(MouseEvent event) {
-
+    public void initialize() {
+        
+        container.getStylesheets().clear();
+        container.getStylesheets().add(PrincipalViewController.class.getResource("estiloClaro.css").toExternalForm());
+        
     }
+
 
     @FXML
     void exportarDatos(MouseEvent event) {
@@ -56,6 +62,19 @@ public class PrincipalViewController {
     @FXML
     void importarDatos(MouseEvent event) {
 
+    }
+
+    @FXML
+    void cambiarModo(MouseEvent event) {
+
+        contador++;
+
+        container.getStylesheets().clear();
+        if (contador%2==0) {
+            container.getStylesheets().add(getClass().getResource("estiloClaro.css").toExternalForm());
+        } else if(contador%2!=0) {
+            container.getStylesheets().add(getClass().getResource("estiloOscuro.css").toExternalForm());
+        }
     }
 
 }

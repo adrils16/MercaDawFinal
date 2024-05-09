@@ -9,7 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
-public class ImprimirEtiquetaViewController {
+public class ImprimirEtiquetaViewController extends ViewController{
     
     @FXML
     private Button btnAtras;

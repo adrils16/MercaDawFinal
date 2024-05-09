@@ -8,7 +8,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
-public class VisualizarListadoComprasViewController {
+public class VisualizarListadoComprasViewController extends ViewController{
     
     @FXML
     private Button btnAtras;

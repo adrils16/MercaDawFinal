@@ -14,27 +14,24 @@ import javafx.stage.Stage;
 
 public class MercadawController extends Application{
 
-     private static Stage currentStage;
+    private static Stage currentStage;
 
-    
     /** 
      * Lanza la vista principal para el inicio de la app
      * @param stage
      * @throws IOException
      */
-    
     public void start(Stage stage) throws IOException {
-
         currentStage = stage;
         cargarVista(Vista.INICIO);
     }
 
-   /**
-    * Este metodo coge cualquier vista que le pase por parametro y te devuelve la vista para mostrarla
-    * @param ficheroView
-    * @return viewController 
-    * @throws IOException
-    */
+    /**
+     * Este metodo coge cualquier vista que le pase por parametro y te devuelve la vista para mostrarla
+     * @param ficheroView
+     * @return viewController 
+     * @throws IOException
+     */
     public ViewController cargarVista(Vista ficheroView) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(ficheroView.getRuta()));
         Parent root = (Parent)fxmlLoader.load();  
@@ -52,8 +49,7 @@ public class MercadawController extends Application{
     }
 
     public void cargarGestionEmpleados() {
- 
-        //cargarVista(Vista.GESTION_EMPLEADOS);
+
         try {
             cargarVista(Vista.GESTION_EMPLEADOS);
         } catch (IOException e) {

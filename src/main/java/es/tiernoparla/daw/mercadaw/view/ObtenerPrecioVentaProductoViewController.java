@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
-public class ObtenerPrecioVentaProductoViewController {
+public class ObtenerPrecioVentaProductoViewController extends ViewController{
 
     @FXML
     private Button btnAceptar;

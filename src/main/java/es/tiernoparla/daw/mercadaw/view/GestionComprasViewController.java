@@ -6,7 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
-public class GestionComprasViewController {
+public class GestionComprasViewController extends ViewController{
 
     @FXML
     private Button btnAltaCompra;
