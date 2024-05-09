@@ -51,3 +51,8 @@ Avanzado un poco el diagrama de clases del modelo.
 ### 08/05 - Rodri
 
 Creadas/Modificadas vistas con sus respectivos 'ViewController' hasta Gestión de Productos (Siguiente día empezar por Gestión de Empleados). Creada la carpeta **'test'** para la ejecucion de las pruebas en Junit 5
+
+### 09/05 - Raul
+
+1. Cambio de nombre a la clase MercaDawDAOImp a MercaDawMariaDBDAOImp, e implementación de la misma.
+2. Fichero docker-compose.yml y fichero .env ubicados en la raiz del proyecto.
