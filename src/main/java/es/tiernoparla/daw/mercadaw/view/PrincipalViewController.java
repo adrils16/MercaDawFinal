@@ -34,10 +34,9 @@ public class PrincipalViewController extends ViewController {
     public void initialize() {
         
         container.getStylesheets().clear();
-        container.getStylesheets().add(PrincipalViewController.class.getResource("estiloClaro.css").toExternalForm());
+        container.getStylesheets().add(PrincipalViewController.class.getResource("estiloClaroFinal.css").toExternalForm());
         
     }
-
 
     @FXML
     void exportarDatos(MouseEvent event) {
@@ -71,7 +70,7 @@ public class PrincipalViewController extends ViewController {
 
         container.getStylesheets().clear();
         if (contador%2==0) {
-            container.getStylesheets().add(getClass().getResource("estiloClaro.css").toExternalForm());
+            container.getStylesheets().add(getClass().getResource("estiloClaroFinal.css").toExternalForm());
         } else if(contador%2!=0) {
             container.getStylesheets().add(getClass().getResource("estiloOscuro.css").toExternalForm());
         }
