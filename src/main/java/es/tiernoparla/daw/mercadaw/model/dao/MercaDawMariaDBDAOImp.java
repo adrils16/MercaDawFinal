@@ -130,8 +130,6 @@ public abstract class MercaDawMariaDBDAOImp implements MercaDawDAO {
         numRegistrosActualizados = ps.executeUpdate();
         ps.close();
 
-
-
         return numRegistrosActualizados;
     }
 
