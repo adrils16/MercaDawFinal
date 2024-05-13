@@ -1,6 +1,4 @@
 @startuml Diagrama clases
-' left to right direction
-
 set namespaceSeparator none
 allow_mixing
 
@@ -44,33 +42,39 @@ package es.tiernoparla.daw.mercadaw.util {
         }
     }
 
-    package writer {
-        interface Escritor{
-            +escribir(s: String): void
+    package export {
+        interface Documento{
+            +getContenido(): Map<String, Object[]>
+            +getTitulo(): String
+            +getPie(): String
         }
 
-        abstract EscritorImp {
-            #guardar(file: File, s: String): void
+        Interface Exportable {
+            +crearFichero(doc: Documento): byte[]
         }
 
+        abstract DocumentoUtil {
+            +{abstract}crearFichero(doc: Documento): byte[]
+        }
+
+        class ExcelUtil
+        class WordUtil
+        class PDFUtil
         class EscritorMock
-        class EscritorCSV
-        class EscritorJSON
-        class EscritorXML
 
-        EscritorImp <|-- EscritorCSV
-        EscritorImp <|-- EscritorJSON
-        EscritorImp <|-- EscritorXML
-        Escritor <|.. EscritorMock
+        Exportable <|.. DocumentoUtil
 
-        Escritor <|.. EscritorImp
-
-        enum TipoEscritor {
-            MOCK, CSV, JSON, XML
+        DocumentoUtil <|-- ExcelUtil
+        DocumentoUtil <|-- WordUtil
+        DocumentoUtil <|-- PDFUtil
+        DocumentoUtil <|-- EscritorMock
+        
+        enum TipoDocumento {
+            MOCK, EXCEL, DOCX, PDF
         }
 
-        class EscritorFactory {
-            +obtenerEscritor(tipo: TipoEscritor): Escritor
+        class ExportFactory {
+            +obtenerExport(tipo: TipoDocumento): Escritor
         }
     }
 
@@ -99,5 +103,10 @@ package exception {
 }
 
 Imprimible <|.. Sede
+
+component org.apache.poi
+org.apache.poi <.. DocumentoUtil
+
+Documento <|.. Sede
 
 @enduml
