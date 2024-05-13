@@ -94,7 +94,7 @@ public class DarAltaProductoViewController extends ViewController{
 
     @FXML
     void darAltaProducto(MouseEvent event) {
-
+        //TODO
     }
 
     @FXML
@@ -114,11 +114,19 @@ public class DarAltaProductoViewController extends ViewController{
 
     @FXML
     void volverAtras(MouseEvent event) {
-
+        controller.cargarPantalla(Vista.GESTION_PRODUCTO);
     }
 
     @FXML
     void cambiarModo(MouseEvent event) {
 
+        container.getStylesheets().clear();
+        if ( esClaro == false ) {
+            container.getStylesheets().add(getClass().getResource(ESTILO_CLARO).toExternalForm());
+            esClaro = true;
+        } else if( esClaro == true) {
+            container.getStylesheets().add(getClass().getResource(ESTILO_OSCURO).toExternalForm());
+            esClaro = false;
+        }
     }
 }

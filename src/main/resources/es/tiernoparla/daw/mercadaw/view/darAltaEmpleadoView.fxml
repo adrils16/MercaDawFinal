@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane fx:id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.tiernoparla.daw.mercadaw.view.DarAltaEmpleadoViewController">
+<AnchorPane fx:id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.tiernoparla.daw.mercadaw.view.DarAltaEmpeadoViewController">
    <children>
       <Label fx:id="lblTitulo" layoutX="257.0" layoutY="51.0" text="DAR DE ALTA EMPLEADO" />
       <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="600.0" layoutY="156.0">

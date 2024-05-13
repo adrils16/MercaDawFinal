@@ -7,13 +7,13 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#imprimirEtiqueta" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.tiernoparla.daw.mercadaw.view.GestionProductoViewController">
+<AnchorPane fx:id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.tiernoparla.daw.mercadaw.view.GestionProductoViewController">
    <children>
-      <Button fx:id="btnImprimirEtiqueta" layoutX="190.0" layoutY="374.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="177.0" text="Imprimir etiqueta" />
+      <Button fx:id="btnImprimirEtiqueta" layoutX="190.0" layoutY="374.0" mnemonicParsing="false" onMouseClicked="#imprimirEtiqueta" prefHeight="33.0" prefWidth="198.0" text="Imprimir etiqueta" />
       <Button fx:id="btnPrecioVenta" layoutX="190.0" layoutY="238.0" mnemonicParsing="false" onMouseClicked="#obtenerPrecioVenta" text="Obtener precio de venta " />
-      <Button fx:id="btnStock" layoutX="190.0" layoutY="283.0" mnemonicParsing="false" onMouseClicked="#mostrarStock" prefHeight="33.0" prefWidth="177.0" text="Mostrar stock" />
-      <Button fx:id="btnDatosProducto" layoutX="190.0" layoutY="329.0" mnemonicParsing="false" onMouseClicked="#visualizarDatosProducto" prefHeight="34.0" prefWidth="177.0" text="Visualizar datos " />
-      <Button fx:id="btnAltaProducto" layoutX="190.0" layoutY="195.0" mnemonicParsing="false" onMouseClicked="#darAltaProducto" prefHeight="33.0" prefWidth="177.0" text="Dar de alta producto" />
+      <Button fx:id="btnStock" layoutX="190.0" layoutY="283.0" mnemonicParsing="false" onMouseClicked="#mostrarStock" prefHeight="33.0" prefWidth="198.0" text="Mostrar stock" />
+      <Button fx:id="btnDatosProducto" layoutX="190.0" layoutY="329.0" mnemonicParsing="false" onMouseClicked="#visualizarDatosProducto" prefHeight="34.0" prefWidth="198.0" text="Visualizar datos " />
+      <Button fx:id="btnAltaProducto" layoutX="190.0" layoutY="195.0" mnemonicParsing="false" onMouseClicked="#darAltaProducto" prefHeight="33.0" prefWidth="198.0" text="Dar de alta producto" />
       <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="530.0" layoutY="199.0">
          <image>
             <Image url="@logo.png" />

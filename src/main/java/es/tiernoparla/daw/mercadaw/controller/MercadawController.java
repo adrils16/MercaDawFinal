@@ -56,36 +56,23 @@ public class MercadawController extends Application{
         return viewController;
     }
 
-    public void cargarGestionEmpleados() {
+    /**
+     * Este metodo es al que van a llamar desde las vistas para que cargue cualquier VISTA
+     * @param vista
+     */
+    public void cargarPantalla(Vista vista){
 
-        final String ERR_GESTION_EMPLEADOS = "Error al cargar la vista: GESTION_EMPLEADOS";
+        final String ERR_CARGA = "Error al cargar la vista : %s";
 
-        try {
-            cargarVista(Vista.GESTION_EMPLEADOS);
-        } catch (IOException e) {
-            System.err.println(ERR_GESTION_EMPLEADOS);
+        try{
+            cargarVista(vista);
+        }catch(IOException e){
+            System.err.println(ERR_CARGA.format(ERR_CARGA, vista.getRuta()));
         }
+
     }
 
-    public void cargarGestionProducto() {
-
-        final String ERR_GESTION_PRODUCTO = "Error al cargar la vista: GESTION_PRODUCTO";
-
-        try {
-            cargarVista(Vista.GESTION_PRODUCTO);
-        } catch (IOException e) {
-            System.err.println(ERR_GESTION_PRODUCTO);
-        }
-    }
-
-    public void cargarGestionCompra() {
-
-        final String ERR_GESTION_COMPRA = "Error al cargar la vista: GESTION_COMPRA";
-
-        try {
-            cargarVista(Vista.GESTION_COMPRAS);
-        } catch (IOException e) {
-            System.err.println(ERR_GESTION_COMPRA);
-        }
+    public void cargarProducto()throws IOException{
+        cargarVista(Vista.GESTION_PRODUCTO);
     }
 }

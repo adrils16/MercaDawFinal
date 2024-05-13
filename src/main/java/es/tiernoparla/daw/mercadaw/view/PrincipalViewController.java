@@ -1,13 +1,13 @@
 package es.tiernoparla.daw.mercadaw.view;
 
+import java.io.IOException;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 public class PrincipalViewController extends ViewController {
-
-    public static int contador;
 
     @FXML
     private Button btnCompras;
@@ -34,45 +34,50 @@ public class PrincipalViewController extends ViewController {
     public void initialize() {
         
         container.getStylesheets().clear();
-        container.getStylesheets().add(PrincipalViewController.class.getResource("estiloClaroFinal.css").toExternalForm());
-        
+
+        if (esClaro == true){
+            container.getStylesheets().add(PrincipalViewController.class.getResource(ESTILO_CLARO).toExternalForm());
+        } else if (esClaro == false) {
+            container.getStylesheets().add(PrincipalViewController.class.getResource(ESTILO_OSCURO).toExternalForm());
+        }
     }
 
     @FXML
     void exportarDatos(MouseEvent event) {
-
+        //TODO
     }
 
     @FXML
     void gestinarCompras(MouseEvent event) {
-
+        controller.cargarPantalla(Vista.GESTION_COMPRAS);
     }
 
     @FXML
-    void gestionarEmpleados(MouseEvent event) {
-
+    void gestionarEmpleados(MouseEvent event) throws IOException {
+        controller.cargarPantalla(Vista.GESTION_EMPLEADOS);
     }
 
     @FXML
-    void gestionarProductos(MouseEvent event) {
-
+    void gestionarProductos(MouseEvent event) throws IOException {
+        controller.cargarPantalla(Vista.GESTION_PRODUCTO);
+        //controller.cargarProducto();
     }
 
     @FXML
     void importarDatos(MouseEvent event) {
-
+        //TODO
     }
 
     @FXML
     void cambiarModo(MouseEvent event) {
-
-        contador++;
-
+    
         container.getStylesheets().clear();
-        if (contador%2==0) {
-            container.getStylesheets().add(getClass().getResource("estiloClaroFinal.css").toExternalForm());
-        } else if(contador%2!=0) {
-            container.getStylesheets().add(getClass().getResource("estiloOscuro.css").toExternalForm());
+        if ( esClaro == false ) {
+            container.getStylesheets().add(getClass().getResource(ESTILO_CLARO).toExternalForm());
+            esClaro = true;
+        } else if( esClaro == true) {
+            container.getStylesheets().add(getClass().getResource(ESTILO_OSCURO).toExternalForm());
+            esClaro = false;
         }
     }
 

@@ -31,27 +31,35 @@ public class GestionEmpleadosViewController extends ViewController{
 
     @FXML
     void volverAtras(MouseEvent event) {
-
+        controller.cargarPantalla(Vista.INICIO);
     }
 
     @FXML
     void cambiarModo(MouseEvent event) {
 
+        container.getStylesheets().clear();
+        if ( esClaro == false ) {
+            container.getStylesheets().add(getClass().getResource(ESTILO_CLARO).toExternalForm());
+            esClaro = true;
+        } else if( esClaro == true) {
+            container.getStylesheets().add(getClass().getResource(ESTILO_OSCURO).toExternalForm());
+            esClaro = false;
+        }
     }
 
     @FXML
     void calcularNominas(MouseEvent event) {
-
+        //TODO
     }
 
     @FXML
     void darAltaEmpleado(MouseEvent event) {
-
+        controller.cargarPantalla(Vista.DAR_ALTA_EMPLEADO);
     }
 
     @FXML
     void visualizarEmpleados(MouseEvent event) {
-
+        controller.cargarPantalla(Vista.VISUALIZAR_LISTADO_EMPLEADOS);
     }
 
 }

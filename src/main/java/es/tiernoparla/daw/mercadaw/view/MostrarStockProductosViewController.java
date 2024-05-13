@@ -38,16 +38,23 @@ public class MostrarStockProductosViewController extends ViewController{
 
     @FXML
     void cambiarModo(MouseEvent event) {
-
+        container.getStylesheets().clear();
+        if ( esClaro == false ) {
+            container.getStylesheets().add(getClass().getResource(ESTILO_CLARO).toExternalForm());
+            esClaro = true;
+        } else if( esClaro == true) {
+            container.getStylesheets().add(getClass().getResource(ESTILO_OSCURO).toExternalForm());
+            esClaro = false;
+        }
     }
 
     @FXML
     void volverAtras(MouseEvent event) {
-
+        controller.cargarPantalla(Vista.GESTION_PRODUCTO);
     }
 
     @FXML
     void mostrarStock(MouseEvent event) {
-
+        //TODO
     }
 }

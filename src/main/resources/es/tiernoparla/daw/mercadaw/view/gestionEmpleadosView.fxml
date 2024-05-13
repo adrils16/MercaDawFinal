@@ -7,11 +7,11 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.tiernoparla.daw.mercadaw.view.GestionEmpleadosView">
+<AnchorPane fx:id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.tiernoparla.daw.mercadaw.view.GestionEmpleadosViewController">
    <children>
       <Button fx:id="btnCalculoNomina" layoutX="180.0" layoutY="339.0" mnemonicParsing="false" onMouseClicked="#calcularNominas" text="Calcular nominas de los trabajadores" />
-      <Button fx:id="btnListadoEmpleados" layoutX="180.0" layoutY="283.0" mnemonicParsing="false" onMouseClicked="#visualizarEmpleados" prefHeight="33.0" prefWidth="250.0" text="Visualizar listado de empleados" />
-      <Button fx:id="btnAltaEmpleado" layoutX="179.0" layoutY="227.0" mnemonicParsing="false" onMouseClicked="#darAltaEmpleado" prefHeight="33.0" prefWidth="250.0" text="Dar de alta un Empleado" />
+      <Button fx:id="btnListadoEmpleados" layoutX="180.0" layoutY="283.0" mnemonicParsing="false" onMouseClicked="#visualizarEmpleados" prefHeight="33.0" prefWidth="283.0" text="Visualizar listado de empleados" />
+      <Button fx:id="btnAltaEmpleado" layoutX="179.0" layoutY="227.0" mnemonicParsing="false" onMouseClicked="#darAltaEmpleado" prefHeight="33.0" prefWidth="283.0" text="Dar de alta un Empleado" />
       <Label fx:id="lblTitulo" layoutX="239.0" layoutY="90.0" text="GESTIÓN DE EMPLEADOS" />
       <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="549.0" layoutY="200.0">
          <image>
@@ -22,7 +22,7 @@
       <Button fx:id="btnAtras" layoutX="45.0" layoutY="39.0" mnemonicParsing="false" onMouseClicked="#volverAtras" text="Atrás" />
    </children>
    <stylesheets>
-      <URL value="@estiloClaroFinal.css" />
       <URL value="@estiloOscuro.css" />
+      <URL value="@estiloClaroFinal.css" />
    </stylesheets>
 </AnchorPane>
