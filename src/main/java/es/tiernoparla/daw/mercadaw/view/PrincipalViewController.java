@@ -59,8 +59,7 @@ public class PrincipalViewController extends ViewController {
 
     @FXML
     void gestionarProductos(MouseEvent event) throws IOException {
-        //controller.cargarPantalla(Vista.GESTION_PRODUCTO);
-        controller.cargarProducto();
+        controller.cargarPantalla(Vista.GESTION_PRODUCTO);
     }
 
     @FXML

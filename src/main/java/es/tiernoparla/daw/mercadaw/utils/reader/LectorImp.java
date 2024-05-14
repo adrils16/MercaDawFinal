@@ -27,7 +27,7 @@ public abstract class LectorImp implements Lector{
      * @return Contenido del fichero.
      * @throws FicheroException Si hay un error al cargar el fichero.
      */
-    public String cargar(File file) throws FicheroException{
+    public static String cargar(File file) throws FicheroException{
         final String MSG_ERROR = "Error al cargar el fichero";
 
         StringBuilder contenido = new StringBuilder();

@@ -32,8 +32,7 @@ Añadido paquete empleado al diagrama de clases, junto a la clase EmpleadoFactor
 2. Creado el module-info
 3. Creado el modelado de la base de datos de la aplicación
 
-> A la espera de docketizar la base de datos para hacer la creacion de las tablas con el esquema ralcional ya hecho en ModeladoBaseDatos.md
-> 
+> A la espera de docketizar la base de datos para hacer la creacion de las tablas con el esquema ralcional ya hecho en ModeladoBaseDatos.md 
 > Hay que revisar el POM por conflicto con el module-info
 
 ### 01/05 - Rodri
@@ -56,3 +55,10 @@ Creadas/Modificadas vistas con sus respectivos 'ViewController' hasta Gestión d
 
 1. Cambio de nombre a la clase MercaDawDAOImp a MercaDawMariaDBDAOImp, e implementación de la misma.
 2. Fichero docker-compose.yml y fichero .env ubicados en la raiz del proyecto.
+
+## TODO
+
+- Cambiar System.err por Mostrar Avisos
+- Nómina
+- Ctrl + C / Ctrl + V De metodos calcular
+- Investigar Docketizar App
