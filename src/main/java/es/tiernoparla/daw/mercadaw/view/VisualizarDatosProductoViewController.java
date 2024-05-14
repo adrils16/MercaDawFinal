@@ -58,12 +58,12 @@ public class VisualizarDatosProductoViewController extends ViewController{
 
     @FXML
     void mostrarProductos(MouseEvent event) {
-        //TODO
+        controller.cargarPantalla(Vista.MOSTRAR_STOCK);
     }
 
     @FXML
     void visualizarDatosProducto(MouseEvent event) {
-        //TODO
+        controller.cargarPantalla(Vista.DATOS_PRODUCTO);
     }
 
     @FXML

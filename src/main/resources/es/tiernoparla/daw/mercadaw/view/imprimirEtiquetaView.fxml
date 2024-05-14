@@ -12,7 +12,7 @@
 
 <AnchorPane fx:id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.tiernoparla.daw.mercadaw.view.ImprimirEtiquetaViewController">
    <children>
-      <Label fx:id="lblTitulo" layoutX="171.0" layoutY="65.0" text="IMPRIMIR ETIQUETA DEL PRODUCTO" />
+      <Label fx:id="lblTitulo" layoutX="130.0" layoutY="62.0" text="IMPRIMIR ETIQUETA DEL PRODUCTO" />
       <TextField fx:id="txfIdProducto" layoutX="229.0" layoutY="196.0" />
       <Label fx:id="lblIdProducto" layoutX="105.0" layoutY="199.0" text="ID Producto" />
       <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="156.0" layoutY="354.0">
@@ -21,8 +21,8 @@
          </image>
       </ImageView>
       <Button fx:id="btnImprimirEtiqueta" layoutX="276.0" layoutY="277.0" mnemonicParsing="false" onMouseClicked="#imprimirEtiqueta" text="Imprimir Etiqueta" />
-      <Button fx:id="btnAtras" layoutX="39.0" layoutY="35.0" mnemonicParsing="false" onMouseClicked="#volverAtras" text="Atrás" />
-      <Button fx:id="btnModo" layoutX="761.0" layoutY="35.0" mnemonicParsing="false" onMouseClicked="#cambiarModo" text="Cambiar Modo" />
+      <Button fx:id="btnAtras" layoutX="26.0" layoutY="22.0" mnemonicParsing="false" onMouseClicked="#volverAtras" text="Atrás" />
+      <Button fx:id="btnModo" layoutX="758.0" layoutY="22.0" mnemonicParsing="false" onMouseClicked="#cambiarModo" text="Cambiar Modo" />
       <TableView fx:id="tblProductos" layoutX="463.0" layoutY="138.0" prefHeight="416.0" prefWidth="403.0">
          <columns>
             <TableColumn fx:id="colId" prefWidth="200.80001831054688" text="ID" />
@@ -32,7 +32,7 @@
       <Button fx:id="btnMostrarProductos" layoutX="105.0" layoutY="277.0" mnemonicParsing="false" onMouseClicked="#mostrarProductos" text="Mostrar Productos" />
    </children>
    <stylesheets>
-      <URL value="@estiloClaroFinal.css" />
       <URL value="@estiloOscuro.css" />
+      <URL value="@estiloClaroFinal.css" />
    </stylesheets>
 </AnchorPane>

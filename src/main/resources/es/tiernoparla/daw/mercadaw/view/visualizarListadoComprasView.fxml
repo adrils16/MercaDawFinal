@@ -28,7 +28,7 @@
       </ImageView>
    </children>
    <stylesheets>
-      <URL value="@estiloClaroFinal.css" />
       <URL value="@estiloOscuro.css" />
+      <URL value="@estiloClaroFinal.css" />
    </stylesheets>
 </AnchorPane>

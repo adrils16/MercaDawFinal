@@ -33,6 +33,6 @@ public class DatosProductosViewController extends ViewController{
 
     @FXML
     void volverAtras(MouseEvent event) {
-        controller.cargarPantalla(Vista.GESTION_COMPRAS);
+        controller.cargarPantalla(Vista.GESTION_PRODUCTO);
     }
 }

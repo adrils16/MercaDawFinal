@@ -72,6 +72,7 @@ public class MercadawController extends Application{
 
     }
 
+    //quitar
     public void cargarProducto()throws IOException{
         cargarVista(Vista.GESTION_PRODUCTO);
     }

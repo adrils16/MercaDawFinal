@@ -2,6 +2,7 @@ package es.tiernoparla.daw.mercadaw.view;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
@@ -29,14 +30,14 @@ public class GestionProductoViewController extends ViewController{
     private Button btnModo;
 
     @FXML
-    private AnchorPane lblTitulo;
+    private Label lblTitulo;
 
     @FXML
     private AnchorPane container;
 
     @FXML
     void volverAtras(MouseEvent event) {
-
+        controller.cargarPantalla(Vista.INICIO);
     }
 
     @FXML
@@ -75,7 +76,7 @@ public class GestionProductoViewController extends ViewController{
 
     @FXML
     void visualizarDatosProducto(MouseEvent event) {
-        controller.cargarPantalla(Vista.DATOS_PRODUCTO);
+        controller.cargarPantalla(Vista.VISUALIZAR_DATOS_PRODUCTO);
 
     }
 

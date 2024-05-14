@@ -47,7 +47,7 @@
       <Label layoutX="193.0" layoutY="435.0" prefHeight="31.0" prefWidth="200.0" text="Desde un fichero:" />
    </children>
    <stylesheets>
-      <URL value="@estiloClaroFinal.css" />
       <URL value="@estiloOscuro.css" />
+      <URL value="@estiloClaroFinal.css" />
    </stylesheets>
 </AnchorPane>

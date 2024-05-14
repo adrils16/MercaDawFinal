@@ -12,7 +12,7 @@ public enum Vista {
     DAR_ALTA_EMPLEADO("view/darAltaEmpleadoView.fxml"),
     DATOS_PRODUCTO("view/datosProductoView.fxml"),
     IMPRIMIR__ETIQUETA("view/imprimirEtiquetaView.fxml"),
-    MOSTRAR_STOCK("view/mostarStockProductosView.fxml"),
+    MOSTRAR_STOCK("view/mostrarStockProductosView.fxml"),
     PRECIO_VENTA("view/obtenerPrecioVentaProductoView.fxml"),
     VISUALIZAR_DATOS_PRODUCTO("view/visualizarDatosProductoView.fxml"),
     VISUALIZAR_LISTADO_COMPRAS("view/visualizarListadoComprasView.fxml"),

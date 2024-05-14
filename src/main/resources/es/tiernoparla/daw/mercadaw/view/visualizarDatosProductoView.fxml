@@ -15,7 +15,7 @@
 
 <AnchorPane fx:id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.tiernoparla.daw.mercadaw.view.VisualizarDatosProductoViewController">
    <children>
-      <Label fx:id="lblTitulo" layoutX="164.0" layoutY="62.0" text="VISUALIZAR DATOS DEL PRODUCTO" />
+      <Label fx:id="lblTitulo" layoutX="132.0" layoutY="62.0" text="VISUALIZAR DATOS DEL PRODUCTO" />
       <GridPane layoutX="121.0" layoutY="198.0" prefHeight="25.0" prefWidth="250.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -35,8 +35,8 @@
          </image>
       </ImageView>
       <Button fx:id="btnVisualizarDatos" layoutX="275.0" layoutY="267.0" mnemonicParsing="false" onMouseClicked="#visualizarDatosProducto" text="Visualizar Datos" />
-      <Button fx:id="btnAtras" layoutX="55.0" layoutY="47.0" mnemonicParsing="false" onMouseClicked="#volverAtras" text="Atrás" />
-      <Button fx:id="btnModo" layoutX="752.0" layoutY="47.0" mnemonicParsing="false" onMouseClicked="#cambiarModo" text="Cambiar Modo" />
+      <Button fx:id="btnAtras" layoutX="32.0" layoutY="26.0" mnemonicParsing="false" onMouseClicked="#volverAtras" text="Atrás" />
+      <Button fx:id="btnModo" layoutX="752.0" layoutY="26.0" mnemonicParsing="false" onMouseClicked="#cambiarModo" text="Cambiar Modo" />
       <TableView fx:id="tblProductos" layoutX="453.0" layoutY="128.0" prefHeight="416.0" prefWidth="403.0">
          <columns>
             <TableColumn fx:id="colId" prefWidth="200.80001831054688" text="ID" />
@@ -46,7 +46,7 @@
       <Button fx:id="btnMostrarProductos" layoutX="95.0" layoutY="267.0" mnemonicParsing="false" onMouseClicked="#mostrarProductos" text="Mostrar Productos" />
    </children>
    <stylesheets>
-      <URL value="@estiloClaroFinal.css" />
       <URL value="@estiloOscuro.css" />
+      <URL value="@estiloClaroFinal.css" />
    </stylesheets>
 </AnchorPane>

@@ -46,7 +46,7 @@
       <Button fx:id="btnModo" layoutX="767.0" layoutY="39.0" mnemonicParsing="false" onMouseClicked="#cambiarModo" text="Cambiar Modo" />
    </children>
    <stylesheets>
-      <URL value="@estiloClaroFinal.css "/>
       <URL value="@estiloOscuro.css" />
+      <URL value="@estiloClaroFinal.css" />
    </stylesheets>
 </AnchorPane>

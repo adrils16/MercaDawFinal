@@ -21,7 +21,7 @@
       <Button fx:id="btnAtras" layoutX="37.0" layoutY="38.0" mnemonicParsing="false" onMouseClicked="#volverAtras" text="Atrás" />
    </children>
    <stylesheets>
-      <URL value="@estiloClaroFinal.css" />
       <URL value="@estiloOscuro.css" />
+      <URL value="@estiloClaroFinal.css" />
    </stylesheets>
 </AnchorPane>
