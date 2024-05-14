@@ -50,7 +50,7 @@ public class MostrarStockProductosViewController extends ViewController{
 
     @FXML
     void volverAtras(MouseEvent event) {
-        controller.cargarPantalla(Vista.GESTION_PRODUCTO);
+        controller.cargarPantalla(Vista.VISUALIZAR_DATOS_PRODUCTO);
     }
 
     @FXML
