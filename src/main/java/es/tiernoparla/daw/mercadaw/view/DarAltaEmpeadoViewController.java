@@ -3,6 +3,9 @@ package es.tiernoparla.daw.mercadaw.view;
 import java.io.File;
 import java.io.FileReader;
 
+import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
+import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.EmpleadoFactory;
+import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.enums.CategoriaEmpleado;
 import es.tiernoparla.daw.mercadaw.utils.reader.LectorFactory;
 import es.tiernoparla.daw.mercadaw.utils.reader.LectorImp;
 import es.tiernoparla.daw.mercadaw.utils.reader.enumeracion.TipoLector;
@@ -90,20 +93,29 @@ public class DarAltaEmpeadoViewController extends ViewController{
         final String MSG_ERROR = "Error al dar de alta el empleado";
         final String MSG_ERROR_EMPLEADO = "Ya exitse ese empleado";
         final String MSG_EXITO = "Empleado dado de alta correctamente";
+        final String MSG_ERROR_CAMPOS = "Rellene todos los campos, por favor";
     
+        Empleado empleado = null;
+
         try {
             String nombre = txfNombre.getText();
             String apellidos = txfApellidos.getText();
-            String categoria = txfCategoria.getText();
+            CategoriaEmpleado categoria = CategoriaEmpleado.valueOf(txfCategoria.getText().toUpperCase());
 
-            //Empleado empleado = new Empleado(nombre, apellidos, categoria);
+            if (this.empleados.contains(empleado)) {
+                mostrarAviso(MSG_ERROR_EMPLEADO, AlertType.ERROR);
+            } else if (camposRellenos()){
 
-            //if (this.empleados.contains(empleado)) {
-            //     mostrarAviso(MSG_ERROR_EMPLEADO, AlertType.ERROR);
-            // } else {
-            //     //TODO insertar a lista
-            //     //TODO insertar BBDD
-            // }
+                empleado = EmpleadoFactory.crear(categoria, nombre, apellidos, 0);
+
+                this.empleados.add(empleado);
+                //dao.;
+                //TODO insertar BBDD
+
+                mostrarAviso(MSG_EXITO, AlertType.CONFIRMATION);
+            } else {
+                mostrarAviso(MSG_ERROR_CAMPOS, AlertType.ERROR);
+            }
 
         } catch (Exception e) {
             mostrarAviso(MSG_ERROR, AlertType.ERROR);
@@ -181,5 +193,9 @@ public class DarAltaEmpeadoViewController extends ViewController{
     @FXML
     void volverAtras(MouseEvent event) {
         controller.cargarPantalla(Vista.GESTION_EMPLEADOS);
+    }
+
+    private boolean camposRellenos() {
+        return campoRelleno(txfNombre) && campoRelleno(txfApellidos) && campoRelleno(txfCategoria);
     }
 }
