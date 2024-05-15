@@ -1,4 +1,4 @@
-package es.tiernoparla.daw.mercadaw.model.enums;
+package es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.enums;
 
 public enum CategoriaEmpleado {
     EMPLEADO(1000),
