@@ -1,15 +1,11 @@
 package es.tiernoparla.daw.mercadaw.model.entity.producto;
 
-import es.tiernoparla.daw.mercadaw.model.entity.producto.enums.CategoriaProducto;
-import es.tiernoparla.daw.mercadaw.model.entity.producto.enums.TipoIVA;
-
 public class Cosmetica extends Producto{
 
-    public final static CategoriaProducto CATEGORIA = CategoriaProducto.COSMETICA;
+    public Cosmetica(String nombre, String marca, double precio, Caracteristica caracteristica, String descripcion, String categoria) {
 
-    public Cosmetica(String nombre, String marca, double precio, Caracteristica caracteristica, String descripcion) {
-        super(nombre, marca, precio, caracteristica, descripcion);
-        //TODO Auto-generated constructor stub
+        super(nombre, marca, precio, caracteristica, descripcion, categoria);
+        
     }
 
 }

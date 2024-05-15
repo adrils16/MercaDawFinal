@@ -6,20 +6,28 @@ public class ProductoFactory {
     
     public static Producto crear(CategoriaProducto tipo, String nombre, String marca, double precio, Caracteristica caracteristica, String descripcion) {
 
+        final String C_ALIMENTACION = "Alimentación";
+        final String C_DROGUERIA = "Droguería";
+        final String C_COSMETICA = "Cosmética";
+
         Producto p = null;
+        String categoria;
 
         switch (tipo) {
             
             case ALIMENTACION:
-                p = new Alimentacion(nombre, marca, precio, caracteristica, descripcion);
+                categoria = C_ALIMENTACION;
+                p = new Alimentacion(nombre, marca, precio, caracteristica, descripcion, categoria);
                 break;
         
             case DROGUERIA:
-                p = new Drogueria(nombre, marca, precio, caracteristica, descripcion);
+                categoria = C_DROGUERIA;
+                p = new Drogueria(nombre, marca, precio, caracteristica, descripcion, categoria);
                 break;
 
             case COSMETICA: 
-                p = new Cosmetica(nombre, marca, precio, caracteristica, descripcion);
+                categoria = C_COSMETICA;
+                p = new Cosmetica(nombre, marca, precio, caracteristica, descripcion, categoria);
                 break;
 
         }

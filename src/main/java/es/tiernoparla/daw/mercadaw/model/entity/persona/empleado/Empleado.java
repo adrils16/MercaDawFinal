@@ -26,8 +26,12 @@ public class Empleado extends Persona implements Imprimible{
 
     @Override
     public String imprimir() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'imprimir'");
+        
+        final String TEXTO = "* Identificador: %s";
+
+        String cadena = "";
+
+        return cadena;
     }
 
 }

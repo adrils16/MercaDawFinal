@@ -12,14 +12,16 @@ public abstract class Producto implements Imprimible {
     protected double precio;
     protected Caracteristica caracteristica;
     protected String descripcion;
-    protected double valorIVA;
+    protected double valorIVA = IVA.getValor();
+    protected String categoria;
 
-    public Producto(String nombre, String marca, double precio, Caracteristica caracteristica, String descripcion) {
+    public Producto(String nombre, String marca, double precio, Caracteristica caracteristica, String descripcion, String categoria) {
         this.nombre = nombre;
         this.marca = marca;
         this.precio = precio;
         this.caracteristica = caracteristica;
         this.descripcion = descripcion;
+        this.categoria = categoria;
     }
     
     public String getNombre() {
@@ -101,9 +103,9 @@ public abstract class Producto implements Imprimible {
      */
     public double calcularValorIVA(double precioTotal) {
 
-        double valorIVA = precioTotal*this.valorIVA;
+        double valor = precioTotal*valorIVA;
 
-        return valorIVA;
+        return valor;
 
     }
 
@@ -123,6 +125,11 @@ public abstract class Producto implements Imprimible {
         return cadena;
     }
 
+    /**
+     * Concatena el String del método imprimir() con el de visualizarRecargos() en Caracteristica, 
+     * junto con la información de su precio total.
+     * @return String con toda la información del producto y su precio total.
+     */
     public String visualizarPrecioTotal()  {
 
         final String PLANTILLA = "* PRECIO TOTAL: %s € / %s $\n"
@@ -136,7 +143,22 @@ public abstract class Producto implements Imprimible {
 
     }
 
-    //TODO public String imprimirEtiqueta() 
+    /**
+     * Crea un String con una etiqueta que muestra información resumida del Producto
+     * @return String de la etiqueta
+     */
+    public String imprimirEtiqueta() {
+
+        final String PLANTILLA = "* Nombre: %s\n"
+                                +"* Marca: %s\n"
+                                +"* Categoría: %s\n"
+                                +"* Descripción: %s\n"; 
+
+        String cadena = String.format(PLANTILLA, nombre, marca, categoria, descripcion);
+
+        return cadena;
+
+    }
 
 
 }
