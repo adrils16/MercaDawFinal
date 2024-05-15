@@ -1,6 +1,6 @@
 package es.tiernoparla.daw.mercadaw.utils.writer;
 
-import es.tiernoparla.daw.mercadaw.utils.writer.enumeration.TipoDocumento;
+import es.tiernoparla.daw.mercadaw.utils.writer.enums.TipoDocumento;
 
 public class ExportFactory {
     
