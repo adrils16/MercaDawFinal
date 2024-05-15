@@ -1,6 +1,6 @@
 package es.tiernoparla.daw.mercadaw.model.dao;
 
-import es.tiernoparla.daw.mercadaw.model.enumeracion.TipoDB;
+import es.tiernoparla.daw.mercadaw.model.dao.enums.TipoDB;
 
 public class MercaDawDAOFactory {
 
