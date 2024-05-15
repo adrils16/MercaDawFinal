@@ -27,9 +27,12 @@ public class Empleado extends Persona implements Imprimible{
     @Override
     public String imprimir() {
         
-        final String TEXTO = "* Identificador: %s";
+        final String TEXTO = "* Identificador: %s"
+                            +"* Nombre: %s"
+                            +"* Apellidos: %s"
+                            +"* Categoría: %s";
 
-        String cadena = "";
+        String cadena = String.format(TEXTO, id, nombre, apellidos, CATEGORIA);
 
         return cadena;
     }
