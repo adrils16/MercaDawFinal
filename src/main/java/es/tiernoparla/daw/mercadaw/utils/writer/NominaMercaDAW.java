@@ -19,6 +19,7 @@ public class NominaMercaDAW implements Nomina, Documento {
     public final static double CONTIGENCIAS=0.047;
     public final static double FORMACION=0.001;
     public final static double DESEMPLEO=0.014;
+    public final static double MEI=0.012;
 
     private double irpf;
     private double pagas;
@@ -26,8 +27,15 @@ public class NominaMercaDAW implements Nomina, Documento {
     private double formacion;
     private double desempleo;
     private double liquido;
+    private double mei;
     private Sede sede;
     
+    public double getMei() {
+        return mei;
+    }
+    public void setMei(double mei) {
+        this.mei = mei;
+    }
     public Sede getSede() {
         return sede;
     }
@@ -38,7 +46,7 @@ public class NominaMercaDAW implements Nomina, Documento {
         return liquido;
     }
     public void setLiquido() {
-        this.liquido = CategoriaEmpleado.EMPLEADO.getSueldo() + pagas - contingencias - irpf - formacion - desempleo;  
+        this.liquido = CategoriaEmpleado.EMPLEADO.getSueldo() + pagas - contingencias - irpf - formacion - desempleo - mei;  
     }
     public double getIrpf() {
         return irpf;
@@ -73,7 +81,7 @@ public class NominaMercaDAW implements Nomina, Documento {
     @Override
     public void calcularIRPF(Empleado empleado) {
 
-        irpf=IRPF*CategoriaEmpleado.EMPLEADO.getSueldo();
+        irpf=(CategoriaEmpleado.EMPLEADO.getSueldo()+pagas) * IRPF;
     }
     @Override
     public void calcularPagas(Empleado empleado) {
@@ -82,15 +90,15 @@ public class NominaMercaDAW implements Nomina, Documento {
     }
     @Override
     public void calcularContingencias(Empleado empleado) {
-        contingencias = CategoriaEmpleado.EMPLEADO.getSueldo()*CONTIGENCIAS;
+        contingencias = (CategoriaEmpleado.EMPLEADO.getSueldo()+pagas)*CONTIGENCIAS;
     }
     @Override
     public void calcularFormacion(Empleado empleado) {
-        formacion = CategoriaEmpleado.EMPLEADO.getSueldo()*FORMACION;
+        formacion = (CategoriaEmpleado.EMPLEADO.getSueldo()+pagas)*FORMACION;
     }
     @Override
     public void calcularDesempleo(Empleado empleado) {
-        desempleo = CategoriaEmpleado.EMPLEADO.getSueldo()*DESEMPLEO;
+        desempleo = (CategoriaEmpleado.EMPLEADO.getSueldo()+pagas)*DESEMPLEO;
     }
     /**
      * Genera una nomina a mostrar en un mensaje de aviso
@@ -98,13 +106,18 @@ public class NominaMercaDAW implements Nomina, Documento {
     @Override 
     public String toString() {
     
-        final String CADENA = "CUANTIA \t  CONCEPTO \t \t DEVENGOS \t DEDUCCIONES \n 30 \t  SALARIO BASE \t \t %s \n 30 \t PAGAS EXTRA \t \t %s \n \t \t CONTIGENCIAS COMUNES 4.70%  \t  \t %s \n \t \t FORMACION 0.10 \t \t %s \n \t \t  DESEMPLEO 1.55%  \t \t %s \n \t \t IRPF 14% \t \t %s \n \n \n LIQUIDO A PERCIBIR: %s ";
+        final String CADENA = "CUANTIA \t  CONCEPTO \t \t DEVENGOS \t DEDUCCIONES \n"
+                            + " 30 \t  SALARIO BASE \t \t %s \n" 
+                            + " 30 \t PAGAS EXTRA \t \t %s \n" 
+                            + "\t \t CONTIGENCIAS COMUNES 4.70%  \t  \t %s \n " 
+                            + "\t \t FORMACION 0.10 \t \t %s \n" 
+                            + "\t \t  DESEMPLEO 1.55%  \t \t %s \n " 
+                            + "\t \t IRPF 14% \t \t %s \n " 
+                            + "\t \t MEI 0,12% \t \t %s \n "
+                            + " \n "
+                            + "\n LIQUIDO A PERCIBIR: %s ";
         
-        //return String.format(CADENA, CategoriaEmpleado.EMPLEADO.getSueldo(),pagas, contingencias,  formacion , desempleo , irpf , liquido );
-
-        //! Comentado y anyadido return por error en el código
-        //! quitar return
-        return null;
+        return String.format(CADENA, CategoriaEmpleado.EMPLEADO.getSueldo(),pagas, contingencias,  formacion , desempleo , irpf , mei , liquido );
     }
     /* @Override
     public Map<String, Object[]> getContenido() {
@@ -167,5 +180,9 @@ public class NominaMercaDAW implements Nomina, Documento {
     public Map<String, Object[]> getContenido() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getContenido'");
+    }
+    @Override
+    public void calcularMEI() {
+        mei = (CategoriaEmpleado.EMPLEADO.getSueldo()+pagas)*MEI;
     }
 }
