@@ -22,4 +22,11 @@ public class ProductoTest {
         System.out.println(p.visualizarPrecioTotal());
         
     }
+
+    @Test
+    public void mostrarEtiqueta() {
+
+        System.out.println(p.imprimirEtiqueta());
+
+    }
 }

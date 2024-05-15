@@ -8,10 +8,8 @@ import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
 
 public class Sede implements MercaDaw {
 
-    public final static int NUM_EMPLEADOS = 432;
-
     private List<Producto> productos = new ArrayList<>();
-    private Empleado[] empleados = new Empleado[NUM_EMPLEADOS];
+    private List<Empleado> empleados = new ArrayList<>();
 
 
     public List<Producto> getProductos() {
@@ -22,11 +20,11 @@ public class Sede implements MercaDaw {
         this.productos = productos;
     }
 
-    public Empleado[] getEmpleados() {
+    public List<Empleado> getEmpleados() {
         return empleados;
     }
 
-    public void setEmpleados(Empleado[] empleados) {
+    public void setEmpleados(List<Empleado> empleados) {
         this.empleados = empleados;
     }
 
@@ -49,7 +47,7 @@ public class Sede implements MercaDaw {
     }
 
     @Override
-    public void visualizar(Empleado[] empleados) {
+    public void visualizar(List<Empleado> empleados) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'visualizarEmpleados'");
     }
@@ -67,9 +65,10 @@ public class Sede implements MercaDaw {
     }
 
     @Override
-    public double calcularNominas(Empleado[] empleados) {
+    public double calcularNominas(List<Empleado> empleados) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'calcularNominas'");
     }
+
     
 }
