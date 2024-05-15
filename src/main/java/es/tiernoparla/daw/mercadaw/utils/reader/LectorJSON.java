@@ -10,9 +10,12 @@ import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Encargado;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Reponedor;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Alimentacion;
+import es.tiernoparla.daw.mercadaw.model.entity.producto.Caracteristica;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Cosmetica;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Drogueria;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
+import es.tiernoparla.daw.mercadaw.model.entity.producto.ProductoFactory;
+import es.tiernoparla.daw.mercadaw.model.entity.producto.enums.CategoriaProducto;
 
 /**
  * Clase que lee un fichero JSON y devuelve una lista de productos o empleados.
@@ -65,18 +68,20 @@ public class LectorJSON extends LectorImp {
         id = Integer.parseInt(st.nextToken());
         categoria = st.nextToken().toUpperCase();
 
+        //TODO hacer cuando se haga estatico el metodo
+
         switch (categoria) {
             case EMP_CAJERO:
-                empleado = new Cajero(nombre, apellidos, id);
+                //empleado = EmpleadoFactory.crear(CategoriaEmpleado.CAJERO, nombre, apellidos, id);
 
             case EMP_ENCARGADO:
-                empleado = new Encargado(nombre, apellidos, id);
+                //empleado = EmpleadoFactory.crear(CategoriaEmpleado.ENCARGADO, nombre, apellidos, id);
 
             case EMP_REPONEDOR:
-                empleado = new Reponedor(nombre, apellidos, id);
+                //empleado = EmpleadoFactory.crear(CategoriaEmpleado.REPONEDOR, nombre, apellidos, id);
 
             case EMP_EMPLEADO:
-                empleado = new Empleado(nombre, apellidos, id);
+                //empleado = EmpleadoFactory.crear(CategoriaEmpleado.EMPLEADO, nombre, apellidos, id);
         }
 
         return empleado;
@@ -117,15 +122,17 @@ public class LectorJSON extends LectorImp {
         descripcion = st.nextToken();
         categoria = st.nextToken().toUpperCase();
 
+        Caracteristica caracteristica = new Caracteristica(altura, anchura, peso, numElementos);
+
         switch (categoria) {
             case PROD_ALIMENTACION:
-                producto = new Alimentacion(nombre, marca, precio, altura, anchura, peso, numElementos, descripcion);
+                producto = ProductoFactory.crear(CategoriaProducto.ALIMENTACION, nombre, marca, precio, caracteristica, descripcion);
 
             case PROD_DROGUERIA:
-                producto = new Drogueria(nombre, marca, precio, altura, anchura, peso, numElementos, descripcion);
+                producto = ProductoFactory.crear(CategoriaProducto.DROGUERIA, nombre, marca, precio, caracteristica, descripcion);
 
             case PROD_COSMETICA:
-                producto = new Cosmetica(nombre, marca, precio, altura, anchura, peso, numElementos, descripcion);
+                producto = ProductoFactory.crear(CategoriaProducto.COSMETICA, nombre, marca, precio, caracteristica, descripcion);
         }
 
         return producto;

@@ -4,14 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
+import es.tiernoparla.daw.mercadaw.model.entity.producto.ProductoFactory;
+import es.tiernoparla.daw.mercadaw.model.entity.producto.enums.CategoriaProducto;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Cajero;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
+import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.EmpleadoFactory;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Encargado;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Reponedor;
+import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.enums.CategoriaEmpleado;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Alimentacion;
+import es.tiernoparla.daw.mercadaw.model.entity.producto.Caracteristica;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Drogueria;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Cosmetica;
-
 
 import es.tiernoparla.daw.mercadaw.exception.LectorException;
 
@@ -22,6 +26,7 @@ public class LectorCSV extends LectorImp {
 
     /**
      * Procesa una fila de un fichero CSV y devuelve un objeto Producto.
+     * 
      * @param fila Fila del fichero CSV.
      * @return Producto.
      */
@@ -54,15 +59,17 @@ public class LectorCSV extends LectorImp {
         descripcion = st.nextToken();
         categoria = st.nextToken().toUpperCase();
 
+        Caracteristica caracteristica = new Caracteristica(altura, anchura, peso, numElementos);
+        
         switch (categoria) {
             case PROD_ALIMENTACION:
-                producto = new Alimentacion(nombre, marca, precio, altura, anchura, peso, numElementos, descripcion);
-            
+                producto = ProductoFactory.crear(CategoriaProducto.ALIMENTACION, nombre, marca, precio, caracteristica, descripcion);
+
             case PROD_DROGUERIA:
-                producto = new Drogueria(nombre, marca, precio, altura, anchura, peso, numElementos, descripcion);
+                producto = ProductoFactory.crear(CategoriaProducto.DROGUERIA, nombre, marca, precio, caracteristica, descripcion);
 
             case PROD_COSMETICA:
-                producto = new Cosmetica(nombre, marca, precio, altura, anchura, peso, numElementos, descripcion);
+                producto = ProductoFactory.crear(CategoriaProducto.COSMETICA, nombre, marca, precio, caracteristica, descripcion);
         }
 
         return producto;
@@ -70,6 +77,7 @@ public class LectorCSV extends LectorImp {
 
     /**
      * Procesa una fila de un fichero CSV y devuelve un objeto Empleado.
+     * 
      * @param fila Fila del fichero CSV.
      * @return Empleado.
      */
@@ -84,7 +92,6 @@ public class LectorCSV extends LectorImp {
         int id = 0;
         String categoria;
 
-
         Empleado empleado = null;
 
         StringTokenizer st = new StringTokenizer(fila, ",");
@@ -93,25 +100,28 @@ public class LectorCSV extends LectorImp {
         apellidos = st.nextToken();
         categoria = st.nextToken().toUpperCase();
 
+        //TODO hacer cuando se haga estatico el metodo
+
         switch (categoria) {
             case EMP_CAJERO:
-                empleado = new Cajero(nombre, apellidos, id);
-            
+                //empleado = EmpleadoFactory.crear(CategoriaEmpleado.CAJERO, nombre, apellidos, id);
+
             case EMP_ENCARGADO:
-                empleado = new Encargado(nombre, apellidos, id);
+                //empleado = EmpleadoFactory.crear(CategoriaEmpleado.ENCARGADO, nombre, apellidos, id);
 
             case EMP_REPONEDOR:
-                empleado = new Reponedor(nombre, apellidos, id);
-            
+                //empleado = EmpleadoFactory.crear(CategoriaEmpleado.REPONEDOR, nombre, apellidos, id);
+
             case EMP_EMPLEADO:
-                empleado = new Empleado(nombre, apellidos, id);
+                //empleado = EmpleadoFactory.crear(CategoriaEmpleado.EMPLEADO, nombre, apellidos, id);
         }
 
         return empleado;
+
     }
 
     @Override
-    public List<Producto> leerProducto (String cadena) throws LectorException {
+    public List<Producto> leerProducto(String cadena) throws LectorException {
         final String MSG_ERROR = "Error al leer el fichero CSV";
 
         boolean primeraFila = true;
