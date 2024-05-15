@@ -1,28 +1,23 @@
 package es.tiernoparla.daw.mercadaw.model.entity.producto;
 
-public abstract class Producto {
+import es.tiernoparla.daw.mercadaw.model.entity.interfaces.Gestionable;
+
+public abstract class Producto implements Gestionable {
 
     protected String nombre;
     protected String marca;
     protected double precio;
-    protected double altura;
-    protected double anchura;
-    protected double peso;
-    protected int numElementos;
+    protected Caracteristica caracteristica;
     protected String descripcion;
 
-    public Producto(String nombre, String marca, double precio, double altura, double anchura, double peso,
-            int numElementos, String descripcion) {
+    public Producto(String nombre, String marca, double precio, Caracteristica caracteristica, String descripcion) {
         this.nombre = nombre;
         this.marca = marca;
         this.precio = precio;
-        this.altura = altura;
-        this.anchura = anchura;
-        this.peso = peso;
-        this.numElementos = numElementos;
+        this.caracteristica = caracteristica;
         this.descripcion = descripcion;
     }
-
+    
     public String getNombre() {
         return nombre;
     }
@@ -41,30 +36,6 @@ public abstract class Producto {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
-    public double getAltura() {
-        return altura;
-    }
-    public void setAltura(double altura) {
-        this.altura = altura;
-    }
-    public double getAnchura() {
-        return anchura;
-    }
-    public void setAnchura(double anchura) {
-        this.anchura = anchura;
-    }
-    public double getPeso() {
-        return peso;
-    }
-    public void setPeso(double peso) {
-        this.peso = peso;
-    }
-    public int getNumElementos() {
-        return numElementos;
-    }
-    public void setNumElementos(int numElementos) {
-        this.numElementos = numElementos;
-    }
     public String getDescripcion() {
         return descripcion;
     }
@@ -73,14 +44,4 @@ public abstract class Producto {
     }
 
     //TODO public double calcularPrecio()
-    //TODO public double calcularRecargoPeso()
-    //TODO public double calcularRecargoAltura()
-    //TODO public double calcularRecargoAnchura()
-    //TODO public double calcularRecargoNumElementos()
-    
-    /* 
-    public ProductoBuilder builder() {
-        return new ProductoBuilder();
-    }
-    */
 }

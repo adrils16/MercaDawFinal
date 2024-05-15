@@ -1,6 +1,6 @@
 package es.tiernoparla.daw.mercadaw.model.entity.producto;
 
-import es.tiernoparla.daw.mercadaw.model.enumeracion.CategoriaProducto;
+import es.tiernoparla.daw.mercadaw.model.enums.CategoriaProducto;
 
 public class ProductoFactory {
     
@@ -11,15 +11,15 @@ public class ProductoFactory {
         switch (tipo) {
             
             case ALIMENTACION:
-                p = new Alimentacion(nombre, marca, precio, altura, anchura, peso, numElementos, descripcion);
+                p = new Alimentacion();
                 break;
         
             case DROGUERIA:
-                p = new Drogueria(nombre, marca, precio, altura, anchura, peso, numElementos, descripcion);
+                p = new Drogueria();
                 break;
 
             case COSMETICA: 
-                p = new Cosmetica(nombre, marca, precio, altura, anchura, peso, numElementos, descripcion);
+                p = new Cosmetica();
                 break;
 
         }

@@ -62,3 +62,4 @@ Creadas/Modificadas vistas con sus respectivos 'ViewController' hasta Gestión d
 - Nómina
 - Ctrl + C / Ctrl + V De metodos calcular
 - Investigar Docketizar App
+- Poner datos a las tablas de las vistas

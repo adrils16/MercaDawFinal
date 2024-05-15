@@ -1,6 +1,6 @@
 package es.tiernoparla.daw.mercadaw.model.entity.persona.empleado;
 
-import es.tiernoparla.daw.mercadaw.model.enumeracion.CategoriaEmpleado;
+import es.tiernoparla.daw.mercadaw.model.enums.CategoriaEmpleado;
 
 public class Encargado extends Empleado {
     
