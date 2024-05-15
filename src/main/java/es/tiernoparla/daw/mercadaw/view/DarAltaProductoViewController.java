@@ -4,6 +4,10 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 
+import es.tiernoparla.daw.mercadaw.model.entity.producto.Caracteristica;
+import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
+import es.tiernoparla.daw.mercadaw.model.entity.producto.ProductoFactory;
+import es.tiernoparla.daw.mercadaw.model.entity.producto.enums.CategoriaProducto;
 import es.tiernoparla.daw.mercadaw.utils.reader.Lector;
 import es.tiernoparla.daw.mercadaw.utils.reader.LectorFactory;
 import es.tiernoparla.daw.mercadaw.utils.reader.LectorImp;
@@ -116,11 +120,14 @@ public class DarAltaProductoViewController extends ViewController {
         final String MSG_ERROR = "Error al dar de alta el producto";
         final String MSG_ERROR_PRODUCTO = "Ya exitse ese producto";
         final String MSG_EXITO = "Producto dado de alta correctamente";
+        final String MSG_ERROR_CAMPOS = "Rellene todos los campos, por favor";
+
+        Producto producto = null;
 
         try {
             String nombre = txfNombre.getText();
             String marca = txfMarca.getText();
-            String categoria = txfCategoria.getText();
+            CategoriaProducto categoria = CategoriaProducto.valueOf(txfCategoria.getText().toUpperCase());
             double precio = Double.parseDouble(txfPrecio.getText());
             double altura = Double.parseDouble(txfAltura.getText());
             double anchura = Double.parseDouble(txfAnchura.getText());
@@ -128,12 +135,19 @@ public class DarAltaProductoViewController extends ViewController {
             int numElementos = Integer.parseInt(txfNumElementos.getText());
             String descripcion = txaDescripcion.getText();
 
-            // if (this.productos.contains(producto)) {
-            //     mostrarAviso(MSG_ERROR_PRODUCTO, AlertType.ERROR);
-            // } else {
-            //     //TODO insertar a lista
-            //     //TODO insertar BBDD
-            // }
+            if (this.productos.contains(producto)) {
+                mostrarAviso(MSG_ERROR_PRODUCTO, AlertType.ERROR);
+            } else if (camposRellenos()){
+
+                producto = ProductoFactory.crear(categoria, nombre, marca, precio, new Caracteristica(altura, anchura, peso, numElementos), descripcion);
+
+                this.productos.add(producto);
+                dao.insertar(producto);
+
+                mostrarAviso(MSG_EXITO, AlertType.CONFIRMATION);
+            } else {
+                mostrarAviso(MSG_ERROR_CAMPOS, AlertType.ERROR);
+            }
 
         } catch (Exception e) {
             mostrarAviso(MSG_ERROR, AlertType.ERROR);
@@ -166,7 +180,7 @@ public class DarAltaProductoViewController extends ViewController {
                 Lector lector = LectorFactory.obtenerLector(TipoLector.CSV);
 
                 this.productos.addAll(lector.leerProducto(LectorImp.cargar(fichero)));
-                //TODO
+                dao.insertar(productos);
 
             } catch (Exception e) {
                 mostrarAviso(MSG_ERROR, AlertType.ERROR);
@@ -225,5 +239,11 @@ public class DarAltaProductoViewController extends ViewController {
             container.getStylesheets().add(getClass().getResource(ESTILO_OSCURO).toExternalForm());
             esClaro = false;
         }
+    }
+
+    private boolean camposRellenos() {
+        return campoRelleno(txfNombre) && campoRelleno(txfMarca) && campoRelleno(txfCategoria) && campoRelleno(txfPrecio)
+                && campoRelleno(txfAltura) && campoRelleno(txfAnchura) && campoRelleno(txfPeso)
+                && campoRelleno(txfNumElementos) && areaRellena(txaDescripcion);
     }
 }
