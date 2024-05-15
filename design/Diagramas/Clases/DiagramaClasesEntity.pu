@@ -9,23 +9,28 @@ package es.tiernoparla.daw.mercadaw.model.entity {
             +crear(categoria: CategoriaProducto): Producto
         }
 
-        abstract Producto {
-            -nombre: String
-            -marca: String
-            -precio: double
+        class Caracteristica {
             -altura: double
             -anchura: double
             -peso: double
             -numElementos: int
-            -descripcion: String
 
-            +calcularPrecio(): double
             +calcularRecargoPeso(): double
             +calcularRecargoAltura(): double
             +calcularRecargoAnchura(): double
             +calcularRecargoNumElementos(): double
-            +builder(): ProductoBuilder
         }
+
+        abstract Producto {
+            -nombre: String
+            -marca: String
+            -precio: double
+            -descripcion: String
+
+            +calcularPrecio(): double
+        }
+
+        Caracteristica "1" --*  "1" Producto
 
         class Alimentacion {
             +{static} CATEGORIA: CategoriaProducto = ALIMENTACION
@@ -40,27 +45,6 @@ package es.tiernoparla.daw.mercadaw.model.entity {
         class Cosmetica {
             +{static} CATEGORIA: CategoriaProducto = COSMETICA
             +{static} TipoIVA = GENERAL
-        }
-
-        'Está en duda
-        class ProductoBuilder {
-            -nombre: String
-            -marca: String
-            -precio: double
-            -altura: double
-            -anchura: double
-            -peso: double
-            -numElementos: int
-            -descripcion: String
-            +setNombre(nombre: String): ProductoBuilder
-            +setMarca(marca: String): ProductoBuilder
-            +setPrecio(precio: double): ProductoBuilder
-            +setAltura(altura: double): ProductoBuilder
-            +setAnchura(anchura: double): ProductoBuilder
-            +setPeso(peso: double): ProductoBuilder
-            +setNumElementos(numElementos: int): ProductoBuilder
-            +setDescripcion(descripcion: String): ProductoBuilder
-            +build(): Producto
         }
 
         Producto <|-- Alimentacion
