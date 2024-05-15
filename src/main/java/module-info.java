@@ -4,6 +4,7 @@ module es.tiernoparla.daw.mercadaw {
     requires org.mariadb.jdbc;
     requires javafx.graphics;
     requires org.apache.poi.ooxml;
+    requires java.sql;
 
     opens es.tiernoparla.daw.mercadaw to javafx.fxml;
     opens es.tiernoparla.daw.mercadaw.view to javafx.fxml;
