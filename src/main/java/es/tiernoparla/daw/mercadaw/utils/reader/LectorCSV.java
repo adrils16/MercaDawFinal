@@ -81,8 +81,9 @@ public class LectorCSV extends LectorImp {
 
         String nombre;
         String apellidos;
-        int sueldo;
+        int id = 0;
         String categoria;
+
 
         Empleado empleado = null;
 
@@ -90,32 +91,25 @@ public class LectorCSV extends LectorImp {
 
         nombre = st.nextToken();
         apellidos = st.nextToken();
-        sueldo = Integer.parseInt(st.nextToken());
         categoria = st.nextToken().toUpperCase();
 
         switch (categoria) {
             case EMP_CAJERO:
-                empleado = new Cajero(nombre, apellidos, sueldo);
+                empleado = new Cajero(nombre, apellidos, id);
             
             case EMP_ENCARGADO:
-                empleado = new Encargado(nombre, apellidos, sueldo);
+                empleado = new Encargado(nombre, apellidos, id);
 
             case EMP_REPONEDOR:
-                empleado = new Reponedor(nombre, apellidos, sueldo);
+                empleado = new Reponedor(nombre, apellidos, id);
             
             case EMP_EMPLEADO:
-                empleado = new Empleado(nombre, apellidos, sueldo);
+                empleado = new Empleado(nombre, apellidos, id);
         }
 
         return empleado;
     }
 
-    /**
-     * Lee un fichero CSV y devuelve una lista de productos.
-     * @param cadena Contenido del fichero CSV.
-     * @return Lista de productos.
-     * @throws LectorException Si hay un error al leer el fichero.
-     */
     @Override
     public List<Producto> leerProducto (String cadena) throws LectorException {
         final String MSG_ERROR = "Error al leer el fichero CSV";
@@ -143,12 +137,6 @@ public class LectorCSV extends LectorImp {
         return productos;
     }
 
-    /**
-     * Lee un fichero CSV y devuelve una lista de empleados.
-     * @param cadena Contenido del fichero CSV.
-     * @return Lista de empleados.
-     * @throws LectorException Si hay un error al leer el fichero.
-     */
     @Override
     public List<Empleado> leerEmpleado(String cadena) throws LectorException {
         final String MSG_ERROR = "Error al leer el fichero CSV";

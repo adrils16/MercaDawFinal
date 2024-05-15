@@ -1,0 +1,62 @@
+[
+    {
+      "nombre": "Dune",
+      "apellidos": "Herbert",
+      "id": "1",
+      "categoria": "Cajero"
+    },
+    {
+      "nombre": "Foundation",
+      "apellidos": "Asimov",
+      "id": "2",
+      "categoria": "Cajero"
+    },
+    {
+      "nombre": "Ethan",
+      "apellidos": "Orwell",
+      "id": "3",
+      "categoria": "Empleado"
+    },
+    {
+      "nombre": "Brave New World",
+      "apellidos": "Huxley",
+      "id": "4",
+      "categoria": "Encargado"
+    },
+    {
+      "nombre": "The Martian",
+      "apellidos": "Weir",
+      "id": "5",
+      "categoria": "Cajero"
+    },
+    {
+      "nombre": "John",
+      "apellidos": "Card",
+      "id": "6",
+      "categoria": "Empleado"
+    },
+    {
+      "nombre": "Neuromancer",
+      "apellidos": "Gibson",
+      "id": "7",
+      "categoria": "Reponedor"
+    },
+    {
+      "nombre": "Luois",
+      "apellidos": "Adams",
+      "id": "8",
+      "categoria": "Cajero"
+    },
+    {
+      "nombre": "Snow Crash",
+      "apellidos": "Stephenson",
+      "id": "9",
+      "categoria": "Encargado"
+    },
+    {
+      "nombre": "Kylian",
+      "apellidos": "Heinlein",
+      "id": "10",
+      "categoria": "Reponedor"
+    }
+  ]

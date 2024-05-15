@@ -17,14 +17,15 @@ import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
 /**
  * Clase que lee un fichero JSON y devuelve una lista de productos o empleados.
  */
-public class LectorJSON extends LectorImp{
+public class LectorJSON extends LectorImp {
 
     /**
      * Procesa una pareja clave-valor y devuelve la clave.
+     * 
      * @param pareja Pareja clave-valor.
      * @return Devuelve la clave.
      */
-    public String procesarValor(String pareja){
+    public String procesarValor(String pareja) {
         String valor = null;
 
         pareja = pareja.trim();
@@ -33,17 +34,18 @@ public class LectorJSON extends LectorImp{
         st.nextToken();
 
         valor = st.nextToken().trim();
-        valor = valor.substring(1, valor.length()-1);
+        valor = valor.substring(1, valor.length() - 1);
 
         return valor;
     }
 
     /**
      * Procesa una fila de empleados y devuelve un empleado.
+     * 
      * @param fila Fila de empleados.
      * @return Devuelve un empleado.
      */
-    public Empleado procesarEmpleado(String fila){
+    public Empleado procesarEmpleado(String fila) {
         final String EMP_CAJERO = "CAJERO";
         final String EMP_ENCARGADO = "ENCARGADO";
         final String EMP_REPONEDOR = "REPONEDOR";
@@ -51,7 +53,7 @@ public class LectorJSON extends LectorImp{
 
         String nombre;
         String apellidos;
-        int sueldo;
+        int id = 0;
         String categoria;
 
         Empleado empleado = null;
@@ -60,21 +62,21 @@ public class LectorJSON extends LectorImp{
 
         nombre = st.nextToken();
         apellidos = st.nextToken();
-        sueldo = Integer.parseInt(st.nextToken());
+        id = Integer.parseInt(st.nextToken());
         categoria = st.nextToken().toUpperCase();
 
         switch (categoria) {
             case EMP_CAJERO:
-                empleado = new Cajero(nombre, apellidos, sueldo);
-            
+                empleado = new Cajero(nombre, apellidos, id);
+
             case EMP_ENCARGADO:
-                empleado = new Encargado(nombre, apellidos, sueldo);
+                empleado = new Encargado(nombre, apellidos, id);
 
             case EMP_REPONEDOR:
-                empleado = new Reponedor(nombre, apellidos, sueldo);
-            
+                empleado = new Reponedor(nombre, apellidos, id);
+
             case EMP_EMPLEADO:
-                empleado = new Empleado(nombre, apellidos, sueldo);
+                empleado = new Empleado(nombre, apellidos, id);
         }
 
         return empleado;
@@ -82,10 +84,11 @@ public class LectorJSON extends LectorImp{
 
     /**
      * Procesa una fila de productos y devuelve un producto.
+     * 
      * @param fila Fila de productos.
      * @return Devuelve un producto.
      */
-    public Producto procesarProducto(String fila){
+    public Producto procesarProducto(String fila) {
         final String PROD_ALIMENTACION = "ALIMENTACION";
         final String PROD_DROGUERIA = "DROGUERIA";
         final String PROD_COSMETICA = "COSMETICA";
@@ -117,7 +120,7 @@ public class LectorJSON extends LectorImp{
         switch (categoria) {
             case PROD_ALIMENTACION:
                 producto = new Alimentacion(nombre, marca, precio, altura, anchura, peso, numElementos, descripcion);
-            
+
             case PROD_DROGUERIA:
                 producto = new Drogueria(nombre, marca, precio, altura, anchura, peso, numElementos, descripcion);
 
@@ -181,5 +184,5 @@ public class LectorJSON extends LectorImp{
 
         return productos;
     }
-    
+
 }

@@ -5,13 +5,13 @@ import java.io.File;
 import java.io.FileReader;
 import es.tiernoparla.daw.mercadaw.exception.FicheroException;
 
-
-public abstract class LectorImp implements Lector{
+public abstract class LectorImp implements Lector {
 
     final String MSG_ERROR = "Fichero no válido";
 
     /**
      * Comprueba si un código es válido.
+     * 
      * @param codigo Código a comprobar.
      * @throws Exception Si el código no es válido.
      */
@@ -23,11 +23,12 @@ public abstract class LectorImp implements Lector{
 
     /**
      * Carga el contenido de un fichero.
+     * 
      * @param file Fichero a cargar.
      * @return Contenido del fichero.
      * @throws FicheroException Si hay un error al cargar el fichero.
      */
-    public static String cargar(File file) throws FicheroException{
+    public static String cargar(File file) throws FicheroException {
         final String MSG_ERROR = "Error al cargar el fichero";
 
         StringBuilder contenido = new StringBuilder();
@@ -43,5 +44,4 @@ public abstract class LectorImp implements Lector{
         }
         return contenido.toString();
     }
-
 }

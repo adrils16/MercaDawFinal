@@ -9,8 +9,6 @@ public class LectorFactory {
             return new LectorCSV();
         } else if (lector == TipoLector.JSON) {
             return new LectorJSON();
-        } else if (lector == TipoLector.XML) {
-            return new LectorXML();
         } else {
             return new LectorMock();
         }
