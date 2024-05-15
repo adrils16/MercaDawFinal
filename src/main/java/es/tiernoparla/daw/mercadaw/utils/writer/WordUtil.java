@@ -52,4 +52,5 @@ public class WordUtil extends DocumentoUtil{
         out.close();
         return out.toByteArray();
     }
+
 }
