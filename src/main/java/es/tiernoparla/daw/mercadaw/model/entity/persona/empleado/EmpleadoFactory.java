@@ -4,7 +4,7 @@ import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.enums.Categoria
 
 public class EmpleadoFactory {
     
-    public Empleado crear(CategoriaEmpleado tipo, String nombre, String apellidos, int id) {
+    public static Empleado crear(CategoriaEmpleado tipo, String nombre, String apellidos, int id) {
 
         Empleado e = null;
 

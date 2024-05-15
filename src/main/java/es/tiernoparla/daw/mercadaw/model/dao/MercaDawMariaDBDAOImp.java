@@ -74,10 +74,10 @@ public abstract class MercaDawMariaDBDAOImp implements MercaDawDAO {
         ps.setString(1, producto.getNombre());
         ps.setString(2, producto.getMarca());
         ps.setDouble(3, producto.getPrecio());
-        ps.setDouble(4, producto.getAltura());
-        ps.setDouble(5, producto.getAnchura());
-        ps.setDouble(6, producto.getPeso());
-        ps.setInt(7, producto.getNumElementos());
+        ps.setDouble(4, producto.getCaracteristica().getAltura());
+        ps.setDouble(5, producto.getCaracteristica().getAnchura());
+        ps.setDouble(6, producto.getCaracteristica().getPeso());
+        ps.setInt(7, producto.getCaracteristica().getNumElementos());
         ps.setString(8, producto.getDescripcion());
 
         numRegistrosActualizados = ps.executeUpdate();
@@ -96,10 +96,10 @@ public abstract class MercaDawMariaDBDAOImp implements MercaDawDAO {
                 ps.setString(1, producto.getNombre());
                 ps.setString(2, producto.getMarca());
                 ps.setDouble(3, producto.getPrecio());
-                ps.setDouble(4, producto.getAltura());
-                ps.setDouble(5, producto.getAnchura());
-                ps.setDouble(6, producto.getPeso());
-                ps.setInt(7, producto.getNumElementos());
+                ps.setDouble(4, producto.getCaracteristica().getAltura());
+                ps.setDouble(5, producto.getCaracteristica().getAnchura());
+                ps.setDouble(6, producto.getCaracteristica().getPeso());
+                ps.setInt(7, producto.getCaracteristica().getNumElementos());
                 ps.setString(8, producto.getDescripcion());
                 ps.addBatch();
             }
@@ -154,10 +154,10 @@ public abstract class MercaDawMariaDBDAOImp implements MercaDawDAO {
             ps.setString(1, producto.getNombre());
             ps.setString(2, producto.getMarca());
             ps.setDouble(3, producto.getPrecio());
-            ps.setDouble(4, producto.getAltura());
-            ps.setDouble(5, producto.getAnchura());
-            ps.setDouble(6, producto.getPeso());
-            ps.setInt(7, producto.getNumElementos());
+            ps.setDouble(4, producto.getCaracteristica().getAltura());
+            ps.setDouble(5, producto.getCaracteristica().getAnchura());
+            ps.setDouble(6, producto.getCaracteristica().getPeso());
+            ps.setInt(7, producto.getCaracteristica().getNumElementos());
             ps.setString(8, producto.getDescripcion());
             numRegistrosActualizados = ps.executeUpdate();
         }
