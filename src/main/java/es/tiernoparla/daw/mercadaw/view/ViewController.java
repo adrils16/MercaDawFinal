@@ -26,6 +26,22 @@ public abstract class ViewController {
         this.controller = controller;
     }
 
+    public ObservableList<Producto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(ObservableList<Producto> productos) {
+        this.productos = productos;
+    }
+
+    public ObservableList<Empleado> getEmpleados() {
+        return empleados;
+    }
+
+    public void setEmpleados(ObservableList<Empleado> empleados) {
+        this.empleados = empleados;
+    }
+
     protected void mostrarAviso(String msg, AlertType tipo){
         Alert alerta = new Alert(tipo);
         alerta.setHeaderText(null);

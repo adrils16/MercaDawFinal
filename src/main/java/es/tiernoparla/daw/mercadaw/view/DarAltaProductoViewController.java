@@ -2,10 +2,13 @@ package es.tiernoparla.daw.mercadaw.view;
 
 import java.io.File;
 import java.io.FileReader;
+import java.util.ArrayList;
 
+import es.tiernoparla.daw.mercadaw.utils.reader.Lector;
 import es.tiernoparla.daw.mercadaw.utils.reader.LectorFactory;
 import es.tiernoparla.daw.mercadaw.utils.reader.LectorImp;
 import es.tiernoparla.daw.mercadaw.utils.reader.enumeracion.TipoLector;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -103,6 +106,11 @@ public class DarAltaProductoViewController extends ViewController {
     private TextField txfPrecio;
 
     @FXML
+    public void initialize() {
+        this.productos = FXCollections.observableArrayList(new ArrayList<>());
+    }
+
+    @FXML
     void darAltaProducto(MouseEvent event) {
 
         final String MSG_ERROR = "Error al dar de alta el producto";
@@ -149,14 +157,16 @@ public class DarAltaProductoViewController extends ViewController {
             try (FileReader fr = new FileReader(fichero)) {
                 String cadena = " ";
                 int valor = fr.read();
-
                 while (valor != -1) {
                     cadena += (char) valor;
                     valor = fr.read();
                 }
 
-                this.productos.addAll(new LectorFactory().obtenerLector(TipoLector.CSV).leerProducto(LectorImp.cargar(fichero)));
-                //TODO 
+                new LectorFactory();
+                Lector lector = LectorFactory.obtenerLector(TipoLector.CSV);
+
+                this.productos.addAll(lector.leerProducto(LectorImp.cargar(fichero)));
+                //TODO
 
             } catch (Exception e) {
                 mostrarAviso(MSG_ERROR, AlertType.ERROR);

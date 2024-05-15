@@ -22,7 +22,8 @@ public class LectorTest {
     public void LectorCSVTest() throws Exception {
         File fichero = new File("productos.csv");
         Lector lector = LectorFactory.obtenerLector(TipoLector.CSV);
-        productos.addAll(lector.leerProducto(LectorImp.cargar(fichero)));
+        productos = lector.leerProducto(LectorImp.cargar(fichero));
+        System.out.println(productos);
     }
 
     @Test

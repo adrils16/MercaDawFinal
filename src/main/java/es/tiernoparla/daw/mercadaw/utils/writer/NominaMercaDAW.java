@@ -9,7 +9,7 @@ import java.util.TreeMap;
 
 import es.tiernoparla.daw.mercadaw.model.Sede;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
-import es.tiernoparla.daw.mercadaw.model.enumeracion.CategoriaEmpleado;
+import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.enums.CategoriaEmpleado;
 
 public class NominaMercaDAW implements Nomina, Documento {
     
@@ -100,7 +100,11 @@ public class NominaMercaDAW implements Nomina, Documento {
     
         final String CADENA = "CUANTIA \t  CONCEPTO \t \t DEVENGOS \t DEDUCCIONES \n 30 \t  SALARIO BASE \t \t %s \n 30 \t PAGAS EXTRA \t \t %s \n \t \t CONTIGENCIAS COMUNES 4.70%  \t  \t %s \n \t \t FORMACION 0.10 \t \t %s \n \t \t  DESEMPLEO 1.55%  \t \t %s \n \t \t IRPF 14% \t \t %s \n \n \n LIQUIDO A PERCIBIR: %s ";
         
-        return String.format(CADENA, CategoriaEmpleado.EMPLEADO.getSueldo(),pagas, contingencias,  formacion , desempleo , irpf , liquido );
+        //return String.format(CADENA, CategoriaEmpleado.EMPLEADO.getSueldo(),pagas, contingencias,  formacion , desempleo , irpf , liquido );
+
+        //! Comentado y anyadido return por error en el código
+        //! quitar return
+        return null;
     }
     /* @Override
     public Map<String, Object[]> getContenido() {

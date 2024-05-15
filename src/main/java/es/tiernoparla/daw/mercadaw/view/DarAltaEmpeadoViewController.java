@@ -3,10 +3,10 @@ package es.tiernoparla.daw.mercadaw.view;
 import java.io.File;
 import java.io.FileReader;
 
-import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 import es.tiernoparla.daw.mercadaw.utils.reader.LectorFactory;
 import es.tiernoparla.daw.mercadaw.utils.reader.LectorImp;
 import es.tiernoparla.daw.mercadaw.utils.reader.enumeracion.TipoLector;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -65,6 +65,11 @@ public class DarAltaEmpeadoViewController extends ViewController{
 
     @FXML
     private TextField txfNombre;
+
+    @FXML
+    public void initialize() {
+        this.empleados = FXCollections.observableArrayList();
+    }
 
     @FXML
     void cambiarModo(MouseEvent event) {
