@@ -141,6 +141,11 @@ public class Caracteristica {
 
     }
 
+    /**
+     * Calcula el valor total del recargo.
+     * @param precioVenta Precio de venta del producto.
+     * @return Suma del valor de todos los recargos.
+     */
     public double calcularRecargoTotal(double precioVenta) {
 
         double recargoTotal = 0;
@@ -154,11 +159,16 @@ public class Caracteristica {
         
     }
 
+    /**
+     * Crea una String formateado con los tipos y valores de todos los recargos.
+     * @param precioVenta Precio de venta del producto.
+     * @return Devuelve un String con todos los recargos.
+     */
     public String visualizarRecargos(double precioVenta) {
 
-        final String TEXTO = "* Recargo por peso (%s %): %s\n"
-                        +"* Recargo por altura (%s %): %s\n"
-                        +"* Recargo por anchura (%s %): %s\n"
+        final String TEXTO = "* Recargo por peso (%s): %s\n"
+                        +"* Recargo por altura (%s): %s\n"
+                        +"* Recargo por anchura (%s): %s\n"
                         +"* Recargo por número de piezas (%s pieza/s): %s\n";
         
         String cadena;

@@ -10,7 +10,7 @@ public class Alimentacion extends Producto {
     
     public Alimentacion(String nombre, String marca, double precio, Caracteristica caracteristica, String descripcion) {
         super(nombre, marca, precio, caracteristica, descripcion);
-        //TODO Auto-generated constructor stub
+        this.valorIVA = IVA.getValor();   
     }
     
 }

@@ -6,7 +6,6 @@ import es.tiernoparla.daw.mercadaw.model.entity.producto.enums.TipoIVA;
 public class Cosmetica extends Producto{
 
     public final static CategoriaProducto CATEGORIA = CategoriaProducto.COSMETICA;
-    public final static TipoIVA IVA = TipoIVA.GENERAL;
 
     public Cosmetica(String nombre, String marca, double precio, Caracteristica caracteristica, String descripcion) {
         super(nombre, marca, precio, caracteristica, descripcion);
