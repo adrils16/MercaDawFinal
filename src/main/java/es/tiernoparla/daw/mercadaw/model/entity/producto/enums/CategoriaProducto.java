@@ -1,4 +1,4 @@
-package es.tiernoparla.daw.mercadaw.model.enums;
+package es.tiernoparla.daw.mercadaw.model.entity.producto.enums;
 
 public enum CategoriaProducto {
     ALIMENTACION,

@@ -1,7 +1,7 @@
 package es.tiernoparla.daw.mercadaw.model.entity.producto;
 
-import es.tiernoparla.daw.mercadaw.model.enums.CategoriaProducto;
-import es.tiernoparla.daw.mercadaw.model.enums.TipoIVA;
+import es.tiernoparla.daw.mercadaw.model.entity.producto.enums.CategoriaProducto;
+import es.tiernoparla.daw.mercadaw.model.entity.producto.enums.TipoIVA;
 
 public class Cosmetica extends Producto{
 

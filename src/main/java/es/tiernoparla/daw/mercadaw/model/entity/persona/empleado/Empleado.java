@@ -2,7 +2,7 @@ package es.tiernoparla.daw.mercadaw.model.entity.persona.empleado;
 
 import es.tiernoparla.daw.mercadaw.model.entity.interfaces.Gestionable;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.Persona;
-import es.tiernoparla.daw.mercadaw.model.enums.CategoriaEmpleado;
+import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.enums.CategoriaEmpleado;
 
 public class Empleado extends Persona implements Gestionable{
 
