@@ -1,8 +1,14 @@
 package es.tiernoparla.daw.mercadaw.model.dao;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 
 
@@ -14,10 +20,20 @@ import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
  */
 public abstract class MercaDawMariaDBDAOImp implements MercaDawDAO {
 
+    private final String URL = "jdbc:mariadb://localhost:3306/%s?user=%s&password=%s";
+    private final String DATABASE_NAME = "mercadaw";
+    private final String DATABASE_USER = "usuario";
+    private final String DATABASE_PASS = "usuario";
 
     private Connection conexion;
-    // TODO CREAR LA CONEXION.
 
+    public MercaDawMariaDBDAOImp() throws Exception{
+        conexion = DriverManager.getConnection(String.format(URL, DATABASE_NAME, DATABASE_USER, DATABASE_PASS));
+    }
+
+    /**
+     * Crea la tabla PRODUCTOS.
+     */
     @Override
     public void crearTablaProductos() throws SQLException {
         String sql = "CREATE TABLE IF NOT EXISTS PRODUCTOS (" +
@@ -37,6 +53,9 @@ public abstract class MercaDawMariaDBDAOImp implements MercaDawDAO {
         st.close();
     }
 
+    /**
+     * Crea la tabla EMPLEADOS.
+     */
     @Override
     public void crearTablaEmpleados() throws SQLException {
         String sql = "CREATE TABLE IF NOT EXISTS EMPLEADOS (" +
@@ -51,6 +70,9 @@ public abstract class MercaDawMariaDBDAOImp implements MercaDawDAO {
         st.close();
     }
 
+    /**
+     * Crea la tabla COMPRA.
+     */
     @Override
     public void crearTablaCompras() throws SQLException {
         String sql = "CREATE TABLE IF NOT EXISTS COMPRA (" +
@@ -65,6 +87,11 @@ public abstract class MercaDawMariaDBDAOImp implements MercaDawDAO {
         st.close();
     }
 
+    /**
+     * Inserta un producto en la tabla Productos.
+     * @param producto Producto que se quiere insertar.
+     * @return Número de productos insertados.
+     */
     @Override
     public int insertar(Producto producto) throws SQLException{
         int numRegistrosActualizados = 0;
@@ -85,7 +112,11 @@ public abstract class MercaDawMariaDBDAOImp implements MercaDawDAO {
         return numRegistrosActualizados;
     }
 
-
+    /**
+     * Inserta una lista de producto en la tabla Productos.
+     * @param productos Lista de productos que se quiere insertar.
+     * @return Número de productos insertados.
+     */
     @Override
     public int insertar(List<Producto> productos) throws SQLException{
 
@@ -114,6 +145,11 @@ public abstract class MercaDawMariaDBDAOImp implements MercaDawDAO {
 
     }
 
+    /**
+     * Inserta un empleado en la tabla Empleados.
+     * @param empleado Empleado que se quiere insertar.
+     * @return Número de empleados insertados.
+     */ 
     @Override
     public int insertar(Empleado empleado) throws SQLException{
         int numRegistrosActualizados = 0;
@@ -130,6 +166,12 @@ public abstract class MercaDawMariaDBDAOImp implements MercaDawDAO {
         return numRegistrosActualizados;
     }
 
+
+    /**
+     * Inserta una lista de empleados en la tabla Empleados.
+     * @param empleados Lista de empleados que se quiere insertar.
+     * @return Número de empleaods insertados.
+     */
     @Override
     public int insertar(Empleado[] empleados) throws SQLException{
         int numRegistrosActualizados = 0;
@@ -146,6 +188,11 @@ public abstract class MercaDawMariaDBDAOImp implements MercaDawDAO {
         return numRegistrosActualizados;
     }
 
+    /**
+     * Actualiza un producto de la tabla Productos.
+     * @param producto Producto que se quiere actualizar.
+     * @return Número de productos actualizados.
+     */   
     @Override
     public int actualizar(Producto producto) throws SQLException{
         int numRegistrosActualizados = 0;
@@ -164,6 +211,11 @@ public abstract class MercaDawMariaDBDAOImp implements MercaDawDAO {
         return numRegistrosActualizados;
     }
 
+    /**
+     * Actualiza un empleado de la tabla Empleados.
+     * @param empleado Empleado que se quiere actualizar.
+     * @return Número de empleados actualizados.
+     */     
     @Override
     public int actualizar(Empleado empleado) throws SQLException{
         int numRegistrosActualizados = 0;
@@ -178,6 +230,11 @@ public abstract class MercaDawMariaDBDAOImp implements MercaDawDAO {
         return numRegistrosActualizados;
     }
 
+    /**
+     * Borra un producto de la tabla Productos.
+     * @param producto Producto que queremos borrar.
+     * @return Número de productos borrados.
+     */  
     @Override
     public int borrar(Producto producto) throws SQLException{
         int numRegistrosBorrados = 0;
@@ -190,6 +247,11 @@ public abstract class MercaDawMariaDBDAOImp implements MercaDawDAO {
         return numRegistrosBorrados;
     }
 
+    /**
+     * Borra un empleado de la tabla Empleados.
+     * @param empleado Empleado que queremos borrar.
+     * @return Número de empleados borrados.
+     */     
     @Override
     public int borrar(Empleado empleado) throws SQLException{
         int numRegistrosBorrados = 0;
@@ -201,4 +263,20 @@ public abstract class MercaDawMariaDBDAOImp implements MercaDawDAO {
         return numRegistrosBorrados;
     }
     
+    private String leerScriptSQL(String rutaScript) throws IOException {
+        StringBuilder sb = new StringBuilder();
+        try (BufferedReader br = new BufferedReader(new FileReader(rutaScript))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                sb.append(linea).append("\n");
+            }
+        }
+        return sb.toString();
+    }
+
+    private void ejecutarScriptSQL(String script) throws SQLException {
+        try (Statement statment = conexion.createStatement()) {
+            statment.executeUpdate(script);
+        }
+    }
 }
