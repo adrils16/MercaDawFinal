@@ -11,10 +11,11 @@ import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
 
 public abstract class MercaDawDAOImp implements MercaDawDAO{
     protected Connection conexion;
-
+    /* 
     public MercaDawDAOImp(Connection conexion) throws SQLException{
         this.conexion = conexion;
     }
+    */
 
     /**
      * Inserta un producto en la tabla Productos.

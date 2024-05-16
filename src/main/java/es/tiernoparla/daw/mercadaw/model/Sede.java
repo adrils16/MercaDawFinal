@@ -3,6 +3,8 @@ package es.tiernoparla.daw.mercadaw.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import es.tiernoparla.daw.mercadaw.model.entity.interfaces.Gestionable;
+import es.tiernoparla.daw.mercadaw.model.entity.interfaces.Imprimible;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
 
@@ -29,39 +31,41 @@ public class Sede implements MercaDaw {
     }
 
     @Override
-    public int darAlta(Producto producto) {
+    public int darAlta(Gestionable gestionable) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'darAlta'");
     }
 
     @Override
-    public int darAlta(Empleado empleado) {
+    public int darAlta(List<Gestionable> gestionables) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'darAlta'");
     }
 
     @Override
-    public void visualizar(Producto producto) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'visualizarProductos'");
+    public String visualizar(Imprimible imprimible) {
+        return imprimible.imprimir();
     }
 
     @Override
-    public void visualizar(List<Empleado> empleados) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'visualizarEmpleados'");
+    public String visualizar(List<Imprimible> imprimibles) {
+        String cadena = "";
+
+        for (Imprimible imprimible : imprimibles) {
+            cadena.concat(imprimible.imprimir());
+        }
+
+        return cadena;
     }
 
     @Override
     public String obtenerPrecioVenta(Producto producto) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'obtenerPrecioVenta'");
+        return producto.visualizarPrecioTotal();
     }
 
     @Override
     public String imprimirEtiqueta(Producto producto) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'imprimirEtiqueta'");
+        return producto.imprimirEtiqueta();
     }
 
     @Override

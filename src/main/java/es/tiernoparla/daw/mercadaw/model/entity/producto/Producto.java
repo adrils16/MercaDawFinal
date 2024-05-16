@@ -80,7 +80,7 @@ public abstract class Producto implements Imprimible {
      * Calcula el precio de venta del producto, añadiendo un 25% del precio original. 
      * @return Precio de venta del Producto.
      */
-    public double calcularPrecioVenta() {
+    private double calcularPrecioVenta() {
 
         final double COMISION = 0.25;
 
@@ -94,7 +94,7 @@ public abstract class Producto implements Imprimible {
      * Calcula el precio total del producto sumando al precio de venta todos los recargos correspondientes.
      * @return Precio total del Producto.
      */
-    public double calcularPrecioTotal() {
+    private double calcularPrecioTotal() {
 
         double precioTotal =  calcularPrecioVenta()+caracteristica.calcularRecargoTotal(calcularPrecioVenta());
 
@@ -106,7 +106,7 @@ public abstract class Producto implements Imprimible {
      * Calcula el precio en dolares, con una relación de 1 $ por 0,90 €.
      * @return Precio total en dolares del Producto.
      */
-    public double calcularPrecioEnDolares() {
+    private double calcularPrecioEnDolares() {
 
         final double CONVERSOR_DOLAR = 0.9;
 
@@ -121,7 +121,7 @@ public abstract class Producto implements Imprimible {
      * @param precioTotal Precio total del Producto.
      * @return Valor correspondiente al IVA.
      */
-    public double calcularValorIVA(double precioTotal) {
+    private double calcularValorIVA(double precioTotal) {
 
         double valor = precioTotal*valorIVA;
 
