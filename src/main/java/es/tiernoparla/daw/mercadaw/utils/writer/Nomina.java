@@ -10,7 +10,8 @@ public interface Nomina {
     public void calcularContingencias(Empleado empleado);
     public void calcularFormacion(Empleado empleado);
     public void calcularDesempleo(Empleado empleado);
-    public void calcularMEI();
+    public void calcularMEI(Empleado empleado);
+    public String calcularNomina(Empleado empleado);
 }
 
 
