@@ -23,10 +23,10 @@ public class VisualizarListadoComprasViewController extends ViewController{
     private AnchorPane container;
 
     @FXML
-    private TableColumn<?, ?> colCodPostal;
+    private TableColumn<?, Integer> colCodPostal;
 
     @FXML
-    private TableColumn<?, ?> colCompras;
+    private TableColumn<?, Integer> colCompras;
 
     @FXML
     private Label lblTitulo;

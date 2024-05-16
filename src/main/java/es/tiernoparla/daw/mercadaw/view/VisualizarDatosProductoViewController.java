@@ -1,5 +1,6 @@
 package es.tiernoparla.daw.mercadaw.view;
 
+import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -24,10 +25,10 @@ public class VisualizarDatosProductoViewController extends ViewController{
     private Button btnVisualizarDatos;
 
     @FXML
-    private TableColumn<?, ?> colId;
+    private TableColumn<Producto, Integer> colId;
 
     @FXML
-    private TableColumn<?, ?> colNombre;
+    private TableColumn<Producto, String> colNombre;
 
     @FXML
     private AnchorPane container;
@@ -39,7 +40,7 @@ public class VisualizarDatosProductoViewController extends ViewController{
     private Label lblTitulo;
 
     @FXML
-    private TableView<?> tblProductos;
+    private TableView<Producto> tblProductos;
 
     @FXML
     private TextField txfIdProducto;

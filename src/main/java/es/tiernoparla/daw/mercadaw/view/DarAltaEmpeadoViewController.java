@@ -3,9 +3,16 @@ package es.tiernoparla.daw.mercadaw.view;
 import java.io.File;
 import java.io.FileReader;
 
+import es.tiernoparla.daw.mercadaw.model.dao.MercaDawDAO;
+import es.tiernoparla.daw.mercadaw.model.dao.MercaDawDAOFactory;
+import es.tiernoparla.daw.mercadaw.model.dao.enums.TipoDB;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.EmpleadoFactory;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.enums.CategoriaEmpleado;
+import es.tiernoparla.daw.mercadaw.utils.reader.Lector;
+import es.tiernoparla.daw.mercadaw.utils.reader.LectorCSV;
+import es.tiernoparla.daw.mercadaw.utils.reader.LectorFactory;
+import es.tiernoparla.daw.mercadaw.utils.reader.enumeracion.TipoLector;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -102,10 +109,9 @@ public class DarAltaEmpeadoViewController extends ViewController{
                 mostrarAviso(MSG_ERROR_EMPLEADO, AlertType.ERROR);
             } else if (camposRellenos()){
                 
-                //TODO constructor de empleado
                 empleado = EmpleadoFactory.crear(categoria, nombre, apellidos, 0);
 
-                //mercadaw.darAlta(empleado);
+                mercadaw.darAlta(empleado);
                 dao.insertar(empleado);
 
                 mostrarAviso(MSG_EXITO, AlertType.CONFIRMATION);
@@ -128,6 +134,9 @@ public class DarAltaEmpeadoViewController extends ViewController{
 
         ExtensionFilter filtro = new ExtensionFilter(DESCRPICION_FILTRO, EXTENSION_FILTRO);
 
+        Lector lector = LectorFactory.obtenerLector(TipoLector.CSV);
+        MercaDawDAO dao = MercaDawDAOFactory.crear(TipoDB.MARIADB);
+
         FileChooser fileChooser = new FileChooser();
         File fichero = fileChooser.showOpenDialog(new Stage());
         fileChooser.getExtensionFilters().add(filtro);
@@ -142,9 +151,8 @@ public class DarAltaEmpeadoViewController extends ViewController{
                     valor = fr.read();
                 }
 
-                //TODO insertar listas objetoMercadaw cuando metodo darAlta este implementado
-                //this.empleados.addAll(new LectorFactory().obtenerLector(TipoLector.CSV).leerEmpleado(LectorImp.cargar(fichero)));
-                //TODO insertar en la base de datos
+                mercadaw.darAlta(lector.leerEmpleado(lector.cargar(fichero)));
+                dao.insertarEmpleados(mercadaw.getEmpleados());
 
             } catch (Exception e) {
                 mostrarAviso(MSG_ERROR, AlertType.ERROR);

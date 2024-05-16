@@ -1,5 +1,6 @@
 package es.tiernoparla.daw.mercadaw.view;
 
+import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -19,13 +20,13 @@ public class MostrarStockProductosViewController extends ViewController{
     private Button btnMostrar;
 
     @FXML
-    private TableColumn<?, ?> colId;
+    private TableColumn<Producto, Integer> colId;
 
     @FXML
-    private TableColumn<?, ?> colNombre;
+    private TableColumn<Producto, String> colNombre;
 
     @FXML
-    private TableColumn<?, ?> colStock;
+    private TableColumn<Producto, Integer> colStock;
 
     @FXML
     private AnchorPane container;
@@ -34,7 +35,7 @@ public class MostrarStockProductosViewController extends ViewController{
     private Label lblTitulo;
 
     @FXML
-    private TableView<?> tblStock;
+    private TableView<Producto> tblStock;
 
     @FXML
     void cambiarModo(MouseEvent event) {
