@@ -1,5 +1,6 @@
 package es.tiernoparla.daw.mercadaw.view;
 
+import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -27,10 +28,10 @@ public class ImprimirEtiquetaViewController extends ViewController{
     private AnchorPane container;
 
     @FXML
-    private TableColumn<?, ?> colId;
+    private TableColumn<Producto, Integer> colId;
 
     @FXML
-    private TableColumn<?, ?> colNombre;
+    private TableColumn<Producto, String> colNombre;
 
     @FXML
     private Label lblIdProducto;

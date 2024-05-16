@@ -1,5 +1,7 @@
 package es.tiernoparla.daw.mercadaw.view;
 
+import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -22,22 +24,26 @@ public class VisualizarListadoEmpleadosViewController extends ViewController{
     private AnchorPane container;
 
     @FXML
-    private TableColumn<?, ?> colApellidos;
+    private TableColumn<Empleado, String> colApellidos;
 
     @FXML
-    private TableColumn<?, ?> colCategoria;
+    private TableColumn<Empleado, String> colCategoria;
 
     @FXML
-    private TableColumn<?, ?> colId;
+    private TableColumn<Empleado, Integer> colId;
 
     @FXML
-    private TableColumn<?, ?> colNombre;
+    private TableColumn<Empleado, String> colNombre;
 
     @FXML
     private Label lblTitulo;
 
     @FXML
-    private TableView<?> tblEmpleados;
+    private TableView<Empleado> tblEmpleados;
+
+    @FXML
+    public void initialize() {
+    }
 
     @FXML
     void cambiarModo(MouseEvent event) {

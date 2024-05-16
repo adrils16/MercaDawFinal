@@ -1,18 +1,16 @@
 package es.tiernoparla.daw.mercadaw.utils.reader;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
 import es.tiernoparla.daw.mercadaw.exception.LectorException;
-import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Cajero;
+import es.tiernoparla.daw.mercadaw.model.entity.interfaces.Gestionable;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
-import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Encargado;
-import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Reponedor;
-import es.tiernoparla.daw.mercadaw.model.entity.producto.Alimentacion;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Caracteristica;
-import es.tiernoparla.daw.mercadaw.model.entity.producto.Cosmetica;
-import es.tiernoparla.daw.mercadaw.model.entity.producto.Drogueria;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.ProductoFactory;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.enums.CategoriaProducto;
@@ -139,11 +137,11 @@ public class LectorJSON extends LectorImp {
     }
 
     @Override
-    public List<Empleado> leerEmpleado(String cadena) throws LectorException {
+    public List<Gestionable> leerEmpleado(String cadena) throws LectorException {
         final String MSG_ERROR = "Error al leer el fichero JSON";
 
         boolean primeraFila = true;
-        List<Empleado> empleados = new ArrayList<>();
+        List<Gestionable> empleados = new ArrayList<>();
 
         try {
             comprobar(cadena);
@@ -166,11 +164,11 @@ public class LectorJSON extends LectorImp {
     }
 
     @Override
-    public List<Producto> leerProducto(String cadena) throws LectorException {
+    public List<Gestionable> leerProducto(String cadena) throws LectorException {
         final String MSG_ERROR = "Error al leer el fichero JSON";
 
         boolean primeraFila = true;
-        List<Producto> productos = new ArrayList<>();
+        List<Gestionable> productos = new ArrayList<>();
 
         try {
             comprobar(cadena);
@@ -191,5 +189,23 @@ public class LectorJSON extends LectorImp {
 
         return productos;
     }
+
+    @Override
+    public String cargar(File fichero) throws Exception {
+        final String MSG_ERROR = "Error al cargar el fichero JSON";
+        
+        StringBuilder contenido = new StringBuilder();
+        try (BufferedReader br = new BufferedReader(new FileReader(fichero))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                contenido.append(linea).append("\n");
+            }
+        } catch (Exception e) {
+            throw new Exception(MSG_ERROR);
+        }
+        return contenido.toString();
+    }
+
+    
 
 }

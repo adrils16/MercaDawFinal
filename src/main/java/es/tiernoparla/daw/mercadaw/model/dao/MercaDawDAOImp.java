@@ -59,8 +59,8 @@ public abstract class MercaDawDAOImp implements MercaDawDAO{
     @Override
     public int insertarProductos(List<Producto> productos) throws SQLException{
 
-        String sql = "INSERT INTO PRODUCTOS (NOMBRE, MARCA, PRECIO, ALTURA, ANCHURA, PESO, NUM_ELEMENTOS, DESCRIPCION) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        PreparedStatement ps = conexion.prepareStatement(sql);
+        final String SQL = "INSERT INTO PRODUCTOS (NOMBRE, MARCA, PRECIO, ALTURA, ANCHURA, PESO, NUM_ELEMENTOS, DESCRIPCION) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        PreparedStatement ps = conexion.prepareStatement(SQL);
 
             for (Producto producto : productos) {
                 ps.setString(1, producto.getNombre());
@@ -92,12 +92,13 @@ public abstract class MercaDawDAOImp implements MercaDawDAO{
     @Override
     public int insertar(Empleado empleado) throws SQLException{
         int numRegistrosActualizados = 0;
-        String sql = "INSERT INTO EMPLEADOS (nombre, apellidos, salario) VALUES (?, ?, ?)";
-        PreparedStatement ps = conexion.prepareStatement(sql);
+        final String SQL = "INSERT INTO EMPLEADOS (nombre, apellidos, salario, categoria) VALUES (?, ?, ?, ?)";
+        PreparedStatement ps = conexion.prepareStatement(SQL);
 
         ps.setString(1, empleado.getNombre());
         ps.setString(2, empleado.getApellidos());
         ps.setInt(3, empleado.getSueldo());
+        ps.setString(4, empleado.getCategoria().toString());
 
         numRegistrosActualizados = ps.executeUpdate();
         ps.close();
@@ -113,12 +114,13 @@ public abstract class MercaDawDAOImp implements MercaDawDAO{
     @Override
     public int insertarEmpleados(List<Empleado> empleados) throws SQLException{
         int numRegistrosActualizados = 0;
-        String sql = "INSERT INTO EMPLEADOS (nombre, apellidos, salario) VALUES (?, ?, ?)";
-        try (PreparedStatement ps = conexion.prepareStatement(sql)) {
+        final String SQL = "INSERT INTO EMPLEADOS (nombre, apellidos, salario, categoria) VALUES (?, ?, ?, ?)";
+        try (PreparedStatement ps = conexion.prepareStatement(SQL)) {
             for (Empleado empleado : empleados) {
                 ps.setString(1, empleado.getNombre());
                 ps.setString(2, empleado.getApellidos());
                 ps.setInt(3, empleado.getSueldo());
+                ps.setString(4, empleado.getCategoria().toString());
                 ps.addBatch();
             }
             numRegistrosActualizados = ps.executeBatch().length;
@@ -126,78 +128,131 @@ public abstract class MercaDawDAOImp implements MercaDawDAO{
         return numRegistrosActualizados;
     }
 
-    /**
-     * Actualiza un producto de la tabla Productos.
-     * @param producto Producto que se quiere actualizar.
-     * @return Número de productos actualizados.
-     */   
-    @Override
-    public int actualizar(Producto producto) throws SQLException{
-        int numRegistrosActualizados = 0;
-        String sql = "UPDATE productos SET nombre = ?, marca = ?, precio = ?, altura = ?, anchura = ?, peso = ?, numElementos = ?, descripcion = ? WHERE id = ?";
-        try (PreparedStatement ps = conexion.prepareStatement(sql)) {
-            ps.setString(1, producto.getNombre());
-            ps.setString(2, producto.getMarca());
-            ps.setDouble(3, producto.getPrecio());
-            ps.setDouble(4, producto.getCaracteristica().getAltura());
-            ps.setDouble(5, producto.getCaracteristica().getAnchura());
-            ps.setDouble(6, producto.getCaracteristica().getPeso());
-            ps.setInt(7, producto.getCaracteristica().getNumElementos());
-            ps.setString(8, producto.getDescripcion());
-            numRegistrosActualizados = ps.executeUpdate();
-        }
-        return numRegistrosActualizados;
-    }
-
-    /**
-     * Actualiza un empleado de la tabla Empleados.
-     * @param empleado Empleado que se quiere actualizar.
-     * @return Número de empleados actualizados.
-     */     
-    @Override
-    public int actualizar(Empleado empleado) throws SQLException{
-        int numRegistrosActualizados = 0;
-        String sql = "UPDATE empleados SET nombre = ?, apellido = ?, salario = ? WHERE id = ?";
-        try (PreparedStatement ps = conexion.prepareStatement(sql)) {
-            ps.setString(1, empleado.getNombre());
-            ps.setString(2, empleado.getApellidos());
-            ps.setInt(3, empleado.getId());
-            ps.setDouble(4, empleado.getSueldo());
-            numRegistrosActualizados = ps.executeUpdate();
-        }
-        return numRegistrosActualizados;
-    }
-
-    /**
-     * Borra un producto de la tabla Productos.
-     * @param producto Producto que queremos borrar.
-     * @return Número de productos borrados.
-     */  
-    @Override
-    public int borrar(Producto producto) throws SQLException{
-        int numRegistrosBorrados = 0;
-        String sql = "DELETE FROM productos WHERE id = ?";
-        try (PreparedStatement ps = conexion.prepareStatement(sql)) {
+    public String buscarListadoStockProd() throws SQLException{
+        //TODO sobre vistas
+        final String SQL = "SELECT PRODUCTOS.EAN, NOMBRE, STOCK FROM PRODUCTOS, PRODUCTO_SEDE WHERE PRODUCTOS.EAN = PRODUCTO_SEDE.EAN;";
+        String listado = "";
+        try (PreparedStatement ps = conexion.prepareStatement(SQL)) {
+            listado = ps.toString();
+        } catch (SQLException e) {
             //TODO
-            //ps.setInt(1, producto.getId()); AÑADIR IDPRODUCTO A PRODUCTO
-            numRegistrosBorrados = ps.executeUpdate();
+            
         }
-        return numRegistrosBorrados;
+        return listado;
     }
 
-    /**
-     * Borra un empleado de la tabla Empleados.
-     * @param empleado Empleado que queremos borrar.
-     * @return Número de empleados borrados.
-     */     
-    @Override
-    public int borrar(Empleado empleado) throws SQLException{
-        int numRegistrosBorrados = 0;
-        String sql = "DELETE FROM empleados WHERE id = ?";
-        try (PreparedStatement ps = conexion.prepareStatement(sql)) {
-            ps.setInt(1, empleado.getId());
-            numRegistrosBorrados = ps.executeUpdate();
+    public String visualizarDatosProd() {
+        //TODO sobre vistas
+        final String SQL = "SELECT EAN, NOMBRE FROM PRODUCTOS;";
+        String listado = "";
+        try (PreparedStatement ps = conexion.prepareStatement(SQL)) {
+            listado = ps.toString();
+        } catch (SQLException e) {
+            //TODO
+            
         }
-        return numRegistrosBorrados;
+        return listado;
     }
+
+    public String visualizarEmp() {
+        //TODO sobre vistas
+        final String SQL = "SELECT ID, NOMBRE, APELLIDOS, CATEGORIA FROM EMPLEADOS;";
+        String listado = "";
+        try (PreparedStatement ps = conexion.prepareStatement(SQL)) {
+            listado = ps.toString();
+        } catch (SQLException e) {
+            //TODO
+            
+        }
+        return listado;
+    }
+
+    public String listarCompras() {
+        //TODO sobre vistas
+        final String SQL = ";";
+        String listado = "";
+        try (PreparedStatement ps = conexion.prepareStatement(SQL)) {
+            listado = ps.toString();
+        } catch (SQLException e) {
+            //TODO
+            
+        }
+        return listado;
+    }
+
+
+    // /**
+    //  * Actualiza un producto de la tabla Productos.
+    //  * @param producto Producto que se quiere actualizar.
+    //  * @return Número de productos actualizados.
+    //  */   
+    // @Override
+    // public int actualizar(Producto producto) throws SQLException{
+    //     int numRegistrosActualizados = 0;
+    //     String sql = "UPDATE productos SET nombre = ?, marca = ?, precio = ?, altura = ?, anchura = ?, peso = ?, numElementos = ?, descripcion = ? WHERE id = ?";
+    //     try (PreparedStatement ps = conexion.prepareStatement(sql)) {
+    //         ps.setString(1, producto.getNombre());
+    //         ps.setString(2, producto.getMarca());
+    //         ps.setDouble(3, producto.getPrecio());
+    //         ps.setDouble(4, producto.getCaracteristica().getAltura());
+    //         ps.setDouble(5, producto.getCaracteristica().getAnchura());
+    //         ps.setDouble(6, producto.getCaracteristica().getPeso());
+    //         ps.setInt(7, producto.getCaracteristica().getNumElementos());
+    //         ps.setString(8, producto.getDescripcion());
+    //         numRegistrosActualizados = ps.executeUpdate();
+    //     }
+    //     return numRegistrosActualizados;
+    // }
+
+    // /**
+    //  * Actualiza un empleado de la tabla Empleados.
+    //  * @param empleado Empleado que se quiere actualizar.
+    //  * @return Número de empleados actualizados.
+    //  */     
+    // @Override
+    // public int actualizar(Empleado empleado) throws SQLException{
+    //     int numRegistrosActualizados = 0;
+    //     String sql = "UPDATE empleados SET nombre = ?, apellido = ?, salario = ? WHERE id = ?";
+    //     try (PreparedStatement ps = conexion.prepareStatement(sql)) {
+    //         ps.setString(1, empleado.getNombre());
+    //         ps.setString(2, empleado.getApellidos());
+    //         ps.setInt(3, empleado.getId());
+    //         ps.setDouble(4, empleado.getSueldo());
+    //         numRegistrosActualizados = ps.executeUpdate();
+    //     }
+    //     return numRegistrosActualizados;
+    // }
+
+    // /**
+    //  * Borra un producto de la tabla Productos.
+    //  * @param producto Producto que queremos borrar.
+    //  * @return Número de productos borrados.
+    //  */  
+    // @Override
+    // public int borrar(Producto producto) throws SQLException{
+    //     int numRegistrosBorrados = 0;
+    //     String sql = "DELETE FROM productos WHERE id = ?";
+    //     try (PreparedStatement ps = conexion.prepareStatement(sql)) {
+    //         //TODO
+    //         //ps.setInt(1, producto.getId()); AÑADIR IDPRODUCTO A PRODUCTO
+    //         numRegistrosBorrados = ps.executeUpdate();
+    //     }
+    //     return numRegistrosBorrados;
+    // }
+
+    // /**
+    //  * Borra un empleado de la tabla Empleados.
+    //  * @param empleado Empleado que queremos borrar.
+    //  * @return Número de empleados borrados.
+    //  */     
+    // @Override
+    // public int borrar(Empleado empleado) throws SQLException{
+    //     int numRegistrosBorrados = 0;
+    //     String sql = "DELETE FROM empleados WHERE id = ?";
+    //     try (PreparedStatement ps = conexion.prepareStatement(sql)) {
+    //         ps.setInt(1, empleado.getId());
+    //         numRegistrosBorrados = ps.executeUpdate();
+    //     }
+    //     return numRegistrosBorrados;
+    // }
 }

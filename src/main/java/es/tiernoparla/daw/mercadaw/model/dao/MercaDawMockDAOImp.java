@@ -9,26 +9,6 @@ import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
 public class MercaDawMockDAOImp extends MercaDawDAOImp{
 
     @Override
-    public int actualizar(Producto producto) throws SQLException {
-        return 0;
-    }
-
-    @Override
-    public int actualizar(Empleado empleado) throws SQLException {
-        return 0;
-    }
-
-    @Override
-    public int borrar(Producto producto) throws SQLException {
-        return 0;
-    }
-
-    @Override
-    public int borrar(Empleado empleado) throws SQLException {
-        return 0;
-    }
-
-    @Override
     public int insertar(Producto producto) throws SQLException {
         return 0;
     }

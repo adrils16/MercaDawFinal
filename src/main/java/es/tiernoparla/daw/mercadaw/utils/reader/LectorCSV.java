@@ -1,22 +1,20 @@
 package es.tiernoparla.daw.mercadaw.utils.reader;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.ProductoFactory;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.enums.CategoriaProducto;
-import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Cajero;
+import es.tiernoparla.daw.mercadaw.model.entity.interfaces.Gestionable;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.EmpleadoFactory;
-import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Encargado;
-import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Reponedor;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.enums.CategoriaEmpleado;
-import es.tiernoparla.daw.mercadaw.model.entity.producto.Alimentacion;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Caracteristica;
-import es.tiernoparla.daw.mercadaw.model.entity.producto.Drogueria;
-import es.tiernoparla.daw.mercadaw.model.entity.producto.Cosmetica;
-
+import es.tiernoparla.daw.mercadaw.exception.FicheroException;
 import es.tiernoparla.daw.mercadaw.exception.LectorException;
 
 /**
@@ -31,9 +29,6 @@ public class LectorCSV extends LectorImp {
      * @return Producto.
      */
     public Producto procesarProducto(String fila) {
-        final String PROD_ALIMENTACION = "ALIMENTACION";
-        final String PROD_DROGUERIA = "DROGUERIA";
-        final String PROD_COSMETICA = "COSMETICA";
 
         String nombre;
         String marca;
@@ -43,7 +38,7 @@ public class LectorCSV extends LectorImp {
         double peso;
         int numElementos;
         String descripcion;
-        String categoria;
+        CategoriaProducto categoria;
 
         Producto producto = null;
 
@@ -57,22 +52,29 @@ public class LectorCSV extends LectorImp {
         peso = Double.parseDouble(st.nextToken());
         numElementos = Integer.parseInt(st.nextToken());
         descripcion = st.nextToken();
-        categoria = st.nextToken().toUpperCase();
+        categoria = CategoriaProducto.valueOf(st.nextToken().toUpperCase());
 
         Caracteristica caracteristica = new Caracteristica(altura, anchura, peso, numElementos);
-        
-        switch (categoria) {
-            case PROD_ALIMENTACION:
-                producto = ProductoFactory.crear(CategoriaProducto.ALIMENTACION, nombre, marca, precio, caracteristica, descripcion);
-
-            case PROD_DROGUERIA:
-                producto = ProductoFactory.crear(CategoriaProducto.DROGUERIA, nombre, marca, precio, caracteristica, descripcion);
-
-            case PROD_COSMETICA:
-                producto = ProductoFactory.crear(CategoriaProducto.COSMETICA, nombre, marca, precio, caracteristica, descripcion);
-        }
+        producto = ProductoFactory.crear(categoria, nombre, marca, precio, caracteristica, descripcion);
 
         return producto;
+    }
+
+    @Override
+    public String cargar(File fichero) throws Exception{
+        final String MSG_ERROR = "Error al cargar el fichero";
+
+        StringBuilder contenido = new StringBuilder();
+        try (BufferedReader br = new BufferedReader(new FileReader(fichero))){
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                contenido.append(linea).append("\n");
+            }
+            br.close();
+        } catch (Exception e) {
+            throw new Exception(MSG_ERROR);
+        }
+        return contenido.toString();
     }
 
     /**
@@ -82,15 +84,11 @@ public class LectorCSV extends LectorImp {
      * @return Empleado.
      */
     public Empleado procesarEmpleado(String fila) {
-        final String EMP_CAJERO = "CAJERO";
-        final String EMP_ENCARGADO = "ENCARGADO";
-        final String EMP_REPONEDOR = "REPONEDOR";
-        final String EMP_EMPLEADO = "EMPLEADO";
 
         String nombre;
         String apellidos;
         int id = 0;
-        String categoria;
+        CategoriaEmpleado categoria;
 
         Empleado empleado = null;
 
@@ -98,34 +96,20 @@ public class LectorCSV extends LectorImp {
 
         nombre = st.nextToken();
         apellidos = st.nextToken();
-        categoria = st.nextToken().toUpperCase();
+        categoria = CategoriaEmpleado.valueOf(st.nextToken().toUpperCase());
 
-        //TODO hacer cuando se haga estatico el metodo
-
-        switch (categoria) {
-            case EMP_CAJERO:
-                //empleado = EmpleadoFactory.crear(CategoriaEmpleado.CAJERO, nombre, apellidos, id);
-
-            case EMP_ENCARGADO:
-                //empleado = EmpleadoFactory.crear(CategoriaEmpleado.ENCARGADO, nombre, apellidos, id);
-
-            case EMP_REPONEDOR:
-                //empleado = EmpleadoFactory.crear(CategoriaEmpleado.REPONEDOR, nombre, apellidos, id);
-
-            case EMP_EMPLEADO:
-                //empleado = EmpleadoFactory.crear(CategoriaEmpleado.EMPLEADO, nombre, apellidos, id);
-        }
+        empleado = EmpleadoFactory.crear(categoria, nombre, apellidos, id);
 
         return empleado;
 
     }
 
     @Override
-    public List<Producto> leerProducto(String cadena) throws LectorException {
+    public List<Gestionable> leerProducto(String cadena) throws LectorException {
         final String MSG_ERROR = "Error al leer el fichero CSV";
 
         boolean primeraFila = true;
-        List<Producto> productos = new ArrayList<>();
+        List<Gestionable> productos = new ArrayList<>();
 
         try {
             comprobar(cadena);
@@ -148,11 +132,11 @@ public class LectorCSV extends LectorImp {
     }
 
     @Override
-    public List<Empleado> leerEmpleado(String cadena) throws LectorException {
+    public List<Gestionable> leerEmpleado(String cadena) throws LectorException {
         final String MSG_ERROR = "Error al leer el fichero CSV";
 
         boolean primeraFila = true;
-        List<Empleado> empleados = new ArrayList<>();
+        List<Gestionable> empleados = new ArrayList<>();
 
         try {
             comprobar(cadena);

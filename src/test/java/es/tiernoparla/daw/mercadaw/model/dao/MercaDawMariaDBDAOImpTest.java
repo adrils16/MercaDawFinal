@@ -60,7 +60,11 @@ public class MercaDawMariaDBDAOImpTest {
 
     @Test
     public void insertarProductosTest() throws SQLException{
-        dao.insertar(p6);
+        dao.insertar(p1);
+        dao.insertar(p2);
+        dao.insertar(p3);
+        dao.insertar(p4);
+        dao.insertar(p5);
     }
 
     @Test

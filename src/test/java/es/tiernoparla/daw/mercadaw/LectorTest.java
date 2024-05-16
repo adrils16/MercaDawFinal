@@ -10,27 +10,34 @@ import es.tiernoparla.daw.mercadaw.utils.reader.Lector;
 import es.tiernoparla.daw.mercadaw.utils.reader.LectorFactory;
 import es.tiernoparla.daw.mercadaw.utils.reader.LectorImp;
 import es.tiernoparla.daw.mercadaw.utils.reader.enumeracion.TipoLector;
+import es.tiernoparla.daw.mercadaw.model.Sede;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
 
 public class LectorTest {
 
-    List<Empleado> empleados = new ArrayList<>(); // Initialize the empleados list
-    List<Producto> productos = new ArrayList<>(); // Initialize the productos list
+    Sede mercadaw = new Sede();
 
     @Test
     public void LectorCSVTest() throws Exception {
         File fichero = new File("productos.csv");
         Lector lector = LectorFactory.obtenerLector(TipoLector.CSV);
-        productos = lector.leerProducto(LectorImp.cargar(fichero));
-        System.out.println(productos);
+        //productos = lector.leerProducto(LectorImp.cargar(fichero));
+        //System.out.println(productos);
     }
 
+    @Test
+    public void lectorCSVEmpleadosTest() throws Exception {
+        File fichero = new File("emplados.csv");
+        Lector lector = LectorFactory.obtenerLector(TipoLector.CSV);
+        String codigo = lector.cargar(fichero);
+        mercadaw.darAlta(lector.leerEmpleado(codigo));
+    }
     @Test
     public void LectorJSONTest() throws Exception {
         File fichero = new File("empleados.json");
         Lector lector = LectorFactory.obtenerLector(TipoLector.JSON);
-        empleados.addAll(lector.leerEmpleado(LectorImp.cargar(fichero)));
+        //empleados.addAll(lector.leerEmpleado(LectorImp.cargar(fichero)));
     }
 
 }

@@ -1,19 +1,21 @@
 package es.tiernoparla.daw.mercadaw.utils.reader;
 
+import java.io.File;
 import java.util.List;
 
+import es.tiernoparla.daw.mercadaw.model.entity.interfaces.Gestionable;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
 
 public class LectorMock implements Lector{
 
     @Override
-    public List<Producto> leerProducto(String cadena) {
+    public List<Gestionable> leerProducto(String cadena) {
         return null;
     }
 
     @Override
-    public List<Empleado> leerEmpleado(String cadena) {
+    public List<Gestionable> leerEmpleado(String cadena) {
         return null;
     }
 
@@ -25,6 +27,11 @@ public class LectorMock implements Lector{
     }
 
     public Empleado procesarEmpleado(String fila) {
+        return null;
+    }
+
+    @Override
+    public String cargar(File fichero) throws Exception {
         return null;
     }
     

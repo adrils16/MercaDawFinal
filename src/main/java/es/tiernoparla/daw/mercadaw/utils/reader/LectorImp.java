@@ -28,20 +28,20 @@ public abstract class LectorImp implements Lector {
      * @return Contenido del fichero.
      * @throws FicheroException Si hay un error al cargar el fichero.
      */
-    public static String cargar(File file) throws FicheroException {
-        final String MSG_ERROR = "Error al cargar el fichero";
+    // public static String cargar(File file) throws FicheroException {
+    //     final String MSG_ERROR = "Error al cargar el fichero";
 
-        StringBuilder contenido = new StringBuilder();
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            String linea;
-            while ((linea = br.readLine()) != null) {
-                contenido.append(linea).append("\n");
-            }
-            br.close();
-        } catch (Exception e) {
-            throw new FicheroException(MSG_ERROR);
-        }
-        return contenido.toString();
-    }
+    //     StringBuilder contenido = new StringBuilder();
+    //     try {
+    //         BufferedReader br = new BufferedReader(new FileReader(file));
+    //         String linea;
+    //         while ((linea = br.readLine()) != null) {
+    //             contenido.append(linea).append("\n");
+    //         }
+    //         br.close();
+    //     } catch (Exception e) {
+    //         throw new FicheroException(MSG_ERROR);
+    //     }
+    //     return contenido.toString();
+    // }
 }
