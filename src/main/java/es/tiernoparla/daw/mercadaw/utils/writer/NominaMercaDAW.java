@@ -3,11 +3,7 @@ package es.tiernoparla.daw.mercadaw.utils.writer;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
-
-import es.tiernoparla.daw.mercadaw.model.Sede;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.enums.CategoriaEmpleado;
 
@@ -28,25 +24,30 @@ public class NominaMercaDAW implements Nomina, Documento {
     private double desempleo;
     private double liquido;
     private double mei;
-    private Sede sede;
-    
+    private double salario;
+
+    public NominaMercaDAW(double irpf, double pagas, double contingencias, double formacion, double desempleo,
+            double liquido, double mei) {
+        this.irpf = irpf;
+        this.pagas = pagas;
+        this.contingencias = contingencias;
+        this.formacion = formacion;
+        this.desempleo = desempleo;
+        this.liquido = liquido;
+        this.mei = mei;
+    }
+
     public double getMei() {
         return mei;
     }
     public void setMei(double mei) {
         this.mei = mei;
     }
-    public Sede getSede() {
-        return sede;
-    }
-    public void setSede(Sede sede) {
-        this.sede = sede;
-    }
     public double getLiquido() {
         return liquido;
     }
     public void setLiquido() {
-        this.liquido = CategoriaEmpleado.EMPLEADO.getSueldo() + pagas - contingencias - irpf - formacion - desempleo - mei;  
+        this.liquido = liquido;
     }
     public double getIrpf() {
         return irpf;
@@ -80,25 +81,30 @@ public class NominaMercaDAW implements Nomina, Documento {
     }
     @Override
     public void calcularIRPF(Empleado empleado) {
-
-        irpf=(CategoriaEmpleado.EMPLEADO.getSueldo()+pagas) * IRPF;
+        irpf=(empleado.getSueldo()+pagas) * IRPF;
     }
     @Override
     public void calcularPagas(Empleado empleado) {
-        
-        pagas = (NUM_PAGAS * CategoriaEmpleado.EMPLEADO.getSueldo())/MESES;
+        pagas = (NUM_PAGAS * empleado.getSueldo())/MESES;
     }
     @Override
     public void calcularContingencias(Empleado empleado) {
-        contingencias = (CategoriaEmpleado.EMPLEADO.getSueldo()+pagas)*CONTIGENCIAS;
+        contingencias = (empleado.getSueldo()+pagas)*CONTIGENCIAS;
     }
     @Override
     public void calcularFormacion(Empleado empleado) {
-        formacion = (CategoriaEmpleado.EMPLEADO.getSueldo()+pagas)*FORMACION;
+        formacion = (empleado.getSueldo()+pagas)*FORMACION;
     }
     @Override
     public void calcularDesempleo(Empleado empleado) {
-        desempleo = (CategoriaEmpleado.EMPLEADO.getSueldo()+pagas)*DESEMPLEO;
+        desempleo = (empleado.getSueldo()+pagas)*DESEMPLEO;
+    }
+    @Override
+    public void calcularMEI(Empleado empleado) {
+        mei = (empleado.getSueldo()+pagas)*MEI;
+    }
+    public void obtenerSalario(Empleado empleado){
+        salario = empleado.getSueldo();
     }
     /**
      * Genera una nomina a mostrar en un mensaje de aviso
@@ -106,35 +112,42 @@ public class NominaMercaDAW implements Nomina, Documento {
     @Override 
     public String toString() {
     
-        final String CADENA = "CUANTIA \t  CONCEPTO \t \t DEVENGOS \t DEDUCCIONES \n"
-                            + " 30 \t  SALARIO BASE \t \t %s \n" 
-                            + " 30 \t PAGAS EXTRA \t \t %s \n" 
-                            + "\t \t CONTIGENCIAS COMUNES 4.70%  \t  \t %s \n " 
-                            + "\t \t FORMACION 0.10 \t \t %s \n" 
-                            + "\t \t  DESEMPLEO 1.55%  \t \t %s \n " 
-                            + "\t \t IRPF 14% \t \t %s \n " 
-                            + "\t \t MEI 0,12% \t \t %s \n "
+        final String CADENA = "CUANTIA        CONCEPTO                 DEVENGOS     DEDUCCIONES \n"
+                            + "\n"
+                            + "  30         SALARIO BASE                  %s \n" 
+                            + "  30         PAGAS EXTRA                   %s \n" 
+                            + "             CONTIGENCIAS COMUNES 4.70                     %s \n " 
+                            + "             FORMACION 0.10                                %s \n" 
+                            + "             DESEMPLEO 1.55                                %s \n " 
+                            + "             IRPF 14                                       %s \n " 
+                            + "             MEI 0,12                                      %s \n "
                             + " \n "
-                            + "\n LIQUIDO A PERCIBIR: %s ";
+                            + "#### LIQUIDO A PERCIBIR: %s ";
         
-        return String.format(CADENA, CategoriaEmpleado.EMPLEADO.getSueldo(),pagas, contingencias,  formacion , desempleo , irpf , mei , liquido );
+        return String.format(CADENA,salario,pagas, contingencias,  formacion , desempleo , irpf , mei , liquido );
     }
-    /* @Override
+    
+    @Override
+    public String calcularNomina(Empleado empleado){
+        obtenerSalario(empleado);
+        calcularPagas(empleado);
+        calcularContingencias(empleado);
+        calcularDesempleo(empleado);
+        calcularFormacion(empleado);
+        calcularIRPF(empleado);
+        calcularMEI(empleado);
+
+        obtenerSalario(empleado);
+        liquido=empleado.getSueldo() + pagas - mei - contingencias - desempleo - irpf - formacion;
+
+        return toString();
+    }
+
     public Map<String, Object[]> getContenido() {
-
-        Empleado[] empleados = new Empleado[Sede.getEmpleados().length];
-
-        Map<String, Object[]> data = new TreeMap<String, Object[]>();
-        data.put("1", new Object[] { "Nombre", "Apellidos", "Edad" });
-
-        for(int i=0; i<empleados.size(); i++){
-            Empleado emp = empleados.get(i);
-            Object[] empleadoDatos = new Object[] { emp.getNombre(), emp.getApellidos(), emp.CATEGORIA.getSueldo()};
-            data.put(String.valueOf(2+i), empleadoDatos);
-        }
-        return data;
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getContenido'");
     }
-    */
+
     @Override
     public String getTitulo() {
         // TODO Auto-generated method stub
@@ -146,7 +159,7 @@ public class NominaMercaDAW implements Nomina, Documento {
         throw new UnsupportedOperationException("Unimplemented method 'getPie'");
     }
     /**
-      * Convierte el docx en un documento pdf
+      * Convierte el docx nomina en un documento pdf
       */
     public void imprimirNomina(){
 
@@ -176,13 +189,17 @@ public class NominaMercaDAW implements Nomina, Documento {
             System.exit(34);
         }
     }
-    @Override
-    public Map<String, Object[]> getContenido() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getContenido'");
+    public static int getNumPagas() {
+        return NUM_PAGAS;
     }
-    @Override
-    public void calcularMEI() {
-        mei = (CategoriaEmpleado.EMPLEADO.getSueldo()+pagas)*MEI;
+    public static int getMeses() {
+        return MESES;
     }
+    public static double getContigencias() {
+        return CONTIGENCIAS;
+    }
+    public void setLiquido(double liquido) {
+        this.liquido = liquido;
+    }
+
 }
