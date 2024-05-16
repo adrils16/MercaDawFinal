@@ -59,16 +59,21 @@ public class NominaMercaDAW implements Nomina, Documento {
     @Override 
     public String toString() {
     
-        final String CADENA = "CUANTIA        CONCEPTO                 DEVENGOS     DEDUCCIONES \n"
-                            + "\n"
-                            + "  30         SALARIO BRUTO                  %s \n" 
-                            + "  30         PAGAS EXTRA                    %s \n" 
-                            + "             CONTIGENCIAS COMUNES 4.70                    %s \n " 
-                            + "             FORMACION 0.10                               %s \n" 
-                            + "             DESEMPLEO 1.55                               %s \n " 
-                            + "             IRPF 14                                      %s \n " 
-                            + "             MEI 0,12                                     %s \n "
-                            + " \n "
+        final String CADENA = "|CUANTIA|        CONCEPTO|                 DEVENGOS|      DEDUCCIONES|\n"
+                            + "|---|---|---|---|\n"
+                            + "|  30 |        SALARIO BRUTO |                   %s|                 |\n" 
+                            + "|   |   |   |   |\n"
+                            + "|  30 |       PAGAS EXTRA    |                   %s|                 |\n" 
+                            + "|   |   |   |   |\n"
+                            + "|     |      CONTIGENCIAS COMUNES 4.70 |           |               %s|\n " 
+                            + "|   |   |   |   |\n"
+                            + "|     |       FORMACION 0.10 |                     |               %s|\n " 
+                            + "|   |   |   |   |\n"
+                            + "|     |       DESEMPLEO 1.55 |                     |               %s|\n " 
+                            + "|   |   |   |   |\n"
+                            + "|     |        IRPF 14       |                     |               %s|\n " 
+                            + "|   |   |   |   |\n"
+                            + "|     |        MEI 0,12      |                     |               %s|\n "
                             + "#### LIQUIDO A PERCIBIR: %s ";
         
         return String.format(CADENA,salario,pagas, contingencias,  formacion , desempleo , irpf , mei , liquido );
