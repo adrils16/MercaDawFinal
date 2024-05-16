@@ -14,79 +14,21 @@ import java.sql.Statement;
  */
 public class MercaDawMariaDBDAOImp extends MercaDawDAOImp {
 
-    private final String URL = "jdbc:mariadb://localhost:3306/%s?user=%s&password=%s";
-    private final String DATABASE_NAME = "mercadaw";
-    private final String DATABASE_USER = "usuario";
-    private final String DATABASE_PASS = "usuario";
+    // private final String URL = "jdbc:mariadb://localhost:3306/%s?user=%s&password=%s";
+    // private final String DATABASE_NAME = "mercadaw";
+    // private final String DATABASE_USER = "usuario";
+    // private final String DATABASE_PASS = "usuario";
 
     private Connection conexion;
 
-    public MercaDawMariaDBDAOImp() throws Exception{
-        conexion = DriverManager.getConnection(String.format(URL, DATABASE_NAME, DATABASE_USER, DATABASE_PASS));
-    }
-
-    // public MercaDawMariaDBDAOImp(Connection conexion, Connection conexion2) throws SQLException{
-    //     super(conexion);
-    //     conexion = DriverManager.getConnection(String.format(URL, DATABASE_NAME, DATABASE_USER, DATABASE_PASS));
+    // public MercaDawMariaDBDAOImp() {
+    //     try {
+    //         conexion = DriverManager.getConnection(String.format(URL, DATABASE_NAME, DATABASE_USER, DATABASE_PASS));
+    //     } catch (SQLException e) {
+    //         e.printStackTrace();
+    //         //TODO Excepcion personalizada
+    //     }
     // }
-
-
-
-    /**
-     * Crea la tabla PRODUCTOS.
-     */
-    @Override
-    public void crearTablaProductos() throws SQLException {
-        String sql = "CREATE TABLE IF NOT EXISTS PRODUCTOS (" +
-                    "ID_PRODUCTO INT AUTO_INCREMENT PRIMARY KEY," +
-                    "NOMBRE VARCHAR(50) NOT NULL," +
-                    "MARCA VARCHAR(25) NOT NULL," +
-                    "PRECIO NUMBER NOT NULL," +
-                    "ALTURA NUMBER NOT NULL," +
-                    "ANCHURA NUMBER NOT NULL," +
-                    "PESO NUMBER NOT NULL," +
-                    "NUM_ELEMENTOS INT NOT NULL," +
-                    "DESCRIPCION VARCHAR(100) NOT NULL)";
-
-        PreparedStatement st = conexion.prepareStatement(sql);
-
-        st.execute();
-        st.close();
-    }
-
-    /**
-     * Crea la tabla EMPLEADOS.
-     */
-    @Override
-    public void crearTablaEmpleados() throws SQLException {
-        String sql = "CREATE TABLE IF NOT EXISTS EMPLEADOS (" +
-                            "ID_EMPLEADO INT AUTO_INCREMENT PRIMARY KEY," +
-                            "NOMBRE VARCHAR(25) NOT NULL," +
-                            "APELLIDOS VARCHAR(25) NOT NULL," +
-                            "SALARIO NUMBER NOT NULL)";
-
-        PreparedStatement st = conexion.prepareStatement(sql);
-
-        st.execute();
-        st.close();
-    }
-
-    /**
-     * Crea la tabla COMPRA.
-     */
-    @Override
-    public void crearTablaCompras() throws SQLException {
-        String sql = "CREATE TABLE IF NOT EXISTS COMPRA (" +
-                        "ID_COMPRA INT AUTO_INCREMENT PRIMARY KEY," +
-                        "HORA NUMBER NOT NULL," +
-                        "FECHA DATE NOT NULL," +
-                        "DNI VARCHAR(9) NOT NULL," +
-                        "FOREIGN KEY (DNI) REFERENCES CLIENTE(DNI))";
-        PreparedStatement st = conexion.prepareStatement(sql);
-
-        st.execute();
-        st.close();
-    }
     
     private String leerScriptSQL(String rutaScript) throws IOException {
         StringBuilder sb = new StringBuilder();

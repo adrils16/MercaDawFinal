@@ -4,7 +4,7 @@ import es.tiernoparla.daw.mercadaw.model.dao.enums.TipoDB;
 
 public class MercaDawDAOFactory {
 
-    public static MercaDawDAO crear(TipoDB tipo) throws Exception{
+    public static MercaDawDAO crear(TipoDB tipo) {
 
         MercaDawDAO dao = null;
 
