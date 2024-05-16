@@ -15,7 +15,7 @@ public class PDFUtil extends DocumentoUtil{
         final String COMANDO = "docker run --rm \\\n" + //
                         "       --volume \"$(pwd):/data\" \\\n" + //
                         "       --user $(id -u):$(id -g) \\\n" + //
-                        "       pandoc/extra %s -o eportado.pdf";
+                        "       pandoc/extra %s -o exportado.pdf";
 
         try {
             @SuppressWarnings("deprecation")

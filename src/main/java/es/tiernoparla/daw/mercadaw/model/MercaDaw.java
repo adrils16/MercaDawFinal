@@ -50,6 +50,6 @@ public interface MercaDaw {
      */
     public String imprimirEtiqueta(Producto producto);
 
-    public double calcularNominas(List<Empleado> empleados);
+    public String calcularNominas(Empleado empleados);
 
 }

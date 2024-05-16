@@ -7,6 +7,7 @@ import es.tiernoparla.daw.mercadaw.model.entity.interfaces.Gestionable;
 import es.tiernoparla.daw.mercadaw.model.entity.interfaces.Imprimible;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
+import es.tiernoparla.daw.mercadaw.utils.writer.NominaMercaDAW;
 
 public class Sede implements MercaDaw {
 
@@ -92,9 +93,12 @@ public class Sede implements MercaDaw {
     }
 
     @Override
-    public double calcularNominas(List<Empleado> empleados) {
-        // TODO implementar calcularNominas
-        throw new UnsupportedOperationException("Unimplemented method 'calcularNominas'");
+    public String calcularNominas(Empleado empleado) {
+
+        NominaMercaDAW n = new NominaMercaDAW();
+
+        return n.calcularNomina(empleado);
+        
     }
 
 }

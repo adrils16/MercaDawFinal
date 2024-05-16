@@ -9,76 +9,23 @@ import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.enums.Categoria
 
 public class NominaMercaDAW implements Nomina, Documento {
     
-    public final static int NUM_PAGAS=2;
-    public final static int MESES=12;
-    public final static double IRPF=0.14;
-    public final static double CONTIGENCIAS=0.047;
-    public final static double FORMACION=0.001;
-    public final static double DESEMPLEO=0.014;
-    public final static double MEI=0.012;
+    private final static int NUM_PAGAS=2;
+    private final static int MESES=12;
+    private final static double IRPF=0.14;
+    private final static double CONTIGENCIAS=0.047;
+    private final static double FORMACION=0.001;
+    private final static double DESEMPLEO=0.014;
+    private final static double MEI=0.012;
 
-    private double irpf;
-    private double pagas;
-    private double contingencias;
-    private double formacion;
-    private double desempleo;
-    private double liquido;
-    private double mei;
-    private double salario;
+    public double irpf;
+    public double pagas;
+    public double contingencias;
+    public double formacion;
+    public double desempleo;
+    public double liquido;
+    public double mei;
+    public double salario;
 
-    public NominaMercaDAW(double irpf, double pagas, double contingencias, double formacion, double desempleo,
-            double liquido, double mei) {
-        this.irpf = irpf;
-        this.pagas = pagas;
-        this.contingencias = contingencias;
-        this.formacion = formacion;
-        this.desempleo = desempleo;
-        this.liquido = liquido;
-        this.mei = mei;
-    }
-
-    public double getMei() {
-        return mei;
-    }
-    public void setMei(double mei) {
-        this.mei = mei;
-    }
-    public double getLiquido() {
-        return liquido;
-    }
-    public void setLiquido() {
-        this.liquido = liquido;
-    }
-    public double getIrpf() {
-        return irpf;
-    }
-    public void setIrpf(double irpf) {
-        this.irpf = irpf;
-    }
-    public double getPagas() {
-        return pagas;
-    }
-    public void setPagas(double pagas) {
-        this.pagas = pagas;
-    }
-    public double getContingencias() {
-        return contingencias;
-    }
-    public void setContingencias(double contingencias) {
-        this.contingencias = contingencias;
-    }
-    public double getFormacion() {
-        return formacion;
-    }
-    public void setFormacion(double formacion) {
-        this.formacion = formacion;
-    }
-    public double getDesempleo() {
-        return desempleo;
-    }
-    public void setDesempleo(double desempleo) {
-        this.desempleo = desempleo;
-    }
     @Override
     public void calcularIRPF(Empleado empleado) {
         irpf=(empleado.getSueldo()+pagas) * IRPF;
@@ -188,18 +135,6 @@ public class NominaMercaDAW implements Nomina, Documento {
             e.printStackTrace();
             System.exit(34);
         }
-    }
-    public static int getNumPagas() {
-        return NUM_PAGAS;
-    }
-    public static int getMeses() {
-        return MESES;
-    }
-    public static double getContigencias() {
-        return CONTIGENCIAS;
-    }
-    public void setLiquido(double liquido) {
-        this.liquido = liquido;
     }
 
 }
