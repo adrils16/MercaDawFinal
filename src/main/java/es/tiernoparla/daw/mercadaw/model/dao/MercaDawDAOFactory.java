@@ -4,17 +4,17 @@ import es.tiernoparla.daw.mercadaw.model.dao.enums.TipoDB;
 
 public class MercaDawDAOFactory {
 
-    public MercaDawDAO crear(TipoDB tipo) {
+    public static MercaDawDAO crear(TipoDB tipo) throws Exception{
 
         MercaDawDAO dao = null;
 
         switch (tipo) {
             case MARIADB:
-                //dao = new MercaDawMariaDBDAOImp();
+                dao = new MercaDawMariaDBDAOImp();
                 break;
         
             default:
-                //dao = new MercaDawMockDAOImp();
+                dao = new MercaDawMockDAOImp();
                 break;
         }
 
