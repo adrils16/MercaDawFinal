@@ -93,7 +93,7 @@ public class Sede implements MercaDaw {
 
     @Override
     public double calcularNominas(List<Empleado> empleados) {
-        // TODO Auto-generated method stub
+        // TODO implementar calcularNominas
         throw new UnsupportedOperationException("Unimplemented method 'calcularNominas'");
     }
 
