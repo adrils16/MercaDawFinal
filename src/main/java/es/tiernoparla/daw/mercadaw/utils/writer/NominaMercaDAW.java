@@ -114,13 +114,13 @@ public class NominaMercaDAW implements Nomina, Documento {
     
         final String CADENA = "CUANTIA        CONCEPTO                 DEVENGOS     DEDUCCIONES \n"
                             + "\n"
-                            + "  30         SALARIO BASE                  %s \n" 
-                            + "  30         PAGAS EXTRA                   %s \n" 
-                            + "             CONTIGENCIAS COMUNES 4.70                     %s \n " 
-                            + "             FORMACION 0.10                                %s \n" 
-                            + "             DESEMPLEO 1.55                                %s \n " 
-                            + "             IRPF 14                                       %s \n " 
-                            + "             MEI 0,12                                      %s \n "
+                            + "  30         SALARIO BRUTO                  %s \n" 
+                            + "  30         PAGAS EXTRA                    %s \n" 
+                            + "             CONTIGENCIAS COMUNES 4.70                    %s \n " 
+                            + "             FORMACION 0.10                               %s \n" 
+                            + "             DESEMPLEO 1.55                               %s \n " 
+                            + "             IRPF 14                                      %s \n " 
+                            + "             MEI 0,12                                     %s \n "
                             + " \n "
                             + "#### LIQUIDO A PERCIBIR: %s ";
         
