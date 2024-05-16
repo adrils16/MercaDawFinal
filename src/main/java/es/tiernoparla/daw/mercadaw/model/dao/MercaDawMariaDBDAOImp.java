@@ -224,7 +224,7 @@ public abstract class MercaDawMariaDBDAOImp implements MercaDawDAO {
             ps.setString(1, empleado.getNombre());
             ps.setString(2, empleado.getApellidos());
             ps.setInt(3, empleado.getId());
-            ps.setDouble(4, empleado.CATEGORIA.getSueldo());
+            ps.setDouble(4, empleado.getSueldo());
             numRegistrosActualizados = ps.executeUpdate();
         }
         return numRegistrosActualizados;

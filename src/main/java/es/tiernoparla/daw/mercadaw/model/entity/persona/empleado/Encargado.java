@@ -4,11 +4,10 @@ import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.enums.Categoria
 
 public class Encargado extends Empleado {
     
-    public final static CategoriaEmpleado CATEGORIA = CategoriaEmpleado.ENCARGADO;
-    public final static int SUELDO = CATEGORIA.getSueldo();
-
-    public Encargado(String nombre, String apellidos, int id) {
-        super(nombre, apellidos, id);
-        //TODO Auto-generated constructor stub
+    public Encargado(String nombre, String apellidos, int id, String categoria, int sueldo) {
+        
+        super(nombre, apellidos, id, categoria, sueldo);
+        
     }
+    
 }

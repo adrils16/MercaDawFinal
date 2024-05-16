@@ -4,47 +4,70 @@ allow_mixing
 
 package es.tiernoparla.daw.mercadaw.model.entity {
 
+    package interfaces {
+
+        interface Imprimible {
+            +imprimir() : String
+        }
+
+    }
+
     package producto {
         class ProductoFactory {
-            +crear(categoria: CategoriaProducto): Producto
+            +crear(tipo : CategoriaProducto): Producto
         }
 
         class Caracteristica {
+            + RECARGO_MAX : double = 0.15 {static}
+            + RECARGO_MED : double = 0.1 {static}
+            + RECARGO_MIN : double = 0.05 {static}
+            + RECARGO_ELEM : double = 0.1 {static}
             -altura: double
             -anchura: double
             -peso: double
             -numElementos: int
 
-            +calcularRecargoPeso(): double
-            +calcularRecargoAltura(): double
-            +calcularRecargoAnchura(): double
+            +calcularTipoRecargoPeso(): double
+            +calcularValorRecargoPeso(double precioVenta): double
+            +calcularTipoRecargoDimension(double dimension): double
+            +calcularValorRecargoDimension(double dimension, double precioVenta): double
             +calcularRecargoNumElementos(): double
+            +calcularRecargoTotal(double precioVenta): double
+            +visualizarRecargos(double precioVenta): String
         }
 
         abstract Producto {
-            -nombre: String
-            -marca: String
-            -precio: double
-            -descripcion: String
+            #nombre: String
+            #marca: String
+            #precio: double
+            #caracteristca: Caracteristica
+            #descripcion: String
+            #valorIVA: double
+            #categoria: String
 
-            +calcularPrecio(): double
+            +calcularPrecioVenta(): double
+            +calcularPrecioTotal(): double
+            +calcularPrecioEnDolares(): double
+            +calcularValorIVA(): double
+            +visualizarPrecioTotal(): String
+            +imprimirEtiqueta(): String
+
         }
+
+        Producto ..|> Imprimible
 
         Caracteristica "1" --*  "1" Producto
 
         class Alimentacion {
-            +{static} CATEGORIA: CategoriaProducto = ALIMENTACION
-            +{static} IVA: TipoIVA = SUPERREDUCIDO
+
         }
 
         class Drogueria {
-            +{static} CATEGORIA: CategoriaProducto = DROGUERIA
-            +{static} IVA: TipoIVA = REDUCIDO
+
         }
 
         class Cosmetica {
-            +{static} CATEGORIA: CategoriaProducto = COSMETICA
-            +{static} TipoIVA = GENERAL
+
         }
 
         Producto <|-- Alimentacion
@@ -62,28 +85,29 @@ package es.tiernoparla.daw.mercadaw.model.entity {
         package empleado {
 
             class EmpleadoFactory {
-                +crear(categoria: CategoriaEmpleado): Empleado
+                +crear(tipo: CategoriaEmpleado): Empleado
             }
 
             class Empleado {
-                +{static} CATEGORIA: CategoriaEmpleado = Empleado
-                +{static} SUELDO = 1000
+
                 #id: int
+                #categoria: String
+                #sueldo: int
+
             }
 
+            Empleado ..|> Imprimible
+
             class Reponedor {
-                +{static} CATEGORIA: CategoriaEmpleado = Reponedor
-                +{static} SUELDO = 1200
+                
             }
 
             class Cajero {
-                +{static} CATEGORIA: CategoriaEmpleado = Cajero
-                +{static} SUELDO = 1300
+                
             }
 
             class Encargado {
-                +{static} CATEGORIA: CategoriaEmpleado = Encargado
-                +{static} SUELDO = 1500
+                
             }
 
         }

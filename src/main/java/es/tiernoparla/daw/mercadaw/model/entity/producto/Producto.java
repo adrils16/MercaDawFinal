@@ -56,6 +56,26 @@ public abstract class Producto implements Imprimible {
         this.caracteristica = caracteristica;
     }
 
+    public static TipoIVA getIva() {
+        return IVA;
+    }
+
+    public double getValorIVA() {
+        return valorIVA;
+    }
+
+    public void setValorIVA(double valorIVA) {
+        this.valorIVA = valorIVA;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
     /**
      * Calcula el precio de venta del producto, añadiendo un 25% del precio original. 
      * @return Precio de venta del Producto.
@@ -159,6 +179,5 @@ public abstract class Producto implements Imprimible {
         return cadena;
 
     }
-
 
 }

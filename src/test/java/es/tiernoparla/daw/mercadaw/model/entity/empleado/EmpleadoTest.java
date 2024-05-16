@@ -12,6 +12,6 @@ public class EmpleadoTest {
 
     @Test
     public void imprimirEmpleado() {
-        e.imprimir();
+        System.out.println(e.imprimir());
     }
 }
