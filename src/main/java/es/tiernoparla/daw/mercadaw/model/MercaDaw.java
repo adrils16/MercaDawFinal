@@ -9,7 +9,18 @@ import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
 
 public interface MercaDaw {
     
+    /**
+     * Añade un objeto a la lista correspondiente a su tipo.
+     * @param gestionable Un objeto de tipo Gestionable.
+     * @return 1 si se ha añadido o 0 si no.
+     */
     public int darAlta(Gestionable gestionable);
+    /**
+     * Añade un conjunto de objetos a la lista correspondiente a su tipo.
+     * Permite listas que combinen objetos de tipo Empleado y Producto.
+     * @param gestionables Una lista de tipo Gestionable.
+     * @return Número de objetos añadidos o 0 si no se ha añadido ninguno.
+     */
     public int darAlta(List<Gestionable> gestionables);
     
 

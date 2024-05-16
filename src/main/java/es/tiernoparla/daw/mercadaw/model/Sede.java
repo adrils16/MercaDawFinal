@@ -32,14 +32,37 @@ public class Sede implements MercaDaw {
 
     @Override
     public int darAlta(Gestionable gestionable) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'darAlta'");
+
+        int numActualizados = 0;
+
+        if (gestionable instanceof Producto) {
+            productos.add((Producto)gestionable);
+            numActualizados++; 
+        }else if (gestionable instanceof Empleado) {
+            empleados.add((Empleado)gestionable);
+            numActualizados++;
+        }
+
+        return numActualizados;
     }
 
     @Override
     public int darAlta(List<Gestionable> gestionables) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'darAlta'");
+        
+        int numActualizados = 0;
+
+        for (Gestionable gestionable : gestionables) {
+            if (gestionable instanceof Producto) {
+                productos.add((Producto)gestionable);
+                numActualizados++; 
+            }else if (gestionable instanceof Empleado) {
+                empleados.add((Empleado)gestionable);
+                numActualizados++;
+            }
+        }
+
+        return numActualizados;
+
     }
 
     @Override
@@ -74,5 +97,4 @@ public class Sede implements MercaDaw {
         throw new UnsupportedOperationException("Unimplemented method 'calcularNominas'");
     }
 
-    
 }

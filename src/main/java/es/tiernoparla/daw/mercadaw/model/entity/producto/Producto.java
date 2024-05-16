@@ -1,9 +1,10 @@
 package es.tiernoparla.daw.mercadaw.model.entity.producto;
 
+import es.tiernoparla.daw.mercadaw.model.entity.interfaces.Gestionable;
 import es.tiernoparla.daw.mercadaw.model.entity.interfaces.Imprimible;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.enums.TipoIVA;
 
-public abstract class Producto implements Imprimible {
+public abstract class Producto implements Imprimible, Gestionable {
 
     public final static TipoIVA IVA = TipoIVA.GENERAL;
 

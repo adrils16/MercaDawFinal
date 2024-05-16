@@ -1,9 +1,10 @@
 package es.tiernoparla.daw.mercadaw.model.entity.persona.empleado;
 
+import es.tiernoparla.daw.mercadaw.model.entity.interfaces.Gestionable;
 import es.tiernoparla.daw.mercadaw.model.entity.interfaces.Imprimible;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.Persona;
 
-public class Empleado extends Persona implements Imprimible{
+public class Empleado extends Persona implements Imprimible, Gestionable{
 
     protected int id;
     protected String categoria;
