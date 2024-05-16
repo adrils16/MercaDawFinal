@@ -69,10 +69,10 @@ public class DarAltaEmpeadoViewController extends ViewController{
     @FXML
     private TextField txfNombre;
 
-    @FXML
-    public void initialize() {
-        this.empleados = FXCollections.observableArrayList();
-    }
+    // @FXML
+    // public void initialize() {
+    //     this.empleados = FXCollections.observableArrayList();
+    // }
 
     @FXML
     void cambiarModo(MouseEvent event) {
@@ -102,15 +102,14 @@ public class DarAltaEmpeadoViewController extends ViewController{
             String apellidos = txfApellidos.getText();
             CategoriaEmpleado categoria = CategoriaEmpleado.valueOf(txfCategoria.getText().toUpperCase());
 
-            if (this.empleados.contains(empleado)) {
+            if (mercadaw.getEmpleados().contains(empleado)) {
                 mostrarAviso(MSG_ERROR_EMPLEADO, AlertType.ERROR);
             } else if (camposRellenos()){
 
                 empleado = EmpleadoFactory.crear(categoria, nombre, apellidos, 0);
 
-                this.empleados.add(empleado);
-                //dao.;
-                //TODO insertar BBDD
+                mercadaw.darAlta(empleado);
+                dao.insertar(empleado);
 
                 mostrarAviso(MSG_EXITO, AlertType.CONFIRMATION);
             } else {
@@ -146,7 +145,8 @@ public class DarAltaEmpeadoViewController extends ViewController{
                     valor = fr.read();
                 }
 
-                this.empleados.addAll(new LectorFactory().obtenerLector(TipoLector.CSV).leerEmpleado(LectorImp.cargar(fichero)));
+                //TODO insertar listas objetoMercadaw cuando metodo darAlta este implementado
+                //this.empleados.addAll(new LectorFactory().obtenerLector(TipoLector.CSV).leerEmpleado(LectorImp.cargar(fichero)));
                 //TODO insertar en la base de datos
 
             } catch (Exception e) {
@@ -177,7 +177,7 @@ public class DarAltaEmpeadoViewController extends ViewController{
                     valor = fr.read();
                 }
 
-                this.empleados.addAll(new LectorFactory().obtenerLector(TipoLector.JSON).leerEmpleado(LectorImp.cargar(fichero)));
+                //this.empleados.addAll(new LectorFactory().obtenerLector(TipoLector.JSON).leerEmpleado(LectorImp.cargar(fichero)));
 
             } catch (Exception e) {
                 mostrarAviso(MSG_ERROR, AlertType.ERROR);

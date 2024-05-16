@@ -111,7 +111,7 @@ public class DarAltaProductoViewController extends ViewController {
 
     @FXML
     public void initialize() {
-        this.productos = FXCollections.observableArrayList(new ArrayList<>());
+        //this.productos = FXCollections.observableArrayList(new ArrayList<>());
     }
 
     @FXML
@@ -135,13 +135,13 @@ public class DarAltaProductoViewController extends ViewController {
             int numElementos = Integer.parseInt(txfNumElementos.getText());
             String descripcion = txaDescripcion.getText();
 
-            if (this.productos.contains(producto)) {
+            if (mercadaw.getProductos().contains(producto)) {
                 mostrarAviso(MSG_ERROR_PRODUCTO, AlertType.ERROR);
             } else if (camposRellenos()){
 
                 producto = ProductoFactory.crear(categoria, nombre, marca, precio, new Caracteristica(altura, anchura, peso, numElementos), descripcion);
 
-                this.productos.add(producto);
+                mercadaw.darAlta(producto);
                 dao.insertar(producto);
 
                 mostrarAviso(MSG_EXITO, AlertType.CONFIRMATION);
@@ -179,8 +179,9 @@ public class DarAltaProductoViewController extends ViewController {
                 new LectorFactory();
                 Lector lector = LectorFactory.obtenerLector(TipoLector.CSV);
 
-                this.productos.addAll(lector.leerProducto(LectorImp.cargar(fichero)));
-                dao.insertar(productos);
+                //TODO insertar listas objetoMercadaw cuando metodo darAlta este implementado
+                //this.productos.addAll(lector.leerProducto(LectorImp.cargar(fichero)));
+                //dao.insertar(productos);
 
             } catch (Exception e) {
                 mostrarAviso(MSG_ERROR, AlertType.ERROR);
@@ -210,7 +211,9 @@ public class DarAltaProductoViewController extends ViewController {
                     valor = fr.read();
                 }
 
-                this.productos.addAll(new LectorFactory().obtenerLector(TipoLector.JSON).leerProducto(LectorImp.cargar(fichero)));
+                //TODO insertar listas objetoMercadaw cuando metodo darAlta este implementado
+                //this.productos.addAll(new LectorFactory().obtenerLector(TipoLector.JSON).leerProducto(LectorImp.cargar(fichero)));
+                //TODO insertar en la base de datos
 
             } catch (Exception e) {
                 mostrarAviso(MSG_ERROR, AlertType.ERROR);

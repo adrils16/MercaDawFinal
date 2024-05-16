@@ -1,6 +1,7 @@
 package es.tiernoparla.daw.mercadaw.view;
 
 import es.tiernoparla.daw.mercadaw.controller.*;
+import es.tiernoparla.daw.mercadaw.model.Sede;
 import es.tiernoparla.daw.mercadaw.model.dao.MercaDawDAO;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
@@ -19,10 +20,11 @@ public abstract class ViewController {
     protected boolean esClaro = true;
     protected MercadawController controller;
 
-    protected ObservableList<Producto> productos;
-    protected ObservableList<Empleado> empleados;
+    // protected ObservableList<Producto> productos;
+    // protected ObservableList<Empleado> empleados;
 
     protected MercaDawDAO dao;
+    protected Sede mercadaw;
 
     public MercadawController getController() {
         return controller;
@@ -32,21 +34,23 @@ public abstract class ViewController {
         this.controller = controller;
     }
 
-    public ObservableList<Producto> getProductos() {
-        return productos;
-    }
+    
 
-    public void setProductos(ObservableList<Producto> productos) {
-        this.productos = productos;
-    }
+    // public ObservableList<Producto> getProductos() {
+    //     return productos;
+    // }
 
-    public ObservableList<Empleado> getEmpleados() {
-        return empleados;
-    }
+    // public void setProductos(ObservableList<Producto> productos) {
+    //     this.productos = productos;
+    // }
 
-    public void setEmpleados(ObservableList<Empleado> empleados) {
-        this.empleados = empleados;
-    }
+    // public ObservableList<Empleado> getEmpleados() {
+    //     return empleados;
+    // }
+
+    // public void setEmpleados(ObservableList<Empleado> empleados) {
+    //     this.empleados = empleados;
+    // }
 
     protected boolean campoRelleno(TextField campo) {
         boolean relleno = false;
@@ -71,4 +75,25 @@ public abstract class ViewController {
         alerta.setContentText(msg);
         alerta.showAndWait();
     }
+
+    public static String getEstiloClaro() {
+        return ESTILO_CLARO;
+    }
+
+    public static String getEstiloOscuro() {
+        return ESTILO_OSCURO;
+    }
+
+    public static String getTituloMsgError() {
+        return TITULO_MSG_ERROR;
+    }
+
+    public boolean isEsClaro() {
+        return esClaro;
+    }
+
+    public void setEsClaro(boolean esClaro) {
+        this.esClaro = esClaro;
+    }
+
 }
