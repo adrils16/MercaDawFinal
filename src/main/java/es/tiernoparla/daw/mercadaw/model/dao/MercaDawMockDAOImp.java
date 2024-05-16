@@ -29,27 +29,12 @@ public class MercaDawMockDAOImp extends MercaDawDAOImp{
     }
 
     @Override
-    public void crearTablaCompras() throws SQLException {
-        
-    }
-
-    @Override
-    public void crearTablaEmpleados() throws SQLException {
-    
-    }
-
-    @Override
-    public void crearTablaProductos() throws SQLException {
-        
-    }
-
-    @Override
     public int insertar(Producto producto) throws SQLException {
         return 0;
     }
 
     @Override
-    public int insertar(List<Producto> productos) throws SQLException {
+    public int insertarProductos(List<Producto> productos) throws SQLException {
         return 0;
     }
 
@@ -59,7 +44,7 @@ public class MercaDawMockDAOImp extends MercaDawDAOImp{
     }
 
     @Override
-    public int insertar(Empleado[] empleados) throws SQLException {
+    public int insertarEmpleados(List<Empleado> empleados) throws SQLException {
         return 0;
     }
     

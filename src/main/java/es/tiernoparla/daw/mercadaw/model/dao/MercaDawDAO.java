@@ -3,25 +3,11 @@ package es.tiernoparla.daw.mercadaw.model.dao;
 import java.sql.SQLException;
 import java.util.List;
 
+import es.tiernoparla.daw.mercadaw.model.entity.interfaces.Gestionable;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
 
 public interface MercaDawDAO {
-    /**
-     * Crea la tabla Productos en la base de datos
-     * @throws SQLException
-     */
-    public void crearTablaProductos() throws SQLException;
-    /**
-     * Crea la tabla Empleados en la base de datos
-     * @throws SQLException
-     */
-    public void crearTablaEmpleados() throws SQLException;
-    /**
-     * Crea la tabla Compras en la base de datos
-     * @throws SQLException
-     */
-    public void crearTablaCompras() throws SQLException;
 
     /**
      * Inserta un único producto en la tabla Productos
@@ -36,7 +22,7 @@ public interface MercaDawDAO {
      * @return número de productos insertados
      * @throws SQLException
      */
-    public int insertar(List<Producto> productos)throws SQLException;
+    public int insertarProductos(List<Producto> productos)throws SQLException;
     /**
      * Inserta un único empleado en la tabla Empleados
      * @param empleado Empleado que se va a insertar
@@ -50,7 +36,7 @@ public interface MercaDawDAO {
      * @return número de empleados insertados
      * @throws SQLException
      */
-    public int insertar(Empleado[] empleados)throws SQLException;
+    public int insertarEmpleados(List<Empleado> empleados)throws SQLException;
 
     /**
      * Actualiza la tupla de un determinado producto en la BD

@@ -1,21 +1,30 @@
 package es.tiernoparla.daw.mercadaw.model.dao;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
-
 
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
 
 public abstract class MercaDawDAOImp implements MercaDawDAO{
+    protected final String URL = "jdbc:mariadb://localhost:3306/%s?user=%s&password=%s";
+    protected final String DATABASE_NAME = "mercadaw";
+    protected final String DATABASE_USER = "root";
+    protected final String DATABASE_PASS = "secret";
+
     protected Connection conexion;
-    /* 
-    public MercaDawDAOImp(Connection conexion) throws SQLException{
-        this.conexion = conexion;
+
+    public MercaDawDAOImp() {
+        try {
+            conexion = DriverManager.getConnection(String.format(URL, DATABASE_NAME, DATABASE_USER, DATABASE_PASS));
+        } catch (SQLException e) {
+            e.printStackTrace();
+            //TODO Excepcion personalizada
+        }
     }
-    */
 
     /**
      * Inserta un producto en la tabla Productos.
@@ -25,8 +34,8 @@ public abstract class MercaDawDAOImp implements MercaDawDAO{
     @Override
     public int insertar(Producto producto) throws SQLException{
         int numRegistrosActualizados = 0;
-        String sql = "INSERT INTO productos (nombre, marca, precio, altura, anchura, peso, numElementos, descripcion) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        PreparedStatement ps = conexion.prepareStatement(sql);
+        final String SQL = "INSERT INTO PRODUCTOS (nombre, marca, precio, altura, anchura, peso, num_elementos, descripcion) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        PreparedStatement ps = conexion.prepareStatement(SQL);
 
         ps.setString(1, producto.getNombre());
         ps.setString(2, producto.getMarca());
@@ -48,9 +57,9 @@ public abstract class MercaDawDAOImp implements MercaDawDAO{
      * @return Número de productos insertados.
      */
     @Override
-    public int insertar(List<Producto> productos) throws SQLException{
+    public int insertarProductos(List<Producto> productos) throws SQLException{
 
-        String sql = "INSERT INTO productos (nombre, marca, precio, altura, anchura, peso, numElementos, descripcion) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO PRODUCTOS (NOMBRE, MARCA, PRECIO, ALTURA, ANCHURA, PESO, NUM_ELEMENTOS, DESCRIPCION) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement ps = conexion.prepareStatement(sql);
 
             for (Producto producto : productos) {
@@ -83,12 +92,12 @@ public abstract class MercaDawDAOImp implements MercaDawDAO{
     @Override
     public int insertar(Empleado empleado) throws SQLException{
         int numRegistrosActualizados = 0;
-        String sql = "INSERT INTO empleados (nombre, salario, id) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO EMPLEADOS (nombre, apellidos, salario) VALUES (?, ?, ?)";
         PreparedStatement ps = conexion.prepareStatement(sql);
 
         ps.setString(1, empleado.getNombre());
         ps.setString(2, empleado.getApellidos());
-        ps.setInt(3, empleado.getId());
+        ps.setInt(3, empleado.getSueldo());
 
         numRegistrosActualizados = ps.executeUpdate();
         ps.close();
@@ -96,21 +105,20 @@ public abstract class MercaDawDAOImp implements MercaDawDAO{
         return numRegistrosActualizados;
     }
 
-
     /**
      * Inserta una lista de empleados en la tabla Empleados.
      * @param empleados Lista de empleados que se quiere insertar.
      * @return Número de empleaods insertados.
      */
     @Override
-    public int insertar(Empleado[] empleados) throws SQLException{
+    public int insertarEmpleados(List<Empleado> empleados) throws SQLException{
         int numRegistrosActualizados = 0;
-        String sql = "INSERT INTO empleados (nombre, salario, id) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO EMPLEADOS (nombre, apellidos, salario) VALUES (?, ?, ?)";
         try (PreparedStatement ps = conexion.prepareStatement(sql)) {
             for (Empleado empleado : empleados) {
                 ps.setString(1, empleado.getNombre());
                 ps.setString(2, empleado.getApellidos());
-                ps.setInt(3, empleado.getId());
+                ps.setInt(3, empleado.getSueldo());
                 ps.addBatch();
             }
             numRegistrosActualizados = ps.executeBatch().length;

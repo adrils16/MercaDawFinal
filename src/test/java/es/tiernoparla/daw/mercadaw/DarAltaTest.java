@@ -2,9 +2,6 @@ package es.tiernoparla.daw.mercadaw;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.jupiter.api.Test;
 
 import es.tiernoparla.daw.mercadaw.model.Sede;
@@ -17,9 +14,6 @@ import es.tiernoparla.daw.mercadaw.model.entity.producto.ProductoFactory;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.enums.CategoriaProducto;
 
 public class DarAltaTest {
-
-    List<Empleado> empleados = new ArrayList<>();
-    List<Producto> productos = new ArrayList<>();
 
     Sede mercadaw = new Sede();
     
@@ -34,21 +28,16 @@ public class DarAltaTest {
     
     @Test
     public void darAltaEmpleadoTest() {
-        //mercadaw.darAlta(e1);
-        //mercadaw.darAlta(e2);
-        //assertEquals(2, mercadaw.getEmpleados().size());
-
-        empleados.add(e1);
-        empleados.add(e2);
+        mercadaw.darAlta(e1);
+        mercadaw.darAlta(e2);
+        mercadaw.darAlta(p1);
+        assertEquals(3, mercadaw.getEmpleados().size());
     }
 
     @Test
     public void darAltaProductoTest() {
-        // mercadaw.darAlta(p1);
-        // mercadaw.darAlta(p2);
-        // assertEquals(2, mercadaw.getProductos().size());
-
-        productos.add(p1);
-        productos.add(p2);
+        mercadaw.darAlta(p1);
+        mercadaw.darAlta(p2);
+        assertEquals(2, mercadaw.getProductos().size());
     }
 }

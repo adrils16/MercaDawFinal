@@ -6,10 +6,6 @@ import java.io.FileReader;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.EmpleadoFactory;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.enums.CategoriaEmpleado;
-import es.tiernoparla.daw.mercadaw.utils.reader.LectorFactory;
-import es.tiernoparla.daw.mercadaw.utils.reader.LectorImp;
-import es.tiernoparla.daw.mercadaw.utils.reader.enumeracion.TipoLector;
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -105,10 +101,11 @@ public class DarAltaEmpeadoViewController extends ViewController{
             if (mercadaw.getEmpleados().contains(empleado)) {
                 mostrarAviso(MSG_ERROR_EMPLEADO, AlertType.ERROR);
             } else if (camposRellenos()){
-
+                
+                //TODO constructor de empleado
                 empleado = EmpleadoFactory.crear(categoria, nombre, apellidos, 0);
 
-                mercadaw.darAlta(empleado);
+                //mercadaw.darAlta(empleado);
                 dao.insertar(empleado);
 
                 mostrarAviso(MSG_EXITO, AlertType.CONFIRMATION);

@@ -4,10 +4,10 @@ CREATE TABLE PRODUCTOS (
                     EAN INTEGER AUTO_INCREMENT PRIMARY KEY,
                     NOMBRE VARCHAR(50),
                     MARCA VARCHAR(25),
-                    PRECIO INTEGER,
-                    ALTURA INTEGER,  
-                    ANCHURA INTEGER,
-                    PESO INTEGER,
+                    PRECIO DECIMAL(5,2),
+                    ALTURA DECIMAL(5,2),  
+                    ANCHURA DECIMAL(5,2),
+                    PESO DECIMAL(5,2),
                     NUM_ELEMENTOS INTEGER,
                     DESCRIPCION VARCHAR(100));
 
