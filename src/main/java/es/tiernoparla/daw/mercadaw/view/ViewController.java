@@ -3,9 +3,8 @@ package es.tiernoparla.daw.mercadaw.view;
 import es.tiernoparla.daw.mercadaw.controller.*;
 import es.tiernoparla.daw.mercadaw.model.Sede;
 import es.tiernoparla.daw.mercadaw.model.dao.MercaDawDAO;
-import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
-import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
-import javafx.collections.ObservableList;
+import es.tiernoparla.daw.mercadaw.model.dao.MercaDawDAOFactory;
+import es.tiernoparla.daw.mercadaw.model.dao.enums.TipoDB;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.Alert.AlertType;
@@ -23,8 +22,8 @@ public abstract class ViewController {
     // protected ObservableList<Producto> productos;
     // protected ObservableList<Empleado> empleados;
 
-    protected MercaDawDAO dao;
-    protected Sede mercadaw;
+    protected MercaDawDAO dao = MercaDawDAOFactory.crear(TipoDB.MARIADB);
+    protected Sede mercadaw = new Sede();
 
     public MercadawController getController() {
         return controller;

@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.List;
 
 import es.tiernoparla.daw.mercadaw.model.entity.interfaces.Gestionable;
+import es.tiernoparla.daw.mercadaw.exception.FicheroException;
 import es.tiernoparla.daw.mercadaw.exception.LectorException;
 
 /**
@@ -32,5 +33,12 @@ public interface Lector {
      */
     public List<Gestionable> leerEmpleado(String cadena) throws LectorException;
 
+    /**
+     * Carga el contenido de un fichero.
+     * 
+     * @param file Fichero a cargar.
+     * @return Contenido del fichero.
+     * @throws FicheroException Si hay un error al cargar el fichero.
+     */
     public String cargar(File fichero) throws Exception;
 }

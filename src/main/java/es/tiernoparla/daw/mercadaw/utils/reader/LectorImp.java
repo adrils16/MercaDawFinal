@@ -1,9 +1,7 @@
 package es.tiernoparla.daw.mercadaw.utils.reader;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import es.tiernoparla.daw.mercadaw.exception.FicheroException;
+import es.tiernoparla.daw.mercadaw.exception.LectorException;
 
 public abstract class LectorImp implements Lector {
 
@@ -15,7 +13,7 @@ public abstract class LectorImp implements Lector {
      * @param codigo Código a comprobar.
      * @throws Exception Si el código no es válido.
      */
-    public void comprobar(String codigo) throws Exception {
+    public void comprobar(String codigo) throws LectorException {
         if (codigo.equals(null) && codigo.equals("")) {
             throw new FicheroException(MSG_ERROR);
         }

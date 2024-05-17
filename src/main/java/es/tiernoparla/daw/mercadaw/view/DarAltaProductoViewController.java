@@ -2,6 +2,10 @@ package es.tiernoparla.daw.mercadaw.view;
 
 import java.io.File;
 import java.io.FileReader;
+
+import es.tiernoparla.daw.mercadaw.model.dao.MercaDawDAO;
+import es.tiernoparla.daw.mercadaw.model.dao.MercaDawDAOFactory;
+import es.tiernoparla.daw.mercadaw.model.dao.enums.TipoDB;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Caracteristica;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.ProductoFactory;
@@ -131,11 +135,11 @@ public class DarAltaProductoViewController extends ViewController {
             int numElementos = Integer.parseInt(txfNumElementos.getText());
             String descripcion = txaDescripcion.getText();
 
+            producto = ProductoFactory.crear(categoria, nombre, marca, precio, new Caracteristica(altura, anchura, peso, numElementos), descripcion);
             if (mercadaw.getProductos().contains(producto)) {
                 mostrarAviso(MSG_ERROR_PRODUCTO, AlertType.ERROR);
             } else if (camposRellenos()){
 
-                producto = ProductoFactory.crear(categoria, nombre, marca, precio, new Caracteristica(altura, anchura, peso, numElementos), descripcion);
 
                 mercadaw.darAlta(producto);
                 dao.insertar(producto);
@@ -159,25 +163,22 @@ public class DarAltaProductoViewController extends ViewController {
 
         ExtensionFilter filtro = new ExtensionFilter(DESCRPICION_FILTRO, EXTENSION_FILTRO);
 
+        Lector lector = LectorFactory.obtenerLector(TipoLector.CSV);
+        MercaDawDAO dao = MercaDawDAOFactory.crear(TipoDB.MARIADB);
+
         FileChooser fileChooser = new FileChooser();
-        File fichero = fileChooser.showOpenDialog(new Stage());
         fileChooser.getExtensionFilters().add(filtro);
+        File fichero = fileChooser.showOpenDialog(new Stage());
 
         if (fichero != null) {
             try (FileReader fr = new FileReader(fichero)) {
-                String cadena = " ";
                 int valor = fr.read();
                 while (valor != -1) {
-                    cadena += (char) valor;
                     valor = fr.read();
                 }
 
-                new LectorFactory();
-                Lector lector = LectorFactory.obtenerLector(TipoLector.CSV);
-
-                //TODO insertar listas objetoMercadaw cuando metodo darAlta este implementado
-                //this.productos.addAll(lector.leerProducto(LectorImp.cargar(fichero)));
-                //dao.insertar(productos);
+                mercadaw.darAlta(lector.leerProducto(lector.cargar(fichero)));
+                dao.insertarProductos(mercadaw.getProductos());
 
             } catch (Exception e) {
                 mostrarAviso(MSG_ERROR, AlertType.ERROR);
@@ -194,8 +195,8 @@ public class DarAltaProductoViewController extends ViewController {
         ExtensionFilter filtro = new ExtensionFilter(DESCRPICION_FILTRO, EXTENSION_FILTRO);
 
         FileChooser fileChooser = new FileChooser();
-        File fichero = fileChooser.showOpenDialog(new Stage());
         fileChooser.getExtensionFilters().add(filtro);
+        File fichero = fileChooser.showOpenDialog(new Stage());
 
         if (fichero != null) {
             try (FileReader fr = new FileReader(fichero)) {

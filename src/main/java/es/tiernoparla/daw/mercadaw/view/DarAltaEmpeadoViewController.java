@@ -104,13 +104,12 @@ public class DarAltaEmpeadoViewController extends ViewController{
             String nombre = txfNombre.getText();
             String apellidos = txfApellidos.getText();
             CategoriaEmpleado categoria = CategoriaEmpleado.valueOf(txfCategoria.getText().toUpperCase());
-
+            
+            empleado = EmpleadoFactory.crear(categoria, nombre, apellidos, 0);
             if (mercadaw.getEmpleados().contains(empleado)) {
                 mostrarAviso(MSG_ERROR_EMPLEADO, AlertType.ERROR);
             } else if (camposRellenos()){
                 
-                empleado = EmpleadoFactory.crear(categoria, nombre, apellidos, 0);
-
                 mercadaw.darAlta(empleado);
                 dao.insertar(empleado);
 
@@ -138,16 +137,14 @@ public class DarAltaEmpeadoViewController extends ViewController{
         MercaDawDAO dao = MercaDawDAOFactory.crear(TipoDB.MARIADB);
 
         FileChooser fileChooser = new FileChooser();
-        File fichero = fileChooser.showOpenDialog(new Stage());
         fileChooser.getExtensionFilters().add(filtro);
+        File fichero = fileChooser.showOpenDialog(new Stage());
 
         if (fichero != null) {
             try (FileReader fr = new FileReader(fichero)){
-                String cadena = " ";
                 int valor = fr.read();
 
                 while (valor != -1) {
-                    cadena += (char) valor;
                     valor = fr.read();
                 }
 
@@ -168,21 +165,22 @@ public class DarAltaEmpeadoViewController extends ViewController{
 
         ExtensionFilter filtro = new ExtensionFilter(DESCRPICION_FILTRO, EXTENSION_FILTRO);
 
+        Lector lector = LectorFactory.obtenerLector(TipoLector.JSON);
+        
         FileChooser fileChooser = new FileChooser();
-        File fichero = fileChooser.showOpenDialog(new Stage());
         fileChooser.getExtensionFilters().add(filtro);
+        File fichero = fileChooser.showOpenDialog(new Stage());
 
         if (fichero != null) {
             try (FileReader fr = new FileReader(fichero)){
-                String cadena = " ";
                 int valor = fr.read();
 
                 while (valor != -1) {
-                    cadena += (char) valor;
                     valor = fr.read();
                 }
 
-                //this.empleados.addAll(new LectorFactory().obtenerLector(TipoLector.JSON).leerEmpleado(LectorImp.cargar(fichero)));
+                mercadaw.darAlta(lector.leerEmpleado(lector.cargar(fichero)));
+                dao.insertarEmpleados(mercadaw.getEmpleados());
 
             } catch (Exception e) {
                 mostrarAviso(MSG_ERROR, AlertType.ERROR);

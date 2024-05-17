@@ -14,7 +14,6 @@ import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.EmpleadoFactory;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.enums.CategoriaEmpleado;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Caracteristica;
-import es.tiernoparla.daw.mercadaw.exception.FicheroException;
 import es.tiernoparla.daw.mercadaw.exception.LectorException;
 
 /**
@@ -60,23 +59,6 @@ public class LectorCSV extends LectorImp {
         return producto;
     }
 
-    @Override
-    public String cargar(File fichero) throws Exception{
-        final String MSG_ERROR = "Error al cargar el fichero";
-
-        StringBuilder contenido = new StringBuilder();
-        try (BufferedReader br = new BufferedReader(new FileReader(fichero))){
-            String linea;
-            while ((linea = br.readLine()) != null) {
-                contenido.append(linea).append("\n");
-            }
-            br.close();
-        } catch (Exception e) {
-            throw new Exception(MSG_ERROR);
-        }
-        return contenido.toString();
-    }
-
     /**
      * Procesa una fila de un fichero CSV y devuelve un objeto Empleado.
      * 
@@ -102,6 +84,23 @@ public class LectorCSV extends LectorImp {
 
         return empleado;
 
+    }
+
+    @Override
+    public String cargar(File fichero) throws Exception{
+        final String MSG_ERROR = "Error al cargar el fichero";
+
+        StringBuilder contenido = new StringBuilder();
+        try (BufferedReader br = new BufferedReader(new FileReader(fichero))){
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                contenido.append(linea).append("\n");
+            }
+            br.close();
+        } catch (Exception e) {
+            throw new Exception(MSG_ERROR);
+        }
+        return contenido.toString();
     }
 
     @Override

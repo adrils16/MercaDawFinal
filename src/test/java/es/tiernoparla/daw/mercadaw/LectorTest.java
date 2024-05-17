@@ -1,43 +1,64 @@
 package es.tiernoparla.daw.mercadaw;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.jupiter.api.Test;
 
 import es.tiernoparla.daw.mercadaw.utils.reader.Lector;
 import es.tiernoparla.daw.mercadaw.utils.reader.LectorFactory;
-import es.tiernoparla.daw.mercadaw.utils.reader.LectorImp;
 import es.tiernoparla.daw.mercadaw.utils.reader.enumeracion.TipoLector;
 import es.tiernoparla.daw.mercadaw.model.Sede;
-import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
-import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
+import es.tiernoparla.daw.mercadaw.model.dao.MercaDawDAO;
+import es.tiernoparla.daw.mercadaw.model.dao.MercaDawDAOFactory;
+import es.tiernoparla.daw.mercadaw.model.dao.enums.TipoDB;
 
 public class LectorTest {
 
+    private static final String cadena = "[\n" + //
+            "    {\n" + //
+            "      \"Nombre\": \"Julián\",\n" + //
+            "      \"Apellidos\": \"Parra\",\n" + //
+            "      \"Categoria\": \"Empleado\"\n" + //
+            "    },\n" + //
+            "    {\n" + //
+            "      \"Nombre\": \"Ana\",\n" + //
+            "      \"Apellidos\": \"García\",\n" + //
+            "      \"Categoria\": \"Cajero\"\n" + //
+            "    },\n" + //
+            "    {\n" + //
+            "      \"Nombre\": \"Pedro\",\n" + //
+            "      \"Apellidos\": \"López\",\n" + //
+            "      \"Categoria\": \"Reponedor\"\n" + //
+            "    },\n" + //
+            "    {\n" + //
+            "      \"Nombre\": \"Laura\",\n" + //
+            "      \"Apellidos\": \"Gómez\",\n" + //
+            "      \"Categoria\": \"Encargado\"\n" + //
+            "    }\n" + //
+            "  ]";
+
     Sede mercadaw = new Sede();
+    MercaDawDAO dao = MercaDawDAOFactory.crear(TipoDB.MOCK);
+    Lector lectorCSV = LectorFactory.obtenerLector(TipoLector.CSV);
+    Lector lectorJSON = LectorFactory.obtenerLector(TipoLector.JSON);
 
     @Test
     public void LectorCSVTest() throws Exception {
         File fichero = new File("productos.csv");
-        Lector lector = LectorFactory.obtenerLector(TipoLector.CSV);
-        //productos = lector.leerProducto(LectorImp.cargar(fichero));
-        //System.out.println(productos);
+        mercadaw.darAlta(lectorCSV.leerProducto(lectorCSV.cargar(fichero)));
+        dao.insertarProductos(mercadaw.getProductos());
     }
 
     @Test
     public void lectorCSVEmpleadosTest() throws Exception {
-        File fichero = new File("emplados.csv");
-        Lector lector = LectorFactory.obtenerLector(TipoLector.CSV);
-        String codigo = lector.cargar(fichero);
-        mercadaw.darAlta(lector.leerEmpleado(codigo));
+        File fichero = new File("empleados.csv");
+        mercadaw.darAlta(lectorCSV.leerEmpleado(lectorCSV.cargar(fichero)));
+        dao.insertarEmpleados(mercadaw.getEmpleados());
     }
+
     @Test
     public void LectorJSONTest() throws Exception {
         File fichero = new File("empleados.json");
-        Lector lector = LectorFactory.obtenerLector(TipoLector.JSON);
-        //empleados.addAll(lector.leerEmpleado(LectorImp.cargar(fichero)));
+        mercadaw.darAlta(lectorJSON.leerEmpleado(lectorJSON.cargar(fichero)));
     }
 
 }
