@@ -9,11 +9,11 @@ import org.junit.jupiter.api.Test;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.EmpleadoFactory;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.enums.CategoriaEmpleado;
-import es.tiernoparla.daw.mercadaw.utils.writer.Exportable;
 import es.tiernoparla.daw.mercadaw.utils.writer.MarkdownUtil;
-import es.tiernoparla.daw.mercadaw.utils.writer.Nomina;
 import es.tiernoparla.daw.mercadaw.utils.writer.NominaMercaDAW;
 import es.tiernoparla.daw.mercadaw.utils.writer.PDFUtil;
+import es.tiernoparla.daw.mercadaw.utils.writer.interfaces.Exportable;
+import es.tiernoparla.daw.mercadaw.utils.writer.interfaces.Nomina;
 
 public class NominaMercaDAWTest {
     

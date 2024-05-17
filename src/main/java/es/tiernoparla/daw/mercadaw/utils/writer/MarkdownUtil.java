@@ -7,6 +7,8 @@ import java.io.PrintWriter;
 import java.util.Map;
 
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
+import es.tiernoparla.daw.mercadaw.utils.writer.interfaces.Documento;
+import es.tiernoparla.daw.mercadaw.utils.writer.interfaces.Nomina;
 
 public class MarkdownUtil implements Documento, Nomina {
     

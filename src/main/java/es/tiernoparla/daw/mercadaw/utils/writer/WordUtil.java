@@ -10,6 +10,8 @@ import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
 
+import es.tiernoparla.daw.mercadaw.utils.writer.interfaces.Documento;
+
 public class WordUtil extends DocumentoUtil{
 
     @Override
@@ -21,36 +23,36 @@ public class WordUtil extends DocumentoUtil{
         final String VACIO="";
         final String ESPACIO=" ";
 
-        XWPFDocument document = new XWPFDocument();
+        try (XWPFDocument document = new XWPFDocument()) { //Añadido try-with para cerrar el recurso, si no funciona dejar como antes
+            XWPFParagraph title = document.createParagraph();
+            title.setAlignment(ParagraphAlignment.CENTER);
+            XWPFRun titleRun = title.createRun();
+            titleRun.setText(doc.getTitulo());
+            titleRun.setColor(MSG_COLOR);
+            titleRun.setBold(true);
+            titleRun.setFontFamily(MSG_FUENTE);
+            titleRun.setFontSize(MSG_TAMANYO);
 
-        XWPFParagraph title = document.createParagraph();
-        title.setAlignment(ParagraphAlignment.CENTER);
-        XWPFRun titleRun = title.createRun();
-        titleRun.setText(doc.getTitulo());
-        titleRun.setColor(MSG_COLOR);
-        titleRun.setBold(true);
-        titleRun.setFontFamily(MSG_FUENTE);
-        titleRun.setFontSize(MSG_TAMANYO);
+            Map<String, Object[]> data = doc.getContenido();
+            Set<String> keyset = data.keySet(); 
+            for (String key : keyset) { 
+                Object[] objArr = data.get(key); 
+                String parrafo = VACIO;
+                for (Object obj : objArr) { 
+                    parrafo += obj.toString()+ESPACIO;
+                }
 
-        Map<String, Object[]> data = doc.getContenido();
-        Set<String> keyset = data.keySet(); 
-        for (String key : keyset) { 
-            Object[] objArr = data.get(key); 
-            String parrafo = VACIO;
-            for (Object obj : objArr) { 
-                parrafo += obj.toString()+ESPACIO;
+                XWPFParagraph para1 = document.createParagraph();
+                para1.setAlignment(ParagraphAlignment.BOTH);
+                XWPFRun para1Run = para1.createRun();
+                para1Run.setText(parrafo);
             }
 
-            XWPFParagraph para1 = document.createParagraph();
-            para1.setAlignment(ParagraphAlignment.BOTH);
-            XWPFRun para1Run = para1.createRun();
-            para1Run.setText(parrafo);
+            ByteArrayOutputStream out = new ByteArrayOutputStream();
+            document.write(out);
+            out.close();
+            return out.toByteArray();
         }
-
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        document.write(out);
-        out.close();
-        return out.toByteArray();
     }
 
 }

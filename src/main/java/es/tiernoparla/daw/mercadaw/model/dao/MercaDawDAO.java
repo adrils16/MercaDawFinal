@@ -3,7 +3,6 @@ package es.tiernoparla.daw.mercadaw.model.dao;
 import java.sql.SQLException;
 import java.util.List;
 
-import es.tiernoparla.daw.mercadaw.model.entity.interfaces.Gestionable;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
 

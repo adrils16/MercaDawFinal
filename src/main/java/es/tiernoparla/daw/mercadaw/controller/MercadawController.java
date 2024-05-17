@@ -67,7 +67,7 @@ public class MercadawController extends Application{
         try{
             cargarVista(vista);
         }catch(IOException e){
-            System.err.println(ERR_CARGA.format(ERR_CARGA, vista.getRuta()));
+            System.err.println(String.format(ERR_CARGA, vista.getRuta()));
         }
 
     }

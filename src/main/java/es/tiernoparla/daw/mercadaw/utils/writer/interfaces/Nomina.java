@@ -1,4 +1,4 @@
-package es.tiernoparla.daw.mercadaw.utils.writer;
+package es.tiernoparla.daw.mercadaw.utils.writer.interfaces;
 
 
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;

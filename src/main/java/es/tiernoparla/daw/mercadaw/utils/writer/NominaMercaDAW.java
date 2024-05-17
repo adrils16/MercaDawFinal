@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.util.Map;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.enums.CategoriaEmpleado;
+import es.tiernoparla.daw.mercadaw.utils.writer.interfaces.Documento;
+import es.tiernoparla.daw.mercadaw.utils.writer.interfaces.Nomina;
 
 public class NominaMercaDAW implements Nomina, Documento {
     
