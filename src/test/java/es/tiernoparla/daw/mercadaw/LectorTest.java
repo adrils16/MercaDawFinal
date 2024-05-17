@@ -13,29 +13,6 @@ import es.tiernoparla.daw.mercadaw.model.dao.enums.TipoDB;
 
 public class LectorTest {
 
-    private static final String cadena = "[\n" + //
-            "    {\n" + //
-            "      \"Nombre\": \"Julián\",\n" + //
-            "      \"Apellidos\": \"Parra\",\n" + //
-            "      \"Categoria\": \"Empleado\"\n" + //
-            "    },\n" + //
-            "    {\n" + //
-            "      \"Nombre\": \"Ana\",\n" + //
-            "      \"Apellidos\": \"García\",\n" + //
-            "      \"Categoria\": \"Cajero\"\n" + //
-            "    },\n" + //
-            "    {\n" + //
-            "      \"Nombre\": \"Pedro\",\n" + //
-            "      \"Apellidos\": \"López\",\n" + //
-            "      \"Categoria\": \"Reponedor\"\n" + //
-            "    },\n" + //
-            "    {\n" + //
-            "      \"Nombre\": \"Laura\",\n" + //
-            "      \"Apellidos\": \"Gómez\",\n" + //
-            "      \"Categoria\": \"Encargado\"\n" + //
-            "    }\n" + //
-            "  ]";
-
     Sede mercadaw = new Sede();
     MercaDawDAO dao = MercaDawDAOFactory.crear(TipoDB.MOCK);
     Lector lectorCSV = LectorFactory.obtenerLector(TipoLector.CSV);

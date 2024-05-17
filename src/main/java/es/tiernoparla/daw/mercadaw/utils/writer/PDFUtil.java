@@ -10,12 +10,10 @@ public class PDFUtil extends DocumentoUtil{
      * Este metodo exporta a PDF a traves de un comando de docker que llama a un sistema con pandoc, es necesario tener el otro fichero creado previmente para que funcione
      * @param nombreFichero fichero que queremos exportar a PDF
      */
-    public static void exportarPDF(String nombreFichero){
-        //no funciona ni array ni String
-        final String [] COMANDO ={"docker run --rm \\\n"+
-                        "       --volume \"$(pwd):/data\" \\\n",
-                        "       --user $(id -u):$(id -g) \\\n", 
-                        "       pandoc/extra nomina.md -o outfile.pdf"};
+    public static void exportarPDF() throws IOException{
+
+        //! Comando para exportar a PDF desde un script de bash
+        final String [] COMANDO = {"./scrpit.sh"};
 
         try {
             Process process = Runtime.getRuntime().exec(COMANDO);
@@ -27,7 +25,6 @@ public class PDFUtil extends DocumentoUtil{
             }
             int exitVal = process.waitFor();
             if (exitVal == 0) {
-                System.out.println(output);
                 System.exit(0);
             } else {
                 System.exit(1);
