@@ -44,9 +44,6 @@ public class DarAltaProductoViewController extends ViewController {
     private Button btnJSON;
 
     @FXML
-    private Button btnXML;
-
-    @FXML
     private AnchorPane container;
 
     @FXML
@@ -218,10 +215,6 @@ public class DarAltaProductoViewController extends ViewController {
         }
     }
 
-    @FXML
-    void darAltaVariosProductosXML(MouseEvent event) {
-
-    }
 
     @FXML
     void volverAtras(MouseEvent event) {

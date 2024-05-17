@@ -19,9 +19,6 @@ public class PrincipalViewController extends ViewController {
     private Button btnExportar;
 
     @FXML
-    private Button btnImportar;
-
-    @FXML
     private Button btnModo;
 
     @FXML
@@ -60,11 +57,6 @@ public class PrincipalViewController extends ViewController {
     @FXML
     void gestionarProductos(MouseEvent event) throws IOException {
         controller.cargarPantalla(Vista.GESTION_PRODUCTO);
-    }
-
-    @FXML
-    void importarDatos(MouseEvent event) {
-        //TODO
     }
 
     @FXML

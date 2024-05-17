@@ -43,9 +43,6 @@ public class DarAltaEmpeadoViewController extends ViewController{
     private Button btnJSON;
 
     @FXML
-    private Button btnXML;
-
-    @FXML
     private AnchorPane container;
 
     @FXML
@@ -186,11 +183,6 @@ public class DarAltaEmpeadoViewController extends ViewController{
                 mostrarAviso(MSG_ERROR, AlertType.ERROR);
             }
         }
-    }
-
-    @FXML
-    void darAltaVariosEmpleadosXML(MouseEvent event) {
-
     }
     
     @FXML

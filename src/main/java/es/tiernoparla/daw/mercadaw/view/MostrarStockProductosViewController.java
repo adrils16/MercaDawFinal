@@ -17,9 +17,6 @@ public class MostrarStockProductosViewController extends ViewController{
     private Button btnModo;
 
     @FXML
-    private Button btnMostrar;
-
-    @FXML
     private TableColumn<Producto, Integer> colId;
 
     @FXML
@@ -51,11 +48,7 @@ public class MostrarStockProductosViewController extends ViewController{
 
     @FXML
     void volverAtras(MouseEvent event) {
-        controller.cargarPantalla(Vista.VISUALIZAR_DATOS_PRODUCTO);
+        controller.cargarPantalla(Vista.GESTION_PRODUCTO);
     }
 
-    @FXML
-    void mostrarStock(MouseEvent event) {
-        //TODO
-    }
 }

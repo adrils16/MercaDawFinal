@@ -9,8 +9,8 @@
 
 <AnchorPane fx:id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.tiernoparla.daw.mercadaw.view.GestionComprasViewController">
    <children>
-      <Button fx:id="btnDatosCompra" layoutX="170.0" layoutY="257.0" mnemonicParsing="false" onMouseClicked="#visualizarCompras" text="Visualizar listado compras" />
-      <Button fx:id="btnAltaCompra" layoutX="170.0" layoutY="307.0" mnemonicParsing="false" onMouseClicked="#darAltaCompra" prefHeight="33.0" prefWidth="206.0" text="Dar de alta una compra" />
+      <Button fx:id="btnDatosCompra" layoutX="173.0" layoutY="324.0" mnemonicParsing="false" onMouseClicked="#visualizarCompras" text="Visualizar listado compras" />
+      <Button fx:id="btnAltaCompra" layoutX="173.0" layoutY="252.0" mnemonicParsing="false" onMouseClicked="#darAltaCompra" prefHeight="33.0" prefWidth="206.0" text="Dar de alta una compra" />
       <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="496.0" layoutY="200.0">
          <image>
             <Image url="@logo.png" />

@@ -17,9 +17,6 @@ public class VisualizarListadoComprasViewController extends ViewController{
     private Button btnModo;
 
     @FXML
-    private Button btnMostrarListado;
-
-    @FXML
     private AnchorPane container;
 
     @FXML
@@ -44,11 +41,6 @@ public class VisualizarListadoComprasViewController extends ViewController{
             container.getStylesheets().add(getClass().getResource(ESTILO_OSCURO).toExternalForm());
             esClaro = false;
         }
-    }
-
-    @FXML
-    void mostrarListado(MouseEvent event) {
-
     }
 
     @FXML

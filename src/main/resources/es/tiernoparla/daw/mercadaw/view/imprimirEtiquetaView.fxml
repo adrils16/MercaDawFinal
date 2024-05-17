@@ -20,7 +20,7 @@
             <Image url="@logo.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnImprimirEtiqueta" layoutX="276.0" layoutY="277.0" mnemonicParsing="false" onMouseClicked="#imprimirEtiqueta" text="Imprimir Etiqueta" />
+      <Button fx:id="btnImprimirEtiqueta" layoutX="195.0" layoutY="276.0" mnemonicParsing="false" onMouseClicked="#imprimirEtiqueta" text="Imprimir Etiqueta" />
       <Button fx:id="btnAtras" layoutX="26.0" layoutY="22.0" mnemonicParsing="false" onMouseClicked="#volverAtras" text="Atrás" />
       <Button fx:id="btnModo" layoutX="758.0" layoutY="22.0" mnemonicParsing="false" onMouseClicked="#cambiarModo" text="Cambiar Modo" />
       <TableView fx:id="tblProductos" layoutX="463.0" layoutY="138.0" prefHeight="416.0" prefWidth="403.0">
@@ -29,7 +29,6 @@
             <TableColumn fx:id="colNombre" prefWidth="201.5999755859375" text="NOMBRE" />
          </columns>
       </TableView>
-      <Button fx:id="btnMostrarProductos" layoutX="105.0" layoutY="277.0" mnemonicParsing="false" onMouseClicked="#mostrarProductos" text="Mostrar Productos" />
    </children>
    <stylesheets>
       <URL value="@estiloOscuro.css" />

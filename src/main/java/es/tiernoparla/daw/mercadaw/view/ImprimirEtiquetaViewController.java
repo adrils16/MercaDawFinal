@@ -22,9 +22,6 @@ public class ImprimirEtiquetaViewController extends ViewController{
     private Button btnModo;
 
     @FXML
-    private Button btnMostrarProductos;
-
-    @FXML
     private AnchorPane container;
 
     @FXML
@@ -59,11 +56,6 @@ public class ImprimirEtiquetaViewController extends ViewController{
 
     @FXML
     void imprimirEtiqueta(MouseEvent event) {
-        //TODO
-    }
-
-    @FXML
-    void mostrarProductos(MouseEvent event) {
         //TODO
     }
 

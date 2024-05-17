@@ -58,12 +58,11 @@
          </children>
       </GridPane>
       <Button fx:id="btnAceptar" layoutX="649.0" layoutY="367.0" mnemonicParsing="false" onMouseClicked="#darAltaProducto" prefHeight="38.0" prefWidth="82.0" text="Aceptar" />
-      <Button fx:id="btnAtras" layoutX="31.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#volverAtras" prefHeight="37.0" prefWidth="55.0" text="Atrás" />
+      <Button fx:id="btnAtras" layoutX="31.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#volverAtras" prefHeight="37.0" prefWidth="70.0" text="Atrás" />
       <Button fx:id="btnModo" layoutX="757.0" layoutY="26.0" mnemonicParsing="false" onMouseClicked="#cambiarModo" prefHeight="38.0" prefWidth="116.0" text="Cambiar Modo" />
-      <Button fx:id="btnCSV" layoutX="567.0" layoutY="473.0" mnemonicParsing="false" onMouseClicked="#darAltaVariosProductosCSV" text="CSV" />
-      <Button fx:id="btnXML" layoutX="759.0" layoutY="473.0" mnemonicParsing="false" onMouseClicked="#darAltaVariosProductosXML" text="XML" />
-      <Button fx:id="btnJSON" layoutX="660.0" layoutY="473.0" mnemonicParsing="false" onMouseClicked="#darAltaVariosProductosJSON" text="JSON" />
-      <Label layoutX="567.0" layoutY="435.0" prefHeight="31.0" prefWidth="200.0" text="Desde un fichero:" />
+      <Button fx:id="btnCSV" layoutX="609.0" layoutY="473.0" mnemonicParsing="false" onMouseClicked="#darAltaVariosProductosCSV" text="CSV" />
+      <Button fx:id="btnJSON" layoutX="720.0" layoutY="473.0" mnemonicParsing="false" onMouseClicked="#darAltaVariosProductosJSON" text="JSON" />
+      <Label layoutX="605.0" layoutY="425.0" prefHeight="31.0" prefWidth="200.0" text="Desde un fichero:" />
    </children>
    <stylesheets>
       <URL value="@estiloOscuro.css" />

@@ -18,9 +18,6 @@ public class VisualizarListadoEmpleadosViewController extends ViewController{
     private Button btnModo;
 
     @FXML
-    private Button btnMostrar;
-
-    @FXML
     private AnchorPane container;
 
     @FXML
@@ -55,11 +52,6 @@ public class VisualizarListadoEmpleadosViewController extends ViewController{
             container.getStylesheets().add(getClass().getResource(ESTILO_OSCURO).toExternalForm());
             esClaro = false;
         }
-    }
-
-    @FXML
-    void mostrarEmpleados(MouseEvent event) {
-        //TODO
     }
 
     @FXML

@@ -19,9 +19,6 @@ public class VisualizarDatosProductoViewController extends ViewController{
     private Button btnModo;
 
     @FXML
-    private Button btnMostrarProductos;
-
-    @FXML
     private Button btnVisualizarDatos;
 
     @FXML
@@ -55,11 +52,6 @@ public class VisualizarDatosProductoViewController extends ViewController{
             container.getStylesheets().add(getClass().getResource(ESTILO_OSCURO).toExternalForm());
             esClaro = false;
         }
-    }
-
-    @FXML
-    void mostrarProductos(MouseEvent event) {
-        controller.cargarPantalla(Vista.MOSTRAR_STOCK);
     }
 
     @FXML
