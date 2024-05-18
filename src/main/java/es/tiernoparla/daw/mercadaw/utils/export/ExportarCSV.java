@@ -11,22 +11,9 @@ import java.sql.SQLException;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 
-import es.tiernoparla.daw.mercadaw.model.dao.MercaDawDAO;
-import es.tiernoparla.daw.mercadaw.model.dao.MercaDawDAOFactory;
-import es.tiernoparla.daw.mercadaw.model.dao.MercaDawMariaDBDAOImp;
-import es.tiernoparla.daw.mercadaw.model.dao.enums.TipoDB;
 
 public class ExportarCSV {
 
-    //TODO enum
-    public final String PRODUCTOS = "SELECT * FROM VISTA_PRODUCTOS";
-    public final String EMPLEADOS = "SELECT * FROM VISTA_EMPLEADOS";
-    public final String CLIENTES = "SELECT * FROM VISTA_CLIENTES";
-    public final String COMPRAS = "SELECT * FROM VISTA_COMPRA";
-    public final String PRODUCTO_SEDE = "SELECT * FROM VISTA_PRODUCTO_SEDE";
-    public final String SEDE = "SELECT * FROM VISTA_SEDE";
-    public final String COMPRA_PRODUCTOS = "SELECT * FROM VISTA_COMPRA_PRODUCTOS";
-    
     private final String URL = "jdbc:mariadb://localhost:3306/%s?user=%s&password=%s";
     private final String DATABASE_NAME = "mercadaw";
     private final String DATABASE_USER = "root";

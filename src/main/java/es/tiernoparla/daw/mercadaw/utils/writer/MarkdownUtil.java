@@ -6,13 +6,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Map;
 
-import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
-import es.tiernoparla.daw.mercadaw.utils.writer.interfaces.Documento;
-import es.tiernoparla.daw.mercadaw.utils.writer.interfaces.Nomina;
 
-public class MarkdownUtil implements Documento, Nomina {
+import es.tiernoparla.daw.mercadaw.utils.writer.interfaces.Documento;
+
+public class MarkdownUtil implements Documento{
     
-    public static void crearMd(String cadena) throws IOException{
+    public static void crearNominaMd(String cadena) throws IOException{
         final String NOMBRE_FICHERO = "nomina.md";
         FileWriter fich = null;
         PrintWriter pw = null;
@@ -28,47 +27,38 @@ public class MarkdownUtil implements Documento, Nomina {
         fichMod.close();
     }
 
-    @Override
-    public void calcularIRPF(Empleado empleado) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'calcularIRPF'");
+    public static void crearCostesMd(String cadena) throws IOException{
+        final String NOMBRE_FICHERO = "costes.md";
+        FileWriter fich = null;
+        PrintWriter pw = null;
+        fich = new FileWriter(NOMBRE_FICHERO);
+
+        pw = new PrintWriter(fich);
+
+        pw.close();
+        fich.close();
+
+        FileWriter fichMod = new FileWriter(new File(NOMBRE_FICHERO),true);
+        fichMod.write(cadena);
+        fichMod.close();
     }
 
-    @Override
-    public void calcularPagas(Empleado empleado) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'calcularPagas'");
+    public static void crearFiniquitoMd(String cadena) throws IOException{
+        final String NOMBRE_FICHERO = "finiquito.md";
+        FileWriter fich = null;
+        PrintWriter pw = null;
+        fich = new FileWriter(NOMBRE_FICHERO);
+
+        pw = new PrintWriter(fich);
+
+        pw.close();
+        fich.close();
+
+        FileWriter fichMod = new FileWriter(new File(NOMBRE_FICHERO),true);
+        fichMod.write(cadena);
+        fichMod.close();
     }
 
-    @Override
-    public void calcularContingencias(Empleado empleado) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'calcularContingencias'");
-    }
-
-    @Override
-    public void calcularFormacion(Empleado empleado) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'calcularFormacion'");
-    }
-
-    @Override
-    public void calcularDesempleo(Empleado empleado) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'calcularDesempleo'");
-    }
-
-    @Override
-    public void calcularMEI(Empleado empleado) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'calcularMEI'");
-    }
-
-    @Override
-    public String calcularNomina(Empleado empleado) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'calcularNomina'");
-    }
 
     @Override
     public Map<String, Object[]> getContenido() {
