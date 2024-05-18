@@ -1,6 +1,9 @@
 package es.tiernoparla.daw.mercadaw.model.entity.persona;
 
 public abstract class Persona {
+
+    public static final String ATT_NOMBRE = "nombre";
+    public static final String ATT_APELLIDOS = "apellidos";
     
     protected String nombre;
     protected String apellidos;

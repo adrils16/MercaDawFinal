@@ -6,6 +6,9 @@ import es.tiernoparla.daw.mercadaw.model.entity.persona.Persona;
 
 public class Empleado extends Persona implements Imprimible, Gestionable{
 
+    public static final String ATT_ID = "id";
+    public static final String ATT_CATEGORIA = "categoria";
+
     protected int id;
     protected String categoria;
     protected int sueldo;
