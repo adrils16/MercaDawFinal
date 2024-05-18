@@ -95,11 +95,6 @@ public class MercadawController extends Application{
 
     }
 
-    //quitar
-    public void cargarProducto()throws IOException{
-        cargarVista(Vista.VISUALIZAR_LISTADO_EMPLEADOS);
-    }
-
     // PRODUCTOS
     public void darAltaProducto(CategoriaProducto categoria, String nombre, String marca, double precio, double altura, double anchura, double peso, int numElementos, String descripcion)throws IOException, SQLException{
         dao = MercaDawDAOFactory.crear(TipoDB.MARIADB);

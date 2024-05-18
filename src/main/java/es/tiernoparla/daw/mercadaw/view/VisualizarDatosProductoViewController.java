@@ -1,11 +1,9 @@
 package es.tiernoparla.daw.mercadaw.view;
 
-import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -33,6 +31,9 @@ public class VisualizarDatosProductoViewController extends ViewController{
     @FXML
     private TextField txfIdProducto;
 
+   @FXML
+   private TextArea txaDatosProducto;
+
     @FXML
     void cambiarModo(MouseEvent event) {
         container.getStylesheets().clear();
@@ -47,7 +48,7 @@ public class VisualizarDatosProductoViewController extends ViewController{
 
     @FXML
     void visualizarDatosProducto(MouseEvent event) {
-        controller.cargarPantalla(Vista.DATOS_PRODUCTO);
+        //TODO 
     }
 
     @FXML
