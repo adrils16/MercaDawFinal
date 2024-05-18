@@ -11,6 +11,10 @@ import java.sql.SQLException;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 
+import es.tiernoparla.daw.mercadaw.model.dao.MercaDawDAO;
+import es.tiernoparla.daw.mercadaw.model.dao.MercaDawDAOFactory;
+import es.tiernoparla.daw.mercadaw.model.dao.enums.TipoDB;
+
 public class ExportarCSV {
 
     public final String PRODUCTOS = "SELECT * FROM VISTA_PRODUCTOS";
@@ -45,7 +49,7 @@ public class ExportarCSV {
 
             BufferedWriter writer = new BufferedWriter(new FileWriter(ruta));
 
-            CSVPrinter printer = new CSVPrinter(writer, CSVFormat.EXCEL.withHeader(rs));
+            CSVPrinter printer = new CSVPrinter(writer, CSVFormat.DEFAULT.builder().setHeader(rs).build());
             printer.printRecords(rs);
             printer.close();
 

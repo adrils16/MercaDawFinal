@@ -6,7 +6,7 @@ import java.util.List;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
 
-public class MercaDawMockDAOImp extends MercaDawDAOImp{
+public class MercaDawMockDAOImp implements MercaDawDAO{
 
     public MercaDawMockDAOImp() {
         super();

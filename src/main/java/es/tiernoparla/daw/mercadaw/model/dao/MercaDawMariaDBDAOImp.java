@@ -1,36 +1,192 @@
 package es.tiernoparla.daw.mercadaw.model.dao;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.List;
 
+import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
+import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
 
-/**
- * Esta clase realiza todas las operaciones relacionadas con la Base de Datos
- */
-public class MercaDawMariaDBDAOImp extends MercaDawDAOImp{
+public class MercaDawMariaDBDAOImp implements MercaDawDAO{
 
+    public final String MSG_ERROR_CONEXION = "Error al conectar con la base de datos";
 
+    protected final String URL = "jdbc:mariadb://localhost:3306/%s?user=%s&password=%s";
+    protected final String DATABASE_NAME = "mercadaw";
+    protected final String DATABASE_USER = "root";
+    protected final String DATABASE_PASS = "secret";
 
-    // private final String URL = "jdbc:mariadb://localhost:3306/%s?user=%s&password=%s";
-    // private final String DATABASE_NAME = "mercadaw";
-    // private final String DATABASE_USER = "usuario";
-    // private final String DATABASE_PASS = "usuario";
+    protected Connection conexion;
 
-    private Connection conexion;
-    
-    // private String leerScriptSQL(String rutaScript) throws IOException {
-    //     StringBuilder sb = new StringBuilder();
-    //     try (BufferedReader br = new BufferedReader(new FileReader(rutaScript))) {
-    //         String linea;
-    //         while ((linea = br.readLine()) != null) {
-    //             sb.append(linea).append("\n");
-    //         }
-    //     }
-    //     return sb.toString();
-    // }
+    public MercaDawMariaDBDAOImp() {
+        try {
+            conexion = DriverManager.getConnection(String.format(URL, DATABASE_NAME, DATABASE_USER, DATABASE_PASS));
+        } catch (SQLException e) {
+            System.err.println(MSG_ERROR_CONEXION);
+        }
+    }
 
-    // private void ejecutarScriptSQL(String script) throws SQLException {
-    //     try (Statement statment = conexion.createStatement()) {
-    //         statment.executeUpdate(script);
-    //     }
-    // }
+    /**
+     * Inserta un producto en la tabla Productos.
+     * @param producto Producto que se quiere insertar.
+     * @return Número de productos insertados.
+     */
+    @Override
+    public int insertar(Producto producto) throws SQLException{
+        int numRegistrosActualizados = 0;
+        final String SQL = "INSERT INTO PRODUCTOS (nombre, marca, precio, altura, anchura, peso, num_elementos, descripcion) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        PreparedStatement ps = conexion.prepareStatement(SQL);
+
+        ps.setString(1, producto.getNombre());
+        ps.setString(2, producto.getMarca());
+        ps.setDouble(3, producto.getPrecio());
+        ps.setDouble(4, producto.getCaracteristica().getAltura());
+        ps.setDouble(5, producto.getCaracteristica().getAnchura());
+        ps.setDouble(6, producto.getCaracteristica().getPeso());
+        ps.setInt(7, producto.getCaracteristica().getNumElementos());
+        ps.setString(8, producto.getDescripcion());
+
+        numRegistrosActualizados = ps.executeUpdate();
+
+        return numRegistrosActualizados;
+    }
+
+    /**
+     * Inserta una lista de producto en la tabla Productos.
+     * @param productos Lista de productos que se quiere insertar.
+     * @return Número de productos insertados.
+     */
+    @Override
+    public int insertarProductos(List<Producto> productos) throws SQLException{
+
+        final String SQL = "INSERT INTO PRODUCTOS (NOMBRE, MARCA, PRECIO, ALTURA, ANCHURA, PESO, NUM_ELEMENTOS, DESCRIPCION) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        PreparedStatement ps = conexion.prepareStatement(SQL);
+
+            for (Producto producto : productos) {
+                ps.setString(1, producto.getNombre());
+                ps.setString(2, producto.getMarca());
+                ps.setDouble(3, producto.getPrecio());
+                ps.setDouble(4, producto.getCaracteristica().getAltura());
+                ps.setDouble(5, producto.getCaracteristica().getAnchura());
+                ps.setDouble(6, producto.getCaracteristica().getPeso());
+                ps.setInt(7, producto.getCaracteristica().getNumElementos());
+                ps.setString(8, producto.getDescripcion());
+                ps.addBatch();
+            }
+
+        //Quito el autocommit por si falla algún insert que no haga ninguno.
+        conexion.setAutoCommit(false);
+        ps.executeBatch();
+        conexion.setAutoCommit(true);
+            
+        ps.close();
+        return productos.size();
+
+    }
+
+    /**
+     * Inserta un empleado en la tabla Empleados.
+     * @param empleado Empleado que se quiere insertar.
+     * @return Número de empleados insertados.
+     */ 
+    @Override
+    public int insertar(Empleado empleado) throws SQLException{
+        int numRegistrosActualizados = 0;
+        final String SQL = "INSERT INTO EMPLEADOS (nombre, apellidos, salario, categoria) VALUES (?, ?, ?, ?)";
+        PreparedStatement ps = conexion.prepareStatement(SQL);
+
+        ps.setString(1, empleado.getNombre());
+        ps.setString(2, empleado.getApellidos());
+        ps.setInt(3, empleado.getSueldo());
+        ps.setString(4, empleado.getCategoria().toString());
+
+        numRegistrosActualizados = ps.executeUpdate();
+        ps.close();
+
+        return numRegistrosActualizados;
+    }
+
+    /**
+     * Inserta una lista de empleados en la tabla Empleados.
+     * @param empleados Lista de empleados que se quiere insertar.
+     * @return Número de empleaods insertados.
+     */
+    @Override
+    public int insertarEmpleados(List<Empleado> empleados) throws SQLException{
+        int numRegistrosActualizados = 0;
+        final String SQL = "INSERT INTO EMPLEADOS (nombre, apellidos, salario, categoria) VALUES (?, ?, ?, ?)";
+        try (PreparedStatement ps = conexion.prepareStatement(SQL)) {
+            for (Empleado empleado : empleados) {
+                ps.setString(1, empleado.getNombre());
+                ps.setString(2, empleado.getApellidos());
+                ps.setInt(3, empleado.getSueldo());
+                ps.setString(4, empleado.getCategoria().toString());
+                ps.addBatch();
+            }
+            numRegistrosActualizados = ps.executeBatch().length;
+        }
+        return numRegistrosActualizados;
+    }
+
+    /**
+     * Lista los productos y su stock desde la vista STOCK_PRODUCTOS.
+     * @return Listado de productos y su stock.
+     */
+    public String listarStockProd() throws SQLException{
+        final String SQL = "SELECT NOMBRE, STOCK FROM STOCK_PRODUCTOS;";
+        String listado = "";
+        try (PreparedStatement ps = conexion.prepareStatement(SQL)) {
+            listado = ps.toString();
+        } catch (SQLException e) {
+            System.err.println(MSG_ERROR_CONEXION);
+        }
+        return listado;
+    }
+
+    /**
+     * Lista las compras por código postal desde la vista COMPRAS_POR_CODIGO_POSTAL.
+     * @return Listado de compras.
+     */
+    public String listarCompras() {
+        final String SQL = "SELECT COD_POSTAL, NUM_COMPRAS FROM COMPRAS_POR_CODIGO_POSTAL;";
+        String listado = "";
+        try (PreparedStatement ps = conexion.prepareStatement(SQL)) {
+            listado = ps.toString();
+        } catch (SQLException e) {
+            System.err.println(MSG_ERROR_CONEXION);
+        }
+        return listado;
+    }
+
+    /**
+     * Lista el id y el nombre de cada producto desde la vista VISTA_PRODUCTOS.
+     * @return Listado de productos y su id.
+     */
+    public String visualizarDatosProducto() {
+        final String SQL = "SELECT EAN, NOMBRE FROM VISTA_PRODUCTOS;";
+        String listado = "";
+        try (PreparedStatement ps = conexion.prepareStatement(SQL)) {
+            listado = ps.toString();
+        } catch (SQLException e) {
+            System.err.println(MSG_ERROR_CONEXION);
+        }
+        return listado;
+    }
+
+    /**
+     * Lista el id, nombre, apellidos y categoría de cada empleado desde la vista VISTA_EMPLEADOS.
+     * @return Listado de empleados y su informacion.
+     */
+    public String visualizarListaEmpleados() {
+        final String SQL = "SELECT ID, NOMBRE, APELLIDOS, CATEGORIA FROM VISTA_EMPLEADOS;";
+        String listado = "";
+        try (PreparedStatement ps = conexion.prepareStatement(SQL)) {
+            listado = ps.toString();
+        } catch (SQLException e) {
+            System.err.println(MSG_ERROR_CONEXION);
+        }
+        return listado;
+    }
 }

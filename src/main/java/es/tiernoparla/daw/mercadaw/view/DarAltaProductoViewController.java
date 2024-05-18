@@ -197,11 +197,9 @@ public class DarAltaProductoViewController extends ViewController {
 
         if (fichero != null) {
             try (FileReader fr = new FileReader(fichero)) {
-                String cadena = " ";
                 int valor = fr.read();
 
                 while (valor != -1) {
-                    cadena += (char) valor;
                     valor = fr.read();
                 }
 
