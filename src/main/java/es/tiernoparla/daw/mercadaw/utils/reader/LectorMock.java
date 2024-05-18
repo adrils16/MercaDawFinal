@@ -7,6 +7,9 @@ import es.tiernoparla.daw.mercadaw.model.entity.interfaces.Gestionable;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
 
+/**
+ * Clase que simula la lectura de un ficheros.
+ */
 public class LectorMock implements Lector{
 
     @Override

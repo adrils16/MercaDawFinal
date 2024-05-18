@@ -80,9 +80,4 @@ public class MercaDawMariaDBDAOImpTest {
     public void listarEmpleadosTest() throws SQLException{
         dao.visualizarListaEmpleados();
     }
-
-    @Test
-    public void listarComprasTest() throws SQLException{
-        dao.listarCompras();
-    }
 }

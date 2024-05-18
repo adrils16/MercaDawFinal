@@ -59,6 +59,27 @@ public class MarkdownUtil implements Documento{
         fichMod.close();
     }
 
+    /**
+     * Crea un fichero etiqueta.md con la cadena pasada por parámetro.
+     * @param cadena Etiqueta a escribir en el fichero.
+     * @throws IOException 
+     */
+    public static void crearEtiqueta(String cadena) throws IOException{
+        final String NOMBRE_FICHERO = "etiqueta.md";
+        FileWriter fich = null;
+        PrintWriter pw = null;
+        fich = new FileWriter(NOMBRE_FICHERO);
+
+        pw = new PrintWriter(fich);
+
+        pw.close();
+        fich.close();
+
+        FileWriter fichMod = new FileWriter(new File(NOMBRE_FICHERO),true);
+        fichMod.write(cadena);
+        fichMod.close();
+    }
+
 
     @Override
     public Map<String, Object[]> getContenido() {

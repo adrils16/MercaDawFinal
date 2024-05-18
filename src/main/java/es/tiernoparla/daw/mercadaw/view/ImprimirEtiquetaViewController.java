@@ -56,7 +56,8 @@ public class ImprimirEtiquetaViewController extends ViewController{
 
     @FXML
     void imprimirEtiqueta(MouseEvent event) {
-        //TODO
+        int id = Integer.parseInt(txfIdProducto.getText());
+
     }
 
     @FXML

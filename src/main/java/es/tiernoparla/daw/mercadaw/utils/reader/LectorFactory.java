@@ -2,6 +2,9 @@ package es.tiernoparla.daw.mercadaw.utils.reader;
 
 import es.tiernoparla.daw.mercadaw.utils.reader.enumeracion.TipoLector;
 
+/**
+ * Clase que se encarga de devolver un lector en función del tipo de lector que se le pase
+ */
 public class LectorFactory {
     public static Lector obtenerLector(TipoLector lector) {
         
