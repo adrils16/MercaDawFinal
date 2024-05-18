@@ -130,6 +130,7 @@ public abstract class Producto implements Imprimible, Gestionable {
 
     }
 
+    @Override
     public String imprimir() {
 
         final String PLANTILLA = "* Nombre: %s\n"
