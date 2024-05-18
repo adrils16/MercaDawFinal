@@ -1,5 +1,6 @@
 package es.tiernoparla.daw.mercadaw.view;
 
+import es.tiernoparla.daw.mercadaw.model.entity.persona.Persona;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -46,7 +47,7 @@ public class VisualizarListadoEmpleadosViewController extends ViewController{
     @FXML
     public void initialize() {
 
-    empleados = FXCollections.observableArrayList();
+    empleados = controller.VisualizarListadoEmpleados();
 
     colId.setCellValueFactory(new PropertyValueFactory<Empleado, Integer>(Empleado.ATT_ID));
     colNombre.setCellValueFactory(new PropertyValueFactory<Empleado, String>(Persona.ATT_NOMBRE));
