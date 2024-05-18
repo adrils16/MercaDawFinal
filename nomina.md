@@ -1,16 +1,18 @@
+# NOMINA
+## EMPLEADO: Luis
 |CUANTIA|        CONCEPTO|                 DEVENGOS|      DEDUCCIONES|
 |---|---|---|---|
 |  30 |        SALARIO BRUTO |                   1300.0|                 |
 |   |   |   |   |
-|  30 |       PAGAS EXTRA    |                   216.0|                 |
+|  30 |       PAGAS EXTRA    |                   1300.0|                 |
 |   |   |   |   |
-|     |      CONTIGENCIAS COMUNES 4.70 |           |               71.252|
+|     |      CONTIGENCIAS COMUNES 4.70 |           |               122.2|
  |   |   |   |   |
-|     |       FORMACION 0.10 |                     |               1.516|
+|     |       FORMACION 0.10 |                     |               2.6|
  |   |   |   |   |
-|     |       DESEMPLEO 1.55 |                     |               21.224|
+|     |       DESEMPLEO 1.55 |                     |               36.4|
  |   |   |   |   |
-|     |        IRPF 14       |                     |               212.24|
+|     |        IRPF 14       |                     |               364.00000000000006|
  |   |   |   |   |
-|     |        MEI 0,12      |                     |               18.192|
- #### LIQUIDO A PERCIBIR: 1191.576 
+|     |        MEI 0,12      |                     |               31.2|
+ #### LIQUIDO A PERCIBIR: 2043.6000000000004 
