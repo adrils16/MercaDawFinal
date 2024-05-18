@@ -10,6 +10,7 @@ import es.tiernoparla.daw.mercadaw.model.Sede;
 import es.tiernoparla.daw.mercadaw.model.dao.MercaDawDAO;
 import es.tiernoparla.daw.mercadaw.model.dao.MercaDawDAOFactory;
 import es.tiernoparla.daw.mercadaw.model.dao.enums.TipoDB;
+import es.tiernoparla.daw.mercadaw.model.entity.interfaces.Imprimible;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.EmpleadoFactory;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.enums.CategoriaEmpleado;
@@ -36,8 +37,8 @@ import javafx.stage.Stage;
 public class MercadawController extends Application{
 
     private static Stage currentStage;
-    private MercaDawDAO dao;
-    private Sede mercadaw;
+    private MercaDawDAO dao = MercaDawDAOFactory.crear(TipoDB.MARIADB);;
+    private Sede mercadaw = new Sede();
     private Lector lector;
 
     /** 
@@ -97,8 +98,6 @@ public class MercadawController extends Application{
 
     // PRODUCTOS
     public void darAltaProducto(CategoriaProducto categoria, String nombre, String marca, double precio, double altura, double anchura, double peso, int numElementos, String descripcion)throws IOException, SQLException{
-        dao = MercaDawDAOFactory.crear(TipoDB.MARIADB);
-        mercadaw = new Sede();
 
         Caracteristica caracteristica = new Caracteristica(altura, anchura, peso, numElementos);
         Producto producto = ProductoFactory.crear(categoria, nombre, marca, precio, caracteristica, descripcion);
@@ -109,27 +108,23 @@ public class MercadawController extends Application{
     }
 
     public void darAltaVariosProductosCSV(File fichero) throws Exception{
-        dao = MercaDawDAOFactory.crear(TipoDB.MARIADB);
-        mercadaw = new Sede();
 
         lector = LectorFactory.obtenerLector(TipoLector.CSV);
         mercadaw.darAlta(lector.leerProducto(lector.cargar(fichero)));
         dao.insertarProductos(mercadaw.getProductos());
+
     }
 
     public void darAltaVariosProductosJSON(File fichero) throws Exception{
-        dao = MercaDawDAOFactory.crear(TipoDB.MARIADB);
-        mercadaw = new Sede();
 
         lector = LectorFactory.obtenerLector(TipoLector.JSON);
         mercadaw.darAlta(lector.leerProducto(lector.cargar(fichero)));
         dao.insertarProductos(mercadaw.getProductos());
+
     }
 
     // EMPLEADOS
     public void darAltaEmpleado(CategoriaEmpleado categoria, String nombre, String apellidos)throws IOException, SQLException{
-        dao = MercaDawDAOFactory.crear(TipoDB.MARIADB);
-        mercadaw = new Sede();
 
         Empleado empleado = EmpleadoFactory.crear(categoria, nombre, apellidos, 0);
 
@@ -139,8 +134,6 @@ public class MercadawController extends Application{
     }
 
     public void darAltaVariosEmpleadosCSV(File fichero) throws Exception{
-        dao = MercaDawDAOFactory.crear(TipoDB.MARIADB);
-        mercadaw = new Sede();
 
         lector = LectorFactory.obtenerLector(TipoLector.CSV);
         mercadaw.darAlta(lector.leerEmpleado(lector.cargar(fichero)));
@@ -148,8 +141,6 @@ public class MercadawController extends Application{
     }
 
     public void darAltaVariosEmpleadosJSON(File fichero) throws Exception{
-        dao = MercaDawDAOFactory.crear(TipoDB.MARIADB);
-        mercadaw = new Sede();
 
         lector = LectorFactory.obtenerLector(TipoLector.JSON);
         mercadaw.darAlta(lector.leerEmpleado(lector.cargar(fichero)));
@@ -168,7 +159,31 @@ public class MercadawController extends Application{
     }
 
     public List<Empleado> listarEmpleados() throws SQLException{
-        dao = MercaDawDAOFactory.crear(TipoDB.MARIADB);
+
         return dao.visualizarListaEmpleados();
+
     }
+
+    /**
+     * Llama al método imprimir() de la clase Impresora, que a su vez llama al método imprimir() 
+     * de las clases que hayan implementado la interfaz Imprimible.
+     * @param i Un objeto de tipo Imprimible.
+     * @return Un String con información detalla del objeto.
+     */
+    public String visualizarDatosProducto(int id) {
+
+        Imprimible i = mercadaw.getProductos().get(id);
+
+        return mercadaw.visualizar(i);
+
+    }
+
+    public String visualizarPrecioProducto(int id) {
+
+        Producto p = mercadaw.getProductos().get(id);
+
+        return mercadaw.obtenerPrecioVenta(p);
+
+    }
+
 }
