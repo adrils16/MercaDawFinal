@@ -97,7 +97,7 @@ public class Sede implements MercaDaw {
 
         NominaMercaDAW n = new NominaMercaDAW();
 
-        return n.calcularNomina(empleado);
+        return n.calcularImportes(empleado);
         
     }
 
