@@ -70,13 +70,20 @@ public class CosteLaboralMercaDAW extends RecursosHumanosMercaDAW{
                         + "| Concepto                | Valor                  |\n"
                         + "|-------------------------|------------------------|\n"
                         + "| SALARIO BRUTO           | %s                     |\n"
+                        + "|                         |                        |\n"
                         + "| PAGAS EXTRA             | %s                     |\n"
+                        + "|                         |                        |\n"
                         + "| CONTINGENCIAS COMUNES   | %s                     |\n"
+                        + "|                         |                        |\n"
                         + "| DESEMPLEO               | %s                     |\n"
+                        + "|                         |                        |\n"
                         + "| FORMACION               | %s                     |\n"
+                        + "|                         |                        |\n"
                         + "| FOGASA                  | %s                     |\n"
+                        + "|                         |                        |\n"
                         + "| MEI                     | %s                     |\n"
-                        + "| **COSTE TOTAL**         | **%s**                 |\n";
+                        + "\n"
+                        + "#### COSTE TOTAL      %s                      ";
     
     return String.format(CADENA, nombre, salario, pagas, contingencias, desempleo, formacion, fogasa, mei, costeTotal);
 }

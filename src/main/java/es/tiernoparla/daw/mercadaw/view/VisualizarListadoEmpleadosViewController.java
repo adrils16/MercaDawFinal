@@ -1,5 +1,6 @@
 package es.tiernoparla.daw.mercadaw.view;
 
+import es.tiernoparla.daw.mercadaw.model.entity.persona.Persona;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -7,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
@@ -40,6 +42,10 @@ public class VisualizarListadoEmpleadosViewController extends ViewController{
 
     @FXML
     public void initialize() {
+        colId.setCellValueFactory(new PropertyValueFactory<Empleado, Integer>(Empleado.ATT_ID));
+        colNombre.setCellValueFactory(new PropertyValueFactory<Persona, String>(Persona.ATT_NOMBRE));
+        colApellidos.setCellValueFactory(new PropertyValueFactory<Persona,String>(Persona.ATT_APELLIDOS));
+        colCategoria.setCellValueFactory(new PropertyValueFactory<Empleado,Integer>(Persona.ATT_CATEGORIA));
     }
 
     @FXML

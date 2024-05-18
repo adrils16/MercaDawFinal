@@ -47,9 +47,12 @@ public class FiniquitoMercaDAW {
                             + "| Concepto                | Valor                  |\n"
                             + "|-------------------------|------------------------|\n"
                             + "| SALARIO DIARIO          | %s                     |\n"
+                            + "|                         |                        |\n"
                             + "| INDEMNIZACION LEGAL     | %s                     |\n"
+                            + "|                         |                        |\n"
                             + "| ANTIGÜEDAD              | %s                     |\n"
-                            + "| **COSTE TOTAL**         | **%s**                 |\n";
+                            + "\n"
+                            + "#### INDEMNIZACION        %s                \n";
         
         return String.format(CADENA, nombre, salarioDiario, INDEMNIZACION, ANTIGUEDAD, indemnizacion);
     }

@@ -8,6 +8,7 @@ import es.tiernoparla.daw.mercadaw.model.entity.interfaces.Imprimible;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
 import es.tiernoparla.daw.mercadaw.utils.writer.NominaMercaDAW;
+import es.tiernoparla.daw.mercadaw.utils.writer.interfaces.RecursosHumanos;
 
 public class Sede implements MercaDaw {
 
@@ -95,7 +96,7 @@ public class Sede implements MercaDaw {
     @Override
     public String calcularNominas(Empleado empleado) {
 
-        NominaMercaDAW n = new NominaMercaDAW();
+        RecursosHumanos n = new NominaMercaDAW();
 
         return n.calcularImportes(empleado);
         
