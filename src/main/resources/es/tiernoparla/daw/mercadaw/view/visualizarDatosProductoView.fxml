@@ -3,8 +3,7 @@
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -37,12 +36,7 @@
       <Button fx:id="btnVisualizarDatos" layoutX="179.0" layoutY="268.0" mnemonicParsing="false" onMouseClicked="#visualizarDatosProducto" text="Visualizar Datos" />
       <Button fx:id="btnAtras" layoutX="32.0" layoutY="26.0" mnemonicParsing="false" onMouseClicked="#volverAtras" text="Atrás" />
       <Button fx:id="btnModo" layoutX="752.0" layoutY="26.0" mnemonicParsing="false" onMouseClicked="#cambiarModo" text="Cambiar Modo" />
-      <TableView fx:id="tblProductos" layoutX="453.0" layoutY="128.0" prefHeight="416.0" prefWidth="403.0">
-         <columns>
-            <TableColumn fx:id="colId" prefWidth="200.80001831054688" text="ID" />
-            <TableColumn fx:id="colNombre" prefWidth="201.5999755859375" text="NOMBRE" />
-         </columns>
-      </TableView>
+      <TextArea fx:id="txaDatosProducto" layoutX="426.0" layoutY="128.0" prefHeight="442.0" prefWidth="437.0" />
    </children>
    <stylesheets>
       <URL value="@estiloOscuro.css" />
