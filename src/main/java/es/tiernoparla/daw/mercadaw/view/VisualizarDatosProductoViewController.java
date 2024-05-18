@@ -31,8 +31,8 @@ public class VisualizarDatosProductoViewController extends ViewController{
     @FXML
     private TextField txfIdProducto;
 
-   @FXML
-   private TextArea txaDatosProducto;
+    @FXML
+    private TextArea txaDatosProducto;
 
     @FXML
     void cambiarModo(MouseEvent event) {
