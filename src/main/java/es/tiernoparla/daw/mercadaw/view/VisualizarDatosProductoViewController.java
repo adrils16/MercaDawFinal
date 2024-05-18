@@ -22,12 +22,6 @@ public class VisualizarDatosProductoViewController extends ViewController{
     private Button btnVisualizarDatos;
 
     @FXML
-    private TableColumn<Producto, Integer> colId;
-
-    @FXML
-    private TableColumn<Producto, String> colNombre;
-
-    @FXML
     private AnchorPane container;
 
     @FXML
@@ -35,9 +29,6 @@ public class VisualizarDatosProductoViewController extends ViewController{
 
     @FXML
     private Label lblTitulo;
-
-    @FXML
-    private TableView<Producto> tblProductos;
 
     @FXML
     private TextField txfIdProducto;
