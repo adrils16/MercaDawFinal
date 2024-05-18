@@ -10,6 +10,9 @@ import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
 
 public abstract class MercaDawDAOImp implements MercaDawDAO{
+
+    public final String MSG_ERROR_CONEXION = "Error al conectar con la base de datos";
+
     protected final String URL = "jdbc:mariadb://localhost:3306/%s?user=%s&password=%s";
     protected final String DATABASE_NAME = "mercadaw";
     protected final String DATABASE_USER = "root";
@@ -21,8 +24,6 @@ public abstract class MercaDawDAOImp implements MercaDawDAO{
         try {
             conexion = DriverManager.getConnection(String.format(URL, DATABASE_NAME, DATABASE_USER, DATABASE_PASS));
         } catch (SQLException e) {
-            e.printStackTrace();
-            //TODO Excepcion personalizada
         }
     }
 
@@ -179,80 +180,4 @@ public abstract class MercaDawDAOImp implements MercaDawDAO{
         }
         return listado;
     }
-
-
-    // /**
-    //  * Actualiza un producto de la tabla Productos.
-    //  * @param producto Producto que se quiere actualizar.
-    //  * @return Número de productos actualizados.
-    //  */   
-    // @Override
-    // public int actualizar(Producto producto) throws SQLException{
-    //     int numRegistrosActualizados = 0;
-    //     String sql = "UPDATE productos SET nombre = ?, marca = ?, precio = ?, altura = ?, anchura = ?, peso = ?, numElementos = ?, descripcion = ? WHERE id = ?";
-    //     try (PreparedStatement ps = conexion.prepareStatement(sql)) {
-    //         ps.setString(1, producto.getNombre());
-    //         ps.setString(2, producto.getMarca());
-    //         ps.setDouble(3, producto.getPrecio());
-    //         ps.setDouble(4, producto.getCaracteristica().getAltura());
-    //         ps.setDouble(5, producto.getCaracteristica().getAnchura());
-    //         ps.setDouble(6, producto.getCaracteristica().getPeso());
-    //         ps.setInt(7, producto.getCaracteristica().getNumElementos());
-    //         ps.setString(8, producto.getDescripcion());
-    //         numRegistrosActualizados = ps.executeUpdate();
-    //     }
-    //     return numRegistrosActualizados;
-    // }
-
-    // /**
-    //  * Actualiza un empleado de la tabla Empleados.
-    //  * @param empleado Empleado que se quiere actualizar.
-    //  * @return Número de empleados actualizados.
-    //  */     
-    // @Override
-    // public int actualizar(Empleado empleado) throws SQLException{
-    //     int numRegistrosActualizados = 0;
-    //     String sql = "UPDATE empleados SET nombre = ?, apellido = ?, salario = ? WHERE id = ?";
-    //     try (PreparedStatement ps = conexion.prepareStatement(sql)) {
-    //         ps.setString(1, empleado.getNombre());
-    //         ps.setString(2, empleado.getApellidos());
-    //         ps.setInt(3, empleado.getId());
-    //         ps.setDouble(4, empleado.getSueldo());
-    //         numRegistrosActualizados = ps.executeUpdate();
-    //     }
-    //     return numRegistrosActualizados;
-    // }
-
-    // /**
-    //  * Borra un producto de la tabla Productos.
-    //  * @param producto Producto que queremos borrar.
-    //  * @return Número de productos borrados.
-    //  */  
-    // @Override
-    // public int borrar(Producto producto) throws SQLException{
-    //     int numRegistrosBorrados = 0;
-    //     String sql = "DELETE FROM productos WHERE id = ?";
-    //     try (PreparedStatement ps = conexion.prepareStatement(sql)) {
-    //         //TODO
-    //         //ps.setInt(1, producto.getId()); AÑADIR IDPRODUCTO A PRODUCTO
-    //         numRegistrosBorrados = ps.executeUpdate();
-    //     }
-    //     return numRegistrosBorrados;
-    // }
-
-    // /**
-    //  * Borra un empleado de la tabla Empleados.
-    //  * @param empleado Empleado que queremos borrar.
-    //  * @return Número de empleados borrados.
-    //  */     
-    // @Override
-    // public int borrar(Empleado empleado) throws SQLException{
-    //     int numRegistrosBorrados = 0;
-    //     String sql = "DELETE FROM empleados WHERE id = ?";
-    //     try (PreparedStatement ps = conexion.prepareStatement(sql)) {
-    //         ps.setInt(1, empleado.getId());
-    //         numRegistrosBorrados = ps.executeUpdate();
-    //     }
-    //     return numRegistrosBorrados;
-    // }
 }

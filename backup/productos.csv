@@ -1,0 +1,63 @@
+EAN,NOMBRE,MARCA,PRECIO,ALTURA,ANCHURA,PESO,NUM_ELEMENTOS,DESCRIPCION
+1,Cereales de Lecha,Hacendado,1.75,0.50,0.20,0.90,1,Cereales de trigo con leche de la marca Hacendado
+2,Base,Deliplus,1.25,0.20,0.20,0.40,4,Base de la marca Deliplus
+3,Mascara,Deliplus,1.25,0.20,0.20,0.40,1,Mascara de la marca Deliplus
+4,Sombra,Deliplus,1.25,0.20,0.20,0.40,1,Sombra de la marca Deliplus
+5,Leche,Hacendado,2.45,0.20,0.20,0.40,6,Leche entera de la marca Hacendado
+6,Lejia,KH7,1.25,0.20,0.20,0.40,4,Lejia de la marca KH7
+7,Base,Deliplus,1.25,0.20,0.20,0.40,4,Base de la marca Deliplus
+8,Mascara,Deliplus,1.25,0.20,0.20,0.40,1,Mascara de la marca Deliplus
+9,Sombra,Deliplus,1.25,0.20,0.20,0.40,1,Sombra de la marca Deliplus
+10,Galletas,Maria,1.56,0.23,0.60,0.45,67,Galletas Doradas de la marca Maria
+11,Producto1,Marca1,1.20,0.10,1.00,0.10,1,Descripcion1
+12,Producto2,Marca2,2.00,0.20,0.20,0.50,2,Descripcion2
+13,Producto3,Marca3,3.00,1.30,1.30,0.30,3,Descripcion3
+14,Leche Entera,La Vaquita,1.20,20.00,10.00,1.00,1,Leche de vaca entera 1 litro
+15,Jabón Líquido,Manos Limpias,2.50,15.00,7.00,0.50,1,Jabón líquido para manos con aroma a lavanda
+16,Shampoo Anticaspa,Cabello Sano,4.99,18.00,5.00,0.40,1,Shampoo anticaspa para todo tipo de cabello
+17,Arroz Integral,Campo Verde,2.30,22.00,12.00,1.00,1,Arroz integral en paquete de 1kg
+18,Detergente en Polvo,Brillo Hogar,3.75,25.00,15.00,2.00,1,Detergente en polvo para lavadora 2kg
+19,Crema Hidratante,Piel Suave,6.50,10.00,8.00,0.30,1,Crema hidratante para piel seca
+20,Cereal de Maíz,Krispy Korn,2.20,30.00,20.00,0.50,1,Cereal de maíz tostado
+21,Limpiador Multiusos,Limpia Fácil,3.40,25.00,10.00,1.00,1,Limpiador multiusos para superficies
+22,Gel de Ducha,Frescor Natural,3.80,20.00,8.00,0.50,1,Gel de ducha con aroma a cítricos
+23,Aceite de Oliva,La Española,5.00,25.00,8.00,1.00,1,Aceite de oliva virgen extra 1 litro
+24,Suavizante de Telas,Suavitel,4.20,30.00,10.00,2.00,1,Suavizante de telas con aroma floral
+25,Loción Corporal,Natura Belle,7.30,15.00,5.00,0.40,1,Loción corporal hidratante
+26,Galletas Integrales,Digestive,1.80,15.00,10.00,0.30,1,Galletas integrales bajas en azúcar
+27,Desinfectante de Superficies,Sanit Plus,4.00,28.00,12.00,1.50,1,Desinfectante de superficies en spray
+28,Crema Facial Antiedad,Antiage Miracle,10.50,8.00,5.00,0.20,1,Crema facial antiedad con colágeno
+29,Mermelada de Fresa,Frutos del Bosque,3.00,12.00,8.00,0.50,1,Mermelada de fresa 100% natural
+30,Blanqueador de Ropa,Blancox,3.50,25.00,10.00,1.50,1,Blanqueador de ropa líquido
+31,Mascarilla Capilar,Hair Repair,5.80,10.00,10.00,0.30,1,Mascarilla capilar reparadora
+32,Pan de Molde,Pan Pan,2.10,20.00,10.00,0.60,1,Pan de molde integral
+33,Limpiacristales,Cristal Clear,2.90,30.00,8.00,1.00,1,Limpiacristales en spray
+34,Crema para Manos,Hand Care,3.70,8.00,4.00,0.10,1,Crema hidratante para manos secas
+35,Zumo de Naranja,Tropical,2.50,22.00,10.00,1.00,1,Zumo de naranja natural 1 litro
+36,Detergente Líquido,Aqua Clean,4.30,28.00,12.00,2.00,1,Detergente líquido para lavadora
+37,Esmalte de Uñas,Nail Perfect,2.60,8.00,3.00,0.05,1,Esmalte de uñas color rojo
+38,Pasta Integral,Vita Pasta,1.50,20.00,10.00,0.50,1,Pasta integral de trigo
+39,Limpiador de Baños,Bath Bright,3.20,30.00,12.00,1.50,1,Limpiador de baños anti sarro
+40,Protector Solar,Sun Shield,8.40,15.00,5.00,0.20,1,Protector solar factor 50
+41,Café Molido,Grano Fino,4.80,20.00,10.00,0.50,1,Café molido 100% arábica
+42,Desengrasante,Clean Power,3.60,25.00,10.00,1.50,1,Desengrasante para cocina
+43,Sérum Facial,Glow Skin,12.00,10.00,4.00,0.10,1,Sérum facial iluminador
+44,Yogur Natural,Campo Fresco,1.10,10.00,8.00,0.50,1,Yogur natural sin azúcar
+45,Ambientador,Lavanda Fresh,2.80,18.00,8.00,0.30,1,Ambientador en spray aroma lavanda
+46,Acondicionador,Silky Hair,4.50,20.00,5.00,0.40,1,Acondicionador para cabello seco
+47,Arroz Basmati,Golden Rice,2.70,22.00,12.00,1.00,1,Arroz basmati en paquete de 1kg
+48,Limpiador de Cocina,Kitchen Sparkle,3.50,28.00,10.00,1.00,1,Limpiador de cocina multiusos
+49,Crema de Noche,Night Repair,9.00,8.00,5.00,0.20,1,Crema de noche reparadora
+50,Tomate Frito,La Huerta,1.90,12.00,8.00,0.50,1,Tomate frito casero 500ml
+51,Insecticida,Spray Away,4.00,25.00,10.00,1.00,1,Insecticida en spray para insectos voladores
+52,Mascarilla Facial,Beauty Mask,6.50,8.00,8.00,0.10,1,Mascarilla facial purificante
+53,Aceitunas Verdes,Oliva Bella,2.20,10.00,8.00,0.30,1,Aceitunas verdes sin hueso
+54,Lavavajillas Manual,Dish Clean,2.40,25.00,10.00,1.00,1,Lavavajillas manual concentrado
+55,Corrector de Ojeras,Eye Bright,5.70,10.00,3.00,0.05,1,Corrector de ojeras e imperfecciones
+56,Harina de Trigo,Flor de Harina,1.30,20.00,10.00,1.00,1,Harina de trigo todo uso 1kg
+57,Limpiador de Alfombras,Carpet Fresh,4.80,28.00,12.00,1.50,1,Limpiador de alfombras en spray
+58,Labial Mate,Matte Lips,3.90,8.00,3.00,0.05,1,Labial mate color nude
+59,Miel de Abeja,Dulce Natural,5.50,15.00,8.00,0.50,1,Miel de abeja pura 500g
+60,Quitamanchas,Rapid Clean,3.20,20.00,10.00,0.70,1,Quitamanchas para ropa en gel
+61,Exfoliante Corporal,Soft Skin,6.20,10.00,8.00,0.30,1,Exfoliante corporal de azúcar
+77,Ensaladilla Rusa,Hacendado,1.56,0.20,0.23,0.34,1,Ensaladilla del Mercadawna

@@ -33,24 +33,6 @@ public abstract class ViewController {
         this.controller = controller;
     }
 
-    
-
-    // public ObservableList<Producto> getProductos() {
-    //     return productos;
-    // }
-
-    // public void setProductos(ObservableList<Producto> productos) {
-    //     this.productos = productos;
-    // }
-
-    // public ObservableList<Empleado> getEmpleados() {
-    //     return empleados;
-    // }
-
-    // public void setEmpleados(ObservableList<Empleado> empleados) {
-    //     this.empleados = empleados;
-    // }
-
     protected boolean campoRelleno(TextField campo) {
         boolean relleno = false;
         if (campo != null && !"".equals(campo.getText().trim())) {

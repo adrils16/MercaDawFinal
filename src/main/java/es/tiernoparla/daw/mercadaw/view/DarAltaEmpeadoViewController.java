@@ -10,7 +10,6 @@ import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.EmpleadoFactory;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.enums.CategoriaEmpleado;
 import es.tiernoparla.daw.mercadaw.utils.reader.Lector;
-import es.tiernoparla.daw.mercadaw.utils.reader.LectorCSV;
 import es.tiernoparla.daw.mercadaw.utils.reader.LectorFactory;
 import es.tiernoparla.daw.mercadaw.utils.reader.enumeracion.TipoLector;
 import javafx.fxml.FXML;

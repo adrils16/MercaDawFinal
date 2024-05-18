@@ -8,6 +8,10 @@ import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
 
 public class MercaDawMockDAOImp extends MercaDawDAOImp{
 
+    public MercaDawMockDAOImp() {
+        super();
+    }
+
     @Override
     public int insertar(Producto producto) throws SQLException {
         return 0;
