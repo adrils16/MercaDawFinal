@@ -75,4 +75,14 @@ public class MercaDawMariaDBDAOImpTest {
 
         dao.insertarProductos(mercadaw.getProductos());
     }
+
+    @Test
+    public void listarEmpleadosTest() throws SQLException{
+        dao.visualizarListaEmpleados();
+    }
+
+    @Test
+    public void listarComprasTest() throws SQLException{
+        dao.listarCompras();
+    }
 }

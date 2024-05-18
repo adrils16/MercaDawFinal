@@ -58,8 +58,9 @@ public class GestionEmpleadosViewController extends ViewController{
     }
 
     @FXML
-    void visualizarEmpleados(MouseEvent event) {
-        controller.cargarPantalla(Vista.VISUALIZAR_LISTADO_EMPLEADOS);
+    void visualizarEmpleados(MouseEvent event) throws Exception{
+        // controller.cargarPantalla(Vista.VISUALIZAR_LISTADO_EMPLEADOS);
+        controller.cargarProducto();
     }
 
 }

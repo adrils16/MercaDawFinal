@@ -44,9 +44,6 @@ public class MostrarStockProductosViewController extends ViewController{
     void initialize(){
         
         stock = FXCollections.observableHashMap();
-
-        this.colNombre.setCellValueFactory(new PropertyValueFactory<>(stock));
-        this.colStock.setCellValueFactory(new PropertyValueFactory<>(Alumno.ATT_APELLIDOS));
         
     }
     @FXML

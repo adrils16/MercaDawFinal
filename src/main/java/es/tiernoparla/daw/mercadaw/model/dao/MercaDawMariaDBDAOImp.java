@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
+import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.enums.CategoriaEmpleado;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
 
 public class MercaDawMariaDBDAOImp implements MercaDawDAO{
@@ -140,12 +141,13 @@ public class MercaDawMariaDBDAOImp implements MercaDawDAO{
      * Lista los productos y su stock desde la vista STOCK_PRODUCTOS.
      * @return Listado de productos y su stock.
      */
+    @Override
     public Map<String, Integer> listarStockProd() throws SQLException{
         final String SQL = "SELECT NOMBRE, STOCK FROM STOCK_PRODUCTOS;";
         Map<String, Integer> listado = new HashMap<>();
         
-        try (Statement st = conexion.createStatement();
-        ResultSet rs = st.executeQuery(SQL);){
+        try (PreparedStatement ps = conexion.prepareStatement(SQL);
+            ResultSet rs = ps.executeQuery(SQL);){
             while (rs.next()) {
                 String nombre = rs.getString("NOMBRE");
                 int stock = rs.getInt("STOCK");
@@ -163,11 +165,13 @@ public class MercaDawMariaDBDAOImp implements MercaDawDAO{
      * Lista las compras por código postal desde la vista COMPRAS_POR_CODIGO_POSTAL.
      * @return Listado de compras.
      */
+    @Override
     public Map<Integer, Integer> listarCompras() {
         final String SQL = "SELECT COD_POSTAL, NUM_COMPRAS FROM COMPRAS_POR_CODIGO_POSTAL;";
         Map<Integer, Integer> listado = new HashMap<>();
         
-        try (Statement st = conexion.createStatement(); ResultSet rs = st.executeQuery(SQL)) {
+        try (PreparedStatement ps = conexion.prepareStatement(SQL);
+         ResultSet rs = ps.executeQuery(SQL)) {
             while (rs.next()) {
                 int codPostal = rs.getInt("COD_POSTAL");
                 int numCompras = rs.getInt("NUM_COMPRAS");
@@ -185,22 +189,23 @@ public class MercaDawMariaDBDAOImp implements MercaDawDAO{
      * @return Listado de empleados y su informacion.
      */
     @Override
-    public List<Empleado> visualizarListaEmpleados() {
-        final String SQL = "SELECT ID, NOMBRE, APELLIDOS, SALARIO, CATEGORIA FROM VISTA_EMPLEADOS;";
+    public List<Empleado> visualizarListaEmpleados() throws SQLException{
+        final String SQL = "SELECT ID_EMPLEADO, NOMBRE, APELLIDOS, SALARIO, CATEGORIA FROM VISTA_EMPLEADOS;";
         List<Empleado> listado = new ArrayList<>();
 
-        try (Statement st = conexion.createStatement(); ResultSet rs = st.executeQuery(SQL)) {
-            while (rs.next()) {
-                int id = rs.getInt("ID");
-                String nombre = rs.getString("NOMBRE");
-                String apellidos = rs.getString("APELLIDOS");
-                String categoria = rs.getString("CATEGORIA");
-                int salario = rs.getInt("SALARIO");
-                listado.add(new Empleado(nombre, apellidos, id, categoria, salario));
+            try (PreparedStatement ps = conexion.prepareStatement(SQL); 
+            ResultSet rs = ps.executeQuery();) {
+                while (rs.next()) {
+                    int id = rs.getInt("ID_EMPLEADO");
+                    String nombre = rs.getString("NOMBRE");
+                    String apellidos = rs.getString("APELLIDOS");
+                    String categoria = rs.getString("CATEGORIA");
+                    int salario = rs.getInt("SALARIO");
+                    listado.add(new Empleado(nombre, apellidos, id, categoria, salario));
+                }
+            } catch (SQLException e) {
+                System.err.println(MSG_ERROR_CONEXION);
             }
-        } catch (SQLException e) {
-            System.err.println(MSG_ERROR_CONEXION);
-        }
 
         return listado;
     }

@@ -1,6 +1,8 @@
 package es.tiernoparla.daw.mercadaw.view;
 
 import es.tiernoparla.daw.mercadaw.controller.*;
+import es.tiernoparla.daw.mercadaw.model.MercaDaw;
+import es.tiernoparla.daw.mercadaw.model.Sede;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.Alert.AlertType;
@@ -14,6 +16,7 @@ public abstract class ViewController {
 
     protected boolean esClaro = true;
     protected MercadawController controller;
+    protected Sede mercadaw;
 
     public MercadawController getController() {
         return controller;

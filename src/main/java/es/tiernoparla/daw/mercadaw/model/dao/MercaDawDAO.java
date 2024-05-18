@@ -2,6 +2,7 @@ package es.tiernoparla.daw.mercadaw.model.dao;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
@@ -41,4 +42,6 @@ public interface MercaDawDAO {
     public int insertarEmpleados(List<Empleado> empleados)throws SQLException;
 
     public List<Empleado> visualizarListaEmpleados() throws SQLException;
+    public Map<Integer, Integer> listarCompras() throws SQLException;
+    public Map<String, Integer> listarStockProd() throws SQLException;
 }

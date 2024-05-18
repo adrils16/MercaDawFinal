@@ -12,6 +12,7 @@ module es.tiernoparla.daw.mercadaw {
     exports es.tiernoparla.daw.mercadaw.view;
     exports es.tiernoparla.daw.mercadaw.model;
     exports es.tiernoparla.daw.mercadaw.model.entity.persona.empleado;
+    exports es.tiernoparla.daw.mercadaw.model.entity.persona;
     exports es.tiernoparla.daw.mercadaw.model.entity.producto;
     exports es.tiernoparla.daw.mercadaw.model.entity.interfaces;
 }
