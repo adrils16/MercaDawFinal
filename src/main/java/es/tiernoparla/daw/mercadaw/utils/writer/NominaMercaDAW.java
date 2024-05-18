@@ -78,6 +78,7 @@ public class NominaMercaDAW extends RecursosHumanosMercaDAW{
                             + "|     |        IRPF 14       |                     |               %s|\n " 
                             + "|   |   |   |   |\n"
                             + "|     |        MEI 0,12      |                     |               %s|\n "
+                            + "\n"
                             + "#### LIQUIDO A PERCIBIR: %s ";
         
         return String.format(CADENA,nombre,salario,pagas, contingencias,  formacion , desempleo , irpf , mei , liquido );
