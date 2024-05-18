@@ -184,6 +184,7 @@ public class MercaDawMariaDBDAOImp implements MercaDawDAO{
      * Lista el id, nombre, apellidos y categoría de cada empleado desde la vista VISTA_EMPLEADOS.
      * @return Listado de empleados y su informacion.
      */
+    @Override
     public List<Empleado> visualizarListaEmpleados() {
         final String SQL = "SELECT ID, NOMBRE, APELLIDOS, SALARIO, CATEGORIA FROM VISTA_EMPLEADOS;";
         List<Empleado> listado = new ArrayList<>();

@@ -3,6 +3,7 @@ package es.tiernoparla.daw.mercadaw.controller;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 import es.tiernoparla.daw.mercadaw.App;
 import es.tiernoparla.daw.mercadaw.model.Sede;
@@ -16,6 +17,9 @@ import es.tiernoparla.daw.mercadaw.model.entity.producto.Caracteristica;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.ProductoFactory;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.enums.CategoriaProducto;
+import es.tiernoparla.daw.mercadaw.utils.export.ExportarCSV;
+import es.tiernoparla.daw.mercadaw.utils.export.enums.Ruta;
+import es.tiernoparla.daw.mercadaw.utils.export.enums.Tabla;
 import es.tiernoparla.daw.mercadaw.utils.reader.Lector;
 import es.tiernoparla.daw.mercadaw.utils.reader.LectorFactory;
 import es.tiernoparla.daw.mercadaw.utils.reader.enumeracion.TipoLector;
@@ -155,5 +159,21 @@ public class MercadawController extends Application{
         lector = LectorFactory.obtenerLector(TipoLector.JSON);
         mercadaw.darAlta(lector.leerEmpleado(lector.cargar(fichero)));
         dao.insertarEmpleados(mercadaw.getEmpleados());
+    }
+
+    public void exportarDatos() {
+        ExportarCSV ex = new ExportarCSV();
+        ex.exportarCSV(Tabla.CLIENTES.getQuery(), Ruta.CLIENTES.getRuta());
+        ex.exportarCSV(Tabla.COMPRA.getQuery(), Ruta.COMPRA.getRuta());
+        ex.exportarCSV(Tabla.EMPLEADOS.getQuery(), Ruta.EMPLEADOS.getRuta());
+        ex.exportarCSV(Tabla.PRODUCTO_SEDE.getQuery(), Ruta.PRODUCTO_SEDE.getRuta());
+        ex.exportarCSV(Tabla.PRODUCTOS.getQuery(), Ruta.PRODUCTOS.getRuta());
+        ex.exportarCSV(Tabla.SEDE.getQuery(), Ruta.SEDE.getRuta());
+        ex.exportarCSV(Tabla.COMPRA_PRODUCTOS.getQuery(), Ruta.COMPRA_PRODUCTOS.getRuta());
+    }
+
+    public List<Empleado> listarEmpleados() throws SQLException{
+        dao = MercaDawDAOFactory.crear(TipoDB.MARIADB);
+        return dao.visualizarListaEmpleados();
     }
 }

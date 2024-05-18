@@ -41,7 +41,7 @@ public class PrincipalViewController extends ViewController {
 
     @FXML
     void exportarDatos(MouseEvent event) {
-        //TODO
+        controller.exportarDatos();
     }
 
     @FXML
