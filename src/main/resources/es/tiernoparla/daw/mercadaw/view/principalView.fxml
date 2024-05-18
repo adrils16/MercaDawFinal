@@ -8,15 +8,14 @@
 
 <AnchorPane fx:id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.tiernoparla.daw.mercadaw.view.PrincipalViewController">
    <children>
-      <ImageView fitHeight="207.0" fitWidth="215.0" layoutX="346.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="280.0" fitWidth="311.0" layoutX="310.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@logo.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnProductos" layoutX="104.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#gestionarProductos" prefHeight="33.0" prefWidth="185.0" text="Gestión de Productos" />
-      <Button fx:id="btnEmpleados" layoutX="369.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#gestionarEmpleados" prefHeight="33.0" prefWidth="185.0" text="Gestión de Empleados" />
-      <Button fx:id="btnCompras" layoutX="640.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#gestinarCompras" prefHeight="33.0" prefWidth="185.0" text="Gestión de Compras" />
-      <Button fx:id="btnExportar" layoutX="369.0" layoutY="467.0" mnemonicParsing="false" onMouseClicked="#exportarDatos" prefHeight="33.0" prefWidth="185.0" text="Exportar datos" />
+      <Button fx:id="btnProductos" layoutX="88.0" layoutY="446.0" mnemonicParsing="false" onMouseClicked="#gestionarProductos" prefHeight="33.0" prefWidth="185.0" text="Gestión de Productos" />
+      <Button fx:id="btnEmpleados" layoutX="358.0" layoutY="446.0" mnemonicParsing="false" onMouseClicked="#gestionarEmpleados" prefHeight="33.0" prefWidth="185.0" text="Gestión de Empleados" />
+      <Button fx:id="btnExportar" layoutX="632.0" layoutY="446.0" mnemonicParsing="false" onMouseClicked="#exportarDatos" prefHeight="33.0" prefWidth="185.0" text="Exportar datos" />
       <Button fx:id="btnModo" layoutX="765.0" layoutY="34.0" mnemonicParsing="false" onMouseClicked="#cambiarModo" text="Cambiar Modo" />
    </children>
    <stylesheets>

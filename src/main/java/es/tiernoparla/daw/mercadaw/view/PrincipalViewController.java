@@ -10,9 +10,6 @@ import javafx.scene.layout.AnchorPane;
 public class PrincipalViewController extends ViewController {
 
     @FXML
-    private Button btnCompras;
-
-    @FXML
     private Button btnEmpleados;
 
     @FXML
@@ -42,11 +39,6 @@ public class PrincipalViewController extends ViewController {
     @FXML
     void exportarDatos(MouseEvent event) {
         controller.exportarDatos();
-    }
-
-    @FXML
-    void gestinarCompras(MouseEvent event) {
-        controller.cargarPantalla(Vista.GESTION_COMPRAS);
     }
 
     @FXML
