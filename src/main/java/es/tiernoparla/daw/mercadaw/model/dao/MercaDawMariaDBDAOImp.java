@@ -3,8 +3,13 @@ package es.tiernoparla.daw.mercadaw.model.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
@@ -13,12 +18,12 @@ public class MercaDawMariaDBDAOImp implements MercaDawDAO{
 
     public final String MSG_ERROR_CONEXION = "Error al conectar con la base de datos";
 
-    protected final String URL = "jdbc:mariadb://localhost:3306/%s?user=%s&password=%s";
-    protected final String DATABASE_NAME = "mercadaw";
-    protected final String DATABASE_USER = "root";
-    protected final String DATABASE_PASS = "secret";
+    public final String URL = "jdbc:mariadb://localhost:3306/%s?user=%s&password=%s";
+    public final String DATABASE_NAME = "mercadaw";
+    public final String DATABASE_USER = "root";
+    public final String DATABASE_PASS = "secret";
 
-    protected Connection conexion;
+    private Connection conexion;
 
     public MercaDawMariaDBDAOImp() {
         try {
@@ -117,6 +122,7 @@ public class MercaDawMariaDBDAOImp implements MercaDawDAO{
     public int insertarEmpleados(List<Empleado> empleados) throws SQLException{
         int numRegistrosActualizados = 0;
         final String SQL = "INSERT INTO EMPLEADOS (nombre, apellidos, salario, categoria) VALUES (?, ?, ?, ?)";
+        
         try (PreparedStatement ps = conexion.prepareStatement(SQL)) {
             for (Empleado empleado : empleados) {
                 ps.setString(1, empleado.getNombre());
@@ -134,14 +140,22 @@ public class MercaDawMariaDBDAOImp implements MercaDawDAO{
      * Lista los productos y su stock desde la vista STOCK_PRODUCTOS.
      * @return Listado de productos y su stock.
      */
-    public String listarStockProd() throws SQLException{
+    public Map<String, Integer> listarStockProd() throws SQLException{
         final String SQL = "SELECT NOMBRE, STOCK FROM STOCK_PRODUCTOS;";
-        String listado = "";
-        try (PreparedStatement ps = conexion.prepareStatement(SQL)) {
-            listado = ps.toString();
+        Map<String, Integer> listado = new HashMap<>();
+        
+        try (Statement st = conexion.createStatement();
+        ResultSet rs = st.executeQuery(SQL);){
+            while (rs.next()) {
+                String nombre = rs.getString("NOMBRE");
+                int stock = rs.getInt("STOCK");
+                listado.put(nombre, stock);
+            }
+            
         } catch (SQLException e) {
             System.err.println(MSG_ERROR_CONEXION);
         }
+
         return listado;
     }
 
@@ -149,29 +163,20 @@ public class MercaDawMariaDBDAOImp implements MercaDawDAO{
      * Lista las compras por código postal desde la vista COMPRAS_POR_CODIGO_POSTAL.
      * @return Listado de compras.
      */
-    public String listarCompras() {
+    public Map<Integer, Integer> listarCompras() {
         final String SQL = "SELECT COD_POSTAL, NUM_COMPRAS FROM COMPRAS_POR_CODIGO_POSTAL;";
-        String listado = "";
-        try (PreparedStatement ps = conexion.prepareStatement(SQL)) {
-            listado = ps.toString();
+        Map<Integer, Integer> listado = new HashMap<>();
+        
+        try (Statement st = conexion.createStatement(); ResultSet rs = st.executeQuery(SQL)) {
+            while (rs.next()) {
+                int codPostal = rs.getInt("COD_POSTAL");
+                int numCompras = rs.getInt("NUM_COMPRAS");
+                listado.put(codPostal, numCompras);
+            }
         } catch (SQLException e) {
             System.err.println(MSG_ERROR_CONEXION);
         }
-        return listado;
-    }
-
-    /**
-     * Lista el id y el nombre de cada producto desde la vista VISTA_PRODUCTOS.
-     * @return Listado de productos y su id.
-     */
-    public String visualizarDatosProducto() {
-        final String SQL = "SELECT EAN, NOMBRE FROM VISTA_PRODUCTOS;";
-        String listado = "";
-        try (PreparedStatement ps = conexion.prepareStatement(SQL)) {
-            listado = ps.toString();
-        } catch (SQLException e) {
-            System.err.println(MSG_ERROR_CONEXION);
-        }
+        
         return listado;
     }
 
@@ -179,14 +184,23 @@ public class MercaDawMariaDBDAOImp implements MercaDawDAO{
      * Lista el id, nombre, apellidos y categoría de cada empleado desde la vista VISTA_EMPLEADOS.
      * @return Listado de empleados y su informacion.
      */
-    public String visualizarListaEmpleados() {
-        final String SQL = "SELECT ID, NOMBRE, APELLIDOS, CATEGORIA FROM VISTA_EMPLEADOS;";
-        String listado = "";
-        try (PreparedStatement ps = conexion.prepareStatement(SQL)) {
-            listado = ps.toString();
+    public List<Empleado> visualizarListaEmpleados() {
+        final String SQL = "SELECT ID, NOMBRE, APELLIDOS, SALARIO, CATEGORIA FROM VISTA_EMPLEADOS;";
+        List<Empleado> listado = new ArrayList<>();
+
+        try (Statement st = conexion.createStatement(); ResultSet rs = st.executeQuery(SQL)) {
+            while (rs.next()) {
+                int id = rs.getInt("ID");
+                String nombre = rs.getString("NOMBRE");
+                String apellidos = rs.getString("APELLIDOS");
+                String categoria = rs.getString("CATEGORIA");
+                int salario = rs.getInt("SALARIO");
+                listado.add(new Empleado(nombre, apellidos, id, categoria, salario));
+            }
         } catch (SQLException e) {
             System.err.println(MSG_ERROR_CONEXION);
         }
+
         return listado;
     }
 
