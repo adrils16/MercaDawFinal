@@ -3,16 +3,8 @@ package es.tiernoparla.daw.mercadaw.view;
 import java.io.File;
 import java.io.FileReader;
 
-import es.tiernoparla.daw.mercadaw.model.dao.MercaDawDAO;
-import es.tiernoparla.daw.mercadaw.model.dao.MercaDawDAOFactory;
-import es.tiernoparla.daw.mercadaw.model.dao.enums.TipoDB;
-import es.tiernoparla.daw.mercadaw.model.entity.producto.Caracteristica;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
-import es.tiernoparla.daw.mercadaw.model.entity.producto.ProductoFactory;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.enums.CategoriaProducto;
-import es.tiernoparla.daw.mercadaw.utils.reader.Lector;
-import es.tiernoparla.daw.mercadaw.utils.reader.LectorFactory;
-import es.tiernoparla.daw.mercadaw.utils.reader.enumeracion.TipoLector;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -115,11 +107,8 @@ public class DarAltaProductoViewController extends ViewController {
     void darAltaProducto(MouseEvent event) {
 
         final String MSG_ERROR = "Error al dar de alta el producto";
-        final String MSG_ERROR_PRODUCTO = "Ya exitse ese producto";
         final String MSG_EXITO = "Producto dado de alta correctamente";
         final String MSG_ERROR_CAMPOS = "Rellene todos los campos, por favor";
-
-        Producto producto = null;
 
         try {
             String nombre = txfNombre.getText();
@@ -132,14 +121,10 @@ public class DarAltaProductoViewController extends ViewController {
             int numElementos = Integer.parseInt(txfNumElementos.getText());
             String descripcion = txaDescripcion.getText();
 
-            producto = ProductoFactory.crear(categoria, nombre, marca, precio, new Caracteristica(altura, anchura, peso, numElementos), descripcion);
-            if (mercadaw.getProductos().contains(producto)) {
-                mostrarAviso(MSG_ERROR_PRODUCTO, AlertType.ERROR);
-            } else if (camposRellenos()){
 
+            if (camposRellenos()){
 
-                mercadaw.darAlta(producto);
-                dao.insertar(producto);
+                controller.darAltaProducto(categoria, nombre, marca, precio, altura, anchura, peso, numElementos, descripcion);
 
                 mostrarAviso(MSG_EXITO, AlertType.CONFIRMATION);
             } else {
@@ -160,9 +145,6 @@ public class DarAltaProductoViewController extends ViewController {
 
         ExtensionFilter filtro = new ExtensionFilter(DESCRPICION_FILTRO, EXTENSION_FILTRO);
 
-        Lector lector = LectorFactory.obtenerLector(TipoLector.CSV);
-        MercaDawDAO dao = MercaDawDAOFactory.crear(TipoDB.MARIADB);
-
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(filtro);
         File fichero = fileChooser.showOpenDialog(new Stage());
@@ -174,8 +156,7 @@ public class DarAltaProductoViewController extends ViewController {
                     valor = fr.read();
                 }
 
-                mercadaw.darAlta(lector.leerProducto(lector.cargar(fichero)));
-                dao.insertarProductos(mercadaw.getProductos());
+                controller.darAltaVariosProductosCSV(fichero);
 
             } catch (Exception e) {
                 mostrarAviso(MSG_ERROR, AlertType.ERROR);
@@ -203,9 +184,7 @@ public class DarAltaProductoViewController extends ViewController {
                     valor = fr.read();
                 }
 
-                //TODO insertar listas objetoMercadaw cuando metodo darAlta este implementado
-                //this.productos.addAll(new LectorFactory().obtenerLector(TipoLector.JSON).leerProducto(LectorImp.cargar(fichero)));
-                //TODO insertar en la base de datos
+                controller.darAltaVariosProductosJSON(fichero);
 
             } catch (Exception e) {
                 mostrarAviso(MSG_ERROR, AlertType.ERROR);

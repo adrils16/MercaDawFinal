@@ -1,8 +1,24 @@
 package es.tiernoparla.daw.mercadaw.controller;
 
+import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
 
 import es.tiernoparla.daw.mercadaw.App;
+import es.tiernoparla.daw.mercadaw.model.Sede;
+import es.tiernoparla.daw.mercadaw.model.dao.MercaDawDAO;
+import es.tiernoparla.daw.mercadaw.model.dao.MercaDawDAOFactory;
+import es.tiernoparla.daw.mercadaw.model.dao.enums.TipoDB;
+import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
+import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.EmpleadoFactory;
+import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.enums.CategoriaEmpleado;
+import es.tiernoparla.daw.mercadaw.model.entity.producto.Caracteristica;
+import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
+import es.tiernoparla.daw.mercadaw.model.entity.producto.ProductoFactory;
+import es.tiernoparla.daw.mercadaw.model.entity.producto.enums.CategoriaProducto;
+import es.tiernoparla.daw.mercadaw.utils.reader.Lector;
+import es.tiernoparla.daw.mercadaw.utils.reader.LectorFactory;
+import es.tiernoparla.daw.mercadaw.utils.reader.enumeracion.TipoLector;
 import es.tiernoparla.daw.mercadaw.view.ViewController;
 import es.tiernoparla.daw.mercadaw.view.Vista;
 import javafx.application.Application;
@@ -16,6 +32,9 @@ import javafx.stage.Stage;
 public class MercadawController extends Application{
 
     private static Stage currentStage;
+    private MercaDawDAO dao;
+    private Sede mercadaw;
+    private Lector lector;
 
     /** 
      * Lanza la vista principal para el inicio de la app
@@ -75,5 +94,66 @@ public class MercadawController extends Application{
     //quitar
     public void cargarProducto()throws IOException{
         cargarVista(Vista.GESTION_PRODUCTO);
+    }
+
+    // PRODUCTOS
+    public void darAltaProducto(CategoriaProducto categoria, String nombre, String marca, double precio, double altura, double anchura, double peso, int numElementos, String descripcion)throws IOException, SQLException{
+        dao = MercaDawDAOFactory.crear(TipoDB.MARIADB);
+        mercadaw = new Sede();
+
+        Caracteristica caracteristica = new Caracteristica(altura, anchura, peso, numElementos);
+        Producto producto = ProductoFactory.crear(categoria, nombre, marca, precio, caracteristica, descripcion);
+
+        if (!mercadaw.getProductos().contains(producto)) 
+            mercadaw.darAlta(producto);
+            dao.insertar(producto);
+    }
+
+    public void darAltaVariosProductosCSV(File fichero) throws Exception{
+        dao = MercaDawDAOFactory.crear(TipoDB.MARIADB);
+        mercadaw = new Sede();
+
+        lector = LectorFactory.obtenerLector(TipoLector.CSV);
+        mercadaw.darAlta(lector.leerProducto(lector.cargar(fichero)));
+        dao.insertarProductos(mercadaw.getProductos());
+    }
+
+    public void darAltaVariosProductosJSON(File fichero) throws Exception{
+        dao = MercaDawDAOFactory.crear(TipoDB.MARIADB);
+        mercadaw = new Sede();
+
+        lector = LectorFactory.obtenerLector(TipoLector.JSON);
+        mercadaw.darAlta(lector.leerProducto(lector.cargar(fichero)));
+        dao.insertarProductos(mercadaw.getProductos());
+    }
+
+    // EMPLEADOS
+    public void darAltaEmpleado(CategoriaEmpleado categoria, String nombre, String apellidos)throws IOException, SQLException{
+        dao = MercaDawDAOFactory.crear(TipoDB.MARIADB);
+        mercadaw = new Sede();
+
+        Empleado empleado = EmpleadoFactory.crear(categoria, nombre, apellidos, 0);
+
+        if (!mercadaw.getEmpleados().contains(empleado)) 
+            mercadaw.darAlta(empleado);
+            dao.insertar(empleado);
+    }
+
+    public void darAltaVariosEmpleadosCSV(File fichero) throws Exception{
+        dao = MercaDawDAOFactory.crear(TipoDB.MARIADB);
+        mercadaw = new Sede();
+
+        lector = LectorFactory.obtenerLector(TipoLector.CSV);
+        mercadaw.darAlta(lector.leerEmpleado(lector.cargar(fichero)));
+        dao.insertarEmpleados(mercadaw.getEmpleados());
+    }
+
+    public void darAltaVariosEmpleadosJSON(File fichero) throws Exception{
+        dao = MercaDawDAOFactory.crear(TipoDB.MARIADB);
+        mercadaw = new Sede();
+
+        lector = LectorFactory.obtenerLector(TipoLector.JSON);
+        mercadaw.darAlta(lector.leerEmpleado(lector.cargar(fichero)));
+        dao.insertarEmpleados(mercadaw.getEmpleados());
     }
 }

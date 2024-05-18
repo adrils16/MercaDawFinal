@@ -13,10 +13,12 @@ import org.apache.commons.csv.CSVPrinter;
 
 import es.tiernoparla.daw.mercadaw.model.dao.MercaDawDAO;
 import es.tiernoparla.daw.mercadaw.model.dao.MercaDawDAOFactory;
+import es.tiernoparla.daw.mercadaw.model.dao.MercaDawMariaDBDAOImp;
 import es.tiernoparla.daw.mercadaw.model.dao.enums.TipoDB;
 
 public class ExportarCSV {
 
+    //TODO enum
     public final String PRODUCTOS = "SELECT * FROM VISTA_PRODUCTOS";
     public final String EMPLEADOS = "SELECT * FROM VISTA_EMPLEADOS";
     public final String CLIENTES = "SELECT * FROM VISTA_CLIENTES";

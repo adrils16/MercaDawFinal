@@ -3,15 +3,8 @@ package es.tiernoparla.daw.mercadaw.view;
 import java.io.File;
 import java.io.FileReader;
 
-import es.tiernoparla.daw.mercadaw.model.dao.MercaDawDAO;
-import es.tiernoparla.daw.mercadaw.model.dao.MercaDawDAOFactory;
-import es.tiernoparla.daw.mercadaw.model.dao.enums.TipoDB;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
-import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.EmpleadoFactory;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.enums.CategoriaEmpleado;
-import es.tiernoparla.daw.mercadaw.utils.reader.Lector;
-import es.tiernoparla.daw.mercadaw.utils.reader.LectorFactory;
-import es.tiernoparla.daw.mercadaw.utils.reader.enumeracion.TipoLector;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -68,11 +61,6 @@ public class DarAltaEmpeadoViewController extends ViewController{
     @FXML
     private TextField txfNombre;
 
-    // @FXML
-    // public void initialize() {
-    //     this.empleados = FXCollections.observableArrayList();
-    // }
-
     @FXML
     void cambiarModo(MouseEvent event) {
 
@@ -90,25 +78,16 @@ public class DarAltaEmpeadoViewController extends ViewController{
     void darAltaEmpleado(MouseEvent event) {
 
         final String MSG_ERROR = "Error al dar de alta el empleado";
-        final String MSG_ERROR_EMPLEADO = "Ya exitse ese empleado";
         final String MSG_EXITO = "Empleado dado de alta correctamente";
         final String MSG_ERROR_CAMPOS = "Rellene todos los campos, por favor";
     
-        Empleado empleado = null;
-
         try {
             String nombre = txfNombre.getText();
             String apellidos = txfApellidos.getText();
             CategoriaEmpleado categoria = CategoriaEmpleado.valueOf(txfCategoria.getText().toUpperCase());
             
-            empleado = EmpleadoFactory.crear(categoria, nombre, apellidos, 0);
-            if (mercadaw.getEmpleados().contains(empleado)) {
-                mostrarAviso(MSG_ERROR_EMPLEADO, AlertType.ERROR);
-            } else if (camposRellenos()){
-                
-                mercadaw.darAlta(empleado);
-                dao.insertar(empleado);
-
+            if (camposRellenos()){
+                controller.darAltaEmpleado(categoria, nombre, apellidos);
                 mostrarAviso(MSG_EXITO, AlertType.CONFIRMATION);
             } else {
                 mostrarAviso(MSG_ERROR_CAMPOS, AlertType.ERROR);
@@ -129,9 +108,6 @@ public class DarAltaEmpeadoViewController extends ViewController{
 
         ExtensionFilter filtro = new ExtensionFilter(DESCRPICION_FILTRO, EXTENSION_FILTRO);
 
-        Lector lector = LectorFactory.obtenerLector(TipoLector.CSV);
-        MercaDawDAO dao = MercaDawDAOFactory.crear(TipoDB.MARIADB);
-
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(filtro);
         File fichero = fileChooser.showOpenDialog(new Stage());
@@ -144,8 +120,7 @@ public class DarAltaEmpeadoViewController extends ViewController{
                     valor = fr.read();
                 }
 
-                mercadaw.darAlta(lector.leerEmpleado(lector.cargar(fichero)));
-                dao.insertarEmpleados(mercadaw.getEmpleados());
+                controller.darAltaVariosEmpleadosCSV(fichero);
 
             } catch (Exception e) {
                 mostrarAviso(MSG_ERROR, AlertType.ERROR);
@@ -161,7 +136,6 @@ public class DarAltaEmpeadoViewController extends ViewController{
 
         ExtensionFilter filtro = new ExtensionFilter(DESCRPICION_FILTRO, EXTENSION_FILTRO);
 
-        Lector lector = LectorFactory.obtenerLector(TipoLector.JSON);
         
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(filtro);
@@ -175,8 +149,7 @@ public class DarAltaEmpeadoViewController extends ViewController{
                     valor = fr.read();
                 }
 
-                mercadaw.darAlta(lector.leerEmpleado(lector.cargar(fichero)));
-                dao.insertarEmpleados(mercadaw.getEmpleados());
+                controller.darAltaVariosEmpleadosJSON(fichero);
 
             } catch (Exception e) {
                 mostrarAviso(MSG_ERROR, AlertType.ERROR);

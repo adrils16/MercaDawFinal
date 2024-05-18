@@ -189,4 +189,46 @@ public class MercaDawMariaDBDAOImp implements MercaDawDAO{
         }
         return listado;
     }
+
+
+
+    public String getMSG_ERROR_CONEXION() {
+        return MSG_ERROR_CONEXION;
+    }
+
+
+
+    public String getURL() {
+        return URL;
+    }
+
+
+
+    public String getDATABASE_NAME() {
+        return DATABASE_NAME;
+    }
+
+
+
+    public String getDATABASE_USER() {
+        return DATABASE_USER;
+    }
+
+
+
+    public String getDATABASE_PASS() {
+        return DATABASE_PASS;
+    }
+
+
+
+    public Connection getConexion() {
+        return conexion;
+    }
+
+
+
+    public void setConexion(Connection conexion) {
+        this.conexion = conexion;
+    }
 }

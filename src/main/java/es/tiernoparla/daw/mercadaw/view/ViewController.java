@@ -1,10 +1,6 @@
 package es.tiernoparla.daw.mercadaw.view;
 
 import es.tiernoparla.daw.mercadaw.controller.*;
-import es.tiernoparla.daw.mercadaw.model.Sede;
-import es.tiernoparla.daw.mercadaw.model.dao.MercaDawDAO;
-import es.tiernoparla.daw.mercadaw.model.dao.MercaDawDAOFactory;
-import es.tiernoparla.daw.mercadaw.model.dao.enums.TipoDB;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.Alert.AlertType;
@@ -18,12 +14,6 @@ public abstract class ViewController {
 
     protected boolean esClaro = true;
     protected MercadawController controller;
-
-    // protected ObservableList<Producto> productos;
-    // protected ObservableList<Empleado> empleados;
-
-    protected MercaDawDAO dao = MercaDawDAOFactory.crear(TipoDB.MARIADB);
-    protected Sede mercadaw = new Sede();
 
     public MercadawController getController() {
         return controller;
