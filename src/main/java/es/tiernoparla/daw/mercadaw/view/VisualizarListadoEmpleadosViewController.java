@@ -1,8 +1,5 @@
 package es.tiernoparla.daw.mercadaw.view;
 
-import java.util.List;
-
-import es.tiernoparla.daw.mercadaw.model.entity.persona.Persona;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
