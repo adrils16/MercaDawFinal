@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
@@ -31,8 +32,13 @@ public class VisualizarDatosProductoViewController extends ViewController{
     @FXML
     private TextField txfIdProducto;
 
-   @FXML
-   private TextArea txaDatosProducto;
+    @FXML
+    private TextArea txaDatosProducto;
+
+    @FXML
+    void initialize() {
+        txaDatosProducto.setEditable(false);
+    }
 
     @FXML
     void cambiarModo(MouseEvent event) {
@@ -48,7 +54,19 @@ public class VisualizarDatosProductoViewController extends ViewController{
 
     @FXML
     void visualizarDatosProducto(MouseEvent event) {
-        //TODO 
+
+        String MSG_ERROR = "No existe el producto con ese ID";
+
+        try {
+
+            int id = Integer.parseInt(txfIdProducto.getText());
+
+            txaDatosProducto.setText(controller.visualizarDatosProducto(id));
+            
+        } catch (Exception e) {
+            mostrarAviso(MSG_ERROR, AlertType.ERROR);
+        }
+        
     }
 
     @FXML

@@ -210,8 +210,6 @@ public class MercaDawMariaDBDAOImp implements MercaDawDAO{
         return listado;
     }
 
-
-
     public String getMSG_ERROR_CONEXION() {
         return MSG_ERROR_CONEXION;
     }
