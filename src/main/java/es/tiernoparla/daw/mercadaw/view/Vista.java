@@ -1,7 +1,7 @@
 package es.tiernoparla.daw.mercadaw.view;
 
 /**
- * TODO Documentar Enum
+ * Clase que contiene las rutas de las vistas
  */
 public enum Vista {
 

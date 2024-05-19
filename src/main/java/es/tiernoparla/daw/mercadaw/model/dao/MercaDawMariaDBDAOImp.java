@@ -125,6 +125,17 @@ public class MercaDawMariaDBDAOImp implements MercaDawDAO{
     @Override
     public List<Empleado> visualizarListaEmpleados() throws SQLException{
         final String SQL = "SELECT ID_EMPLEADO, NOMBRE, APELLIDOS, CATEGORIA FROM VISTA_EMPLEADOS;";
+
+        final String ID_EMPLEADO = "ID_EMPLEADO";
+        final String NOMBRE = "NOMBRE";
+        final String APELLIDOS = "APELLIDOS";
+        final String CATEGORIA = "CATEGORIA";
+
+        final String CASE_EMPLEADO = "Empleado";
+        final String CASE_REPONEDOR = "Reponedor";
+        final String CASE_CAJERO = "Cajero";
+        final String CASE_ENCARGADO = "Encargado";
+
         List<Empleado> empleados = new ArrayList<>();
 
         CategoriaEmpleado ce = null;
@@ -132,25 +143,25 @@ public class MercaDawMariaDBDAOImp implements MercaDawDAO{
             try (PreparedStatement ps = conexion.prepareStatement(SQL); 
             ResultSet rs = ps.executeQuery();) {
                 while (rs.next()) {
-                    int id = rs.getInt("ID_EMPLEADO");
-                    String nombre = rs.getString("NOMBRE");
-                    String apellidos = rs.getString("APELLIDOS");
-                    String categoria = rs.getString("CATEGORIA");
+                    int id = rs.getInt(ID_EMPLEADO);
+                    String nombre = rs.getString(NOMBRE);
+                    String apellidos = rs.getString(APELLIDOS);
+                    String categoria = rs.getString(CATEGORIA);
                     switch (categoria) {
 
-                        case "Empleado":
+                        case CASE_EMPLEADO:
                             ce = CategoriaEmpleado.EMPLEADO;
                             break;
                     
-                        case "Reponedor":
+                        case CASE_REPONEDOR:
                             ce = CategoriaEmpleado.REPONEDOR;
                             break;
 
-                        case "Cajero":
+                        case CASE_CAJERO:
                             ce = CategoriaEmpleado.CAJERO;
                             break;
 
-                        case "Encargado":
+                        case CASE_ENCARGADO:
                             ce = CategoriaEmpleado.ENCARGADO;
                             break;
 
@@ -167,33 +178,47 @@ public class MercaDawMariaDBDAOImp implements MercaDawDAO{
     @Override
     public List<Producto> visualizarListaProductos() throws SQLException {
         final String SQL = "SELECT EAN, NOMBRE, MARCA, PRECIO, ALTURA, ANCHURA, PESO, NUM_ELEMENTOS, DESCRIPCION, CATEGORIA FROM VISTA_PRODUCTOS ORDER BY EAN;";
-        List<Producto> productos = new ArrayList<>();
+        
+        final String NOMBRE = "NOMBRE";
+        final String MARCA = "MARCA";
+        final String PRECIO = "PRECIO";
+        final String ALTURA = "ALTURA";
+        final String ANCHURA = "ANCHURA";
+        final String PESO = "PESO";
+        final String NUM_ELEMENTOS = "NUM_ELEMENTOS";
+        final String DESCRIPCION = "DESCRIPCION";
+        final String CATEGORIA = "CATEGORIA";
 
+        final String CASE_ALIMENTACION = "Alimentacion";
+        final String CASE_DROGUERIA = "Drogueria";
+        final String CASE_COSMETICA = "Cosmetica";
+        
+        List<Producto> productos = new ArrayList<>();
         CategoriaProducto cp = null;
 
             try (PreparedStatement ps = conexion.prepareStatement(SQL); 
             ResultSet rs = ps.executeQuery();) {
                 while (rs.next()) {
-                    String nombre = rs.getString("NOMBRE");
-                    String marca = rs.getString("MARCA");
-                    double precio = rs.getDouble("PRECIO");
-                    double altura = rs.getDouble("ALTURA");
-                    double anchura = rs.getDouble("PESO");
-                    double peso = rs.getDouble("PESO");
-                    int numElementos = rs.getInt("NUM_ELEMENTOS");
-                    String descripcion = rs.getString("DESCRIPCION");
-                    String categoria = rs.getString("CATEGORIA");
+                    String nombre = rs.getString(NOMBRE);
+                    String marca = rs.getString(MARCA);
+                    double precio = rs.getDouble(PRECIO);
+                    double altura = rs.getDouble(ALTURA);
+                    double anchura = rs.getDouble(ANCHURA);
+                    double peso = rs.getDouble(PESO);
+                    int numElementos = rs.getInt(NUM_ELEMENTOS);
+                    String descripcion = rs.getString(DESCRIPCION);
+                    String categoria = rs.getString(CATEGORIA);
                     switch (categoria) {
 
-                        case "Alimentacion":
+                        case CASE_ALIMENTACION:
                             cp = CategoriaProducto.ALIMENTACION;
                             break;
                     
-                        case "Drogueria":
-                            cp = CategoriaProducto.COSMETICA;
+                        case CASE_DROGUERIA:
+                            cp = CategoriaProducto.DROGUERIA;
                             break;
 
-                        case "Cosmetica":
+                        case CASE_COSMETICA:
                             cp = CategoriaProducto.COSMETICA;
                             break;
 

@@ -13,7 +13,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 /**
- * TODO Documentar clase
+ * Clase controladora de la vista GestionEmpleados
+ * donde se pueden dar de alta empleados, calcular nominas y visualizar listado de empleados
  */
 public class GestionEmpleadosViewController extends ViewController{
 

@@ -8,7 +8,8 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 
 /**
- * TODO Documentar clase y métodos
+ * Clase abstracta que define los métodos y atributos comunes a todas las clases controladoras de las vistas
+ * de la aplicación
  */
 public abstract class ViewController {
 

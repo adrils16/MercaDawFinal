@@ -12,7 +12,7 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 
 /**
- * TODO Documentar Clase
+ * Clase que exporta una tabla de la base de datos a un archivo CSV
  */
 public class ExportarCSV {
 
@@ -31,7 +31,7 @@ public class ExportarCSV {
     }
 
     /**
-     * TODO Documentar método
+     * Método que exporta una tabla de la base de datos a un archivo CSV 
      * @param tabla
      * @param ruta
      * @return

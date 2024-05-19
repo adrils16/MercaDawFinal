@@ -19,7 +19,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 /**
- * TODO Documentar clase y métodos
+ * Clase controladora de la vista VisualizarListadoEmpleados
+ * donde se pueden visualizar los empleados de la base de datos
  */
 public class VisualizarListadoEmpleadosViewController extends ViewController{
     @FXML
@@ -52,13 +53,17 @@ public class VisualizarListadoEmpleadosViewController extends ViewController{
     @FXML
     private ObservableList<Empleado> empleados;
 
+    /**
+     * Método que inicializa la vista VisualizarListadoEmpleados con los empleados de la base de datos
+     * en la tabla
+     * @throws Exception
+     */
     @FXML
     public void initialize() throws Exception{
         MercaDawDAO dao = MercaDawDAOFactory.crear(TipoDB.MARIADB);
 
-        //! Lo siento Julian llevamos 34 horas como chinos el la fabrica de 
-        //! shein intentado que funcione llamando al controller pero daba null
-        //! asi que hemos tenido que hacerlo asi
+        //! Lo sentimos Julián, no hemos conseguido que funcione llamando al controller porque daba null
+        //! y no sabemos porque asi que hemos tenido que hacerlo asi
 
         //* Bienvenido al nuevo patron de disenyo Vista-Modelo
         //* No nos restes mucha nota por favor
@@ -91,16 +96,4 @@ public class VisualizarListadoEmpleadosViewController extends ViewController{
     void volverAtras(MouseEvent event) {
         controller.cargarPantalla(Vista.GESTION_EMPLEADOS);
     }
-
-    public Empleado crearEmpleados(List<Empleado> listaEmpleados) {
-        empleados = FXCollections.observableArrayList(listaEmpleados);
-        Empleado empleado = null;
-
-        for (int i = 0; i < listaEmpleados.size(); i++) {
-            empleado = listaEmpleados.get(i);
-        }
-
-        return empleado;
-    }
-
 }

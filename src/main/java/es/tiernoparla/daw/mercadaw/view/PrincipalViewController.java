@@ -8,7 +8,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 /**
- * TODO Documentar clase y métodos
+ * Clase controladora de la vista Principal
+ * donde se pueden gestionar empleados y productos y exportar datos de la base de datos
  */
 public class PrincipalViewController extends ViewController {
 
@@ -39,16 +40,31 @@ public class PrincipalViewController extends ViewController {
         }
     }
 
+    /**
+     * Método que se ejecuta al pulsar el botón de exportar datos
+     * y exporta los datos de la base de datos a un fichero CSV
+     * @param event 
+     */
     @FXML
     void exportarDatos(MouseEvent event) {
         controller.exportarDatos();
     }
 
+    /**
+     * Método que se ejecuta al pulsar el botón de gestionar empleados
+     * y carga la pantalla de gestión de empleados
+     * @param event 
+     */
     @FXML
     void gestionarEmpleados(MouseEvent event) throws IOException {
         controller.cargarPantalla(Vista.GESTION_EMPLEADOS);
     }
 
+    /**
+     * Método que se ejecuta al pulsar el botón de gestionar productos
+     * y carga la pantalla de gestión de productos
+     * @param event 
+     */
     @FXML
     void gestionarProductos(MouseEvent event) throws IOException {
         controller.cargarPantalla(Vista.GESTION_PRODUCTO);

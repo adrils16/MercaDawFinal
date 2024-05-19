@@ -17,7 +17,8 @@ import javafx.stage.Stage;
 import javafx.stage.FileChooser.ExtensionFilter;
 
 /**
- * TODO Documentar clase
+ * Clase controladora de la vista DarAltaProducto
+ * donde se pueden dar de alta productos de forma individual o a partir de un fichero CSV o JSON
  */
 public class DarAltaProductoViewController extends ViewController {
 
@@ -99,11 +100,11 @@ public class DarAltaProductoViewController extends ViewController {
     @FXML
     private TextField txfPrecio;
 
-    @FXML
     /**
      * Da de alta un Producto en la BD y lo inserta en la lista de Sede, a partir de los datos introducidos por el usuario.
      * @param event
      */
+    @FXML
     void darAltaProducto(MouseEvent event) {
 
         final String MSG_ERROR = "Error al dar de alta el producto";

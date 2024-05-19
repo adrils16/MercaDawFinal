@@ -16,7 +16,8 @@ import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 
 /**
- * Documentar clase
+ * Clase controladora de la vista DarAltaEmpleado
+ * donde se pueden dar de alta empleados de forma individual o a partir de un fichero CSV o JSON
  */
 public class DarAltaEmpeadoViewController extends ViewController{
     

@@ -98,7 +98,7 @@ public abstract class Producto implements Imprimible, Gestionable {
      * Calcula el precio total del producto sumando al precio de venta todos los recargos correspondientes.
      * @return Precio total del Producto.
      */
-    private double calcularPrecioTotal() {
+    public double calcularPrecioTotal() {
 
         double precioTotal =  calcularPrecioVenta()+caracteristica.calcularRecargoTotal(calcularPrecioVenta());
 

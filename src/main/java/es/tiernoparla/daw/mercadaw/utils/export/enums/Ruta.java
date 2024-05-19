@@ -1,7 +1,7 @@
 package es.tiernoparla.daw.mercadaw.utils.export.enums;
 
 /**
- * TODO Documentar Enum
+ * Clase de tipo enum que contiene las rutas donde se guardan los archivos de backup
  */
 public enum Ruta {
     PRODUCTOS("backup/productos.csv"),

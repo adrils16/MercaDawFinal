@@ -45,7 +45,7 @@ public class PDFUtil extends DocumentoUtil{
     public static void exportarCostesPDF() throws IOException{
 
         //! Comando para exportar a PDF desde un script de bash
-        final String [] COMANDO = {"./scrpitCostes.sh"};
+        final String [] COMANDO = {"./scriptCostes.sh"};
 
         try {
             Process process = Runtime.getRuntime().exec(COMANDO);
@@ -74,7 +74,7 @@ public class PDFUtil extends DocumentoUtil{
     public static void exportarFiniquitoPDF() throws IOException{
 
         //! Comando para exportar a PDF desde un script de bash
-        final String [] COMANDO = {"./scrpitFiniquito.sh"};
+        final String [] COMANDO = {"./scriptFiniquito.sh"};
 
         try {
             Process process = Runtime.getRuntime().exec(COMANDO);

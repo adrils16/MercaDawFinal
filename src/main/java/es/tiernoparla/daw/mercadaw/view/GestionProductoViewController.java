@@ -7,7 +7,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 /**
- * TODO Documentar clase
+ * Clase controladora de la vista GestionProducto
+ * donde se pueden dar de alta productos, visualizar datos de un producto, imprimir etiquetas, obtener precio de venta
  */
 public class GestionProductoViewController extends ViewController{
 
@@ -25,9 +26,6 @@ public class GestionProductoViewController extends ViewController{
 
     @FXML
     private Button btnPrecioVenta;
-
-    @FXML
-    private Button btnStock;
 
     @FXML
     private Button btnModo;
