@@ -65,11 +65,6 @@ public class GestionProductoViewController extends ViewController{
     }
 
     @FXML
-    void mostrarStock(MouseEvent event) {
-        controller.cargarPantalla(Vista.MOSTRAR_STOCK);
-    }
-
-    @FXML
     void obtenerPrecioVenta(MouseEvent event) {
         controller.cargarPantalla(Vista.PRECIO_VENTA);
     }
