@@ -15,4 +15,6 @@ module es.tiernoparla.daw.mercadaw {
     exports es.tiernoparla.daw.mercadaw.model.entity.persona;
     exports es.tiernoparla.daw.mercadaw.model.entity.producto;
     exports es.tiernoparla.daw.mercadaw.model.entity.interfaces;
+    exports es.tiernoparla.daw.mercadaw.model.entity.producto.enums;
+    exports es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.enums;
 }
