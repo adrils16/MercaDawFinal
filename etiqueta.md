@@ -1,4 +1,4 @@
-* Nombre: Galletas
-* Marca: Principe
-* Categoría: Alimentación
-* Descripción: Galletas muy ricas
+* Nombre: Loción Corporal
+* Marca: Eucerin
+* Categoría: Cosmética
+* Descripción: Loción hidratante corporal
