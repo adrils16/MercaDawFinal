@@ -3,8 +3,6 @@ package es.tiernoparla.daw.mercadaw.view;
 import java.io.File;
 import java.io.FileReader;
 
-import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
-import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.enums.CategoriaEmpleado;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -74,6 +72,10 @@ public class DarAltaEmpeadoViewController extends ViewController{
         }
     }
 
+    /**
+     * Da de alta un empleado en BD y en la lista de la sede dada la información introducida en los campos
+     * @param event
+     */
     @FXML
     void darAltaEmpleado(MouseEvent event) {
 
@@ -100,11 +102,16 @@ public class DarAltaEmpeadoViewController extends ViewController{
 
     }
 
+    /**
+     * Da de alta varios empleados a partir de un fichero CSV
+     * @param event
+     */
     @FXML
     void darAltaVariosEmpleadosCSV(MouseEvent event) {
         final String DESCRPICION_FILTRO = "Ficheros CSV";
         final String EXTENSION_FILTRO = "*.csv";
         final String MSG_ERROR = "Error al cargar el fichero CSV";
+        final String MSG_EXITO = "Empleados dados de alta correctamente";
 
         ExtensionFilter filtro = new ExtensionFilter(DESCRPICION_FILTRO, EXTENSION_FILTRO);
 
@@ -121,6 +128,7 @@ public class DarAltaEmpeadoViewController extends ViewController{
                 }
 
                 controller.darAltaVariosEmpleadosCSV(fichero);
+                mostrarAviso(MSG_EXITO, AlertType.CONFIRMATION);
 
             } catch (Exception e) {
                 mostrarAviso(MSG_ERROR, AlertType.ERROR);
@@ -128,11 +136,17 @@ public class DarAltaEmpeadoViewController extends ViewController{
         }
     }
 
+    /**
+     * Da de alta varios empleados a partir de un fichero JSON
+     * !no funciona 
+     * @param event
+     */
     @FXML
     void darAltaVariosEmpleadosJSON(MouseEvent event) {
         final String DESCRPICION_FILTRO = "Ficheros JSON";
         final String EXTENSION_FILTRO = "*.json";
         final String MSG_ERROR = "Error al cargar el fichero JSON";
+        final String MSG_EXITO = "Empleados dados de alta correctamente";
 
         ExtensionFilter filtro = new ExtensionFilter(DESCRPICION_FILTRO, EXTENSION_FILTRO);
 
@@ -150,6 +164,7 @@ public class DarAltaEmpeadoViewController extends ViewController{
                 }
 
                 controller.darAltaVariosEmpleadosJSON(fichero);
+                mostrarAviso(MSG_EXITO, AlertType.CONFIRMATION);
 
             } catch (Exception e) {
                 mostrarAviso(MSG_ERROR, AlertType.ERROR);
@@ -162,6 +177,10 @@ public class DarAltaEmpeadoViewController extends ViewController{
         controller.cargarPantalla(Vista.GESTION_EMPLEADOS);
     }
 
+    /**
+     * Comprueba si los campos de nombre, apellidos y categoría están rellenos
+     * @return true si los campos están rellenos, false en caso contrario
+     */
     private boolean camposRellenos() {
         return campoRelleno(txfNombre) && campoRelleno(txfApellidos) && campoRelleno(txfCategoria);
     }
