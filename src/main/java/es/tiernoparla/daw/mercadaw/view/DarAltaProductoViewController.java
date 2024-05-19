@@ -3,8 +3,6 @@ package es.tiernoparla.daw.mercadaw.view;
 import java.io.File;
 import java.io.FileReader;
 
-import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
-import es.tiernoparla.daw.mercadaw.model.entity.producto.enums.CategoriaProducto;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;

@@ -1,7 +1,6 @@
 package es.tiernoparla.daw.mercadaw.view;
 
 import es.tiernoparla.daw.mercadaw.controller.*;
-import es.tiernoparla.daw.mercadaw.model.MercaDaw;
 import es.tiernoparla.daw.mercadaw.model.Sede;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;

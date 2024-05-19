@@ -55,8 +55,6 @@ public class VisualizarDatosProductoViewController extends ViewController{
 
         String MSG_ERROR = "No existe el producto con ese ID";
 
-        MercaDawDAO dao = MercaDawDAOFactory.crear(TipoDB.MARIADB);
-
         try {
 
             int id = Integer.parseInt(txfIdProducto.getText())-1;
