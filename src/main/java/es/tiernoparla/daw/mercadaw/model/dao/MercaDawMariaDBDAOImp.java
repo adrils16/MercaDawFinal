@@ -12,7 +12,12 @@ import java.util.List;
 import java.util.Map;
 
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
+import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.EmpleadoFactory;
+import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.enums.CategoriaEmpleado;
+import es.tiernoparla.daw.mercadaw.model.entity.producto.Caracteristica;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
+import es.tiernoparla.daw.mercadaw.model.entity.producto.ProductoFactory;
+import es.tiernoparla.daw.mercadaw.model.entity.producto.enums.CategoriaProducto;
 
 public class MercaDawMariaDBDAOImp implements MercaDawDAO{
 
@@ -142,8 +147,10 @@ public class MercaDawMariaDBDAOImp implements MercaDawDAO{
      */
     @Override
     public List<Empleado> visualizarListaEmpleados() throws SQLException{
-        final String SQL = "SELECT ID_EMPLEADO, NOMBRE, APELLIDOS, SALARIO, CATEGORIA FROM VISTA_EMPLEADOS;";
-        List<Empleado> listado = new ArrayList<>();
+        final String SQL = "SELECT ID_EMPLEADO, NOMBRE, APELLIDOS, CATEGORIA FROM VISTA_EMPLEADOS;";
+        List<Empleado> empleados = new ArrayList<>();
+
+        CategoriaEmpleado ce = null;
 
             try (PreparedStatement ps = conexion.prepareStatement(SQL); 
             ResultSet rs = ps.executeQuery();) {
@@ -152,16 +159,78 @@ public class MercaDawMariaDBDAOImp implements MercaDawDAO{
                     String nombre = rs.getString("NOMBRE");
                     String apellidos = rs.getString("APELLIDOS");
                     String categoria = rs.getString("CATEGORIA");
-                    int salario = rs.getInt("SALARIO");
-                    listado.add(new Empleado(nombre, apellidos, id, categoria, salario));
+                    switch (categoria) {
+
+                        case "Empleado":
+                            ce = CategoriaEmpleado.EMPLEADO;
+                            break;
+                    
+                        case "Reponedor":
+                            ce = CategoriaEmpleado.REPONEDOR;
+                            break;
+
+                        case "Cajero":
+                            ce = CategoriaEmpleado.CAJERO;
+                            break;
+
+                        case "Encargado":
+                            ce = CategoriaEmpleado.ENCARGADO;
+                            break;
+
+                    }
+                    empleados.add(EmpleadoFactory.crear(ce, nombre, apellidos, id));
                 }
             } catch (SQLException e) {
                 System.err.println(MSG_ERROR_CONEXION);
             }
 
-        return listado;
+        return empleados;
     }
 
+    @Override
+    public List<Producto> visualizarListaProductos() throws SQLException {
+        final String SQL = "SELECT EAN, NOMBRE, MARCA, PRECIO, ALTURA, ANCHURA, PESO, NUM_ELEMENTOS, DESCRIPCION, CATEGORIA FROM VISTA_PRODUCTOS ORDER BY EAN;";
+        List<Producto> productos = new ArrayList<>();
+
+        CategoriaProducto cp = null;
+
+            try (PreparedStatement ps = conexion.prepareStatement(SQL); 
+            ResultSet rs = ps.executeQuery();) {
+                while (rs.next()) {
+                    String nombre = rs.getString("NOMBRE");
+                    String marca = rs.getString("MARCA");
+                    double precio = rs.getDouble("PRECIO");
+                    double altura = rs.getDouble("ALTURA");
+                    double anchura = rs.getDouble("PESO");
+                    double peso = rs.getDouble("PESO");
+                    int numElementos = rs.getInt("NUM_ELEMENTOS");
+                    String descripcion = rs.getString("DESCRIPCION");
+                    String categoria = rs.getString("CATEGORIA");
+                    switch (categoria) {
+
+                        case "Alimentacion":
+                            cp = CategoriaProducto.ALIMENTACION;
+                            break;
+                    
+                        case "Drogueria":
+                            cp = CategoriaProducto.COSMETICA;
+                            break;
+
+                        case "Cosmetica":
+                            cp = CategoriaProducto.COSMETICA;
+                            break;
+
+                    }
+                    productos.add(ProductoFactory.crear(cp, nombre, marca, precio, new Caracteristica(altura, anchura, peso, numElementos), descripcion));
+                }
+            } catch (SQLException e) {
+                System.err.println(MSG_ERROR_CONEXION);
+            }
+
+        return productos;
+    }
+
+    
     public String getMSG_ERROR_CONEXION() {
         return MSG_ERROR_CONEXION;
     }

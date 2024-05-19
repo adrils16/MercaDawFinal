@@ -1,5 +1,8 @@
 package es.tiernoparla.daw.mercadaw.view;
 
+import es.tiernoparla.daw.mercadaw.model.dao.MercaDawDAO;
+import es.tiernoparla.daw.mercadaw.model.dao.MercaDawDAOFactory;
+import es.tiernoparla.daw.mercadaw.model.dao.enums.TipoDB;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -52,9 +55,11 @@ public class VisualizarDatosProductoViewController extends ViewController{
 
         String MSG_ERROR = "No existe el producto con ese ID";
 
+        MercaDawDAO dao = MercaDawDAOFactory.crear(TipoDB.MARIADB);
+
         try {
 
-            int id = Integer.parseInt(txfIdProducto.getText());
+            int id = Integer.parseInt(txfIdProducto.getText())-1;
 
             txaDatosProducto.setText(controller.visualizarDatosProducto(id));
             

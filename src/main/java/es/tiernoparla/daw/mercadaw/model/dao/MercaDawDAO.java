@@ -46,4 +46,11 @@ public interface MercaDawDAO {
      * @throws SQLException
      */
     public List<Empleado> visualizarListaEmpleados() throws SQLException;
+
+    /**
+     * Devuelve una lista de productos obtenida de la vista VISTA_PRODUCTOS en la BD.
+     * @return Una lista de productos.
+     * @throws SQLException
+     */
+    public List<Producto> visualizarListaProductos() throws SQLException;
 }

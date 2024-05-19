@@ -169,18 +169,19 @@ public class MercadawController extends Application{
      * de las clases que hayan implementado la interfaz Imprimible.
      * @param i Un objeto de tipo Imprimible.
      * @return Un String con información detalla del objeto.
+     * @throws SQLException 
      */
-    public String visualizarDatosProducto(int id) {
+    public String visualizarDatosProducto(int ean) throws SQLException {
 
-        Imprimible i = mercadaw.getProductos().get(id);
+        Imprimible i = dao.visualizarListaProductos().get(ean);
 
         return mercadaw.visualizar(i);
 
     }
 
-    public String visualizarPrecioProducto(int id) {
+    public String visualizarPrecioProducto(int ean) throws SQLException {
 
-        Producto p = mercadaw.getProductos().get(id);
+        Producto p = dao.visualizarListaProductos().get(ean);
 
         return mercadaw.obtenerPrecioVenta(p);
 
