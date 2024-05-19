@@ -2,7 +2,9 @@ package es.tiernoparla.daw.mercadaw.utils.writer;
 
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 
-
+/**
+ * Clase que permite calcular el finiquito de un empleado.
+ */
 public class FiniquitoMercaDAW {
 
     private final static int NUM_PAGAS = 2;
