@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * TODO Documentar clase y métodos
+ * Clase que permite transformar un docuento Markdown en PDF..
  */
 public class PDFUtil extends DocumentoUtil{
     

@@ -2,9 +2,7 @@ package es.tiernoparla.daw.mercadaw.utils.writer;
 
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 
-/**
- * TODO Documentar clase y métodos
- */
+
 public class FiniquitoMercaDAW {
 
     private final static int NUM_PAGAS = 2;

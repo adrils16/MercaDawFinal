@@ -9,10 +9,15 @@ import java.io.PrintWriter;
 import es.tiernoparla.daw.mercadaw.utils.writer.interfaces.Documento;
 
 /**
- * TODO Documentar clase y métodos
+ * Clase que permite transformar una cadena de texto en documentos Markdown.
  */
 public class MarkdownUtil implements Documento{
     
+    /**
+     * Crea un fichero nomina.md con la cadena pasada por parámetro.
+     * @param cadena Etiqueta a escribir en el fichero.
+     * @throws IOException 
+     */
     public static void crearNominaMd(String cadena) throws IOException {
 	    final String NOMBRE_FICHERO = "nomina.md";
         
@@ -24,6 +29,11 @@ public class MarkdownUtil implements Documento{
         fichMod.close();
     }
 
+    /**
+     * Crea un fichero costes.md con la cadena pasada por parámetro.
+     * @param cadena Etiqueta a escribir en el fichero.
+     * @throws IOException 
+     */
     public static void crearCostesMd(String cadena) throws IOException{
         final String NOMBRE_FICHERO = "costes.md";
         FileWriter fich = null;
@@ -40,6 +50,11 @@ public class MarkdownUtil implements Documento{
         fichMod.close();
     }
 
+    /**
+     * Crea un fichero finiquito.md con la cadena pasada por parámetro.
+     * @param cadena Etiqueta a escribir en el fichero.
+     * @throws IOException 
+     */
     public static void crearFiniquitoMd(String cadena) throws IOException{
         final String NOMBRE_FICHERO = "finiquito.md";
         FileWriter fich = null;

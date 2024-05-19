@@ -1,9 +1,8 @@
 package es.tiernoparla.daw.mercadaw.utils.writer;
 
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
-
 /**
- * TODO Documentar clase 
+ * Clase que permite calcular la nómina de un empleado.
  */
 public class NominaMercaDAW extends RecursosHumanosMercaDAW{
     
@@ -16,33 +15,23 @@ public class NominaMercaDAW extends RecursosHumanosMercaDAW{
     private double irpf;
     private double liquido;
 
-    /**
-     * Devuelve el valor de la constante CONTINGENCIAS para poder realizar los cálculos en RecursosHumanosMercaDAW
-     */
+
     @Override
     public double getContingencias(){
         return CONTIGENCIAS;
     }
 
-    /**
-     * Devuelve el valor de la constante FORMACION para poder realizar los cálculos en RecursosHumanosMercaDAW
-     */
+
     @Override
     public double getFormacion(){
         return FORMACION;
     }
 
-    /**
-     * Devuelve el valor de la constante DESEMPLEO para poder realizar los cálculos en RecursosHumanosMercaDAW
-     */
     @Override
     public double getDesempleo(){
         return DESEMPLEO;
     }
 
-    /**
-     * Devuelve el valor de la constante MEI para poder realizar los cálculos en RecursosHumanosMercaDAW
-     */
     @Override
     public double getMEI(){
         return MEI;
@@ -78,7 +67,7 @@ public class NominaMercaDAW extends RecursosHumanosMercaDAW{
     }
 
     /**
-     * Genera una nomina a mostrar en un mensaje de aviso.
+     * Genera una nómina a mostrar en un mensaje de aviso.
      */
     @Override 
     public String toString() {
