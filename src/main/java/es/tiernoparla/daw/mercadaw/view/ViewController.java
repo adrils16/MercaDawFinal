@@ -1,7 +1,6 @@
 package es.tiernoparla.daw.mercadaw.view;
 
 import es.tiernoparla.daw.mercadaw.controller.*;
-import es.tiernoparla.daw.mercadaw.model.MercaDaw;
 import es.tiernoparla.daw.mercadaw.model.Sede;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
@@ -26,6 +25,11 @@ public abstract class ViewController {
         this.controller = controller;
     }
 
+    /**
+     * Comprueba si un campo de texto está relleno
+     * @param campo Campo de texto a comprobar
+     * @return true si el campo está relleno, false en caso contrario
+     */
     protected boolean campoRelleno(TextField campo) {
         boolean relleno = false;
         if (campo != null && !"".equals(campo.getText().trim())) {
@@ -34,6 +38,11 @@ public abstract class ViewController {
         return relleno;
     }
 
+    /**
+     * Comprueba si un área de texto está rellena
+     * @param area Área de texto a comprobar
+     * @return true si el área está rellena, false en caso contrario
+     */
     protected boolean areaRellena(TextArea area) {
         boolean relleno = false;
         if (area != null && !"".equals(area.getText().trim())) {
@@ -42,6 +51,11 @@ public abstract class ViewController {
         return relleno;
     }
 
+    /**
+     * Muestra un aviso en pantalla
+     * @param msg Mensaje a mostrar
+     * @param tipo Tipo de aviso
+     */
     protected void mostrarAviso(String msg, AlertType tipo) {
         Alert alerta = new Alert(tipo);
         alerta.setHeaderText(null);

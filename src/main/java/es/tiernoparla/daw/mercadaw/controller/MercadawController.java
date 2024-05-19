@@ -105,8 +105,21 @@ public class MercadawController extends Application{
     }
 
     // PRODUCTOS
-    public void darAltaProducto(String categoria, String nombre, String marca, double precio, double altura,
-            double anchura, double peso, int numElementos, String descripcion) throws IOException, SQLException {
+    /**
+     * Da de alta un producto en la base de datos y en la sede
+     * @param categoria Categoria del producto
+     * @param nombre Nombre del producto
+     * @param marca Marca del producto
+     * @param precio Precio del producto
+     * @param altura Altura del producto
+     * @param anchura Anchura del producto
+     * @param peso Peso del producto
+     * @param numElementos Número de elementos del producto
+     * @param descripcion Descripción del producto
+     * @throws IOException
+     * @throws SQLException
+     */
+    public void darAltaProducto(String categoria, String nombre, String marca, double precio, double altura, double anchura, double peso, int numElementos, String descripcion)throws IOException, SQLException{
 
         CategoriaProducto cp = null;
 
@@ -133,7 +146,12 @@ public class MercadawController extends Application{
         }
     }
 
-    public void darAltaVariosProductosCSV(File fichero) throws Exception {
+    /**
+     * Da de alta varios productos a partir de un fichero CSV
+     * @param fichero Fichero CSV con los productos a dar de alta
+     * @throws Exception
+     */
+    public void darAltaVariosProductosCSV(File fichero) throws Exception{
 
         lector = LectorFactory.obtenerLector(TipoLector.CSV);
         mercadaw.darAlta(lector.leerProducto(lector.cargar(fichero)));
@@ -141,7 +159,12 @@ public class MercadawController extends Application{
 
     }
 
-    public void darAltaVariosProductosJSON(File fichero) throws Exception {
+    /**
+     * Da de alta varios productos a partir de un fichero JSON
+     * @param fichero Fichero JSON con los productos a dar de alta
+     * @throws Exception
+     */
+    public void darAltaVariosProductosJSON(File fichero) throws Exception{
 
         lector = LectorFactory.obtenerLector(TipoLector.JSON);
         mercadaw.darAlta(lector.leerProducto(lector.cargar(fichero)));
@@ -150,7 +173,15 @@ public class MercadawController extends Application{
     }
 
     // EMPLEADOS
-    public void darAltaEmpleado(String categoria, String nombre, String apellidos) throws IOException, SQLException {
+    /**
+     * Da de alta un empleado en la base de datos y en la sede
+     * @param categoria Categoria del empleado
+     * @param nombre Nombre del empleado
+     * @param apellidos Apellidos del empleado
+     * @throws IOException
+     * @throws SQLException
+     */
+    public void darAltaEmpleado(String categoria, String nombre, String apellidos)throws IOException, SQLException{
 
         CategoriaEmpleado ce = null;
 
@@ -181,20 +212,33 @@ public class MercadawController extends Application{
         dao.insertar(empleado);
     }
 
-    public void darAltaVariosEmpleadosCSV(File fichero) throws Exception {
+    /**
+     * Da de alta varios empleados a partir de un fichero CSV
+     * @param fichero Fichero CSV con los empleados a dar de alta
+     * @throws Exception
+     */
+    public void darAltaVariosEmpleadosCSV(File fichero) throws Exception{
 
         lector = LectorFactory.obtenerLector(TipoLector.CSV);
         mercadaw.darAlta(lector.leerEmpleado(lector.cargar(fichero)));
         dao.insertarEmpleados(mercadaw.getEmpleados());
     }
 
-    public void darAltaVariosEmpleadosJSON(File fichero) throws Exception {
+    /**
+     * Da de alta varios empleados a partir de un fichero JSON
+     * @param fichero Fichero JSON con los empleados a dar de alta
+     * @throws Exception
+     */
+    public void darAltaVariosEmpleadosJSON(File fichero) throws Exception{
 
         lector = LectorFactory.obtenerLector(TipoLector.JSON);
         mercadaw.darAlta(lector.leerEmpleado(lector.cargar(fichero)));
         dao.insertarEmpleados(mercadaw.getEmpleados());
     }
 
+    /**
+     * Llama al método exportarCSV() de la clase ExportarCSV para exportar los datos de las tablas de la base de datos a ficheros CSV.
+     */
     public void exportarDatos() {
         ExportarCSV ex = new ExportarCSV();
         ex.exportarCSV(Tabla.CLIENTES.getQuery(), Ruta.CLIENTES.getRuta());
@@ -243,12 +287,27 @@ public class MercadawController extends Application{
 
     }
 
+    /**
+     * Llama a los métodos del modelo para imprimir una etiqueta de un producto.
+     * @param ean El id del producto del que se quiere imprimir la etiqueta.
+     * @throws SQLException
+     * @throws IOException
+     */
     public void imprimirEtiqueta(int ean) throws SQLException, IOException {
         Producto p = dao.visualizarListaProductos().get(ean);
 
         MarkdownUtil.crearEtiqueta(mercadaw.imprimirEtiqueta(p));
     }
 
+    public void exportarEtiquetaPDF() throws IOException {
+        PDFUtil.exportarEtiquetaPDF();
+    }
+
+    /**
+     * Llama el método listarEmpleados() de la clase MercadawController y además llama al método calcularImportes() de la clase NominaMercaDAW.
+     * @return Una lista de String con las nominas de los empleados.
+     * @throws SQLException
+     */
     public List<String> calcularNominas() throws SQLException {
         List<Empleado> empleados = listarEmpleados();
         NominaMercaDAW nomina = new NominaMercaDAW();
@@ -261,7 +320,5 @@ public class MercadawController extends Application{
 
         return nominas;
     }
-
-    
 
 }
