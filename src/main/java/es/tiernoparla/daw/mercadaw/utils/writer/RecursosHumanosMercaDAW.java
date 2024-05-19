@@ -6,6 +6,9 @@ import es.tiernoparla.daw.mercadaw.utils.writer.interfaces.Documento;
 import es.tiernoparla.daw.mercadaw.utils.writer.interfaces.RecursosHumanos;
 
 
+/**
+ * TODO Documentar clase 
+ */
 public abstract class RecursosHumanosMercaDAW implements RecursosHumanos, Documento {
 
     public static final int NUM_PAGAS = 2;

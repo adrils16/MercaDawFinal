@@ -2,7 +2,7 @@ package es.tiernoparla.daw.mercadaw.model.entity.interfaces;
 
 /**
  * Esta interfaz clasifica las clases Imprimibles y les obliga a implementar el método imprimir(), 
- * que devuelve información detallada del objeto.
+ * que devuelve información detallada del objeto en un String.
  */
 public interface Imprimible {
     

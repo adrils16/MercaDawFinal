@@ -1,8 +1,5 @@
 package es.tiernoparla.daw.mercadaw.view;
 
-import es.tiernoparla.daw.mercadaw.model.dao.MercaDawDAO;
-import es.tiernoparla.daw.mercadaw.model.dao.MercaDawDAOFactory;
-import es.tiernoparla.daw.mercadaw.model.dao.enums.TipoDB;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -12,6 +9,9 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
+/**
+ * Clase que representa y define el funcionamiento de la vista encargada de visualizar datos de los productos.
+ */
 public class VisualizarDatosProductoViewController extends ViewController{
     
     @FXML
@@ -50,6 +50,11 @@ public class VisualizarDatosProductoViewController extends ViewController{
         }
     }
 
+    /**
+     * Dada un ID de Producto (EAN) introducido por teclado en el campo correspondiente, 
+     * muestra por pantalla (en un text area) información detallada de ese producto.
+     * @param event Hacer click en el botón.
+     */
     @FXML
     void visualizarDatosProducto(MouseEvent event) {
 

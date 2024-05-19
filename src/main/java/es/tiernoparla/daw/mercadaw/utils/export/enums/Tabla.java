@@ -1,5 +1,8 @@
 package es.tiernoparla.daw.mercadaw.utils.export.enums;
 
+/**
+ * TODO Documentar Enum, revisar si funciona con las nuevas tablas. Si no funciona también hay que revisar la clase CopiaSeguridad al cambiar este ENUM.
+ */
 public enum Tabla {
     PRODUCTOS("SELECT EAN, NOMBRE, MARCA, PRECIO, ALTURA, ANCHURA, PESO, NUM_ELEMENTOS, DESCRIPCION FROM VISTA_PRODUCTOS"),
     EMPLEADOS("SELECT ID_EMPLEADO, NOMBRE, APELLIDOS, SALARIO, CATEGORIA FROM VISTA_EMPLEADOS"),

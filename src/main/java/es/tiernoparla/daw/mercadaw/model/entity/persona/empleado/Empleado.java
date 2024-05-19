@@ -4,6 +4,10 @@ import es.tiernoparla.daw.mercadaw.model.entity.interfaces.Gestionable;
 import es.tiernoparla.daw.mercadaw.model.entity.interfaces.Imprimible;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.Persona;
 
+/**
+ * Esta clase define el estado y comportamiento de un empleado.
+ * 
+ */
 public class Empleado extends Persona implements Imprimible, Gestionable{
 
 

@@ -1,5 +1,8 @@
 package es.tiernoparla.daw.mercadaw.utils.export.enums;
 
+/**
+ * TODO Documentar Enum
+ */
 public enum Ruta {
     PRODUCTOS("backup/productos.csv"),
     EMPLEADOS("backup/empleados.csv"),

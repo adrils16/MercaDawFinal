@@ -7,6 +7,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 
+/**
+ * TODO Documentar clase y métodos
+ */
 public abstract class ViewController {
 
     public static final String ESTILO_CLARO = "estiloClaroFinal.css";

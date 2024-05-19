@@ -7,6 +7,9 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
+/**
+ * TODO Documentar clase y métodos
+ */
 public class PrincipalViewController extends ViewController {
 
     @FXML

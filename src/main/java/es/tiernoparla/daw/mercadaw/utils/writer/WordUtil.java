@@ -12,6 +12,9 @@ import org.apache.poi.xwpf.usermodel.XWPFRun;
 
 import es.tiernoparla.daw.mercadaw.utils.writer.interfaces.Documento;
 
+/**
+ * TODO Documentar clase
+ */
 public class WordUtil extends DocumentoUtil{
 
     @Override

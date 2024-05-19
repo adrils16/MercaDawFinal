@@ -3,6 +3,9 @@ package es.tiernoparla.daw.mercadaw.utils.writer;
 import java.util.Map;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 
+/**
+ * TODO Documentar clase 
+ */
 public class NominaMercaDAW extends RecursosHumanosMercaDAW{
     
     private final static double IRPF=0.14;
@@ -84,6 +87,7 @@ public class NominaMercaDAW extends RecursosHumanosMercaDAW{
         return String.format(CADENA,nombre,salario,pagas, contingencias,  formacion , desempleo , irpf , mei , liquido );
     }
 
+    @Override
     public Map<String, Object[]> getContenido() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getContenido'");

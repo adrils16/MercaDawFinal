@@ -9,6 +9,9 @@ import java.util.Map;
 
 import es.tiernoparla.daw.mercadaw.utils.writer.interfaces.Documento;
 
+/**
+ * TODO Documentar clase y métodos
+ */
 public class MarkdownUtil implements Documento{
     
     public static void crearNominaMd(String cadena) throws IOException{

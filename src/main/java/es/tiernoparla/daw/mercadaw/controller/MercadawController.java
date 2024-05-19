@@ -35,7 +35,10 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-
+/**
+ * Clase que define el estado y comportamiento del controlador de la aplicación, 
+ * que conecta las funcionalidades del modelo con la vista y viceversa.
+ */
 public class MercadawController extends Application{
 
     private static Stage currentStage;

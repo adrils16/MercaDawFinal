@@ -4,6 +4,9 @@ import java.util.Map;
 
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 
+/**
+ * TODO Documentar clase
+ */
 public class CosteLaboralMercaDAW extends RecursosHumanosMercaDAW{
 
     private final static double CONTINGENCIAS = 0.236;
@@ -88,7 +91,7 @@ public class CosteLaboralMercaDAW extends RecursosHumanosMercaDAW{
     return String.format(CADENA, nombre, salario, pagas, contingencias, desempleo, formacion, fogasa, mei, costeTotal);
 }
 
-
+    // TODO Mira a ver si borramos estos métodos, si no sirven hay que borrarlos también de la interfaz Documento (o la interfaz entera).
     @Override
     public Map<String, Object[]> getContenido() {
         // TODO Auto-generated method stub
@@ -106,8 +109,5 @@ public class CosteLaboralMercaDAW extends RecursosHumanosMercaDAW{
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getPie'");
     }
-
-
-
 
 }

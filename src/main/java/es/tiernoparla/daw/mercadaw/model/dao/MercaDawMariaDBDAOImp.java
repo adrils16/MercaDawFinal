@@ -15,6 +15,9 @@ import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.ProductoFactory;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.enums.CategoriaProducto;
 
+/**
+ * Clase que implementa la interfaz MercaDawDAO especificamente para una base de datos MariaDB.
+ */
 public class MercaDawMariaDBDAOImp implements MercaDawDAO{
 
     public final String MSG_ERROR_CONEXION = "Error al conectar con la base de datos";
@@ -34,11 +37,6 @@ public class MercaDawMariaDBDAOImp implements MercaDawDAO{
         }
     }
 
-    /**
-     * Inserta un producto en la tabla Productos.
-     * @param producto Producto que se quiere insertar.
-     * @return Número de productos insertados.
-     */
     @Override
     public int insertar(Producto producto) throws SQLException{
         int numRegistrosActualizados = 0;
@@ -60,11 +58,6 @@ public class MercaDawMariaDBDAOImp implements MercaDawDAO{
         return numRegistrosActualizados;
     }
 
-    /**
-     * Inserta una lista de producto en la tabla Productos.
-     * @param productos Lista de productos que se quiere insertar.
-     * @return Número de productos insertados.
-     */
     @Override
     public int insertarProductos(List<Producto> productos) throws SQLException{
 
@@ -94,11 +87,6 @@ public class MercaDawMariaDBDAOImp implements MercaDawDAO{
 
     }
 
-    /**
-     * Inserta un empleado en la tabla Empleados.
-     * @param empleado Empleado que se quiere insertar.
-     * @return Número de empleados insertados.
-     */ 
     @Override
     public int insertar(Empleado empleado) throws SQLException{
         int numRegistrosActualizados = 0;
@@ -116,11 +104,6 @@ public class MercaDawMariaDBDAOImp implements MercaDawDAO{
         return numRegistrosActualizados;
     }
 
-    /**
-     * Inserta una lista de empleados en la tabla Empleados.
-     * @param empleados Lista de empleados que se quiere insertar.
-     * @return Número de empleaods insertados.
-     */
     @Override
     public int insertarEmpleados(List<Empleado> empleados) throws SQLException{
         int numRegistrosActualizados = 0;
@@ -139,10 +122,6 @@ public class MercaDawMariaDBDAOImp implements MercaDawDAO{
         return numRegistrosActualizados;
     }
 
-    /**
-     * Lista el id, nombre, apellidos y categoría de cada empleado desde la vista VISTA_EMPLEADOS.
-     * @return Listado de empleados y su informacion.
-     */
     @Override
     public List<Empleado> visualizarListaEmpleados() throws SQLException{
         final String SQL = "SELECT ID_EMPLEADO, NOMBRE, APELLIDOS, CATEGORIA FROM VISTA_EMPLEADOS;";
