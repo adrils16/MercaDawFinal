@@ -1,10 +1,8 @@
 package es.tiernoparla.daw.mercadaw.utils.writer;
 
-import java.util.Map;
-
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 
-public class CosteLaboralMercaDAW extends RecursosHumanosMercaDAW{
+public class CosteLaboralMercaDAW extends RecursosHumanosMercaDAW {
 
     private final static double CONTINGENCIAS = 0.236;
     private final static double DESEMPLEO = 0.055;
@@ -17,6 +15,7 @@ public class CosteLaboralMercaDAW extends RecursosHumanosMercaDAW{
 
     /**
      * Calcula el fogasa dado un empleado.
+     * 
      * @param empleado Empleado del que se deasea calcular el Fogasa.
      */
     public void calcularFogasa(Empleado empleado) {
@@ -25,7 +24,8 @@ public class CosteLaboralMercaDAW extends RecursosHumanosMercaDAW{
     }
 
     /**
-     * Devuelve el valor de la constante CONTINGENCIAS para poder realizar los cálculos en RecursosHumanosMercaDAW
+     * Devuelve el valor de la constante CONTINGENCIAS para poder realizar los
+     * cálculos en RecursosHumanosMercaDAW
      */
     @Override
     public double getContingencias() {
@@ -33,7 +33,8 @@ public class CosteLaboralMercaDAW extends RecursosHumanosMercaDAW{
     }
 
     /**
-     * Devuelve el valor de la constante FORMACION para poder realizar los cálculos en RecursosHumanosMercaDAW
+     * Devuelve el valor de la constante FORMACION para poder realizar los cálculos
+     * en RecursosHumanosMercaDAW
      */
     @Override
     public double getFormacion() {
@@ -41,7 +42,8 @@ public class CosteLaboralMercaDAW extends RecursosHumanosMercaDAW{
     }
 
     /**
-     * Devuelve el valor de la constante DESEMPLEO para poder realizar los cálculos en RecursosHumanosMercaDAW
+     * Devuelve el valor de la constante DESEMPLEO para poder realizar los cálculos
+     * en RecursosHumanosMercaDAW
      */
     @Override
     public double getDesempleo() {
@@ -49,7 +51,8 @@ public class CosteLaboralMercaDAW extends RecursosHumanosMercaDAW{
     }
 
     /**
-     * Devuelve el valor de la constante MEI para poder realizar los cálculos en RecursosHumanosMercaDAW
+     * Devuelve el valor de la constante MEI para poder realizar los cálculos en
+     * RecursosHumanosMercaDAW
      */
     @Override
     public double getMEI() {
@@ -58,7 +61,8 @@ public class CosteLaboralMercaDAW extends RecursosHumanosMercaDAW{
 
     /**
      * Calcula el coste laboral que le cuesta a la empresa mantener a sus empleados.
-     * @param empleado Empleado del que se desea calcular el coste laboral. 
+     * 
+     * @param empleado Empleado del que se desea calcular el coste laboral.
      */
     @Override
     public String calcularImportes(Empleado empleado) {
@@ -72,7 +76,7 @@ public class CosteLaboralMercaDAW extends RecursosHumanosMercaDAW{
         calcularMEI(empleado);
 
         obtenerSalario(empleado);
-        costeTotal = empleado.getSueldo() + pagas + mei + contingencias +  desempleo + fogasa + formacion;
+        costeTotal = empleado.getSueldo() + pagas + mei + contingencias + desempleo + fogasa + formacion;
 
         return toString();
     }
@@ -83,51 +87,30 @@ public class CosteLaboralMercaDAW extends RecursosHumanosMercaDAW{
     @Override
     public String toString() {
 
-    final String CADENA = "# COSTE LABORAL\n"
-                        + "## APORTE DE SEGURIDAD SOCIAL\n"
-                        + "### EMPLEADO: %s\n"
-                        + "\n"
-                        + "| Concepto                | Valor                  |\n"
-                        + "|-------------------------|------------------------|\n"
-                        + "| SALARIO BRUTO           | %s                     |\n"
-                        + "|                         |                        |\n"
-                        + "| PAGAS EXTRA             | %s                     |\n"
-                        + "|                         |                        |\n"
-                        + "| CONTINGENCIAS COMUNES   | %s                     |\n"
-                        + "|                         |                        |\n"
-                        + "| DESEMPLEO               | %s                     |\n"
-                        + "|                         |                        |\n"
-                        + "| FORMACION               | %s                     |\n"
-                        + "|                         |                        |\n"
-                        + "| FOGASA                  | %s                     |\n"
-                        + "|                         |                        |\n"
-                        + "| MEI                     | %s                     |\n"
-                        + "\n"
-                        + "#### COSTE TOTAL      %s                      ";
-    
-    return String.format(CADENA, nombre, salario, pagas, contingencias, desempleo, formacion, fogasa, mei, costeTotal);
-}
+        final String CADENA = "# COSTE LABORAL\n"
+                + "## APORTE DE SEGURIDAD SOCIAL\n"
+                + "### EMPLEADO: %s\n"
+                + "\n"
+                + "| Concepto                | Valor                  |\n"
+                + "|-------------------------|------------------------|\n"
+                + "| SALARIO BRUTO           | %s                     |\n"
+                + "|                         |                        |\n"
+                + "| PAGAS EXTRA             | %s                     |\n"
+                + "|                         |                        |\n"
+                + "| CONTINGENCIAS COMUNES   | %s                     |\n"
+                + "|                         |                        |\n"
+                + "| DESEMPLEO               | %s                     |\n"
+                + "|                         |                        |\n"
+                + "| FORMACION               | %s                     |\n"
+                + "|                         |                        |\n"
+                + "| FOGASA                  | %s                     |\n"
+                + "|                         |                        |\n"
+                + "| MEI                     | %s                     |\n"
+                + "\n"
+                + "#### COSTE TOTAL      %s                      ";
 
-
-    @Override
-    public Map<String, Object[]> getContenido() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getContenido'");
+        return String.format(CADENA, nombre, salario, pagas, contingencias, desempleo, formacion, fogasa, mei,
+                costeTotal);
     }
-
-    @Override
-    public String getTitulo() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getTitulo'");
-    }
-
-    @Override
-    public String getPie() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getPie'");
-    }
-
-
-
 
 }

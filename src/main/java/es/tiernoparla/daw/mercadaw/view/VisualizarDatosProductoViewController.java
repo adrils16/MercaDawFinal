@@ -1,8 +1,5 @@
 package es.tiernoparla.daw.mercadaw.view;
 
-import es.tiernoparla.daw.mercadaw.model.dao.MercaDawDAO;
-import es.tiernoparla.daw.mercadaw.model.dao.MercaDawDAOFactory;
-import es.tiernoparla.daw.mercadaw.model.dao.enums.TipoDB;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
