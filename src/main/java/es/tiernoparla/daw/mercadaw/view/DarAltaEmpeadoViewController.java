@@ -84,7 +84,7 @@ public class DarAltaEmpeadoViewController extends ViewController{
         try {
             String nombre = txfNombre.getText();
             String apellidos = txfApellidos.getText();
-            CategoriaEmpleado categoria = CategoriaEmpleado.valueOf(txfCategoria.getText().toUpperCase());
+            String categoria = txfCategoria.getText();
             
             if (camposRellenos()){
                 controller.darAltaEmpleado(categoria, nombre, apellidos);

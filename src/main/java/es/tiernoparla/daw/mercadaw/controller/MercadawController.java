@@ -97,10 +97,26 @@ public class MercadawController extends Application{
     }
 
     // PRODUCTOS
-    public void darAltaProducto(CategoriaProducto categoria, String nombre, String marca, double precio, double altura, double anchura, double peso, int numElementos, String descripcion)throws IOException, SQLException{
+    public void darAltaProducto(String categoria, String nombre, String marca, double precio, double altura, double anchura, double peso, int numElementos, String descripcion)throws IOException, SQLException{
+
+        CategoriaProducto cp = null;
+
+        switch (categoria) {
+            case "Alimentacion":
+                cp = CategoriaProducto.ALIMENTACION;
+                break;
+        
+            case "Drogueria":
+                cp = CategoriaProducto.COSMETICA;
+                break;
+
+            case "Cosmetica":
+                cp = CategoriaProducto.COSMETICA;
+                break;
+        }
 
         Caracteristica caracteristica = new Caracteristica(altura, anchura, peso, numElementos);
-        Producto producto = ProductoFactory.crear(categoria, nombre, marca, precio, caracteristica, descripcion);
+        Producto producto = ProductoFactory.crear(cp, nombre, marca, precio, caracteristica, descripcion);
 
         if (!mercadaw.getProductos().contains(producto)) 
             mercadaw.darAlta(producto);
@@ -124,9 +140,31 @@ public class MercadawController extends Application{
     }
 
     // EMPLEADOS
-    public void darAltaEmpleado(CategoriaEmpleado categoria, String nombre, String apellidos)throws IOException, SQLException{
+    public void darAltaEmpleado(String categoria, String nombre, String apellidos)throws IOException, SQLException{
 
-        Empleado empleado = EmpleadoFactory.crear(categoria, nombre, apellidos, 0);
+        CategoriaEmpleado ce = null;
+
+        switch (categoria) {
+
+            case "Empleado":
+                ce = CategoriaEmpleado.EMPLEADO;
+                break;
+        
+            case "Reponedor":
+                ce = CategoriaEmpleado.REPONEDOR;
+                break;
+
+            case "Cajero":
+                ce = CategoriaEmpleado.CAJERO;
+                break;
+
+            case "Encargado":
+                ce = CategoriaEmpleado.ENCARGADO;
+                break;
+
+        }
+
+        Empleado empleado = EmpleadoFactory.crear(ce, nombre, apellidos, 0);
 
         if (!mercadaw.getEmpleados().contains(empleado)) 
             mercadaw.darAlta(empleado);

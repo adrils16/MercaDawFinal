@@ -104,6 +104,10 @@ public class DarAltaProductoViewController extends ViewController {
     }
 
     @FXML
+    /**
+     * Da de alta un Producto en la BD y lo inserta en la lista de Sede, a partir de los datos introducidos por el usuario.
+     * @param event
+     */
     void darAltaProducto(MouseEvent event) {
 
         final String MSG_ERROR = "Error al dar de alta el producto";
@@ -113,7 +117,7 @@ public class DarAltaProductoViewController extends ViewController {
         try {
             String nombre = txfNombre.getText();
             String marca = txfMarca.getText();
-            CategoriaProducto categoria = CategoriaProducto.valueOf(txfCategoria.getText().toUpperCase());
+            String categoria = txfCategoria.getText();
             double precio = Double.parseDouble(txfPrecio.getText());
             double altura = Double.parseDouble(txfAltura.getText());
             double anchura = Double.parseDouble(txfAnchura.getText());
@@ -127,8 +131,11 @@ public class DarAltaProductoViewController extends ViewController {
                 controller.darAltaProducto(categoria, nombre, marca, precio, altura, anchura, peso, numElementos, descripcion);
 
                 mostrarAviso(MSG_EXITO, AlertType.CONFIRMATION);
+                
             } else {
+
                 mostrarAviso(MSG_ERROR_CAMPOS, AlertType.ERROR);
+
             }
 
         } catch (Exception e) {
