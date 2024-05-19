@@ -24,6 +24,8 @@ import es.tiernoparla.daw.mercadaw.utils.export.enums.Tabla;
 import es.tiernoparla.daw.mercadaw.utils.reader.Lector;
 import es.tiernoparla.daw.mercadaw.utils.reader.LectorFactory;
 import es.tiernoparla.daw.mercadaw.utils.reader.enumeracion.TipoLector;
+import es.tiernoparla.daw.mercadaw.utils.writer.MarkdownUtil;
+import es.tiernoparla.daw.mercadaw.utils.writer.PDFUtil;
 import es.tiernoparla.daw.mercadaw.view.ViewController;
 import es.tiernoparla.daw.mercadaw.view.Vista;
 import javafx.application.Application;
@@ -118,9 +120,10 @@ public class MercadawController extends Application{
         Caracteristica caracteristica = new Caracteristica(altura, anchura, peso, numElementos);
         Producto producto = ProductoFactory.crear(cp, nombre, marca, precio, caracteristica, descripcion);
 
-        if (!mercadaw.getProductos().contains(producto)) 
+        if (!mercadaw.getProductos().contains(producto)) {
             mercadaw.darAlta(producto);
             dao.insertar(producto);
+        }
     }
 
     public void darAltaVariosProductosCSV(File fichero) throws Exception{
@@ -202,6 +205,12 @@ public class MercadawController extends Application{
 
     }
 
+    public List<Producto> listarProductos() throws SQLException{
+
+        return dao.visualizarListaProductos();
+
+    }
+
     /**
      * Llama al método imprimir() de la clase Impresora, que a su vez llama al método imprimir() 
      * de las clases que hayan implementado la interfaz Imprimible.
@@ -223,6 +232,12 @@ public class MercadawController extends Application{
 
         return mercadaw.obtenerPrecioVenta(p);
 
+    }
+
+    public void imprimirEtiqueta(int ean) throws SQLException, IOException {
+        Producto p = dao.visualizarListaProductos().get(ean);
+
+        MarkdownUtil.crearEtiqueta(mercadaw.imprimirEtiqueta(p));
     }
 
 }

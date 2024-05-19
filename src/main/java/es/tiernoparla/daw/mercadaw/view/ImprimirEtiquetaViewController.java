@@ -1,12 +1,23 @@
 package es.tiernoparla.daw.mercadaw.view;
 
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Observable;
+
+import es.tiernoparla.daw.mercadaw.model.dao.MercaDawDAO;
+import es.tiernoparla.daw.mercadaw.model.dao.MercaDawDAOFactory;
+import es.tiernoparla.daw.mercadaw.model.dao.enums.TipoDB;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
@@ -37,10 +48,27 @@ public class ImprimirEtiquetaViewController extends ViewController{
     private Label lblTitulo;
 
     @FXML
-    private TableView<?> tblProductos;
+    private TableView<Producto> tblProductos;
 
     @FXML
     private TextField txfIdProducto;
+
+    @FXML
+    private ObservableList<Producto> productos;
+
+    @FXML
+    public void initialize() throws Exception{
+        MercaDawDAO dao = MercaDawDAOFactory.crear(TipoDB.MARIADB);
+
+        List<Producto> listaProductos = dao.visualizarListaProductos();
+
+        productos = FXCollections.observableArrayList(listaProductos);
+
+        colId.setCellValueFactory(new PropertyValueFactory<Producto, Integer>("id"));
+        colNombre.setCellValueFactory(new PropertyValueFactory<Producto, String>("nombre"));
+
+        tblProductos.setItems(productos);
+    }
 
     @FXML
     void cambiarModo(MouseEvent event) {
@@ -55,9 +83,10 @@ public class ImprimirEtiquetaViewController extends ViewController{
     }
 
     @FXML
-    void imprimirEtiqueta(MouseEvent event) {
+    void imprimirEtiqueta(MouseEvent event) throws SQLException, IOException{
         int id = Integer.parseInt(txfIdProducto.getText());
 
+        controller.imprimirEtiqueta(id);
     }
 
     @FXML
