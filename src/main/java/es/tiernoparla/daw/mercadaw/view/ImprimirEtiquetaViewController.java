@@ -84,7 +84,8 @@ public class ImprimirEtiquetaViewController extends ViewController{
 
     @FXML
     void imprimirEtiqueta(MouseEvent event) throws SQLException, IOException{
-        int id = Integer.parseInt(txfIdProducto.getText());
+
+        int id = Integer.parseInt(txfIdProducto.getText())-1;
 
         controller.imprimirEtiqueta(id);
     }

@@ -72,7 +72,7 @@ public class MercaDawMariaDBDAOImp implements MercaDawDAO{
     @Override
     public int insertarProductos(List<Producto> productos) throws SQLException{
 
-        final String SQL = "INSERT INTO PRODUCTOS (NOMBRE, MARCA, PRECIO, ALTURA, ANCHURA, PESO, NUM_ELEMENTOS, DESCRIPCION) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        final String SQL = "INSERT INTO PRODUCTOS (NOMBRE, MARCA, PRECIO, ALTURA, ANCHURA, PESO, NUM_ELEMENTOS, DESCRIPCION, CATEGORIA) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement ps = conexion.prepareStatement(SQL);
 
             for (Producto producto : productos) {
@@ -84,6 +84,7 @@ public class MercaDawMariaDBDAOImp implements MercaDawDAO{
                 ps.setDouble(6, producto.getCaracteristica().getPeso());
                 ps.setInt(7, producto.getCaracteristica().getNumElementos());
                 ps.setString(8, producto.getDescripcion());
+                ps.setString(9, producto.getCategoria());
                 ps.addBatch();
             }
 
