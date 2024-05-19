@@ -57,13 +57,21 @@ public class GestionEmpleadosViewController extends ViewController{
         }
     }
 
+    /**
+     * Método que calcula las nominas de los empleados y las almacena en un fichero Markdown
+     * y lo pasa a PDF
+     * @param event
+     * @throws SQLException
+     * @throws IOException
+     */
     @FXML
     void calcularNominas(MouseEvent event) throws SQLException, IOException {
         final String MSG_NOMINAS = "Las nominas se han creado correctamente en un ficero Markdown.";
 
         List<String> nominas = controller.calcularNominas();
         for (String nomina : nominas) {
-            MarkdownUtil.crearNominaMd(nomina); // Almacenar en el fichero Markdown
+            controller.imprimirNomina(nomina); // Almacenar en el fichero Markdown
+            controller.exportarNominaPDF();
         }
 
         mostrarAviso(MSG_NOMINAS, AlertType.INFORMATION);

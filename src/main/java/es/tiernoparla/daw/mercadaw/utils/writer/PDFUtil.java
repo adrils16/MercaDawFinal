@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 /**
  * Clase que permite transformar un docuento Markdown en PDF..
  */
-public class PDFUtil extends DocumentoUtil{
+public class PDFUtil {
     
     /**
      * Este metodo exporta la nomina a PDF a traves de un comando de docker que llama a un sistema con pandoc, es necesario tener el otro fichero creado previmente para que funcione.

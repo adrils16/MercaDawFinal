@@ -10,6 +10,8 @@ package es.tiernoparla.daw.mercadaw.model.entity {
             +imprimir() : String
         }
 
+        interface Gestionable
+
     }
 
     package producto {
@@ -128,5 +130,8 @@ package es.tiernoparla.daw.mercadaw.model.entity {
 }
 Sede o-- Empleado
 Sede o-- Producto
+
+Gestionable <|.. Producto
+Gestionable <|.. Empleado
 
 @enduml

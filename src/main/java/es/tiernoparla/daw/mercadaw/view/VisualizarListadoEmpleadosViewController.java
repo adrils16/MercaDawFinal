@@ -62,12 +62,6 @@ public class VisualizarListadoEmpleadosViewController extends ViewController{
     public void initialize() throws Exception{
         MercaDawDAO dao = MercaDawDAOFactory.crear(TipoDB.MARIADB);
 
-        //! Lo sentimos Julián, no hemos conseguido que funcione llamando al controller porque daba null
-        //! y no sabemos porque asi que hemos tenido que hacerlo asi
-
-        //* Bienvenido al nuevo patron de disenyo Vista-Modelo
-        //* No nos restes mucha nota por favor
-
         List<Empleado> listaEmpleados = dao.visualizarListaEmpleados();
 
         empleados = FXCollections.observableArrayList(listaEmpleados);

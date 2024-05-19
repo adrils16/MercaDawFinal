@@ -302,8 +302,29 @@ public class MercadawController extends Application{
         MarkdownUtil.crearEtiqueta(mercadaw.imprimirEtiqueta(p));
     }
 
+    /**
+     * Llama al método exportarEtiquetaPDF() de la clase PDFUtil para exportar la etiqueta de un producto a un fichero PDF.
+     * @throws IOException
+    */
     public void exportarEtiquetaPDF() throws IOException {
         PDFUtil.exportarEtiquetaPDF();
+    }
+
+    /**
+     * Llama al método imprimirNomina() de la clase MarkdownUtil para imprimir la nómina de un empleado.
+     * @param nomina
+     * @throws IOException
+     */
+    public void imprimirNomina(String nomina) throws IOException {
+        MarkdownUtil.crearNominaMd(nomina);
+    }
+
+    /**
+     * Llama al método exportarNominaPDF() de la clase PDFUtil para exportar la nómina de un empleado a un fichero PDF.
+     * @throws IOException
+     */
+    public void exportarNominaPDF() throws IOException {
+        PDFUtil.exportarNominaPDF();
     }
 
     /**

@@ -52,10 +52,6 @@ package es.tiernoparla.daw.mercadaw.util {
                 +getPie(): String
             }
 
-            Interface Exportable {
-                +crearFichero(doc: Documento): byte[]
-            }  
-
             Interface RecursosHumanos{
                 +calcularPagas(Empleado): void
                 +calcularContingencias(Empleado): void
@@ -74,25 +70,13 @@ package es.tiernoparla.daw.mercadaw.util {
             }
         }
 
-        abstract DocumentoUtil {
-            +{abstract}crearFichero(doc: Documento): byte[]
+        class PDFUtil {
+            +exportarNominaPDF(): void
+            +exportarCostesPDF(): void
+            +exportarFiniquitoPDF(): void
+            +exportarEtiquetaPDF(): void
         }
 
-        class ExcelUtil
-        class WordUtil
-        class PDFUtil
-        class EscritorMock
-
-        class ExportFactory {
-            +obtenerExport(tipo: TipoDocumento): Escritor
-        }
-
-        Exportable <|.. DocumentoUtil
-
-        DocumentoUtil <|-- ExcelUtil
-        DocumentoUtil <|-- WordUtil
-        DocumentoUtil <|-- PDFUtil
-        DocumentoUtil <|-- EscritorMock
     
         class CosteLaboralMercaDAW {
             + calcularFogasa(Empleado): void
@@ -117,16 +101,6 @@ package es.tiernoparla.daw.mercadaw.util {
 
     }
 
-    package printer {
-        class Impresora {
-            +imprimir(Imprimible): void
-        }
-        interface Imprimible {
-            +obtenerDatos(producto: Producto): String
-            +obtenerDatos(empleado: Empleado): String
-        }
-    }
-
     package export {
         class ExportarCSV {
             +exportarCSV(tabla: String, ruta: String): boolean
@@ -149,11 +123,7 @@ package exception {
     MercaDawException <|-- LectorException
     LectorException <|-- FormatoIncorrectoException
     MercaDawException <|-- DAOException
-
-    '! A medida de codificación anyadir mas
 }
-
-Imprimible <|.. Sede
 
 component org.apache.poi
 org.apache.poi <.. DocumentoUtil
