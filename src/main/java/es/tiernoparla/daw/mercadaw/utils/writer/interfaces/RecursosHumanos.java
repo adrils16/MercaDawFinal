@@ -4,7 +4,7 @@ package es.tiernoparla.daw.mercadaw.utils.writer.interfaces;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 
 /**
- * TODO Documentar interface y métodos
+ * Interfaz que permite calcular y obtener los diferentes parámetros necesarios para la gestión de recursos humanos.
  */
 public interface RecursosHumanos {
     
@@ -50,6 +50,10 @@ public interface RecursosHumanos {
      */
     public void obtenerNombreEmpleado(Empleado empleado);
 
+    /**
+     * Calcula los importes del empleado deseado.
+     * @param empleado Empleado del que se deasea obtener el nombre.
+     */
     public String calcularImportes(Empleado empleado);
 
     

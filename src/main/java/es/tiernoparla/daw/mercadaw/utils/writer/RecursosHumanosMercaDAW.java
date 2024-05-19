@@ -5,7 +5,9 @@ import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 import es.tiernoparla.daw.mercadaw.utils.writer.interfaces.Documento;
 import es.tiernoparla.daw.mercadaw.utils.writer.interfaces.RecursosHumanos;
 
-
+/**
+ * Clase que calcula las gestiones necesarias para los recursos humanos..
+ */
 public abstract class RecursosHumanosMercaDAW implements RecursosHumanos, Documento {
 
     public static final int NUM_PAGAS = 2;
@@ -21,22 +23,22 @@ public abstract class RecursosHumanosMercaDAW implements RecursosHumanos, Docume
 
 
     /**
-     * Devuelve el valor de la constante CONTINGENCIAS para poder realizar los cálculos.
+     * Devuelve el valor de la constante CONTINGENCIAS para poder realizar los cálculos en la clase RecursosHumanosMercaDAW.
      */
     public abstract double getContingencias();
 
     /**
-     * Devuelve el valor de la constante FORMACION para poder realizar los cálculos.
+     * Devuelve el valor de la constante FORMACION para poder realizar los cálculos en la clase RecursosHumanosMercaDAW.
      */
     public abstract double getFormacion();
 
     /**
-     * Devuelve el valor de la constante DESEMPLEO para poder realizar los cálculos.
+     * Devuelve el valor de la constante DESEMPLEO para poder realizar los cálculos en la clase RecursosHumanosMercaDAW.
      */
     public abstract double getDesempleo();
 
     /**
-     * Devuelve el valor de la constante MEI para poder realizar los cálculos.
+     * Devuelve el valor de la constante MEI para poder realizar los cálculos en la clase RecursosHumanosMercaDAW.
      */
     public abstract double getMEI();
 

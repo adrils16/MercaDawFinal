@@ -3,7 +3,7 @@ package es.tiernoparla.daw.mercadaw.utils.writer;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 
 /**
- * TODO Documentar clase
+ * Clase que permite calcular el coste laboral que tiene la empresa al pagar a sus empleados.
  */
 public class CosteLaboralMercaDAW extends RecursosHumanosMercaDAW{
 
