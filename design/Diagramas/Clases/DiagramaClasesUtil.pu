@@ -24,33 +24,54 @@ package es.tiernoparla.daw.mercadaw.util {
             +procesarProducto(fila: String): Producto
             +procesarEmpleado(fila: String): Empleado
         }
-        class LectorXML
+
+        class LectorFactory {
+            +obtenerLector(tipo: TipoLector): Lector
+        }
+
 
         Lector <|.. LectorMock
         Lector <|.. LectorImp
 
         LectorImp <|-- LectorCSV
         LectorImp <|-- LectorJSON
-        LectorImp <|-- LectorXML
 
-        enum TipoLector {
-            MOCK, CSV, JSON, XML
-        }
 
-        class LectorFactory {
-            +obtenerLector(tipo: TipoLector): Lector
+        package enumeracion{
+            enum TipoLector {
+                MOCK, CSV, JSON, XML
+            }
         }
     }
 
-    package export {
-        interface Documento{
-            +getContenido(): Map<String, Object[]>
-            +getTitulo(): String
-            +getPie(): String
+    package writer {
+        package inerfaces{
+            interface Documento{
+                +getContenido(): Map<String, Object[]>
+                +getTitulo(): String
+                +getPie(): String
+            }
+
+            Interface Exportable {
+                +crearFichero(doc: Documento): byte[]
+            }  
+
+            Interface RecursosHumanos{
+                +calcularPagas(Empleado): void
+                +calcularContingencias(Empleado): void
+                +calcularFormacion(Empleado): void
+                +calcularDesempleo(Empleado): void
+                +calcularMEI(Empleado): void
+                +obtenerSalario(Empleado): void
+                +obtenerNombreEmpleado(Empleado): void
+                +calcularImportes(Empleado): void
+            }
         }
 
-        Interface Exportable {
-            +crearFichero(doc: Documento): byte[]
+        package enums{
+            enum TipoDocumento {
+                MOCK, EXCEL, DOCX, PDF
+            }
         }
 
         abstract DocumentoUtil {
@@ -62,20 +83,38 @@ package es.tiernoparla.daw.mercadaw.util {
         class PDFUtil
         class EscritorMock
 
+        class ExportFactory {
+            +obtenerExport(tipo: TipoDocumento): Escritor
+        }
+
         Exportable <|.. DocumentoUtil
 
         DocumentoUtil <|-- ExcelUtil
         DocumentoUtil <|-- WordUtil
         DocumentoUtil <|-- PDFUtil
         DocumentoUtil <|-- EscritorMock
-        
-        enum TipoDocumento {
-            MOCK, EXCEL, DOCX, PDF
+    
+        class CosteLaboralMercaDAW {
+            + calcularFogasa(Empleado): void
         }
 
-        class ExportFactory {
-            +obtenerExport(tipo: TipoDocumento): Escritor
+        class FiniquitoMercaDAW {
+            + calcularIndemnizacion(Empleado): void
+            + calcularSalarioAnual(Empleado): void
+            + calcularSalarioDiario(Empleado): void
         }
+
+        class NominaMercaDAW{
+            + calcularIRPF(Empleado): void
+        }
+
+        abstract class RecursosHumanosMercaDAW
+
+        RecursosHumanosMercaDAW <|-- NominaMercaDAW
+        RecursosHumanosMercaDAW <|-- CosteLaboralMercaDAW
+        RecursosHumanos <|.. RecursosHumanosMercaDAW
+
+
     }
 
     package printer {
@@ -85,6 +124,18 @@ package es.tiernoparla.daw.mercadaw.util {
         interface Imprimible {
             +obtenerDatos(producto: Producto): String
             +obtenerDatos(empleado: Empleado): String
+        }
+    }
+
+    package export {
+        class ExportarCSV {
+            +exportarCSV(tabla: String, ruta: String): boolean
+        }
+
+        package enums {
+            class Tabla
+
+            class Ruta
         }
     }
 }

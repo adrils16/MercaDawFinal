@@ -1,6 +1,5 @@
 package es.tiernoparla.daw.mercadaw.utils.writer;
 
-import java.util.Map;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 
 public class NominaMercaDAW extends RecursosHumanosMercaDAW{
@@ -14,30 +13,50 @@ public class NominaMercaDAW extends RecursosHumanosMercaDAW{
     private double irpf;
     private double liquido;
 
+    /**
+     * Devuelve el valor de la constante CONTINGENCIAS para poder realizar los cálculos en RecursosHumanosMercaDAW
+     */
     @Override
     public double getContingencias(){
         return CONTIGENCIAS;
     }
 
+    /**
+     * Devuelve el valor de la constante FORMACION para poder realizar los cálculos en RecursosHumanosMercaDAW
+     */
     @Override
     public double getFormacion(){
         return FORMACION;
     }
 
+    /**
+     * Devuelve el valor de la constante DESEMPLEO para poder realizar los cálculos en RecursosHumanosMercaDAW
+     */
     @Override
     public double getDesempleo(){
         return DESEMPLEO;
     }
 
+    /**
+     * Devuelve el valor de la constante MEI para poder realizar los cálculos en RecursosHumanosMercaDAW
+     */
     @Override
     public double getMEI(){
         return MEI;
     }
 
+    /**
+     * Calcula el IRPF de un empleado.
+     * @param empleado Empleado del que se deasea calcular el IRPF.
+     */
     public void calcularIRPF(Empleado empleado) {
         irpf=(empleado.getSueldo()+pagas) * IRPF;
     }
 
+    /**
+     * Calcula la nomina de un empleado.
+     * @param empleado Empleado del que se deasea calcular la nomina.
+     */
     @Override
     public String calcularImportes(Empleado empleado){
         obtenerSalario(empleado);
@@ -56,7 +75,7 @@ public class NominaMercaDAW extends RecursosHumanosMercaDAW{
     }
 
     /**
-     * Genera una nomina a mostrar en un mensaje de aviso
+     * Genera una nomina a mostrar en un mensaje de aviso.
      */
     @Override 
     public String toString() {
@@ -79,27 +98,10 @@ public class NominaMercaDAW extends RecursosHumanosMercaDAW{
                             + "|   |   |   |   |\n"
                             + "|     |        MEI 0,12      |                     |               %s|\n "
                             + "\n"
-                            + "#### LIQUIDO A PERCIBIR: %s ";
+                            + "#### LIQUIDO A PERCIBIR: %s \n"
+                            + "\n";
         
         return String.format(CADENA,nombre,salario,pagas, contingencias,  formacion , desempleo , irpf , mei , liquido );
     }
-
-    public Map<String, Object[]> getContenido() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getContenido'");
-    }
-
-    @Override
-    public String getTitulo() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getTitulo'");
-    }
-    @Override
-    public String getPie() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getPie'");
-    }
-
-
 
 }
