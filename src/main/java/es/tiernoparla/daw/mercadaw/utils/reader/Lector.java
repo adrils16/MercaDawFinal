@@ -10,7 +10,6 @@ import es.tiernoparla.daw.mercadaw.exception.LectorException;
 /**
  * Interfaz que define los métodos que deben implementar las clases que lean
  * productos y empleados de un fichero.
- * 
  */
 public interface Lector {
 

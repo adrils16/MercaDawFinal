@@ -15,6 +15,9 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 
+/**
+ * Documentar clase
+ */
 public class DarAltaEmpeadoViewController extends ViewController{
     
     @FXML

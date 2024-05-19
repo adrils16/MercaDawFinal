@@ -4,6 +4,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * TODO Documentar clase y métodos
+ */
 public class PDFUtil extends DocumentoUtil{
     
     /**

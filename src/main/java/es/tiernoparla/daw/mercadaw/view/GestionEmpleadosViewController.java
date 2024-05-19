@@ -12,7 +12,10 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
-public class GestionEmpleadosViewController extends ViewController {
+/**
+ * TODO Documentar clase
+ */
+public class GestionEmpleadosViewController extends ViewController{
 
     @FXML
     private Button btnAltaEmpleado;

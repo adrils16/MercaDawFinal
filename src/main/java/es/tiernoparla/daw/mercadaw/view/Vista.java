@@ -1,6 +1,8 @@
 package es.tiernoparla.daw.mercadaw.view;
 
-
+/**
+ * TODO Documentar Enum
+ */
 public enum Vista {
 
     INICIO("view/principalView.fxml"),

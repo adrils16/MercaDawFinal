@@ -9,6 +9,10 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
+/**
+ * Clase que representa el funcionamiento de la vista encargada de mostrar información 
+ * detallada del precio de venta total de un determinado Producto.
+ */
 public class ObtenerPrecioVentaProductoViewController extends ViewController{
 
     @FXML
@@ -57,6 +61,11 @@ public class ObtenerPrecioVentaProductoViewController extends ViewController{
         }
     }
 
+    /**
+     * Dada un ID de Producto (EAN) introducido por teclado en el campo correspondiente, 
+     * muestra por pantalla (en un text area) información detallada de ese producto, sus recargos y su precio de venta total.
+     * @param event Hacer click en el botón 
+     */
     @FXML
     void obtenerPrecioVenta(MouseEvent event) {
         final String MSG_ERROR = "No se ha podido encontrar el producto";

@@ -1,5 +1,8 @@
 package es.tiernoparla.daw.mercadaw.model.entity.persona;
 
+/**
+ * Clase que definite los atributos comunes de las personas.
+ */
 public abstract class Persona {
 
     public static final String ATT_NOMBRE = "nombre";

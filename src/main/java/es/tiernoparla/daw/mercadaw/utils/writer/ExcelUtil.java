@@ -12,6 +12,9 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import es.tiernoparla.daw.mercadaw.utils.writer.interfaces.Documento;
 
+/**
+ * TODO Documentar clase
+ */
 public class ExcelUtil extends DocumentoUtil{
     
     @Override

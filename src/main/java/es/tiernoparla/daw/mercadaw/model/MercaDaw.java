@@ -7,6 +7,9 @@ import es.tiernoparla.daw.mercadaw.model.entity.interfaces.Imprimible;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
 
+/**
+ * Interfaz que define el comportamiento de las clases que gestinan la información de la empresa.
+ */
 public interface MercaDaw {
     
     /**
@@ -50,6 +53,11 @@ public interface MercaDaw {
      */
     public String imprimirEtiqueta(Producto producto);
 
-    public String calcularNominas(Empleado empleados);
+    /**
+     * Crea una nómina llamando a la interfaz RecursosHumanos.
+     * @param empleado Empleado del que se obtiene su nómina.
+     * @return Devuelve un String con la nómina.
+     */
+    public String calcularNominas(Empleado empleado);
 
 }

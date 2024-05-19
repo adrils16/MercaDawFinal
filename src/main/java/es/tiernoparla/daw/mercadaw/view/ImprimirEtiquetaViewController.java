@@ -14,6 +14,9 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
+/**
+ * Clase que representa el funcionamiento de la vista encargada de imprimir una etiqueta de un determinado Producto.
+ */
 public class ImprimirEtiquetaViewController extends ViewController{
     
     @FXML

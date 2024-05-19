@@ -4,6 +4,9 @@ import es.tiernoparla.daw.mercadaw.model.entity.interfaces.Gestionable;
 import es.tiernoparla.daw.mercadaw.model.entity.interfaces.Imprimible;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.enums.TipoIVA;
 
+/**
+ * Clase abstracta que representa el estado y comportamiento de un objeto Producto.
+ */
 public abstract class Producto implements Imprimible, Gestionable {
 
     public final static TipoIVA IVA = TipoIVA.GENERAL;

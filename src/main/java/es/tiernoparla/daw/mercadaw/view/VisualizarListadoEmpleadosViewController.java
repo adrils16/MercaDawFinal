@@ -18,6 +18,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
+/**
+ * TODO Documentar clase y métodos
+ */
 public class VisualizarListadoEmpleadosViewController extends ViewController{
     @FXML
     private Button btnAtras;

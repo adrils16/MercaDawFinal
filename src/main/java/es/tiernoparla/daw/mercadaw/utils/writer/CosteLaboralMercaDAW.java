@@ -2,7 +2,10 @@ package es.tiernoparla.daw.mercadaw.utils.writer;
 
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 
-public class CosteLaboralMercaDAW extends RecursosHumanosMercaDAW {
+/**
+ * TODO Documentar clase
+ */
+public class CosteLaboralMercaDAW extends RecursosHumanosMercaDAW{
 
     private final static double CONTINGENCIAS = 0.236;
     private final static double DESEMPLEO = 0.055;
@@ -87,30 +90,51 @@ public class CosteLaboralMercaDAW extends RecursosHumanosMercaDAW {
     @Override
     public String toString() {
 
-        final String CADENA = "# COSTE LABORAL\n"
-                + "## APORTE DE SEGURIDAD SOCIAL\n"
-                + "### EMPLEADO: %s\n"
-                + "\n"
-                + "| Concepto                | Valor                  |\n"
-                + "|-------------------------|------------------------|\n"
-                + "| SALARIO BRUTO           | %s                     |\n"
-                + "|                         |                        |\n"
-                + "| PAGAS EXTRA             | %s                     |\n"
-                + "|                         |                        |\n"
-                + "| CONTINGENCIAS COMUNES   | %s                     |\n"
-                + "|                         |                        |\n"
-                + "| DESEMPLEO               | %s                     |\n"
-                + "|                         |                        |\n"
-                + "| FORMACION               | %s                     |\n"
-                + "|                         |                        |\n"
-                + "| FOGASA                  | %s                     |\n"
-                + "|                         |                        |\n"
-                + "| MEI                     | %s                     |\n"
-                + "\n"
-                + "#### COSTE TOTAL      %s                      ";
+    final String CADENA = "# COSTE LABORAL\n"
+                        + "## APORTE DE SEGURIDAD SOCIAL\n"
+                        + "### EMPLEADO: %s\n"
+                        + "\n"
+                        + "| Concepto                | Valor                  |\n"
+                        + "|-------------------------|------------------------|\n"
+                        + "| SALARIO BRUTO           | %s                     |\n"
+                        + "|                         |                        |\n"
+                        + "| PAGAS EXTRA             | %s                     |\n"
+                        + "|                         |                        |\n"
+                        + "| CONTINGENCIAS COMUNES   | %s                     |\n"
+                        + "|                         |                        |\n"
+                        + "| DESEMPLEO               | %s                     |\n"
+                        + "|                         |                        |\n"
+                        + "| FORMACION               | %s                     |\n"
+                        + "|                         |                        |\n"
+                        + "| FOGASA                  | %s                     |\n"
+                        + "|                         |                        |\n"
+                        + "| MEI                     | %s                     |\n"
+                        + "\n"
+                        + "#### COSTE TOTAL      %s                      ";
+    
+    return String.format(CADENA, nombre, salario, pagas, contingencias, desempleo, formacion, fogasa, mei, costeTotal);
+}
 
-        return String.format(CADENA, nombre, salario, pagas, contingencias, desempleo, formacion, fogasa, mei,
-                costeTotal);
+
+    @Override
+    public Map<String, Object[]> getContenido() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getContenido'");
     }
+
+    @Override
+    public String getTitulo() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getTitulo'");
+    }
+
+    @Override
+    public String getPie() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getPie'");
+    }
+
+
+
 
 }

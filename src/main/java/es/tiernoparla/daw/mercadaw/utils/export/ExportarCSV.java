@@ -11,7 +11,9 @@ import java.sql.SQLException;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 
-
+/**
+ * TODO Documentar Clase
+ */
 public class ExportarCSV {
 
     private final String URL = "jdbc:mariadb://localhost:3306/%s?user=%s&password=%s";
@@ -28,6 +30,12 @@ public class ExportarCSV {
         }
     }
 
+    /**
+     * TODO Documentar método
+     * @param tabla
+     * @param ruta
+     * @return
+     */
     public boolean exportarCSV(String tabla, String ruta) {
         boolean exito = true;
 
