@@ -57,7 +57,7 @@ public class Caracteristica {
      * En caso contrario solo el 5%.
      * @return Tipo de recargo a aplicar al precio de venta.
      */
-    public double calcularTipoRecargoPeso() {
+    private double calcularTipoRecargoPeso() {
 
         final int PESO_MAX = 5;
         final int PESO_MED = 1;
@@ -78,7 +78,7 @@ public class Caracteristica {
      * @param precioVenta Precio de venta del producto.
      * @return Recargo en función del peso.
      */
-    public double calcularValorRecargoPeso(double precioVenta) {
+    private double calcularValorRecargoPeso(double precioVenta) {
     
         double recargoPeso = 0;
 
@@ -94,7 +94,7 @@ public class Caracteristica {
      * @param dimension Altura o anchura del producto.
      * @return Tipo de recargo a aplicar al precio de venta.
      */
-    public double calcularTipoRecargoDimension(double dimension) {
+    private double calcularTipoRecargoDimension(double dimension) {
 
         final double DIMENSION_MAX = 0.5;
 
@@ -113,7 +113,7 @@ public class Caracteristica {
      * @param precioVenta Precio de venta del producto
      * @return Recargo en función de la altura o la anchura.
      */
-    public double calcularValorRecargoDimension(double dimension, double precioVenta) {
+    private double calcularValorRecargoDimension(double dimension, double precioVenta) {
 
         double recargoDimension = 0;
 
@@ -127,7 +127,7 @@ public class Caracteristica {
      * Si el producto tiene más de 2 elementos, se cobra 0.1 € por elemento.
      * @return Recargo en función del número de elementos.
      */
-    public double calcularRecargoNumElementos() {
+    private double calcularRecargoNumElementos() {
 
         final int NUM_ELEMENTOS_MAX = 2;
 
@@ -166,10 +166,10 @@ public class Caracteristica {
      */
     public String visualizarRecargos(double precioVenta) {
 
-        final String TEXTO = "* Recargo por peso (%s): %s\n"
-                        +"* Recargo por altura (%s): %s\n"
-                        +"* Recargo por anchura (%s): %s\n"
-                        +"* Recargo por número de piezas (%s pieza/s): %s\n";
+        final String TEXTO = "* Recargo por peso (%s): %.2f\n"
+                        +"* Recargo por altura (%s): %.2f\n"
+                        +"* Recargo por anchura (%s): %.2f\n"
+                        +"* Recargo por nº de piezas (%s pieza/s): %.2f\n";
         
         String cadena;
 

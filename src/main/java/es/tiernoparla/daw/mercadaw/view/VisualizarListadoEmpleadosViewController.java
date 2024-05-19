@@ -7,7 +7,6 @@ import es.tiernoparla.daw.mercadaw.model.dao.MercaDawDAOFactory;
 import es.tiernoparla.daw.mercadaw.model.dao.enums.TipoDB;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.Persona;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
-import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.enums.CategoriaEmpleado;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

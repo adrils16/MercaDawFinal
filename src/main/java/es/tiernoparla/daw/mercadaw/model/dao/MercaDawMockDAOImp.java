@@ -35,6 +35,11 @@ public class MercaDawMockDAOImp implements MercaDawDAO{
     @Override
     public List<Empleado> visualizarListaEmpleados() throws SQLException {
         return null;
+    }
+
+    @Override
+    public List<Producto> visualizarListaProductos() throws SQLException {
+        return null;
     } 
     
 }

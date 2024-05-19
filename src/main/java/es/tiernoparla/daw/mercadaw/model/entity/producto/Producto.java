@@ -135,7 +135,7 @@ public abstract class Producto implements Imprimible, Gestionable {
 
         final String PLANTILLA = "* Nombre: %s\n"
                             +"* Marca: %s\n"
-                            +"* Precio: %s €\n"
+                            +"* Precio: %.2f €\n"
                             +"* Altura: %s m\n"
                             +"* Anchura: %s m\n"
                             +"* Peso: %s kg\n"
@@ -154,8 +154,8 @@ public abstract class Producto implements Imprimible, Gestionable {
      */
     public String visualizarPrecioTotal()  {
 
-        final String PLANTILLA = "* PRECIO TOTAL: %s € / %s $\n"
-                                +"* IVA (%s): %s";
+        final String PLANTILLA = "* PRECIO TOTAL: %.2f € / %.2f $\n"
+                                +"* IVA (%s): %.2f";
 
         String textoPT = String.format(PLANTILLA, calcularPrecioTotal(), calcularPrecioEnDolares(), valorIVA, calcularValorIVA(calcularPrecioTotal()));
 

@@ -61,7 +61,7 @@ public class ObtenerPrecioVentaProductoViewController extends ViewController{
     void obtenerPrecioVenta(MouseEvent event) {
         final String MSG_ERROR = "No se ha podido encontrar el producto";
         try {
-            int idProducto = Integer.parseInt(txfIdProducto.getText());
+            int idProducto = Integer.parseInt(txfIdProducto.getText())-1;
             txaPrecioVenta.setText(controller.visualizarPrecioProducto(idProducto));
 
         } catch (Exception e) {
