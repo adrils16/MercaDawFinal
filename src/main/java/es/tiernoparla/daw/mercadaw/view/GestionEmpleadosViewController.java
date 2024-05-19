@@ -1,12 +1,18 @@
 package es.tiernoparla.daw.mercadaw.view;
 
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
+
+import es.tiernoparla.daw.mercadaw.utils.writer.MarkdownUtil;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
-public class GestionEmpleadosViewController extends ViewController{
+public class GestionEmpleadosViewController extends ViewController {
 
     @FXML
     private Button btnAltaEmpleado;
@@ -38,18 +44,26 @@ public class GestionEmpleadosViewController extends ViewController{
     void cambiarModo(MouseEvent event) {
 
         container.getStylesheets().clear();
-        if ( esClaro == false ) {
+        if (esClaro == false) {
             container.getStylesheets().add(getClass().getResource(ESTILO_CLARO).toExternalForm());
             esClaro = true;
-        } else if( esClaro == true) {
+        } else if (esClaro == true) {
             container.getStylesheets().add(getClass().getResource(ESTILO_OSCURO).toExternalForm());
             esClaro = false;
         }
     }
 
     @FXML
-    void calcularNominas(MouseEvent event) {
-        //TODO
+    void calcularNominas(MouseEvent event) throws SQLException, IOException {
+        final String MSG_NOMINAS = "Las nominas se han creado correctamente en un ficero Markdown.";
+
+        List<String> nominas = controller.calcularNominas();
+        for (String nomina : nominas) {
+            MarkdownUtil.crearNominaMd(nomina); // Almacenar en el fichero Markdown
+        }
+
+        mostrarAviso(MSG_NOMINAS, AlertType.INFORMATION);
+
     }
 
     @FXML
@@ -58,10 +72,10 @@ public class GestionEmpleadosViewController extends ViewController{
     }
 
     @FXML
-    void visualizarEmpleados(MouseEvent event) throws Exception{
-        
+    void visualizarEmpleados(MouseEvent event) throws Exception {
+
         controller.cargarPantalla(Vista.VISUALIZAR_LISTADO_EMPLEADOS);
-        
+
     }
 
 }

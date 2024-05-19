@@ -15,31 +15,51 @@ public class CosteLaboralMercaDAW extends RecursosHumanosMercaDAW{
     private double fogasa;
     private double costeTotal;
 
+    /**
+     * Calcula el fogasa dado un empleado.
+     * @param empleado Empleado del que se deasea calcular el Fogasa.
+     */
     public void calcularFogasa(Empleado empleado) {
         calcularPagas(empleado);
         fogasa = (empleado.getSueldo() + pagas) * FOGASA;
     }
 
+    /**
+     * Devuelve el valor de la constante CONTINGENCIAS para poder realizar los cálculos en RecursosHumanosMercaDAW
+     */
     @Override
     public double getContingencias() {
         return CONTINGENCIAS;
     }
 
+    /**
+     * Devuelve el valor de la constante FORMACION para poder realizar los cálculos en RecursosHumanosMercaDAW
+     */
     @Override
     public double getFormacion() {
         return FORMACION;
     }
 
+    /**
+     * Devuelve el valor de la constante DESEMPLEO para poder realizar los cálculos en RecursosHumanosMercaDAW
+     */
     @Override
     public double getDesempleo() {
         return DESEMPLEO;
     }
 
+    /**
+     * Devuelve el valor de la constante MEI para poder realizar los cálculos en RecursosHumanosMercaDAW
+     */
     @Override
     public double getMEI() {
         return MEI;
     }
 
+    /**
+     * Calcula el coste laboral que le cuesta a la empresa mantener a sus empleados.
+     * @param empleado Empleado del que se desea calcular el coste laboral. 
+     */
     @Override
     public String calcularImportes(Empleado empleado) {
         obtenerSalario(empleado);
@@ -58,7 +78,7 @@ public class CosteLaboralMercaDAW extends RecursosHumanosMercaDAW{
     }
 
     /**
-     * Genera el coste total a mostrar en un mensaje de aviso
+     * Plantilla para imprimir el coste laboral.
      */
     @Override
     public String toString() {

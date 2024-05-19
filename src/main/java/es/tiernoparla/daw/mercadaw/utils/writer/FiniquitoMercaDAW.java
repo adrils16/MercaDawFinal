@@ -16,18 +16,34 @@ public class FiniquitoMercaDAW {
     private double salarioDiario;
 
 
+    /**
+     * Obtiene el nombre de un empleado.
+     * @param empleado Empleado del que se desea obtener el nombre. 
+     */
     public void obtenerNombreEmpleado(Empleado empleado){
         nombre = empleado.getNombre();
     }
 
+    /**
+     * Calcula el salario anual que cobra un empleado.
+     * @param empleado Empleado del que se desea calcular el salario anual. 
+     */
     public void calcualarSalarioAnual(Empleado empleado){
         salarioAnual = empleado.getSueldo() * MESES * NUM_PAGAS;
     }
 
+    /**
+     * Calcula el salario diario que cobra un empleado.
+     * @param empleado Empleado del que se desea calcular el salario diario. 
+     */
     public void calcualarSalarioDiario(Empleado empleado){
         salarioDiario = salarioAnual / ANYO;
     }
 
+    /**
+     * Calcula la indemnización de un empleado.
+     * @param empleado Empleado del que se desea calcular la indemnización. 
+     */
     public String calcularIndemnizacion(Empleado empleado){
 
         obtenerNombreEmpleado(empleado);
@@ -39,6 +55,9 @@ public class FiniquitoMercaDAW {
         return toString();
     }
 
+    /**
+     * Plantilla para imprimir la indemnización.
+     */
     @Override
     public String toString() {
         final String CADENA = "# INDEMNIZACION\n"
