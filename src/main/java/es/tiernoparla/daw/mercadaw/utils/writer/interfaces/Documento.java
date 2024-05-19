@@ -1,12 +1,8 @@
 package es.tiernoparla.daw.mercadaw.utils.writer.interfaces;
 
-import java.util.Map;
-
 /**
- * TODO Documentar interface y métodos
+ * Interfaz que clasifica los objetos de tipo Documento.
  */
 public interface Documento {
-    public Map<String, Object[]> getContenido();
-    public String getTitulo();
-    public String getPie();
+    
 }

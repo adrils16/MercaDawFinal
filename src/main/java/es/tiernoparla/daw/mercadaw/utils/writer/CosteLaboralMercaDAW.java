@@ -113,28 +113,6 @@ public class CosteLaboralMercaDAW extends RecursosHumanosMercaDAW{
                         + "#### COSTE TOTAL      %s                      ";
     
     return String.format(CADENA, nombre, salario, pagas, contingencias, desempleo, formacion, fogasa, mei, costeTotal);
-}
-
-
-    @Override
-    public Map<String, Object[]> getContenido() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getContenido'");
     }
-
-    @Override
-    public String getTitulo() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getTitulo'");
-    }
-
-    @Override
-    public String getPie() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getPie'");
-    }
-
-
-
 
 }

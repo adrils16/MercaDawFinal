@@ -2,6 +2,7 @@ package es.tiernoparla.daw.mercadaw.utils.writer;
 
 
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
+import es.tiernoparla.daw.mercadaw.utils.writer.interfaces.Documento;
 import es.tiernoparla.daw.mercadaw.utils.writer.interfaces.RecursosHumanos;
 
 

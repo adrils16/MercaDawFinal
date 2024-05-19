@@ -107,22 +107,4 @@ public class NominaMercaDAW extends RecursosHumanosMercaDAW{
         return String.format(CADENA,nombre,salario,pagas, contingencias,  formacion , desempleo , irpf , mei , liquido );
     }
 
-    public Map<String, Object[]> getContenido() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getContenido'");
-    }
-
-    @Override
-    public String getTitulo() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getTitulo'");
-    }
-    @Override
-    public String getPie() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getPie'");
-    }
-
-
-
 }
