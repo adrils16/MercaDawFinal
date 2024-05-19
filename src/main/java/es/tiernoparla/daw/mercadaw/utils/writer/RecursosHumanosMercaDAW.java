@@ -19,10 +19,26 @@ public abstract class RecursosHumanosMercaDAW implements RecursosHumanos{
     protected double pagas;
 
 
+    /**
+     * Devuelve el valor de la constante CONTINGENCIAS para poder realizar los cálculos.
+     */
     public abstract double getContingencias();
+
+    /**
+     * Devuelve el valor de la constante FORMACION para poder realizar los cálculos.
+     */
     public abstract double getFormacion();
+
+    /**
+     * Devuelve el valor de la constante DESEMPLEO para poder realizar los cálculos.
+     */
     public abstract double getDesempleo();
+
+    /**
+     * Devuelve el valor de la constante MEI para poder realizar los cálculos.
+     */
     public abstract double getMEI();
+
 
     @Override
     public void calcularPagas(Empleado empleado) {

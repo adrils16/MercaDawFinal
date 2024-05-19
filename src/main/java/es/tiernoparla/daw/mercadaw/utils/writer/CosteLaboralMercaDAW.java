@@ -23,37 +23,21 @@ public class CosteLaboralMercaDAW extends RecursosHumanosMercaDAW {
         fogasa = (empleado.getSueldo() + pagas) * FOGASA;
     }
 
-    /**
-     * Devuelve el valor de la constante CONTINGENCIAS para poder realizar los
-     * cálculos en RecursosHumanosMercaDAW
-     */
     @Override
     public double getContingencias() {
         return CONTINGENCIAS;
     }
 
-    /**
-     * Devuelve el valor de la constante FORMACION para poder realizar los cálculos
-     * en RecursosHumanosMercaDAW
-     */
     @Override
     public double getFormacion() {
         return FORMACION;
     }
 
-    /**
-     * Devuelve el valor de la constante DESEMPLEO para poder realizar los cálculos
-     * en RecursosHumanosMercaDAW
-     */
     @Override
     public double getDesempleo() {
         return DESEMPLEO;
     }
 
-    /**
-     * Devuelve el valor de la constante MEI para poder realizar los cálculos en
-     * RecursosHumanosMercaDAW
-     */
     @Override
     public double getMEI() {
         return MEI;
