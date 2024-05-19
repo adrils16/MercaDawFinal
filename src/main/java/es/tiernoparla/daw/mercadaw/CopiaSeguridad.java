@@ -4,6 +4,9 @@ import es.tiernoparla.daw.mercadaw.utils.export.ExportarCSV;
 import es.tiernoparla.daw.mercadaw.utils.export.enums.Ruta;
 import es.tiernoparla.daw.mercadaw.utils.export.enums.Tabla;
 
+/**
+ * Clase encargada de generar copias de seguridad de las tablas en un fichero .csv
+ */
 public class CopiaSeguridad {
 
     public static void main(String[] args) {

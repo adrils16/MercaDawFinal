@@ -1,5 +1,8 @@
 package es.tiernoparla.daw.mercadaw.model.entity.persona;
 
+/**
+ * Clase que define los atributos de los clientes.
+ */
 public class Cliente extends Persona{
 
     private int codPostal;

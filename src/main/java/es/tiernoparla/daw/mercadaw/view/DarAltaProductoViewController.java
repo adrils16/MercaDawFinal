@@ -16,6 +16,9 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.FileChooser.ExtensionFilter;
 
+/**
+ * TODO Documentar clase
+ */
 public class DarAltaProductoViewController extends ViewController {
 
     @FXML

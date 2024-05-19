@@ -2,10 +2,11 @@ package es.tiernoparla.daw.mercadaw.utils.writer;
 
 
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
+import es.tiernoparla.daw.mercadaw.utils.writer.interfaces.Documento;
 import es.tiernoparla.daw.mercadaw.utils.writer.interfaces.RecursosHumanos;
 
 
-public abstract class RecursosHumanosMercaDAW implements RecursosHumanos{
+public abstract class RecursosHumanosMercaDAW implements RecursosHumanos, Documento {
 
     public static final int NUM_PAGAS = 2;
     public static final int MESES = 12;

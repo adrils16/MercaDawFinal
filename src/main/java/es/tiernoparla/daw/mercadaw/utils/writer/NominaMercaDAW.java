@@ -2,6 +2,9 @@ package es.tiernoparla.daw.mercadaw.utils.writer;
 
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 
+/**
+ * TODO Documentar clase 
+ */
 public class NominaMercaDAW extends RecursosHumanosMercaDAW{
     
     private final static double IRPF=0.14;

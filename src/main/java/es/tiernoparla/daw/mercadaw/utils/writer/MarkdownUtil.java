@@ -5,7 +5,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class MarkdownUtil{
+
+import es.tiernoparla.daw.mercadaw.utils.writer.interfaces.Documento;
+
+/**
+ * TODO Documentar clase y métodos
+ */
+public class MarkdownUtil implements Documento{
     
     public static void crearNominaMd(String cadena) throws IOException {
 	    final String NOMBRE_FICHERO = "nomina.md";

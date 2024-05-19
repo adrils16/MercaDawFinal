@@ -10,6 +10,10 @@ import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
 import es.tiernoparla.daw.mercadaw.utils.writer.NominaMercaDAW;
 import es.tiernoparla.daw.mercadaw.utils.writer.interfaces.RecursosHumanos;
 
+/**
+ * Clase que implementa los métodos de la interfaz MercaDaw. 
+ * Gestiona la información de los Productos y Empleados de la empresa, y realiza diversas funciones con esa información.
+ */
 public class Sede implements MercaDaw {
 
     private List<Producto> productos = new ArrayList<>();

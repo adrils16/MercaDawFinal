@@ -6,6 +6,9 @@ import java.util.List;
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 import es.tiernoparla.daw.mercadaw.model.entity.producto.Producto;
 
+/**
+ * Interfaz que define todos los métodos de uso de la base de datos.
+ */
 public interface MercaDawDAO {
 
     /**

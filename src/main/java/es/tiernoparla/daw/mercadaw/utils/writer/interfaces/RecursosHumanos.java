@@ -3,6 +3,9 @@ package es.tiernoparla.daw.mercadaw.utils.writer.interfaces;
 
 import es.tiernoparla.daw.mercadaw.model.entity.persona.empleado.Empleado;
 
+/**
+ * TODO Documentar interface y métodos
+ */
 public interface RecursosHumanos {
     
     /**
