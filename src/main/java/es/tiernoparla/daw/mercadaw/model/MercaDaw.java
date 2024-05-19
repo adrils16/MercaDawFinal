@@ -50,6 +50,11 @@ public interface MercaDaw {
      */
     public String imprimirEtiqueta(Producto producto);
 
-    public String calcularNominas(Empleado empleados);
+    /**
+     * Crea una nómina llamando a la interfaz RecursosHumanos.
+     * @param empleado Empleado del que se obtiene su nómina.
+     * @return Devuelve un String con la nómina.
+     */
+    public String calcularNominas(Empleado empleado);
 
 }
