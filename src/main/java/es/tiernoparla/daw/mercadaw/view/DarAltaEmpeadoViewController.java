@@ -83,7 +83,7 @@ public class DarAltaEmpeadoViewController extends ViewController{
     @FXML
     void darAltaEmpleado(MouseEvent event) {
 
-        final String MSG_ERROR = "Error al dar de alta el empleado";
+        final String MSG_ERROR = "Error al dar de alta el empleado\nLas categorías válidas son:\nEmpleado\nReponedor\nCajero\nEncargado";
         final String MSG_EXITO = "Empleado dado de alta correctamente";
         final String MSG_ERROR_CAMPOS = "Rellene todos los campos, por favor";
     

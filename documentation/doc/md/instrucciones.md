@@ -1,8 +1,6 @@
-# Trabajo final de Desarrollo de Aplicaciones Web
+## **4 - INSTRUCCIONES**
 
----
-
-## Instrucciones para el correcto funcionamiento de la aplicación.
+### Instrucciones para el correcto funcionamiento de la aplicación.
 
 #### **Scripts**
 
@@ -16,7 +14,7 @@ sudo chmod +x *.sh
 
 #### **Carga de datos**
 
-En la carpeta **sql** del proyecto se encuentra un archivo .sql donde están las creaciones de las tablas y las vistas (SCRIPT_BASE_DE_DATOS), junto a todos los inserts.
+En la carpeta sql del proyecto encontrarás un archivo .sql donde están las creaciones de las tablas y las vistas (SCRIPT_BASE_DE_DATOS), junto a todos los inserts.
 
 Si no se cargan los datos al iniciar el contenedor, hay que abrir la extension en VSCode de MariaDB y conectarse a la base de datos con el usuario root, después de haber hecho `docker compose up`. Abrir una nueva **Query**, pegar el .sql y ejecutarlo.
 
@@ -26,12 +24,4 @@ Los ficheros .csv y .json (tanto de productos Productos como de Empleados)  se e
 
 ---
 
-# Documentación
-
-[Enlace al índice de la documentación](documentation/index.html)
-
-* Toda la documentación está ubicada en la carpeta **documentation**. Basta con abrir el archivo **index.html**, ubicado en la carpeta, con un navegador para acceder a toda la documentación, incluida la documentación del código generada con *javadocs*. 
-
-* Alternativamente, si ocurriera algún problema de visualización, los archivos Markdown se encuentran dentro de **documentation/doc/md**.
-
-* Todos los archivos correspondientes al diseño y modelado en *plantuml* se encuentran dentro de la carpeta **design**.
+[INDEX](../../index.html)
