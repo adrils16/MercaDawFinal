@@ -28,8 +28,6 @@ Los ficheros .csv y .json (tanto de productos Productos como de Empleados)  se e
 
 # Documentación
 
-[Enlace al índice de la documentación](documentation/index.html)
-
 * Toda la documentación está ubicada en la carpeta **documentation**. Basta con abrir el archivo **index.html**, ubicado en la carpeta, con un navegador para acceder a toda la documentación, incluida la documentación del código generada con *javadocs*. 
 
 * Alternativamente, si ocurriera algún problema de visualización, los archivos Markdown se encuentran dentro de **documentation/doc/md**.
