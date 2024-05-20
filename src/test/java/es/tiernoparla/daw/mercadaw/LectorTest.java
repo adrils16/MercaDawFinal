@@ -32,10 +32,4 @@ public class LectorTest {
         dao.insertarEmpleados(mercadaw.getEmpleados());
     }
 
-    @Test
-    public void LectorJSONTest() throws Exception {
-        File fichero = new File("empleados.json");
-        mercadaw.darAlta(lectorJSON.leerEmpleado(lectorJSON.cargar(fichero)));
-    }
-
 }

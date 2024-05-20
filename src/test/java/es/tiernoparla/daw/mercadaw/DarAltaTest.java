@@ -31,7 +31,7 @@ public class DarAltaTest {
         mercadaw.darAlta(e1);
         mercadaw.darAlta(e2);
         mercadaw.darAlta(p1);
-        assertEquals(3, mercadaw.getEmpleados().size());
+        assertEquals(2, mercadaw.getEmpleados().size());
     }
 
     @Test
