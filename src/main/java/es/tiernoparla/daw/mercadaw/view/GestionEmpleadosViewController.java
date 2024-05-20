@@ -2,7 +2,6 @@ package es.tiernoparla.daw.mercadaw.view;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -65,7 +64,7 @@ public class GestionEmpleadosViewController extends ViewController{
      */
     @FXML
     void calcularNominas(MouseEvent event) throws SQLException, IOException {
-        final String MSG_NOMINAS = "Las nominas se han creado correctamente en un ficero Markdown.";
+        final String MSG_NOMINAS = "Las nominas se han creado correctamente un fichero.";
         
             String nomina = controller.calcularNominas();
             controller.imprimirNomina(nomina); // Almacenar en el fichero Markdown

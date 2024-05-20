@@ -27,75 +27,85 @@
 * Los datos se deben exportar a excel, pdf u otros formatos.
 * Crear copias de seguridad.
 
-
-
 ## **2. DISEÑO**
-
 
 ## **2.1 DIAGRAMA DE CASOS DE USO**
 
-#### **CASOS DE USO GENERAL**
+### **CASOS DE USO GENERAL**
+
 ![alt text](Img/CasosDeUsoGeneral.png)
 
-#### **CASO DE USO PRODUCTO**
+### **CASO DE USO PRODUCTO**
+
 ![alt text](Img/CasosDeUsoProducto.png)
 
-#### **CASO DE USO EMPLEADO**
+### **CASO DE USO EMPLEADO**
+
 ![alt text](Img/CasosDeUsoEmpleado.png)
 
-#### **CASO DE USO COMPRA**
+### **CASO DE USO COMPRA**
+
 ![alt text](Img/CasosDeUsoCompra.png)
-
-
 
 ## **2.2 DIAGRAMAS DE ACTIVIDAD**
 
-#### **Dar de Alta**
+### **Dar de Alta**
+
 ![alt text](Img/DarDeAlta.png)
 
-#### **Visualizar Producto**
+### **Visualizar Producto**
+
 ![alt text](Img/VisualizarProductos.png)
 
-#### **Visualizar Empleados**
+### **Visualizar Empleados**
+
 ![alt text](Img/VisualizarEmpleados.png)
 
-#### **Alta de Compra**
+### **Alta de Compra**
+
 ![alt text](Img/AltaCompra.png)
 
-#### **Listar Compras por Código Postal**
+### **Listar Compras por Código Postal**
+
 ![alt text](Img/ListarComprasCP.png)
 
-#### **Listar Stock**
+### **Listar Stock**
+
 ![alt text](Img/ListarStock.png)
 
-#### **Obtener Precio de Venta**
+### **Obtener Precio de Venta**
+
 ![alt text](Img/ObtenerPrecioVenta.png)
 
-#### **Imprimir Etiqueta del Producto**
+### **Imprimir Etiqueta del Producto**
+
 ![alt text](Img/ImprimirEtiquetaProducto.png)
 
-#### **Calcular las Nóminas de los Trabajadores**
+### **Calcular las Nóminas de los Trabajadores**
+
 ![alt text](Img/CalcularNominas.png)
 
-#### **Exportar Datos**
-![alt text](Img/ExportarDatos.png)
+### **Exportar Datos**
 
+![alt text](Img/ExportarDatos.png)
 
 ## **2.3 DIAGRAMAS DE CLASES**
 
-#### ENTITY
+### ENTITY
+
 ![alt text](Img/Entity.png)
 
-#### MODEL
+### MODEL
+
 ![alt text](Img/DiagramaClasesModel.png)
 
-#### UTIL
+### UTIL
+
 ![alt text](Img/DiagramaClases.png)
 
-
 ## **2.4 DIAGRAMA DE COMPONENTES**
-![alt text](Img/DiagramaDeComponentes.png)
 
+![alt text](Img/DiagramaDeComponentes.png)
 
 ## **3. OBSERVACIONES DEL PROYECTO**
 
@@ -110,7 +120,6 @@ He utilizado la libreria Apache Commons para exportar la base de datos a fichero
 ### **Marker Interface**
 
 Hemos usado para la interfaz gestionable el patrón de diseño Marker Interface, que permite clasificar clases sin definir su funcionalidad.
-
 
 ## **4. INSTRUCCIONES**
 
@@ -128,7 +137,6 @@ sudo chmod +x *.sh
 
 En la raiz del proyecto encontrarás un archivo .sql donde están las creaciones de las tablas y las vistas, también están todos los inserts.
 Para ejecutarlo hay que abrir la extension en VSCode de MariaDB y conectarse a la base de datos con el usuario root después de haber hecho `docker compose up`. Abrir una nueva **Query**, pegar el .sql y ejecutarlo.
-
 
 ## **5. PRUEBAS**
 
