@@ -1,0 +1,133 @@
+@startuml Diagrama clases
+set namespaceSeparator none
+allow_mixing
+
+package es.tiernoparla.daw.mercadaw.util {
+    package reader {
+        interface Lector {
+            +leerProducto(cadena: String): List<Producto>
+            +leerEmpleado(cadena: String): List<Empleado>
+        }
+
+        abstract LectorImp {
+            #comprobar(codigo: String): void
+            #cargar(file: File): String
+        }
+
+        class LectorMock
+        class LectorCSV {
+            +procesarProducto(fila: String): Producto
+            +procesarEmpleado(fila: String): Empleado
+        }
+        class LectorJSON {
+            +procesarValor(pareja: String): String
+            +procesarProducto(fila: String): Producto
+            +procesarEmpleado(fila: String): Empleado
+        }
+
+        class LectorFactory {
+            +obtenerLector(tipo: TipoLector): Lector
+        }
+
+
+        Lector <|.. LectorMock
+        Lector <|.. LectorImp
+
+        LectorImp <|-- LectorCSV
+        LectorImp <|-- LectorJSON
+
+
+        package enumeracion{
+            enum TipoLector {
+                MOCK, CSV, JSON, XML
+            }
+        }
+    }
+
+    package writer {
+        package inerfaces{
+            interface Documento{
+                +getContenido(): Map<String, Object[]>
+                +getTitulo(): String
+                +getPie(): String
+            }
+
+            Interface RecursosHumanos{
+                +calcularPagas(Empleado): void
+                +calcularContingencias(Empleado): void
+                +calcularFormacion(Empleado): void
+                +calcularDesempleo(Empleado): void
+                +calcularMEI(Empleado): void
+                +obtenerSalario(Empleado): void
+                +obtenerNombreEmpleado(Empleado): void
+                +calcularImportes(Empleado): void
+            }
+        }
+
+        package enums{
+            enum TipoDocumento {
+                MOCK, EXCEL, DOCX, PDF
+            }
+        }
+
+        class PDFUtil {
+            +exportarNominaPDF(): void
+            +exportarCostesPDF(): void
+            +exportarFiniquitoPDF(): void
+            +exportarEtiquetaPDF(): void
+        }
+
+    
+        class CosteLaboralMercaDAW {
+            + calcularFogasa(Empleado): void
+        }
+
+        class FiniquitoMercaDAW {
+            + calcularIndemnizacion(Empleado): void
+            + calcularSalarioAnual(Empleado): void
+            + calcularSalarioDiario(Empleado): void
+        }
+
+        class NominaMercaDAW{
+            + calcularIRPF(Empleado): void
+        }
+
+        abstract class RecursosHumanosMercaDAW
+
+        RecursosHumanosMercaDAW <|-- NominaMercaDAW
+        RecursosHumanosMercaDAW <|-- CosteLaboralMercaDAW
+        RecursosHumanos <|.. RecursosHumanosMercaDAW
+
+
+    }
+
+    package export {
+        class ExportarCSV {
+            +exportarCSV(tabla: String, ruta: String): boolean
+        }
+
+        package enums {
+            class Tabla
+
+            class Ruta
+        }
+    }
+}
+
+package exception {
+    class MercaDawException
+    class LectorException
+    class FormatoIncorrectoException
+    class DAOException
+
+    MercaDawException <|-- LectorException
+    LectorException <|-- FormatoIncorrectoException
+    MercaDawException <|-- DAOException
+}
+
+component org.apache.poi
+org.apache.poi <.. DocumentoUtil
+
+Documento <|.. Sede
+
+@enduml

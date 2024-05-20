@@ -1,0 +1,49 @@
+Nombre,Marca,Precio,Altura,Anchura,Peso,numElementos,Descripcion,Categoria
+Leche Entera,La Vaquita,1.20,20,10,1,1,Leche de vaca entera 1 litro,Alimentacion
+Jabón Líquido,Manos Limpias,2.50,15,7,0.5,1,Jabón líquido para manos con aroma a lavanda,Drogueria
+Shampoo Anticaspa,Cabello Sano,4.99,18,5,0.4,1,Shampoo anticaspa para todo tipo de cabello,Cosmetica
+Arroz Integral,Campo Verde,2.30,22,12,1,1,Arroz integral en paquete de 1kg,Alimentacion
+Detergente en Polvo,Brillo Hogar,3.75,25,15,2,1,Detergente en polvo para lavadora 2kg,Drogueria
+Crema Hidratante,Piel Suave,6.50,10,8,0.3,1,Crema hidratante para piel seca,Cosmetica
+Cereal de Maíz,Krispy Korn,2.20,30,20,0.5,1,Cereal de maíz tostado,Alimentacion
+Limpiador Multiusos,Limpia Fácil,3.40,25,10,1,1,Limpiador multiusos para superficies,Drogueria
+Gel de Ducha,Frescor Natural,3.80,20,8,0.5,1,Gel de ducha con aroma a cítricos,Cosmetica
+Aceite de Oliva,La Española,5.00,25,8,1,1,Aceite de oliva virgen extra 1 litro,Alimentacion
+Suavizante de Telas,Suavitel,4.20,30,10,2,1,Suavizante de telas con aroma floral,Drogueria
+Loción Corporal,Natura Belle,7.30,15,5,0.4,1,Loción corporal hidratante,Cosmetica
+Galletas Integrales,Digestive,1.80,15,10,0.3,1,Galletas integrales bajas en azúcar,Alimentacion
+Desinfectante de Superficies,Sanit Plus,4.00,28,12,1.5,1,Desinfectante de superficies en spray,Drogueria
+Crema Facial Antiedad,Antiage Miracle,10.50,8,5,0.2,1,Crema facial antiedad con colágeno,Cosmetica
+Mermelada de Fresa,Frutos del Bosque,3.00,12,8,0.5,1,Mermelada de fresa 100% natural,Alimentacion
+Blanqueador de Ropa,Blancox,3.50,25,10,1.5,1,Blanqueador de ropa líquido,Drogueria
+Mascarilla Capilar,Hair Repair,5.80,10,10,0.3,1,Mascarilla capilar reparadora,Cosmetica
+Pan de Molde,Pan Pan,2.10,20,10,0.6,1,Pan de molde integral,Alimentacion
+Limpiacristales,Cristal Clear,2.90,30,8,1,1,Limpiacristales en spray,Drogueria
+Crema para Manos,Hand Care,3.70,8,4,0.1,1,Crema hidratante para manos secas,Cosmetica
+Zumo de Naranja,Tropical,2.50,22,10,1,1,Zumo de naranja natural 1 litro,Alimentacion
+Detergente Líquido,Aqua Clean,4.30,28,12,2,1,Detergente líquido para lavadora,Drogueria
+Esmalte de Uñas,Nail Perfect,2.60,8,3,0.05,1,Esmalte de uñas color rojo,Cosmetica
+Pasta Integral,Vita Pasta,1.50,20,10,0.5,1,Pasta integral de trigo,Alimentacion
+Limpiador de Baños,Bath Bright,3.20,30,12,1.5,1,Limpiador de baños anti sarro,Drogueria
+Protector Solar,Sun Shield,8.40,15,5,0.2,1,Protector solar factor 50,Cosmetica
+Café Molido,Grano Fino,4.80,20,10,0.5,1,Café molido 100% arábica,Alimentacion
+Desengrasante,Clean Power,3.60,25,10,1.5,1,Desengrasante para cocina,Drogueria
+Sérum Facial,Glow Skin,12.00,10,4,0.1,1,Sérum facial iluminador,Cosmetica
+Yogur Natural,Campo Fresco,1.10,10,8,0.5,1,Yogur natural sin azúcar,Alimentacion
+Ambientador,Lavanda Fresh,2.80,18,8,0.3,1,Ambientador en spray aroma lavanda,Drogueria
+Acondicionador,Silky Hair,4.50,20,5,0.4,1,Acondicionador para cabello seco,Cosmetica
+Arroz Basmati,Golden Rice,2.70,22,12,1,1,Arroz basmati en paquete de 1kg,Alimentacion
+Limpiador de Cocina,Kitchen Sparkle,3.50,28,10,1,1,Limpiador de cocina multiusos,Drogueria
+Crema de Noche,Night Repair,9.00,8,5,0.2,1,Crema de noche reparadora,Cosmetica
+Tomate Frito,La Huerta,1.90,12,8,0.5,1,Tomate frito casero 500ml,Alimentacion
+Insecticida,Spray Away,4.00,25,10,1,1,Insecticida en spray para insectos voladores,Drogueria
+Mascarilla Facial,Beauty Mask,6.50,8,8,0.1,1,Mascarilla facial purificante,Cosmetica
+Aceitunas Verdes,Oliva Bella,2.20,10,8,0.3,1,Aceitunas verdes sin hueso,Alimentacion
+Lavavajillas Manual,Dish Clean,2.40,25,10,1,1,Lavavajillas manual concentrado,Drogueria
+Corrector de Ojeras,Eye Bright,5.70,10,3,0.05,1,Corrector de ojeras e imperfecciones,Cosmetica
+Harina de Trigo,Flor de Harina,1.30,20,10,1,1,Harina de trigo todo uso 1kg,Alimentacion
+Limpiador de Alfombras,Carpet Fresh,4.80,28,12,1.5,1,Limpiador de alfombras en spray,Drogueria
+Labial Mate,Matte Lips,3.90,8,3,0.05,1,Labial mate color nude,Cosmetica
+Miel de Abeja,Dulce Natural,5.50,15,8,0.5,1,Miel de abeja pura 500g,Alimentacion
+Quitamanchas,Rapid Clean,3.20,20,10,0.7,1,Quitamanchas para ropa en gel,Drogueria
+Exfoliante Corporal,Soft Skin,6.20,10,8,0.3,1,Exfoliante corporal de azúcar,Cosmetica

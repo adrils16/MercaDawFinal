@@ -1,0 +1,105 @@
+#container {
+    -fx-background-color: #1b1c1e;
+}
+
+.button {
+    -fx-background-color: #212223;
+    -fx-border-color: linear-gradient(to right, #14e7c9, #26d2d5);
+    -fx-border-width: 2;
+    -fx-border-radius: 1px;
+    -fx-text-fill: rgb(239, 239, 239);
+    -fx-font-family: "Monaco";
+    -fx-font-style: bold;
+    -fx-font-size: 14px;
+}
+
+#btnModo, #btnAtras {
+    -fx-background-color: linear-gradient(to right, #14e7c9, #26d2d5);
+    -fx-text-fill: #f6f6f6;
+    -fx-font-family: "Monaco";
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(to right, #14e7c9, #26d2d5);
+    -fx-text-fill: #f6f6f6;
+    -fx-font-weight: bold;
+}
+
+.button:pressed {
+    -fx-background-color: linear-gradient(to right, #26d2d5, #14e7c9);
+    -fx-border-color: linear-gradient(to right, #26d2d5, #14e7c9);
+    -fx-translate-x: 2;
+    -fx-translate-y: 2;
+}
+
+#lblTitulo {
+    -fx-font-family: "Monaco";
+    -fx-text-fill: white;
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+}
+
+.label {
+    -fx-font-family: "Monaco";
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.text-field {
+    -fx-background-color: rgb(69, 69, 69);
+    -fx-border: none;
+    -fx-border-bottom: 2px solid ;
+    -fx-border-color: linear-gradient(to right, #14e7c9, #26d2d5);
+    -fx-border-radius: 4px;
+    -fx-font-family: "Monaco";
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+}
+
+.text-field:focused {
+    -fx-background-color: rgb(85, 85, 85);
+    -fx-border-color: linear-gradient(to right, #14e7c9, #26d2d5);
+    -fx-border-width: 2;
+    -fx-border-radius: 1px;
+    -fx-font-family: "Monaco";
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    /* -fx-background: bottom left linear-gradient(#a9a9a9, #a9a9a9) no-repeat, bottom center linear-gradient(#a9a9a9, #a9a9a9) repeat-x, bottom right linear-gradient(#a9a9a9, #a9a9a9) no-repeat; */
+}
+
+.text-area {
+    -fx-background-color: rgb(69, 69, 69);
+    -fx-border: none;
+    -fx-border-bottom: 2px solid;
+    -fx-border-color: linear-gradient(to right, #14e7c9, #26d2d5);
+    -fx-border-radius: 1px;
+    -fx-font-family: "Monaco";
+    -fx-font-size: 14px;
+}
+
+.text-area:focused {
+    -fx-background-color: rgb(69, 69, 69);
+    -fx-border-color: linear-gradient(to right, #14e7c9, #26d2d5);
+    -fx-border-width: 2;
+    -fx-border-radius: 1px;
+    -fx-font-family: "Monaco";
+    -fx-font-size: 14px;
+    -fx-background: bottom left linear-gradient(#a9a9a9, #a9a9a9) no-repeat, bottom center linear-gradient(#a9a9a9, #a9a9a9) repeat-x, bottom right linear-gradient(#a9a9a9, #a9a9a9) no-repeat;
+}
+
+.table th{
+    -fx-background-color: linear-gradient(to right, #14e7c9, #26d2d5);
+}
+
+#cmbCategoria {
+    -fx-background-color: rgb(247, 247, 247);
+    -fx-border: none;
+    -fx-border-bottom: 2px solid;
+    -fx-border-color: linear-gradient(to right, #14e7c9, #26d2d5);
+    -fx-border-radius: 1px;
+    -fx-font-family: "Monaco";
+    -fx-font-size: 14px;
+}

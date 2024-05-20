@@ -1,0 +1,52 @@
+@startuml Diagrama de Componentes
+skinparam BackgroundColor antiquewhite/black
+allow_mixing
+set namespaceSeparator none
+left to right direction
+
+package es.tiernoparla.daw.mercadaw{
+
+    package model #CadetBlue{
+        component MercaDAW as mi {
+
+        }
+
+        () MercaDAWDAO as md
+
+        md -- mi
+    }
+
+
+
+    package controller #Yellow{
+        component MercaDAWController as mc {
+
+        }
+    }
+
+    package view #OrangeRed{
+        component ViewController as vc {
+
+        }
+    }
+
+}
+
+component "org.mariadb.jdbc" <<JDBC Driver>> as jdbc #BUSINESS{
+    
+}
+
+component "MariaDB" <<database>> #BUSINESS{
+    
+}
+
+mc <.. vc
+
+mi ..> MariaDB
+
+mi ..> jdbc
+
+mc --( md
+
+
+@enduml

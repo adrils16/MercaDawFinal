@@ -1,0 +1,227 @@
+[
+  {
+      "Nombre": "Carlos",
+      "Apellidos": "Gómez",
+      "Categoria": "Empleado"
+  },
+  {
+      "Nombre": "Ana",
+      "Apellidos": "Sánchez",
+      "Categoria": "Encargado"
+  },
+  {
+      "Nombre": "Luisa",
+      "Apellidos": "Pérez",
+      "Categoria": "Cajero"
+  },
+  {
+      "Nombre": "Javier",
+      "Apellidos": "Martínez",
+      "Categoria": "Reponedor"
+  },
+  {
+      "Nombre": "María",
+      "Apellidos": "López",
+      "Categoria": "Empleado"
+  },
+  {
+      "Nombre": "Juan",
+      "Apellidos": "Fernández",
+      "Categoria": "Encargado"
+  },
+  {
+      "Nombre": "Laura",
+      "Apellidos": "Ruiz",
+      "Categoria": "Cajero"
+  },
+  {
+      "Nombre": "Pedro",
+      "Apellidos": "García",
+      "Categoria": "Reponedor"
+  },
+  {
+      "Nombre": "Sofía",
+      "Apellidos": "González",
+      "Categoria": "Empleado"
+  },
+  {
+      "Nombre": "Miguel",
+      "Apellidos": "Martín",
+      "Categoria": "Encargado"
+  },
+  {
+      "Nombre": "Lucía",
+      "Apellidos": "Hernández",
+      "Categoria": "Cajero"
+  },
+  {
+      "Nombre": "Diego",
+      "Apellidos": "Rodríguez",
+      "Categoria": "Reponedor"
+  },
+  {
+      "Nombre": "Elena",
+      "Apellidos": "Díaz",
+      "Categoria": "Empleado"
+  },
+  {
+      "Nombre": "Pablo",
+      "Apellidos": "Sánchez",
+      "Categoria": "Encargado"
+  },
+  {
+      "Nombre": "Carmen",
+      "Apellidos": "López",
+      "Categoria": "Cajero"
+  },
+  {
+      "Nombre": "Manuel",
+      "Apellidos": "Gómez",
+      "Categoria": "Reponedor"
+  },
+  {
+      "Nombre": "Ana",
+      "Apellidos": "Martínez",
+      "Categoria": "Empleado"
+  },
+  {
+      "Nombre": "Luis",
+      "Apellidos": "Fernández",
+      "Categoria": "Encargado"
+  },
+  {
+      "Nombre": "María",
+      "Apellidos": "Ruiz",
+      "Categoria": "Cajero"
+  },
+  {
+      "Nombre": "Juan",
+      "Apellidos": "García",
+      "Categoria": "Reponedor"
+  },
+  {
+      "Nombre": "Sofía",
+      "Apellidos": "González",
+      "Categoria": "Empleado"
+  },
+  {
+      "Nombre": "Miguel",
+      "Apellidos": "Martín",
+      "Categoria": "Encargado"
+  },
+  {
+      "Nombre": "Lucía",
+      "Apellidos": "Hernández",
+      "Categoria": "Cajero"
+  },
+  {
+      "Nombre": "Diego",
+      "Apellidos": "Rodríguez",
+      "Categoria": "Reponedor"
+  },
+  {
+      "Nombre": "Elena",
+      "Apellidos": "Díaz",
+      "Categoria": "Empleado"
+  },
+  {
+      "Nombre": "Pablo",
+      "Apellidos": "Sánchez",
+      "Categoria": "Encargado"
+  },
+  {
+      "Nombre": "Carmen",
+      "Apellidos": "López",
+      "Categoria": "Cajero"
+  },
+  {
+      "Nombre": "Manuel",
+      "Apellidos": "Gómez",
+      "Categoria": "Reponedor"
+  },
+  {
+      "Nombre": "Ana",
+      "Apellidos": "Martínez",
+      "Categoria": "Empleado"
+  },
+  {
+      "Nombre": "Luis",
+      "Apellidos": "Fernández",
+      "Categoria": "Encargado"
+  },
+  {
+      "Nombre": "María",
+      "Apellidos": "Ruiz",
+      "Categoria": "Cajero"
+  },
+  {
+      "Nombre": "Juan",
+      "Apellidos": "García",
+      "Categoria": "Reponedor"
+  },
+  {
+      "Nombre": "Sofía",
+      "Apellidos": "González",
+      "Categoria": "Empleado"
+  },
+  {
+      "Nombre": "Miguel",
+      "Apellidos": "Martín",
+      "Categoria": "Encargado"
+  },
+  {
+      "Nombre": "Lucía",
+      "Apellidos": "Hernández",
+      "Categoria": "Cajero"
+  },
+  {
+      "Nombre": "Diego",
+      "Apellidos": "Rodríguez",
+      "Categoria": "Reponedor"
+  },
+  {
+      "Nombre": "Elena",
+      "Apellidos": "Díaz",
+      "Categoria": "Empleado"
+  },
+  {
+      "Nombre": "Pablo",
+      "Apellidos": "Sánchez",
+      "Categoria": "Encargado"
+  },
+  {
+      "Nombre": "Carmen",
+      "Apellidos": "López",
+      "Categoria": "Cajero"
+  },
+  {
+      "Nombre": "Manuel",
+      "Apellidos": "Gómez",
+      "Categoria": "Reponedor"
+  },
+  {
+      "Nombre": "Ana",
+      "Apellidos": "Martínez",
+      "Categoria": "Empleado"
+  },
+  {
+      "Nombre": "Luis",
+      "Apellidos": "Fernández",
+      "Categoria": "Encargado"
+  },
+  {
+      "Nombre": "María",
+      "Apellidos": "Ruiz",
+      "Categoria": "Cajero"
+  },
+  {
+      "Nombre": "Juan",
+      "Apellidos": "García",
+      "Categoria": "Reponedor"
+  },
+  {
+      "Nombre": "Sofía",
+      "Apellidos": "González",
+      "Categoria": "Empleado"
+  }
+]

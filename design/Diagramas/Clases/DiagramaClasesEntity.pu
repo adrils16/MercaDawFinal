@@ -1,0 +1,137 @@
+@startuml Entity
+set namespaceSeparator none
+allow_mixing
+
+package es.tiernoparla.daw.mercadaw.model.entity {
+
+    package interfaces {
+
+        interface Imprimible {
+            +imprimir() : String
+        }
+
+        interface Gestionable
+
+    }
+
+    package producto {
+        class ProductoFactory {
+            +crear(tipo : CategoriaProducto): Producto
+        }
+
+        class Caracteristica {
+            + RECARGO_MAX : double = 0.15 {static}
+            + RECARGO_MED : double = 0.1 {static}
+            + RECARGO_MIN : double = 0.05 {static}
+            + RECARGO_ELEM : double = 0.1 {static}
+            -altura: double
+            -anchura: double
+            -peso: double
+            -numElementos: int
+
+            +calcularTipoRecargoPeso(): double
+            +calcularValorRecargoPeso(double precioVenta): double
+            +calcularTipoRecargoDimension(double dimension): double
+            +calcularValorRecargoDimension(double dimension, double precioVenta): double
+            +calcularRecargoNumElementos(): double
+            +calcularRecargoTotal(double precioVenta): double
+            +visualizarRecargos(double precioVenta): String
+        }
+
+        abstract Producto {
+            #nombre: String
+            #marca: String
+            #precio: double
+            #caracteristca: Caracteristica
+            #descripcion: String
+            #valorIVA: double
+            #categoria: String
+
+            +calcularPrecioVenta(): double
+            +calcularPrecioTotal(): double
+            +calcularPrecioEnDolares(): double
+            +calcularValorIVA(): double
+            +visualizarPrecioTotal(): String
+            +imprimirEtiqueta(): String
+
+        }
+
+        Producto ..|> Imprimible
+
+        Caracteristica "1" --*  "1" Producto
+
+        class Alimentacion {
+
+        }
+
+        class Drogueria {
+
+        }
+
+        class Cosmetica {
+
+        }
+
+        Producto <|-- Alimentacion
+        Producto <|-- Drogueria
+        Producto <|-- Cosmetica
+    }
+
+    package persona {
+
+        abstract Persona {
+            #nombre: String
+            #apellidos: String
+        }
+
+        package empleado {
+
+            class EmpleadoFactory {
+                +crear(tipo: CategoriaEmpleado): Empleado
+            }
+
+            class Empleado {
+
+                #id: int
+                #categoria: String
+                #sueldo: int
+
+            }
+
+            Empleado ..|> Imprimible
+
+            class Reponedor {
+                
+            }
+
+            class Cajero {
+                
+            }
+
+            class Encargado {
+                
+            }
+
+        }
+
+        class Cliente {
+            -codPostal: int
+            -email: String
+        }
+
+        Empleado <|-- Reponedor
+        Empleado <|-- Cajero
+        Empleado <|-- Encargado
+
+        Persona <|-- Empleado
+        Persona <|-- Cliente
+    }
+
+}
+Sede o-- Empleado
+Sede o-- Producto
+
+Gestionable <|.. Producto
+Gestionable <|.. Empleado
+
+@enduml

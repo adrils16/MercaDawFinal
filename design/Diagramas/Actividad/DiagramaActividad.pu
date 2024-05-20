@@ -1,0 +1,141 @@
+@startuml Dar de Alta
+|#LightGreen|DataBase|
+|#SkyBlue|Aplicación|
+start
+:Solicita los datos;
+|#AntiqueWhite|Usuario|
+:Introduce los datos;
+|Aplicación|
+:Procesa y envía los datos;
+|DataBase|
+:Guarda los datos;
+stop
+@enduml
+
+@startuml Visualizar Producto
+|#LightGreen|DataBase|
+|#SkyBlue|Aplicación|
+start
+:Solicita el producto;
+|#AntiqueWhite|Usuario|
+:Introduce el producto;
+|Aplicación|
+:Pide los datos a la base de datos;
+|DataBase|
+:Envía los datos;
+|Aplicación|
+:Muestra los datos;
+stop
+@enduml
+
+@startuml Visualizar Empleados
+|#LightGreen|DataBase|
+|#SkyBlue|Aplicación|
+start
+:Pide los empleados;
+|DataBase|
+:Envía los datos;
+|Aplicación|
+:Muestra los datos;
+stop
+@enduml
+
+@startuml Alta de Compra
+|#LightGreen|DataBase|
+|#SkyBlue|Aplicación|
+start
+:Solicita los datos de la compra;
+|#AntiqueWhite|Usuario|
+:Introduce los datos;
+|Aplicación|
+:Envía los datos;
+|DataBase|
+:Actualiza el stock;
+:Guarda los datos de la compra; 
+stop
+@enduml
+
+@startuml Listar Compras por CP
+|#LightGreen|DataBase|
+|#SkyBlue|Aplicación|
+start
+:Pide las compras ordenadas por CP;
+|DataBase|
+:Envía los datos;
+|Aplicación|
+:Muestra los datos;
+stop
+@enduml
+
+@startuml Listar Stock
+|#LightGreen|DataBase|
+|#SkyBlue|Aplicación|
+start
+:Pide los productos junto con el numero de stock;
+|DataBase|
+:Envía los datos;
+|Aplicación|
+:Muestra los datos;
+stop
+@enduml
+
+@startuml Obtener Precio de Venta
+|#LightGreen|DataBase|
+|#SkyBlue|Aplicación|
+start
+:Solicita el producto;
+|#AntiqueWhite|Usuario|
+:Introduce el producto;
+|Aplicación|
+:Pide los datos a la base de datos;
+|DataBase|
+:Envía los datos;
+|Aplicación|
+:Calcula y muestra el precio de venta;
+stop
+@enduml
+
+@startuml Imprimir Etiqueta Producto
+|#LightGreen|DataBase|
+|#SkyBlue|Aplicación|
+start
+:Solicita el producto;
+|#AntiqueWhite|Usuario|
+:Introduce el producto;
+|Aplicación|
+:Pide los datos a la base de datos;
+|DataBase|
+:Envía los datos;
+|Aplicación|
+:Imprime la etiqueta;
+stop
+@enduml
+
+@startuml Calcular Nominas Trabajadores
+|#LightGreen|DataBase|
+|#SkyBlue|Aplicación|
+start
+|Aplicación|
+:Pide los datos a la base de datos;
+|DataBase|
+:Envía los datos;
+|Aplicación|
+:Calcula las nóminas;
+:Genera el fichero de nóminas;
+stop
+@enduml
+
+@startuml Exportar Datos
+|#LightGreen|DataBase|
+|#SkyBlue|Aplicación|
+|#AntiqueWhite|Usuario|
+start
+:Selecciona el formato de exportación;
+|Aplicación|
+:Pide los datos a la base de datos;
+|DataBase|
+:Envía los datos;
+|Aplicación|
+:Exporta los datos al formato seleccionado;
+stop
+@enduml

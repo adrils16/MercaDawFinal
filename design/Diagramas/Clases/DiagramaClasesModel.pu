@@ -1,0 +1,108 @@
+@startuml Diagrama clases Model
+' left to right direction
+set namespaceSeparator none
+allow_mixing
+
+package es.tiernoparla.daw.mercadaw.model {
+
+    package enumeracion{
+
+        enum CategoriaProducto {
+            ALIMENTACION
+            DROGUERIA
+            COSMETICA
+        }
+
+        enum CategoriaEmpleado {
+            EMPLEADO
+            REPONEDOR
+            CAJERO
+            ENCARGADO
+        }
+
+        enum TipoIVA {
+            GENERAL
+            REDUCIDO
+            SUPERREDUCIDO
+        }
+    }
+
+    interface MercaDaw {
+        +darAlta(producto: Producto): int
+        +darAlta(empleado: Empleado): int
+        +visualizar(producto: Producto): void
+        +visualizar(Empleado[] empleados): void
+        +obtenerPrecioVenta(producto: Producto): String
+        +imprimirEtiqueta(producto: Producto): String
+        +calcularNominas(Empleado[] empleados): double
+    }
+
+    class Sede {
+
+    }
+
+    package entity {
+        component Producto <<Java>>
+        component Empleado <<Java>>
+
+    }
+
+    Sede o-- Producto
+    Sede o-- Empleado
+
+    MercaDaw <|.. Sede
+
+    package dao {
+        interface MercaDawDAO {
+            +crearTablaProductos(): void
+            +crearTablaEmpleados(): void
+            +crearTablaCompras(): void
+            +insertar(producto: Producto): int
+            +insertar(List<Producto> productos): int
+            +actualizar(producto: Producto): int
+            +borrar(producto: Producto): int
+            +insertar(empleado: Empleado): int
+            +insertar(Empleado[] empleados): int
+            +actualizar(empleado: Empleado): int
+            +borrar(empleado: Empleado): int
+        }
+
+        abstract class MercaDawDAOImp {
+            -conexion: Connection
+            '-conectar(): Connection
+        }
+
+        class MercaDawMariaDBDAOImp {
+            
+        }
+        
+
+        class MercaDawMockDAOImp {
+            
+        }
+
+        class MercaDawDAOFactory {
+            +{static}obtenerDAO(tipo: TipoDB): MercaDawDAO
+        }
+
+        enum TipoDB {
+            MOCK
+            MARIADB
+        }
+
+        MercaDawDAO <|.. MercaDawDAOImp
+        MercaDawDAOImp <|-- MercaDawMariaDBDAOImp
+        MercaDawDAOImp <|-- MercaDawMockDAOImp
+
+    }
+}
+
+component MariaDB <<Database>>
+component org.mariadb.jdbc <<JDBC Driver>>
+
+MercaDawMariaDBDAOImp ..> MariaDB
+MercaDawMariaDBDAOImp ..> org.mariadb.jdbc
+
+Sede ..> MercaDawDAO
+
+@enduml

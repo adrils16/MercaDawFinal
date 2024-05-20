@@ -1,0 +1,63 @@
+#titulo {
+    -fx-font-family: "Hervetica";
+    -fx-font-style: italic;
+    -fx-font-size: 16px;
+    -fx-text-fill: white;
+}
+
+#container {
+    -fx-background-color: #f6f6f6;
+}
+
+.button {
+    -fx-background-color: #14e7c9;
+    -fx-border-color: #FFFFFF;
+    -fx-border-width: 2;
+    -fx-text-fill: black;
+    -fx-font-family: "Arial";
+    -fx-font-style: bold;
+    -fx-font-size: 12px;
+    -fx-background-radius: 10 10 10 10;
+    -fx-border-radius: 10 10 10 10;
+}
+
+
+.label {
+    -fx-font-family: "Hervetica";
+    -fx-text-fill: black;
+    -fx-font-size: 12px;
+}
+
+.button:hover {
+    -fx-background-color: #26d2d5;
+    -fx-font-size: 14px;
+}
+
+.button:pressed {
+    -fx-background-color: white;
+    -fx-text-fill: #000000;
+    -fx-font-weight: bold;
+}
+
+#btnModo{
+    -fx-background-color: #0dec76;
+    -fx-border-color: #FFFFFF;
+    -fx-border-width: 2;
+    -fx-text-fill: black;
+    -fx-font-family: "Times New Roman";
+    -fx-font-style: italic;
+    -fx-font-size: 12px;
+    -fx-background-radius: 10 10 10 10;
+    -fx-border-radius: 10 10 10 10;
+}
+
+#btnModo:pressed {
+    -fx-background-color: white;
+    -fx-text-fill: #000000;
+    -fx-font-weight: bold;
+}
+
+/*#btnModo:hover {
+    -fx-background-color: #26d2d5;
+    -fx-font-size: 14px;
+}*/
