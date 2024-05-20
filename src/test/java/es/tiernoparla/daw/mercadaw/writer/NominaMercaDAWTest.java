@@ -35,7 +35,7 @@ public class NominaMercaDAWTest {
     }
 
     @Test
-    void exportarPDFText() throws IOException{
+    void exportarPDFText() throws IOException, InterruptedException{
         PDFUtil.exportarNominaPDF();
     }
 

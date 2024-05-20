@@ -66,12 +66,11 @@ public class GestionEmpleadosViewController extends ViewController{
     @FXML
     void calcularNominas(MouseEvent event) throws SQLException, IOException {
         final String MSG_NOMINAS = "Las nominas se han creado correctamente en un ficero Markdown.";
-
-        List<String> nominas = controller.calcularNominas();
-        for (String nomina : nominas) {
+        
+            String nomina = controller.calcularNominas();
             controller.imprimirNomina(nomina); // Almacenar en el fichero Markdown
             controller.exportarNominaPDF();
-        }
+        
 
         mostrarAviso(MSG_NOMINAS, AlertType.INFORMATION);
 

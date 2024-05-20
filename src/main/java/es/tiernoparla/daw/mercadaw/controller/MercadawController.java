@@ -3,7 +3,6 @@ package es.tiernoparla.daw.mercadaw.controller;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import es.tiernoparla.daw.mercadaw.App;
@@ -25,6 +24,8 @@ import es.tiernoparla.daw.mercadaw.utils.export.enums.Tabla;
 import es.tiernoparla.daw.mercadaw.utils.reader.Lector;
 import es.tiernoparla.daw.mercadaw.utils.reader.LectorFactory;
 import es.tiernoparla.daw.mercadaw.utils.reader.enumeracion.TipoLector;
+import es.tiernoparla.daw.mercadaw.utils.writer.CosteLaboralMercaDAW;
+import es.tiernoparla.daw.mercadaw.utils.writer.FiniquitoMercaDAW;
 import es.tiernoparla.daw.mercadaw.utils.writer.MarkdownUtil;
 import es.tiernoparla.daw.mercadaw.utils.writer.NominaMercaDAW;
 import es.tiernoparla.daw.mercadaw.utils.writer.PDFUtil;
@@ -332,17 +333,22 @@ public class MercadawController extends Application{
      * @return Una lista de String con las nominas de los empleados.
      * @throws SQLException
      */
-    public List<String> calcularNominas() throws SQLException {
+    public String calcularNominas() throws SQLException {
         List<Empleado> empleados = listarEmpleados();
         NominaMercaDAW nomina = new NominaMercaDAW();
-        List<String> nominas = new ArrayList<>();
+        FiniquitoMercaDAW finiquitio = new FiniquitoMercaDAW();
+        CosteLaboralMercaDAW costes = new CosteLaboralMercaDAW();
+        String contenidoNomina = "";
 
         for (Empleado empleado : empleados) {
-            String contenidoNomina = nomina.calcularImportes(empleado);
-            nominas.add(contenidoNomina);
+            String nominaEmpleado = nomina.calcularImportes(empleado);
+            String finiquito = finiquitio.calcularIndemnizacion(empleado);
+            String costesEmp = costes.calcularImportes(empleado);
+
+            contenidoNomina += nominaEmpleado + finiquito + costesEmp;;
         }
 
-        return nominas;
+        return contenidoNomina;
     }
 
 }

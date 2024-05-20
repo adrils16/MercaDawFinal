@@ -107,7 +107,7 @@ public class DarAltaProductoViewController extends ViewController {
     @FXML
     void darAltaProducto(MouseEvent event) {
 
-        final String MSG_ERROR = "Error al dar de alta el producto";
+        final String MSG_ERROR = "Categoría no válida o campos incorrectos";
         final String MSG_EXITO = "Producto dado de alta correctamente";
         final String MSG_ERROR_CAMPOS = "Rellene todos los campos, por favor";
 

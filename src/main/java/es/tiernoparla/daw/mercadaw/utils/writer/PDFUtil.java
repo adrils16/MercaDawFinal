@@ -26,15 +26,10 @@ public class PDFUtil {
             while ((line = reader.readLine()) != null) {
                 output.append(line + "\n");
             }
-            int exitVal = process.waitFor();
-            if (exitVal == 0) {
-                System.exit(0);
-            } else {
-                System.exit(1);
-            }
+            process.waitFor();
+
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
-            System.exit(34);
         }
     }
 
@@ -47,7 +42,7 @@ public class PDFUtil {
         //! Comando para exportar a PDF desde un script de bash
         final String [] COMANDO = {"./scriptCostes.sh"};
 
-        try {
+
             Process process = Runtime.getRuntime().exec(COMANDO);
             StringBuilder output = new StringBuilder();
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
@@ -55,17 +50,7 @@ public class PDFUtil {
             while ((line = reader.readLine()) != null) {
                 output.append(line + "\n");
             }
-            int exitVal = process.waitFor();
-            if (exitVal == 0) {
-                System.exit(0);
-            } else {
-                System.exit(1);
-            }
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-            System.exit(34);
         }
-    }
 
     /**
      * Este metodo exporta el finiquito a PDF a traves de un comando de docker que llama a un sistema con pandoc, es necesario tener el otro fichero creado previmente para que funcione.
@@ -86,9 +71,7 @@ public class PDFUtil {
             }
             int exitVal = process.waitFor();
             if (exitVal == 0) {
-                System.exit(0);
             } else {
-                System.exit(1);
             }
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
@@ -105,23 +88,15 @@ public class PDFUtil {
             //! Comando para exportar a PDF desde un script de bash
             final String [] COMANDO = {"./scriptEtiqueta.sh"};
     
-            try {
-                Process process = Runtime.getRuntime().exec(COMANDO);
-                StringBuilder output = new StringBuilder();
-                BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    output.append(line + "\n");
-                }
-                int exitVal = process.waitFor();
-                if (exitVal == 0) {
-                    System.exit(0);
-                } else {
-                    System.exit(1);
-                }
-            } catch (IOException | InterruptedException e) {
-                e.printStackTrace();
-                System.exit(34);
+            
+            Process process = Runtime.getRuntime().exec(COMANDO);
+            StringBuilder output = new StringBuilder();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                output.append(line + "\n");
             }
+                //int exitVal = process.waitFor();
+             
     }
 }
