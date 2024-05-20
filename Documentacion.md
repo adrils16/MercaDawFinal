@@ -33,79 +33,79 @@
 
 ### **CASOS DE USO GENERAL**
 
-![alt text](Img/CasosDeUsoGeneral.png)
+![alt text](images/CasosDeUsoGeneral.png)
 
 ### **CASO DE USO PRODUCTO**
 
-![alt text](Img/CasosDeUsoProducto.png)
+![alt text](images/CasosDeUsoProducto.png)
 
 ### **CASO DE USO EMPLEADO**
 
-![alt text](Img/CasosDeUsoEmpleado.png)
+![alt text](images/CasosDeUsoEmpleado.png)
 
 ### **CASO DE USO COMPRA**
 
-![alt text](Img/CasosDeUsoCompra.png)
+![alt text](images/CasosDeUsoCompra.png)
 
 ## **2.2 DIAGRAMAS DE ACTIVIDAD**
 
 ### **Dar de Alta**
 
-![alt text](Img/DarDeAlta.png)
+![alt text](images/DarDeAlta.png)
 
 ### **Visualizar Producto**
 
-![alt text](Img/VisualizarProductos.png)
+![alt text](images/VisualizarProductos.png)
 
 ### **Visualizar Empleados**
 
-![alt text](Img/VisualizarEmpleados.png)
+![alt text](images/VisualizarEmpleados.png)
 
 ### **Alta de Compra**
 
-![alt text](Img/AltaCompra.png)
+![alt text](images/AltaCompra.png)
 
 ### **Listar Compras por Código Postal**
 
-![alt text](Img/ListarComprasCP.png)
+![alt text](images/ListarComprasCP.png)
 
 ### **Listar Stock**
 
-![alt text](Img/ListarStock.png)
+![alt text](images/ListarStock.png)
 
 ### **Obtener Precio de Venta**
 
-![alt text](Img/ObtenerPrecioVenta.png)
+![alt text](images/ObtenerPrecioVenta.png)
 
 ### **Imprimir Etiqueta del Producto**
 
-![alt text](Img/ImprimirEtiquetaProducto.png)
+![alt text](images/ImprimirEtiquetaProducto.png)
 
 ### **Calcular las Nóminas de los Trabajadores**
 
-![alt text](Img/CalcularNominas.png)
+![alt text](images/CalcularNominas.png)
 
 ### **Exportar Datos**
 
-![alt text](Img/ExportarDatos.png)
+![alt text](images/ExportarDatos.png)
 
 ## **2.3 DIAGRAMAS DE CLASES**
 
 ### ENTITY
 
-![alt text](Img/Entity.png)
+![alt text](images/Entity.png)
 
 ### MODEL
 
-![alt text](Img/DiagramaClasesModel.png)
+![alt text](images/DiagramaClasesModel.png)
 
 ### UTIL
 
-![alt text](Img/DiagramaClases.png)
+![alt text](images/DiagramaClases.png)
 
 ## **2.4 DIAGRAMA DE COMPONENTES**
 
-![alt text](Img/DiagramaDeComponentes.png)
+![alt text](images/DiagramaDeComponentes.png)
 
 ## **3. OBSERVACIONES DEL PROYECTO**
 
@@ -168,25 +168,25 @@ En esta ocasión usaremos el método de **caja negra** ya que vamos a hacerlas a
 
 1. Peso
 
-    ![alt text](Img/image.png)
+    ![alt text](images/image.png)
 
 2. Altura y anchura
 
-    ![alt text](Img/image-1.png)
+    ![alt text](images/image-1.png)
 
 3. Numero de elementos
 
-    ![alt text](Img/image-2.png)
+    ![alt text](images/image-2.png)
 
 ### **Tabla de apoyo para los casos de prueba**
 
 - Al tener tantos valores he hecho una tabla de apoyo en la que me fijaré para hacer los casos de prueba
 
-    ![alt text](Img/image-3.png)
+    ![alt text](images/image-3.png)
 
 ### **Casos de prueba basados en los valores que teníamos antes**
 
-![alt text](Img/Excel.png)
+![alt text](images/Excel.png)
 
 ### **Nomenclatura de pruebas en JUnit 5**
 
@@ -212,16 +212,16 @@ Abrimos terminal y creamos una carpeta donde se vayan a depositar los backup de 
 Creamos otra carpeta donde vamos a tener nuestro script que generara copias de seguridad y las exportara en formato zip con el nombre de bacap y la fecha del mismo
 
 
-![alt text](Img/scriptcopia.png)
+![alt text](images/scriptcopia.png)
 
 
 Damos permoso de ejecución con el comando chmod +x
 
 
-![alt text](Img/permisos.png)
+![alt text](images/permisos.png)
 
 
 Por ultimo ejecutamos el comando crontab -e y ponemos cada cuanto tiempo(minutos,hora,dia,mes y dia de la semana) queremos que se ejecute nuestro script
 
 
-![alt text](Img/crontab.png)
+![alt text](images/crontab.png)
