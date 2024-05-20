@@ -20,7 +20,7 @@ Si no se cargan los datos al iniciar el contenedor, hay que abrir la extension e
 
 #### Dar de alta Empleados y Productos desde ficheros.
 
-Los ficheros .csv y .json (tanto de productos Productos como de Empleados)  se encuentran en la carpeta **/ficherosDarAlta** ubicada en la raíz del proyecto.
+Los ficheros .csv y .json (tanto de Productos como de Empleados)  se encuentran en la carpeta **/ficherosDarAlta** ubicada en la raíz del proyecto.
 
 ---
 
