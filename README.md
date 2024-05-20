@@ -2,12 +2,28 @@
 
 ---
 
-## Observaciones del proyecto
+## Instrucciones para el correcto funcionamiento de la aplicación.
 
-### Clase FileChooser
+### **Scripts**
 
-He utilizado la clase FileChooser para que salga el selector de archivos para elegir un fichero en la importacion de productos y empleados.
+Para que los scripts funcionen correctamente hay que darle permisos de ejecución, si no, estos no funcionarán y la aplicacion se cerrará al momento de ejecutar la acción que los utilice. Para darles permiso  de ejcucion, ejecutar el siguiente comando en la carpeta raiz del proyecto:
 
-### Libreria Apache Commons
+```bash
+sudo chmod +x *.sh
+```
 
-He utilizado la libreria Apache Commons para exportar la base de datos a ficheros CSV.
+> Los script están codificados para la shell zsh, si se tiene una shell bash, fish o cualquier otra, se debe modifcar el script para su correspondiente shell.
+
+### **Carga de datos**
+
+En la carpeta sql del proyecto encontrarás un archivo .sql donde están las creaciones de las tablas y las vistas (SCRIPT_BASE_DE_DATOS), junto a todos los inserts.
+
+Si no se cargan los datos al iniciar el contenedor, hay que abrir la extension en VSCode de MariaDB y conectarse a la base de datos con el usuario root, después de haber hecho `docker compose up`. Abrir una nueva **Query**, pegar el .sql y ejecutarlo.
+
+---
+
+# Documentación
+
+* [Documentación del proyecto](documentation/doc/Documentacion.html)
+
+* [Documentación en javadocs](documentation/javadocs/site/apidocs/index.html)

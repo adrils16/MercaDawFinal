@@ -11,6 +11,8 @@ services:
       - '3306'
     env_file:
       - ".env"
+    volumes:
+      - ./sql:/SCRIPT_BASE_DE_DATOS.sql
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
       - MARIADB_USER=${MARIADB_USER}

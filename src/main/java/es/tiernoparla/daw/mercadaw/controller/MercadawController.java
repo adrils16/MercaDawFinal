@@ -108,7 +108,6 @@ public class MercadawController extends Application{
 
     }
 
-    // PRODUCTOS
     /**
      * Da de alta un producto en la base de datos y en la sede
      * @param categoria Categoria del producto
@@ -176,7 +175,6 @@ public class MercadawController extends Application{
 
     }
 
-    // EMPLEADOS
     /**
      * Da de alta un empleado en la base de datos y en la sede
      * @param categoria Categoria del empleado
@@ -254,12 +252,24 @@ public class MercadawController extends Application{
         ex.exportarCSV(Tabla.COMPRA_PRODUCTOS.getQuery(), Ruta.COMPRA_PRODUCTOS.getRuta());
     }
 
+    /**
+     * Llama al método visualizarListaEmpleados() de la clase MercaDawDAO, del
+     * cual optiene una lista de Empleados.
+     * @return Lista de Empleados.
+     * @throws SQLException
+     */
     public List<Empleado> listarEmpleados() throws SQLException {
 
         return dao.visualizarListaEmpleados();
 
     }
 
+    /**
+     * Llama al método visualizarListaProductos() de la clase MercaDawDAO, del
+     * cual optiene una lista de Productos.
+     * @return Lista de Productos.
+     * @throws SQLException
+     */
     public List<Producto> listarProductos() throws SQLException {
 
         return dao.visualizarListaProductos();
@@ -271,7 +281,7 @@ public class MercadawController extends Application{
      * método imprimir()
      * de las clases que hayan implementado la interfaz Imprimible.
      * 
-     * @param i Un objeto de tipo Imprimible.
+     * @param ean Un objeto de tipo Imprimible.
      * @return Un String con información detalla del objeto.
      * @throws SQLException
      */
@@ -283,6 +293,13 @@ public class MercadawController extends Application{
 
     }
 
+    /**
+     * Dado un ean (ID de Producto) obtiene un String con información detallada
+     * del precio de vental total, llamando a la clase MercaDawDao para ello.
+     * @param ean ID del Producto del que se desea conocer su precio de venta total e información relacionada.
+     * @return Un String con información del precio total y los diversos recargos.
+     * @throws SQLException
+     */
     public String visualizarPrecioProducto(int ean) throws SQLException {
 
         Producto p = dao.visualizarListaProductos().get(ean);

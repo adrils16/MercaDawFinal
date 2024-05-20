@@ -1,4 +1,5 @@
 #!/bin/zsh
+#Modificar /zsh por la shell correspondiente
 
 mvn exec:java -Dexec.mainClass="es.tiernoparla.daw.mercadaw.CopiaSeguridad"
 
