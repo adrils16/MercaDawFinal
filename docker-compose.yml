@@ -12,7 +12,7 @@ services:
     env_file:
       - ".env"
     volumes:
-      - ./sql:/SCRIPT_BASE_DE_DATOS.sql
+      - .sql:/docker-entrypoint-initdb.d/sql/SCRIPT_BASE_DE_DATOS.sql
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
       - MARIADB_USER=${MARIADB_USER}

@@ -16,7 +16,9 @@ sudo chmod +x *.sh
 
 En la carpeta sql del proyecto encontrarás un archivo .sql donde están las creaciones de las tablas y las vistas (SCRIPT_BASE_DE_DATOS), junto a todos los inserts.
 
-Si no se cargan los datos al iniciar el contenedor, hay que abrir la extension en VSCode de MariaDB y conectarse a la base de datos con el usuario root, después de haber hecho `docker compose up`. Abrir una nueva **Query**, pegar el .sql y ejecutarlo.
+Si no se cargan los datos al iniciar el contenedor, hay que abrir la extension en VSCode de MariaDB y conectarse a la base de datos con el usuario root, después de haber hecho `docker compose up`. Hacer click en la conexion e importar el fichero llamado **SCRIPT_BASE_DE_DATOS.sql** de la carpeta /sql.
+
+![ImagenImportSQL](/images/imageImportSQL.png)
 
 #### Dar de alta Empleados y Productos desde ficheros.
 
