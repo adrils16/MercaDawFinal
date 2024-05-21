@@ -1,7 +1,0 @@
-@startuml PaletaColores
-'Solo para tomar como referencia, eliminar en la versión final
-colors
-@enduml
-@startuml Temas
-help themes
-@enduml
